@@ -1,0 +1,27 @@
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="password"],
+textarea {
+  padding: 10px 14px;
+  box-shadow: 1px 1px 1px rgba(#000, 0.1) inset;
+  border: 1px solid $probo-pale-darker;
+  color: $probo-gray-medium;
+  background-color: $probo-pale-medium;
+  max-width: 100%;
+  &:active,
+  &:focus {
+    background-color: $probo-pale;
+    outline: 1px solid $probo-purple;
+  }
+}

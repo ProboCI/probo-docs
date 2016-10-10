@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="footer-learn-more">
+    <div class="wrapper">
+      <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+      <div class="right">
+        <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+        <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <div>
+
+    <div class="footer-left">
+      <div class="copyright">&copy; 2016 Probo.CI</div>
+    </div>
+
+
+          <ul class="footer-navigation right">
+            {% for link in site.data.navigation %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+          </ul>
+        </div>
+
+      </footer>
+
+      <div class="overlay"></div>

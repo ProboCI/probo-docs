@@ -1,0 +1,61 @@
+// ui colors
+$probo-blue: #00b7ff;
+$probo-blue-dark: #0055a4;
+$probo-midnight: #2e263b;
+$probo-purple-darkest: #33001d;
+$probo-purple-dark: #440027;
+$probo-purple: #a6548c;
+$probo-pink: lighten(#985483, 5%);
+$probo-gray-dark: #404040;
+$probo-gray-dark-medium: #525252;
+$probo-gray-medium: #7d7d7d;
+$probo-pale: #f7f7f7;
+$probo-pale-medium: #f5f5f5;
+$probo-pale-dark: #ebebeb;
+$probo-pale-darker: #c8c8c8;
+$probo-green: #67c293;
+$probo-green-dark: #5fae85;
+$probo-green-darkest: #4a986e;
+$probo-lime: #b5d556;
+$probo-tapestry: #A5548B;
+
+// alert colors
+$probo-alert-success: $probo-green;
+$probo-alert-warning: #ffb502;
+$probo-alert-error: #cf3e34;
+$probo-alert-info: lighten($probo-blue, 40%);
+
+// typography
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic');
+$body-font-size: 14px;
+$body-line-height: 1.5;
+$base-font-color: $probo-gray-dark;
+$body-text-font-family: 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+$link-color: $probo-blue-dark;
+$link-color-hover: $probo-blue;
+
+// layout
+$probo-sitewidth: 1200px;
+$probo-menu-width: 300px;
+$border-radius: 4px;
+$header-height: 60px;
+$base-margin: 12px;
+$base-spacing: 10px;
+$site-width: 1200px;
+$inner-width: 975px;
+$inner-width-padding: ($site-width - $inner-width) / 2;
+$base-spacing: 10px;
+
+// breakpoints
+$bp-small-landscape: 480px / 16px * 1em;
+$bp-medium-portrait: 768px / 16px * 1em;
+$bp-medium-landscape: 1024px / 16px * 1em;
+$bp-large: 1200px / 16px * 1em;
+$bp-larger: 1500px / 16px * 1em;
+
+// header
+$header-height: 70px;
+$header-line-height: 35px;
+$logo-line-height: 35px;
+
+

@@ -1,0 +1,83 @@
+@function em($pixel) {
+  @return $pixel / 16px * 1em;
+}
+
+// https://gist.github.com/webgefrickel/4530526
+// usage:
+// @include rem(font-size, 16px)
+// @include rem(margin, 0 auto 10px)
+// @include rem(padding, inherit)
+@mixin rem($property, $values) {
+  // Create a couple of empty lists as output buffers.
+  $default-browser-font-size: 10px;
+  $px-values: ();
+  $rem-values: ();
+
+  // Loop through the $values list
+  @each $value in $values {
+    // For each property value, if it's in rem or px, derive both rem and
+    // px values for it and add those to the end of the appropriate buffer.
+    // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 or $value == 0px {
+      // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      // px value given - calculate rem value from base-font-size
+      $new-rem-value: $value / $default-browser-font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else if $value == auto or $value == inherit {
+      // auto or inherit - don't add px or rem
+      $px-values: join($px-values, $value);
+      $rem-values: join($rem-values, $value);
+    } @else {
+      // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $default-browser-font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+  // output the converted rules
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
+}
+
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin white-text {
+  color: $probo-pale-medium;
+  h1, h2, h3, h4, h5 {
+    color: $probo-pale-medium;
+  }
+}
+
+@mixin link-colors($color, $hover: $color, $active: $color, $focus: $color) {
+  color: $color;
+  &:hover {
+    color: $hover;
+  }
+  &:active {
+    color: $active;
+  }
+  &:focus {
+    color: $focus;
+  }
+}
+
+@mixin inline-block {
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  display: inline-block;
+  vertical-align: middle;
+}

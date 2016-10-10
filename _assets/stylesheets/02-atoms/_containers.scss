@@ -1,0 +1,13 @@
+.video-container {
+  margin: 10px 0 30px 0;
+}
+
+.explainer a img {
+	margin: 0 auto;
+}
+
+.site-content {
+	@include breakpoint($bp-medium-portrait) {
+		min-height: 90vh;
+	}
+}

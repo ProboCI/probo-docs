@@ -24,21 +24,36 @@ github_username:  proboci
 # Build settings
 highlighter: pygments
 markdown: kramdown
+kramdown:
   input: GFM
-theme: minima
-gems:
-  - jekyll-feed
-  - jekyll-assets
 exclude:
-  - Gemfile
-  - Gemfile.lock
+  - 'config.ru'
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'vendor'
+  - 'package.json'
+  - 'node_modules'
+  - 'autoprefixer.yml'
+  - 'Gruntfile.js'
+
+# Assets pipeline settings
 assets:
   sources:
     - _assets/images
     - _assets/javascripts
     - _assets/stylesheets
-    - _assets/docs
   css_compressor: sass
   js_compressor: uglifier
   cache: true
   cachebust: hard
+
+gems:
+- compass
+- respond-to
+- sass
+- uglifier
+- font-awesome-sass
+- compass-normalize
+- jekyll-assets
+- jekyll-assets/compass
+- jekyll-sitemap
