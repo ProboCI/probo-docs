@@ -2,7 +2,7 @@
 layout: "docs"
 title: The Reaper
 class: documentation
-permalink: /docs/reaper/
+permalink: /reaper/
 published: true
 ---
 

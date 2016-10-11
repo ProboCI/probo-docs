@@ -2,7 +2,7 @@
 layout: "docs"
 title: Build Steps
 class: documentation
-permalink: /docs/build-steps/
+permalink: /build-steps/
 published: true
 ---
 Steps are the commands to run for the build. These are typically steps for setting up a site and running tests and will get their own status updates.

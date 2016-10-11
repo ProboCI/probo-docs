@@ -2,7 +2,7 @@
 layout: "docs"
 title: Stage File Proxy
 class: documentation
-permalink: /docs/drupal/stage-file-proxy/
+permalink: /drupal/stage-file-proxy/
 published: true
 ---
 [Stage File Proxy](https://www.drupal.org/project/stage_file_proxy){:target="_blank"} is a Drupal module that sends requests to your development environment's files directory to the production environment and making a copy of the production file in your development site. This module saves time and most importantly - disk space. This module should be used for development environments only.

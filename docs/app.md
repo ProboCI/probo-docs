@@ -2,7 +2,7 @@
 layout: "docs"
 title: Using the Probo App
 class: documentation
-permalink: /docs/app/
+permalink: /app/
 published: true
 ---
 ## Using the Probo App

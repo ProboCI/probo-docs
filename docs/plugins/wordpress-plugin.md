@@ -2,7 +2,7 @@
 layout: "docs"
 title: WordPress Plugin
 class: documentation
-permalink: /docs/plugins/wordpress-plugin/
+permalink: /plugins/wordpress-plugin/
 published: true
 ---
 The WordPress plugin provides some handy options to make setting up a `.probo.yaml` file for your WordPress site easier. To use this plugin you must declare `plugin: WordPressApp` in your `.probo.yaml` file.

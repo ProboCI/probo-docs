@@ -2,7 +2,7 @@
 layout: "docs"
 title: Feature Branch Workflow Process
 class: documentation
-permalink: /docs/tutorials/workflow/
+permalink: /tutorials/workflow/
 ---
 Probo.CI leverages pull requests to instigate the creation of sandbox sites. Pull requests are not dependent on one particular workflow, but consider adopting a **Feature Branch Workflow** to get the most out of this tool. In this workflow features are developed in small iterative chunks in individual branches and are merged frequently, engaging in continuous integration.
 

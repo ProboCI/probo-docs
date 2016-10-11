@@ -3,7 +3,7 @@ layout: "docs"
 title: Drupal Github QuickStart
 class: documentation
 permalink: /docs/tutorials/drupal-github-quickstart/
-redirect_from: /docs/drupal-quickstart/
+redirect_from: /drupal-quickstart/
 published: true
 ---
 

@@ -2,7 +2,7 @@
 layout: "docs"
 title:  Drupal Install Profile QuickStart
 class: documentation
-permalink: /docs/tutorials/drupal-install-profile-quickstart/
+permalink: /tutorials/drupal-install-profile-quickstart/
 published: true
 ---
 

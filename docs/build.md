@@ -2,7 +2,7 @@
 layout: "docs"
 title: Build Configuration
 class: documentation
-permalink: /docs/build/
+permalink: /build/
 published: true
 ---
 After you have synced your repos to Probo, you need to create a configuration file for each repository which will tell Probo how to configure your test environments.

@@ -2,7 +2,7 @@
 layout: "docs"
 title: Drupal Documentation Overview
 class: documentation
-permalink: /docs/drupal/drupal-overview/
+permalink: /drupal/drupal-overview/
 published: true
 ---
 

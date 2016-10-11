@@ -2,7 +2,7 @@
 layout: "docs"
 title: Install Profiles
 class: documentation
-permalink: /docs/drupal/install-profile/
+permalink: /drupal/install-profile/
 published: true
 ---
 

@@ -2,7 +2,7 @@
 layout: "docs"
 title: Getting Started
 class: documentation
-permalink: /docs/getting-started/
+permalink: /getting-started/
 published: true
 ---
 ## Log In to the Probo App

@@ -2,7 +2,7 @@
 layout: "docs"
 title: LAMP Plugin
 class: documentation
-permalink: /docs/plugins/lamp-plugin/
+permalink: /plugins/lamp-plugin/
 published: true
 ---
 Probo provides LAMP (Linux, Apache, MySQL, and PHP) stack configuration options to make it easier to set up your `.probo.yaml` file to mimic your production environment. To use the LAMP plugin you must declare `plugin: LAMPApp` in your `.probo.yaml` file, or add these options to one of the other available LAMP based Probo plugins.

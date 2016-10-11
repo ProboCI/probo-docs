@@ -2,7 +2,7 @@
 layout: "docs"
 title: Uploading Build Assets to Probo
 class: documentation
-permalink: /docs/uploader/
+permalink: /uploader/
 published: false
 ---
 You may need to upload assets to Probo for use in your builds. Build Assets are any files you need other than what is within your git repository. For example, you may need to upload a database for your project.
@@ -13,8 +13,8 @@ When you view your project in the Probo app, you will see above your builds an U
 - Install the [Probo Uploader](https://github.com/ProboCI/probo-uploader) on your machine with `npm`.
 ```
 sudo npm install -g probo-uploader
-``` 
-- Run the command as shown on your project page. For example, 
+```
+- Run the command as shown on your project page. For example,
 ```
 probo-uploader --token=[your token] some-file.txt
 ```

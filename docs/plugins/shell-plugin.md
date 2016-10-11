@@ -2,7 +2,7 @@
 layout: "docs"
 title: Shell Plugin
 class: documentation
-permalink: /docs/plugins/shell-plugin/
+permalink: /plugins/shell-plugin/
 published: true
 ---
 The Shell plugin requires a parameter for `command`. This allows you to define Shell commands to run during the site build. You can list as many commands as you like within the steps in your `.probo.yaml` file. Remember to include a `name` for each `command`. You must also declare `plugin: Shell` in your `.probo.yaml` file.

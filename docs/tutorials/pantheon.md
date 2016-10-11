@@ -2,10 +2,10 @@
 layout: "docs"
 title: Using Probo on Your Pantheon Site
 class: documentation
-permalink: /docs/tutorials/pantheon/
+permalink: /tutorials/pantheon/
 published: true
 ---
-Probo can also make your life easier if you're developing your site on Pantheon, but there are two steps follow to configure your Probo build properlly. 
+Probo can also make your life easier if you're developing your site on Pantheon, but there are two steps follow to configure your Probo build properly.
 
 **Note: Your must still have a repo of your code on either Github or Stash. Probo will not download the code directly from Pantheon**
 

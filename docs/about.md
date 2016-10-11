@@ -2,7 +2,7 @@
 layout: "docs"
 title: About Probo.CI
 class: documentation
-permalink: /docs/about/
+permalink: /about/
 published: true
 ---
 

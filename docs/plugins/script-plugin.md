@@ -2,7 +2,7 @@
 layout: "docs"
 title: Script Plugin
 class: documentation
-permalink: /docs/plugins/script-plugin/
+permalink: /plugins/script-plugin/
 published: true
 ---
 The Probo.CI Script plugin is very similar to the [Shell plugin](/docs/plugins/shell-plugin/) but is designed to run multiple lines of commands.

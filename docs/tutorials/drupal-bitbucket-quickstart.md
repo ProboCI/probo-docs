@@ -2,7 +2,7 @@
 layout: "docs"
 title: Drupal Bitbucket QuickStart
 class: documentation
-permalink: /docs/tutorials/drupal-bitbucket-quickstart/
+permalink: /tutorials/drupal-bitbucket-quickstart/
 published: true
 ---
 

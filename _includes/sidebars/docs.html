@@ -1,41 +1,45 @@
 <ul class="sidebar-nav">
-    <li>{% link /docs/getting-started/ Getting Started %}</li>
-    <li>{% link /docs/build/ Build Configuration %}</li>
-    <li>{% link /docs/assets/ Assets %}</li>
-    <li>{% link /docs/app/ Using the Probo App %}</li>
-    <li>{% link /docs/build-steps/ Build Steps %}</li>
-    <li>{% link /docs/reaper/ Reaper %}</li>
+    <li>{% link /getting-started/ Getting Started %}</li>
+    <li><a href="/build/" class=drop-top> Build Configuration</a>
+      <ul class="drop">
+        <li>{% link /build/recipes Recipes %}</li>
+      </ul>
+    </li>
+    <li>{% link /assets/ Assets %}</li>
+    <li>{% link /app/ Using the Probo App %}</li>
+    <li>{% link /build-steps/ Build Steps %}</li>
+    <li>{% link /reaper/ Reaper %}</li>
     <li><a href="#" class=drop-top>Plugins</a>
         <ul class="drop">
-            <li>{% link /docs/plugins/shell-plugin/ Shell Plugin %}</li>
-            <li>{% link /docs/plugins/script-plugin/ Script Plugin %}</li>
-            <li>{% link /docs/plugins/drupal-plugin/ Drupal Plugin %}</li>
-            <li>{% link /docs/plugins/lamp-plugin/ LAMP Plugin %}</li>
-            <li>{% link /docs/plugins/wordpress-plugin/ WordPress Plugin %}</li>
+            <li>{% link /plugins/shell-plugin/ Shell Plugin %}</li>
+            <li>{% link /plugins/script-plugin/ Script Plugin %}</li>
+            <li>{% link /plugins/drupal-plugin/ Drupal Plugin %}</li>
+            <li>{% link /plugins/lamp-plugin/ LAMP Plugin %}</li>
+            <li>{% link /plugins/wordpress-plugin/ WordPress Plugin %}</li>
         </ul>
     </li>
     <li><a href="#" class=drop-top>Git Repository Integrations</a>
         <ul class="drop">
-            <li>{% link /docs/git/git-integrations-overview Git Integrations Overview %}</li>
-            <li>{% link /docs/git/github/ GitHub Integration %}</li>
-            <li>{% link /docs/git/bitbucket/ Bitbucket Integration %}</li>
+            <li>{% link /git/git-integrations-overview Git Integrations Overview %}</li>
+            <li>{% link /git/github/ GitHub Integration %}</li>
+            <li>{% link /git/bitbucket/ Bitbucket Integration %}</li>
         </ul>
     </li>
     <li><a href="#" class=drop-top>Drupal</a>
         <ul class="drop">
-            <li>{% link /docs/drupal/drupal-overview Drupal Overview %}</li>
-            <li>{% link /docs/drupal/stage-file-proxy/ Stage File Proxy %}</li>
-            <li>{% link /docs/drupal/solr/ Apache Solr %}</li>
-            <li>{% link /docs/drupal/install-profile/ Install Profile %}</li>
+            <li>{% link /drupal/drupal-overview Drupal Overview %}</li>
+            <li>{% link /drupal/stage-file-proxy/ Stage File Proxy %}</li>
+            <li>{% link /drupal/solr/ Apache Solr %}</li>
+            <li>{% link /drupal/install-profile/ Install Profile %}</li>
         </ul>
     </li>
     <li><a href="#" class=drop-top>Tutorials</a>
         <ul class="drop">
-            <li>{% link /docs/tutorials/drupal-github-quickstart/ Drupal Github QuickStart %}</li>
-            <li>{% link /docs/tutorials/drupal-bitbucket-quickstart/ Drupal Bitbucket QuickStart %}</li>
-            <li>{% link /docs/tutorials/drupal-install-profile-quickstart/ Drupal Install Profile QuickStart %}</li>
-            <li>{% link /docs/tutorials/pantheon/ Using Probo on Your Pantheon Site %}</li>
-            <li>{% link /docs/tutorials/workflow/ Feature Branch Workflow Process %}</li>
+            <li>{% link /tutorials/drupal-github-quickstart/ Drupal Github QuickStart %}</li>
+            <li>{% link /tutorials/drupal-bitbucket-quickstart/ Drupal Bitbucket QuickStart %}</li>
+            <li>{% link /tutorials/drupal-install-profile-quickstart/ Drupal Install Profile QuickStart %}</li>
+            <li>{% link /tutorials/pantheon/ Using Probo on Your Pantheon Site %}</li>
+            <li>{% link /tutorials/workflow/ Feature Branch Workflow Process %}</li>
         </ul>
     </li>
 </ul>

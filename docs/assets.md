@@ -2,7 +2,7 @@
 layout: "docs"
 title: Assets
 class: documentation
-permalink: /docs/assets/
+permalink: /assets/
 published: true
 ---
 Assets are any files you need other than what is within your git repository. For example, you may need to upload a database for your project. You can find a list of your uploaded assets on your repository's Build Assets page in the web app. It's important to note that when you upload an asset with the same name as a previously uploaded asset, it replaces the existing asset.
