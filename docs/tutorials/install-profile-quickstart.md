@@ -9,7 +9,7 @@ published: true
 ## Setup Probo for a Drupal site with an Install Profile.
 Want to use a Drupal Install profile with your probo builds? With this setup you do not need to import a database because the drush site-install command will drop your database tables on build.
 
-Below is a step by step example of a Drupal site install using Zivtech's [Bear installation profile](https://www.drupal.org/project/bear). This walkthrough does not use all the available parameters provided by the Drupal plugin, you can see more available parameters in the [Drupal plugin documentation](/docs/plugins/drupal-plugin/ "Drupal plugin Documentation").
+Below is a step by step example of a Drupal site install using Zivtech's [Bear installation profile](https://www.drupal.org/project/bear). This walkthrough does not use all the available parameters provided by the Drupal plugin, you can see more available parameters in the [Drupal plugin documentation](/plugins/drupal-plugin/ "Drupal plugin Documentation").
 
 You can find this beta tester example repository [here](https://github.com/Probo-Demos/install-profile-demo).
 
@@ -39,7 +39,7 @@ Build Specs:
 
 **Step 10: Declare your assets and build your steps.**
 
-You can use the Drupal plugin to build your steps. If you would like to use the [default shell plugin see the install profile documentation](/docs/drupal/install-profile/).
+You can use the Drupal plugin to build your steps. If you would like to use the [default shell plugin see the install profile documentation](/drupal/install-profile/).
 {% highlight bash%}
 steps:
   - name: Probo site setup
@@ -62,7 +62,7 @@ git add .probo.yaml
  git push -u origin probo-build   
 {% endhighlight %}
 
-<img src='git-create-branch.gif' alt='Add your Probo.CI Configuration' class='docs-gif'>
+<img src='/images/git-create-branch.gif' alt='Add your Probo.CI Configuration' class='docs-gif'>
 </div>
 </div>
 
@@ -95,6 +95,6 @@ Note: It might take a few seconds for your Probo.CI environment to build. Wait u
   * [pull request to demo this with the drupal plugin](https://github.com/Probo-Demos/install-profile-demo/pull/2)   
   * [pull request to demo this with shell plugin](https://github.com/Probo-Demos/install-profile-demo/pull/1)  
 
-<img src='probo-build.gif' alt='Probo.CI build Gif' class='docs-gif'>
+<img src='/images/probo-build.gif' alt='Probo.CI build Gif' class='docs-gif'>
 </div>
 </div>

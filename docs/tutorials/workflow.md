@@ -6,7 +6,7 @@ permalink: /tutorials/workflow/
 ---
 Probo.CI leverages pull requests to instigate the creation of sandbox sites. Pull requests are not dependent on one particular workflow, but consider adopting a **Feature Branch Workflow** to get the most out of this tool. In this workflow features are developed in small iterative chunks in individual branches and are merged frequently, engaging in continuous integration.
 
-You’ll be opening pull requests in [Github](/docs/git/github/) or [Bitbucket](/docs/git/bitbucket/) when a feature branch is ready for review, prompting Probo to run a build. You can still push changes to your branch after you’ve opened a pull request; Probo will simply spin up another build when you do. Once all stakeholders are satisfied with the feature and all checks pass, your pull request should be accepted, merging the branch into master.
+You’ll be opening pull requests in [Github](/git/github/) or [Bitbucket](/git/bitbucket/) when a feature branch is ready for review, prompting Probo to run a build. You can still push changes to your branch after you’ve opened a pull request; Probo will simply spin up another build when you do. Once all stakeholders are satisfied with the feature and all checks pass, your pull request should be accepted, merging the branch into master.
 
 Changing the way your team works can be an intimidating prospect, but the lasting benefits of this workflow outweigh any initial difficulties that may arise. After you make the switch, you can expect perpetually clean master code, rapid project development/deployment and improved group collaboration, not to mention the valuable functionality of Probo.CI. If you are ready to take the plunge, keep reading to learn more about the feature branch workflow.
 
@@ -18,7 +18,7 @@ New to using git or still a little rough with its concepts? You should start by 
 
 - You can access the entire [Pro Git e-book](https://git-scm.com/book/en/v2) online for free to get more in-depth training. This site also has video tutorials and a reference guide to quickly look up specific commands.
 
-For the purposes of this guide, it is assumed that you have [created your Probo account](/docs/getting-started/) and added your [configured `.probo.yaml` file](/docs/build-steps/) to the base of your repository.
+For the purposes of this guide, it is assumed that you have [created your Probo account](/getting-started/) and added your [configured `.probo.yaml` file](/build-steps/) to the base of your repository.
 
 ## Step 1: Get the codebase
 

@@ -1,8 +1,9 @@
+
 ---
 layout: "docs"
 title: Drupal Github QuickStart
 class: documentation
-permalink: /docs/tutorials/drupal-github-quickstart/
+permalink: /tutorials/drupal-github-quickstart/
 redirect_from: /drupal-quickstart/
 published: true
 ---
@@ -10,7 +11,7 @@ published: true
 
 
 ## Setup Probo.CI for a Drupal site that uses Github.
-Probo.CI is here to make your development workflow more fluid. We want you to be able to configure Probo.CI to fit your project's needs. Below is a step by step example of a standard Drupal site install with GitHub. This walkthrough does not use all the available parameters provided by the Drupal plugin, but you can see more available parameters in the [Drupal plugin documentation](/docs/plugins/drupal-plugin/ "Drupal plugin Documentation"){:target="_blank"}.
+Probo.CI is here to make your development workflow more fluid. We want you to be able to configure Probo.CI to fit your project's needs. Below is a step by step example of a standard Drupal site install with GitHub. This walkthrough does not use all the available parameters provided by the Drupal plugin, but you can see more available parameters in the [Drupal plugin documentation](/plugins/drupal-plugin/ "Drupal plugin Documentation"){:target="_blank"}.
 
 You can find this Probo.CI example repository [here](https://github.com/Probo-Demos/drupal_github){:target="_blank"}.
 
@@ -47,4 +48,4 @@ In your Probo.CI dashboard, click on 'View build' and your site will open in a n
 Note: It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.  
 
 
-<img src="/assets/probo-build.gif" alt="Probo.CI build Gif" class="docs-gif">
+<img src="/images/probo-build.gif" alt="Probo.CI build Gif" class="docs-gif">

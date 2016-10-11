@@ -9,4 +9,4 @@ We run Apache Solr on `localhost:8389/solr` with a default Drupal schema that is
 
 If you are using [Search API](https://www.drupal.org/project/search_api), your settings should look like this:
 
-<img src='solr.png' alt="SAPI configuration">
+<img src='/images/solr.png' alt="SAPI configuration">

@@ -7,7 +7,7 @@ published: true
 ---
 Probo provides LAMP (Linux, Apache, MySQL, and PHP) stack configuration options to make it easier to set up your `.probo.yaml` file to mimic your production environment. To use the LAMP plugin you must declare `plugin: LAMPApp` in your `.probo.yaml` file, or add these options to one of the other available LAMP based Probo plugins.
 
-The Probo [Drupal plugin](/docs/plugins/drupal-plugin/), [WordPress plugin](/docs/plugins/wordpress-plugin/), and other LAMP based Probo plugins inherit these options. This allows for these configuration options to be easily used in conjunction with those plugins.
+The Probo [Drupal plugin](/plugins/drupal-plugin/), [WordPress plugin](/plugins/wordpress-plugin/), and other LAMP based Probo plugins inherit these options. This allows for these configuration options to be easily used in conjunction with those plugins.
 
 {: .table .table-striped .table-bordered}
 | Database Configuration |                            |

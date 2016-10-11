@@ -7,7 +7,7 @@ published: true
 ---
 
 ## Setup Probo.CI for a Drupal site that uses Bitbucket.
-Probo.CI is here to make your development workflow more fluid. We want you to be able to configure Probo.CI to fit your project's needs. Below is a step by step example of a standard Drupal site install with Bitbucket. This walkthrough does not use all the available parameters provided by the Drupal plugin, but you can see more available parameters in the [Drupal plugin documentation](/docs/plugins/drupal-plugin/ "Drupal plugin Documentation"){:target="_blank"}.
+Probo.CI is here to make your development workflow more fluid. We want you to be able to configure Probo.CI to fit your project's needs. Below is a step by step example of a standard Drupal site install with Bitbucket. This walkthrough does not use all the available parameters provided by the Drupal plugin, but you can see more available parameters in the [Drupal plugin documentation](/plugins/drupal-plugin/ "Drupal plugin Documentation"){:target="_blank"}.
 
 You can find this Probo.CI example repository [here](https://bitbucket.org/Probo-Demos/probo-bitbucket){:target="_blank"}.
 

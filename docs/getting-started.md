@@ -27,4 +27,4 @@ steps:
     command: 'print "Hello World!"'
 {% endhighlight %}
 
-If this check passed and the connection is successful, you can begin [configuring your Probo build.](/docs/build "Build Configuration")
+If this check passed and the connection is successful, you can begin [configuring your Probo build.](/build "Build Configuration")

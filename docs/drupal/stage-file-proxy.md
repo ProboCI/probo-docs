@@ -33,4 +33,4 @@ steps:
 This example enables Stage File Proxy and sets the point of origin to http://www.sfp.com.
 
 The settings located at 'admin/config/system/stage_file_proxy' will now match what was set in the `.probo.yaml` file.
-<img src='sfp-config-example.jpg' alt='Stage File Proxy Configuration Example' class='docs-gif'>
+<img src='/images/sfp-config-example.jpg' alt='Stage File Proxy Configuration Example' class='docs-gif'>

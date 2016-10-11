@@ -5,7 +5,7 @@ class: documentation
 permalink: /plugins/script-plugin/
 published: true
 ---
-The Probo.CI Script plugin is very similar to the [Shell plugin](/docs/plugins/shell-plugin/) but is designed to run multiple lines of commands.
+The Probo.CI Script plugin is very similar to the [Shell plugin](/plugins/shell-plugin/) but is designed to run multiple lines of commands.
 
 Instead of `command`, the Script plugin requires a parameter for `script`. This allows you to define a set of Shell commands to run during the site build. You can list as many commands as you like within the steps in your .probo.yaml file. Remember to include a `name` for each `script`.
 

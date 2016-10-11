@@ -19,8 +19,8 @@ Currently plugin names are case sensitive. For example this means that `shell` w
 
 Click the names below for more information on the specific plugin parameters you can use in your `.probo.yaml` file.
 
-* [Shell Plugin](/docs/plugins/shell-plugin/ "Shell Plugin")
-* [Script Plugin](/docs/plugins/script-plugin/ "Script Plugin")
-* [Drupal Plugin](/docs/plugins/drupal-plugin/ "Drupal Plugin")
-* [LAMP Plugin](/docs/plugins/lamp-plugin/ "LAMP Plugin")
-* [WordPress Plugin](/docs/plugins/wordpress-plugin/ "WordPress Plugin")
+* [Shell Plugin](/plugins/shell-plugin/ "Shell Plugin")
+* [Script Plugin](/plugins/script-plugin/ "Script Plugin")
+* [Drupal Plugin](/plugins/drupal-plugin/ "Drupal Plugin")
+* [LAMP Plugin](/plugins/lamp-plugin/ "LAMP Plugin")
+* [WordPress Plugin](/plugins/wordpress-plugin/ "WordPress Plugin")
