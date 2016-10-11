@@ -1,0 +1,28 @@
+---
+layout: "docs"
+title: Recipes
+class: documentation
+permalink: /build/recipes/
+published: true
+---
+
+{% assign recipes = site.recipes | group_by: "category" | sort: "name" %}
+
+<p>
+  <strong>Categories: </strong>
+  <br />|
+  {% for group in recipes %}
+    <a href="#{{group.name}}">{{group.name}}</a> |
+  {% endfor %}
+</p>
+
+<br /><br />
+
+{% for group in recipes %}
+    <h2><a name="{{group.name}}">{{ group.name }}</a></h2>
+    {% for item in group.items %}
+      <h3>{{item.title}}</h3>
+      <section>{{item.output}}</section>
+      <br />
+    {%endfor%}
+{%endfor%}
