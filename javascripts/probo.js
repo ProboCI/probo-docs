@@ -30,16 +30,7 @@
   // Setting up FitVids for responsive iFrames embeds (videos)
   $('.video-container').fitVids();
 
-  $('#testimonials-carousel').cycle({
-    speed: 600,
-    manualSpeed: 100,
-    fx: 'fade',
-    slides: '> div',
-    swipe: true,
-    pager: '.cycle-pager'
-  });
-
-  //search
+    //search
   $('.search a').click(function (e) {
     $('.search-section').toggleClass('on');
     $('.site').addClass('overflow-hidden');
@@ -68,4 +59,19 @@
     e.preventDefault();
   });
 
-});
+  $(document).ready(function () {
+    $('.sidebar-nav').navgoco({
+      caretHtml: '<i class="icon plus-to-minus"></i>',
+      accordion: true,
+      openClass: 'open',
+      save: true,
+      cookie: {
+        name: 'navgoco',
+        expires: false,
+        path: '/'
+      }
+    });
+  });
+
+
+})(window || {}, jQuery);
