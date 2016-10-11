@@ -1,0 +1,84 @@
+.free-tier {
+  padding-bottom: 26px;
+  border-bottom: 1px solid #EBEBEB;
+  margin-bottom: 26px;
+  text-align: left;
+  @include cf;
+  @include breakpoint($bp-small-landscape) {
+    text-align: center;
+  }
+  .left {
+    @include col(4/4);
+    @include breakpoint($bp-small-landscape) {
+      @include col(3/4);
+    }
+  }
+  .right {
+    @include col(4/4);
+    @include breakpoint($bp-small-landscape) {
+      @include col(1/4);
+    }
+  }
+  ul {
+    @extend %check-list;
+  }
+}
+
+.pricing-tiers {
+  @include cf;
+  text-align: center;
+  .col-block {
+    @include col(1/1);
+    @extend %price-block;
+    min-height: auto;
+    @include breakpoint($bp-small-landscape) {
+      @include span(2/4);
+    }
+    @include breakpoint($bp-medium-landscape) {
+      @include span(1/5);
+      margin-bottom: 24px;
+    }
+    ul {
+      @extend %check-list;
+      display: block;
+      min-height: auto;
+      @include breakpoint($bp-small-landscape) {
+        min-height: 220px;
+      }
+    }
+    &.primary {
+      background: #fff;
+    }
+    h2 {
+      color: #fff;
+      &.starter {
+        background: #315f7c;
+      }
+      &.bronze {
+        background: #98784a;
+      }
+      &.silver {
+        background: #bfbfb8;
+      }
+      &.gold {
+        background: #c2bf67;
+      }
+      &.enterprise {
+        background: #67bdc2;
+      }
+    }
+  }
+}
+
+.container {
+  @include cf;
+  border-top: 1px solid #EBEBEB;
+  padding: 26px 0;
+  text-align: left;
+  .pricing-faq {
+    @include col(2/2);
+    @include breakpoint($bp-small-landscape) {
+      @include col(1/2);
+    }
+  }
+}

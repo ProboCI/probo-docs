@@ -25,7 +25,8 @@ Go to the [Probo.CI app](https://app.probo.ci/){:target="_blank"} and click on t
 
 **Step 2: Sync your Bitbucket Repos.**
 Your Bitbucket repositories will be synced automatically. You can always click the 'Sync Repos' button at the top right corner if you need to manually update your dashboard.  Click on the button next to each repo that you want to use with Probo.CI.
-{% image 'bitbucketauth.gif' alt='Authenticate Gif' class='docs-gif'%}
+
+![Authenticate Gif](bitbucketauth.gif)
 
 ## Prepare your Database.
 {% include quickstart/prepare-database.md %}
@@ -49,4 +50,4 @@ In your Probo.CI dashboard, click on 'View site' and your site will open in a ne
 **Step 15: Share your Probo.build link with clients, managers, even your parents.**
 Note: It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.  
 
-{% image 'bitbucketpullrequest.gif' alt='Probo.CI Bitbucket build Gif' class='docs-gif'%}
+![Probo.CI Bitbucket build Gif](bitbucketpullrequest.gif)

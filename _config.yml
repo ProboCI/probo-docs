@@ -22,7 +22,7 @@ twitter_username: zivtech
 github_username:  proboci
 
 # Build settings
-highlighter: pygments
+# highlighter: pygments
 markdown: kramdown
 kramdown:
   input: GFM
@@ -37,23 +37,15 @@ exclude:
   - 'Gruntfile.js'
 
 # Assets pipeline settings
-assets:
-  sources:
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
-  css_compressor: sass
-  js_compressor: uglifier
-  cache: true
-  cachebust: hard
+# assets:
+#   sources:
+#     - _assets/images
+#     - _assets/javascripts
+#     - _assets/stylesheets
+#   css_compressor: sass
+#   js_compressor: uglifier
+#   cache: true
+#   cachebust: hard
 
-gems:
-- compass
-- respond-to
-- sass
-- uglifier
-- font-awesome-sass
-- compass-normalize
-- jekyll-assets
-- jekyll-assets/compass
-- jekyll-sitemap
+sass:
+    sass_dir: _assets/stylesheets

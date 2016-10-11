@@ -47,4 +47,4 @@ In your Probo.CI dashboard, click on 'View build' and your site will open in a n
 Note: It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.  
 
 
-{% image 'probo-build.gif' alt='Probo.CI build Gif' class='docs-gif'%}
+<img src="/assets/probo-build.gif" alt="Probo.CI build Gif" class="docs-gif">

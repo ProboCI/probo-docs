@@ -1,0 +1,146 @@
+.wrapper {
+  #sidebar-first {
+    float: none;
+    @include breakpoint($bp-medium-portrait) {
+      float: left;
+    }
+    ul {
+      display: none;
+      @include breakpoint($bp-medium-portrait) {
+        display: block;
+      }
+    }
+  }
+  #sidebar-last {
+    float: none;
+    @include breakpoint($bp-medium-portrait) {
+      float: right;
+    }
+  }
+  #sidebar-last,
+  #sidebar-first {
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+      padding: 25px 0 0 0;
+      clear: both;
+      @include breakpoint($bp-medium-portrait) {
+        padding: 0;
+        width: 24%;
+        max-width: 270px;
+      }
+    h4 {
+      padding: 12px 0 0 0;
+      margin: 0;
+      font-size: 14px;
+      border: 0;
+      margin-bottom: 12px;
+      @include breakpoint($bp-medium-portrait) {
+        padding: 12px;
+      }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+    ul {
+      padding-left: 0;
+      font-size: 14px;
+      margin: 0;
+      li {
+        list-style-type: none;
+        text-indent: 11px;
+        a {
+          @include link-colors($probo-purple-dark, $probo-purple, $probo-purple-dark, $probo-purple-dark);
+          text-decoration: none;
+          display: block;
+          padding: 12px;
+          border: 1px solid #f7f2f5;
+          background: #faf9f9;
+          padding-right: 26px;
+          &:hover {
+            background: #e4d1de;
+          }
+        }
+        a.current {
+          background: #f7f2f5;
+        }
+        ul {
+          li {
+            a {
+              padding-left: 24px;
+            }
+            a.current {
+              background: #efe6eb;
+            }
+            a:before {
+              content: "\00BB \0020";
+              margin-left:-24px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .page-content {
+    padding-bottom: 24px;
+    width: 100%;
+    float: none;
+    clear: both;
+    @include breakpoint($bp-medium-portrait) {
+      width: 70%;
+      float: right;
+      clear: none;
+    }
+  }
+}
+
+
+.sidebar-nav{
+  position:relative;
+}
+
+$ease: ease;
+$duration: 400ms;
+
+// Style for icon Plus/Minus
+.plus-to-minus {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  transition: transform $ease $duration;
+  margin-top:3px;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    background-color: $probo-tapestry;
+    border-radius: 10px;
+  }
+  &:before {
+    left: 30%;
+    width: 4px;
+    height: 15px;
+    margin-left: 1.2px;
+
+  }
+  &:after {
+    top: 60%;
+    margin-top: -3px;
+    height: 4px;
+    width: 15px;
+    transition: transform ease 400ms;
+    right:.5px;
+  }
+
+}
+.open .plus-to-minus{
+  transform: rotate( -90deg );
+  &:after {
+    transform: rotate( -90deg );
+  }
+}
+.wrapper #sidebar-first .open .drop-top{
+  background: #efe6eb;
+}

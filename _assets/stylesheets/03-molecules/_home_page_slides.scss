@@ -1,0 +1,225 @@
+.slide {
+  margin: 0;
+  display: flex;
+  text-align: left;
+  padding: 40px 0;
+  @include breakpoint($bp-medium-portrait) {
+    text-align: center;
+  }
+
+  .column {
+    @include cf;
+  }
+
+  .inner {
+    vertical-align: middle;
+  }
+
+  p {
+    max-width: 650px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+
+  .row {
+    margin: 0 auto;
+
+    @include breakpoint($bp-large) {
+      width: 70%;
+    }
+  }
+
+  img {
+    display: block;
+
+    &.full-width {
+      max-height: 60vh;
+    }
+  }
+}
+
+[data-slide='0'] {
+  background: image-url('probo-gradient-bg.png') top left repeat-x #19010E;
+  background-size: cover;
+  @include white-text;
+  padding-bottom: 0;
+  .wrapper {
+    padding: 0;
+  }
+  .two-col {
+    .col {
+      margin-bottom: 0;
+      img {
+        margin: 0;
+      }
+    }
+  }
+}
+
+[data-slide='1'] {
+  img {
+    display: none;
+    height: 0;
+    visibility: hidden;
+    @include breakpoint($bp-medium-portrait) {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      visibility: visible;
+    }
+  }
+}
+[data-slide='2'] {
+}
+
+[data-slide='3'] {
+}
+
+.two-col .col {
+  width: 100%;
+  float: none;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+  clear: both;
+  @include breakpoint($bp-medium-portrait) {
+    width: 45%;
+    float: left;
+    display: block;
+    margin-left: 0;
+    margin-right: 5%;
+    text-align: left;
+    margin-bottom: 24px;
+    clear: none;
+    &:nth-of-type(1n) {
+      margin-left: 0;
+    }
+    &:nth-of-type(2n) {
+      margin-right: 0;
+    }
+    &:nth-child(2n + 1) {
+      clear: both;
+    }
+  }
+  &:nth-of-type(1n) {
+    margin-left: 0;
+  }
+  &:nth-of-type(2n) {
+    margin-right: 0;
+  }
+  &:nth-child(2n + 1) {
+    clear: both;
+  }
+}
+.col {
+  display: flex;
+}
+.three-col .col {
+  width: 100%;
+  float: none;
+  display: block;
+  margin-left: 0;
+  margin-right: 0%;
+  text-align: left;
+  margin-bottom: 12px;
+  clear: both;
+  @include breakpoint($bp-medium-portrait) {
+    text-align: center;
+  }
+  img {
+    display: none;
+    height: 0;
+    visibility: hidden;
+    @include breakpoint($bp-medium-portrait) {
+      display: block;
+      margin: 0 auto;
+      visibility: visible;
+      width: 100px;
+      height: auto;
+    }
+  }
+  @include breakpoint($bp-medium-portrait) {
+    width: 30%;
+    float: left;
+    display: block;
+    margin-left: 0;
+    margin-right: 3%;
+    margin-bottom: 24px;
+    clear: none;
+    &:nth-of-type(1n) {
+      margin-left: 0;
+    }
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+    &:nth-child(3n + 1) {
+      clear: both;
+    }
+  }
+  &:nth-of-type(1n) {
+    margin-left: 0;
+  }
+  &:nth-of-type(3n) {
+    margin-right: 0;
+  }
+  &:nth-child(3n + 1) {
+    clear: both;
+  }
+}
+.column.create,
+.column.test,
+.column.verify {
+
+  @include breakpoint($bp-medium-portrait) {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @at-root {
+    .column__svg {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      @include breakpoint($bp-large) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    .column__numeral {
+      @extend %h2;
+      display: block;
+      margin: 0;
+    }
+    .column__content {
+      @include rem(font-size, 12px);
+    }
+  }
+}
+
+.blue-slide {
+  background: $probo-midnight;
+  @include white-text;
+}
+
+.green-slide {
+  background: $probo-green-darkest;
+  @include white-text;
+}
+
+.purple-slide {
+  background: $probo-purple-dark;
+  @include white-text;
+}

@@ -7,7 +7,7 @@ published: true
 ---
 
 ## Probo and Drupal play nice together.
-{% image 'probo-drupal.jpg' alt='Probo and Drupal'%}
+<img src="/assets/probo-drupal.jpg" alt="Probo and Drupal">
 Testing code in multiple environments with [Drupal](https://www.drupal.org/){:target="_blank"} is never easy and always time-consuming. Especially when the client then decides to only publish certain features.
 
 Gone are the days multiple staging environments and the classic line - "But it worked on my machine?!"

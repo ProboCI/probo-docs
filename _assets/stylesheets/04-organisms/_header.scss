@@ -1,0 +1,88 @@
+.site-header {
+  @extend %site-header;
+  .wrapper {
+    padding-top: 0.5em;
+    padding-bottom: 0;
+    position: relative;
+    @include cf;
+  }
+  #simple-menu {
+    @extend %simple-menu;
+  }
+  h1.st{
+    margin-bottom:0;
+    @include breakpoint($bp-medium-portrait) {
+      float: left;
+    }
+  }
+  .site-title {
+    @extend %site-title;
+    img {
+      height: $logo-line-height;
+      width: auto;
+    }
+  }
+}
+// responsive nav styles
+#sidr {
+  ul {
+    li {
+      a {
+        color: white;
+        &:hover {
+          background-color: #9b4a81;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  @include breakpoint($bp-medium-portrait) {
+    @include visuallyhidden;
+  }
+}
+
+ul#navigation {
+  @extend %nav-right;
+  li.current a {
+    color:#f07bcd;
+      }
+  li {
+    list-style-type: none;
+    float: left;
+    &.login a {
+      background: $probo-purple-darkest;
+      -webkit-border-radius: 4;
+      -moz-border-radius: 4;
+      border-radius: 4px;
+      font-family: Arial;
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: bold;
+      &:hover {
+      background: #5f5d5d;
+      }
+    }
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    float: none;
+    clear: both;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid #f7f2f5;
+    line-height: $header-line-height;
+    padding:0 12px;
+    color: white;
+    font-size: 16px;
+    &:hover {
+      text-decoration: underline;
+    }
+    @include breakpoint($bp-medium-portrait) {
+      float: left;
+      width: auto;
+      clear: none;
+      border-bottom: 0 solid #f7f2f5;
+    }
+  }
+}

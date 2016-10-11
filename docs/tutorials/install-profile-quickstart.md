@@ -62,7 +62,7 @@ git add .probo.yaml
  git push -u origin probo-build   
 {% endhighlight %}
 
-{% image 'git-create-branch.gif' alt='Add your Probo.CI Configuration' class='docs-gif'%}
+<img src='git-create-branch.gif' alt='Add your Probo.CI Configuration' class='docs-gif'>
 </div>
 </div>
 
@@ -95,6 +95,6 @@ Note: It might take a few seconds for your Probo.CI environment to build. Wait u
   * [pull request to demo this with the drupal plugin](https://github.com/Probo-Demos/install-profile-demo/pull/2)   
   * [pull request to demo this with shell plugin](https://github.com/Probo-Demos/install-profile-demo/pull/1)  
 
-{% image 'probo-build.gif' alt='Probo.CI build Gif' class='docs-gif'%}
+<img src='probo-build.gif' alt='Probo.CI build Gif' class='docs-gif'>
 </div>
 </div>

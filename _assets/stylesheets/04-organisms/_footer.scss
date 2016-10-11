@@ -1,0 +1,99 @@
+.site-footer {
+  @include rem(font-size, 10px);
+  background-color: $probo-gray-dark;
+  color: $probo-pale;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  font-size:14px;
+  z-index:1;
+  padding-bottom: 24px;
+  &__logo {
+    filter: grayscale(1);
+    opacity: 0.9;
+    margin: $base-spacing 0;
+    margin-top:20px;
+    @include breakpoint($bp-medium-landscape) {
+      @include inline-block;
+      float: left;
+      margin: 0;
+      margin-top:12px;
+      text-align:left;
+    }
+  }
+  .wrapper {
+    @include cf;
+    margin-bottom: 18px;
+  }
+}
+
+.footer-learn-more {
+  background-color: $probo-pale;
+  color: $probo-gray-dark;
+  .wrapper {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: block;
+  }
+  p {
+    display: inline-block;
+    margin: 0;
+  }
+  .right {
+    @include breakpoint($bp-medium-landscape) {
+      position: absolute;
+      right: 112.5px;
+    }
+  }
+  a i {
+    color: $probo-gray-dark;
+    font-size: 30px;
+    padding: 0 10px;
+    transition: color 0.2s ease;
+    vertical-align: middle;
+    &:hover{
+      transition: color 0.2s ease;
+      color: $probo-gray-dark;
+    }
+  }
+}
+
+.site-footer {
+  .footer-left {
+    @include col(1/1);
+    float: left;
+    @include breakpoint($bp-medium-landscape) {
+      @include col(1/3);
+    }
+    input[type="email"] {
+      padding: 7px 14px;
+    }
+  }
+  a.request{
+    display:block;
+    @include breakpoint($bp-medium-landscape) {
+      display:inline-block;
+    }
+  }
+  .copyright {
+    color: $probo-gray-medium;
+    padding: 0 12px;
+    @include breakpoint($bp-medium-landscape) {
+      padding-bottom:0;
+      clear: both;
+    }
+  }
+}
+
+ul.footer-navigation {
+  margin: 0;
+  padding: 0;
+  li {
+    @include inline-block;
+    list-style-type: none;
+    margin-right: 12px;
+    a {
+      @include link-colors($probo-pale-medium, $probo-blue, $probo-gray-medium, $probo-gray-medium);
+    }
+  }
+}

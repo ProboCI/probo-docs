@@ -1,0 +1,81 @@
+//search off
+.search-section {
+  background: rgba(68, 0, 39, .98);
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow-y: scroll;
+  width: 100%;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+  a {
+    color: white;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  article{
+    padding-bottom:10px;
+  }
+}
+
+//search box overlay over the whole site
+.search-section.on {
+  opacity: 1;
+  height: 100vh;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+
+//content wrapper and X icon
+.search-section .content-wrapper {
+  max-width: 940px;
+  margin: 100px auto 50px auto;
+  text-align: left;
+  position: relative;
+  padding: 0 20px;
+
+  .close-out {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+  }
+}
+
+.search-section .fa-times {
+  font-size: 30px;
+}
+
+.search-section {
+  input[type=text] {
+    width: 100%;
+    font-family: fontawesome, arial;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+.search-section input[type=text]:focus::-webkit-input-placeholder {
+  transition: text-indent 0.5s 0.5s ease;
+  text-indent: -100%;
+  opacity: 1;
+}
+
+#search-results {
+  color: white;
+  h1 {
+    text-align: left;
+    margin: 25px 0;
+    color: white;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

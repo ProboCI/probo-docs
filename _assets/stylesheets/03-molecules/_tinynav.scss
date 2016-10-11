@@ -1,0 +1,6 @@
+.tinynav {
+  display: block;
+  @include breakpoint($bp-medium-portrait) {
+    display: none;
+  }
+}
