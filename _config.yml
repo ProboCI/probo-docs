@@ -36,16 +36,9 @@ exclude:
   - 'autoprefixer.yml'
   - 'Gruntfile.js'
 
-# Assets pipeline settings
-# assets:
-#   sources:
-#     - _assets/images
-#     - _assets/javascripts
-#     - _assets/stylesheets
-#   css_compressor: sass
-#   js_compressor: uglifier
-#   cache: true
-#   cachebust: hard
-
 sass:
-    sass_dir: _assets/stylesheets
+    sass_dir: _stylesheets
+
+collections:
+  recipes:
+    output: true
