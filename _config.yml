@@ -35,9 +35,7 @@ exclude:
   - 'node_modules'
   - 'autoprefixer.yml'
   - 'Gruntfile.js'
-
-sass:
-    sass_dir: _stylesheets
+  - 'javascripts/src'
 
 collections:
   recipes:
