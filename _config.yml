@@ -36,6 +36,7 @@ exclude:
   - 'autoprefixer.yml'
   - 'Gruntfile.js'
   - 'javascripts/src'
+  - 'README.md'
 
 collections:
   recipes:

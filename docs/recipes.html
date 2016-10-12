@@ -22,6 +22,18 @@ published: true
     <h2><a name="{{group.name}}">{{ group.name }}</a></h2>
     {% for item in group.items %}
       <h3>{{item.title}}</h3>
+        {% if item.author %}
+          <section>
+              <em>
+                This recipe was generously contributed by
+                {% if item.github %}
+                  <a href="https://github.com/{{item.github}}">{{ item.author }}.</a>
+                {% else %}
+                  {{ item.author }}
+                {% endif %}
+              </em>
+          </section>
+        {% endif %}
       <section>{{item.output}}</section>
       <br />
     {%endfor%}
