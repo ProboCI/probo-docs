@@ -1,6 +1,5 @@
 ---
 title: Developing on a site with a database
-category: Shell
 ---
 
 {% highlight yaml %}

@@ -1,6 +1,5 @@
 ---
 title: Using the Shell plugin
-category: Shell
 ---
 
 {% highlight yaml %}

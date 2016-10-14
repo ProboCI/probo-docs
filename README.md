@@ -52,7 +52,6 @@ You can share your super slick `.probo.yaml` in just a few steps:
  ```
  ---
  title:
- category:
  author:
  github:
  ---
@@ -63,8 +62,6 @@ You can share your super slick `.probo.yaml` in just a few steps:
 
  {% endhighlight %}
  ```
-2. Enter a title and category*. You can optionally add you or your organization's name as you would like it displayed and your GitHub username so we can link to your profile.
+2. Enter a title for your recipe. You can optionally add you or your organization's name as you would like it displayed and your GitHub username so we can link to your profile.
 3. Paste the contents of your `.probo.yaml` file between the `highlight yaml` tags.
 4. Submit a pull request and add the **needs review** label.
-
-*The category will group your `.probo.yaml` file with other files of the same category on https://docs.probo.ci/build/recipes. It should be the most specific need your file addresses (e.g. Drupal, Pantheon). This is an interim solution until we implement a nice filtering system on the page. :simple_smile:

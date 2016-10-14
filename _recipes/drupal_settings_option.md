@@ -1,6 +1,5 @@
 ---
 title: Using the Settings Options
-category: Drupal
 ---
 
 {% highlight yaml%}

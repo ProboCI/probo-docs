@@ -1,6 +1,5 @@
 ---
 title: Developing on a site with a database
-category: Script
 ---
 
 Here is an example using a multi-line YAML string.
