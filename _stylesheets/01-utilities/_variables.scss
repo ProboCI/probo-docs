@@ -6,6 +6,8 @@ $probo-purple-darkest: #33001d;
 $probo-purple-dark: #440027;
 $probo-purple: #a6548c;
 $probo-pink: lighten(#985483, 5%);
+$probo-pink-light: #efe6eb;
+$probo-pink-medium: darken(#efe6eb, 5%);
 $probo-gray-dark: #404040;
 $probo-gray-dark-medium: #525252;
 $probo-gray-medium: #7d7d7d;
@@ -57,5 +59,3 @@ $bp-larger: 1500px / 16px * 1em;
 $header-height: 70px;
 $header-line-height: 35px;
 $logo-line-height: 35px;
-
-
