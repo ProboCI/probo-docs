@@ -1,6 +1,5 @@
 ---
 title: Using the LAMPApp Plugin to Test a PHP/MySQL Based Application
-category: LAMP
 ---
 
 {% highlight yaml%}

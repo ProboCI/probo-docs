@@ -1,6 +1,5 @@
 ---
 title: Using the Drupal plugin
-category: Drupal
 ---
 
 {% highlight yaml%}

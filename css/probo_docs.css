@@ -6952,6 +6952,7 @@ img.drop-shadow {
 
 .highlight {
   background: #f5f5f5;
+  padding: .5rem 1rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -7736,6 +7737,31 @@ ul.footer-navigation li a:focus {
 
 .sidr input[type=button]:hover, .sidr input[type=submit]:hover {
   background: rgba(255, 255, 255, 0.9);
+}
+
+.recipes__list {
+  padding: 0;
+}
+
+.recipes__list li {
+  list-style: none;
+  border: 2px solid #f7f7f7;
+  margin-bottom: 10px;
+}
+
+.recipes__list li p {
+  padding: 0 5px;
+}
+
+.recipes__name {
+  color: #f7f7f7;
+  padding: 5px;
+  background: #0055a4;
+}
+
+.recipes__search {
+  width: 100%;
+  padding: 20px 15px;
 }
 
 @media (min-width: 48em){

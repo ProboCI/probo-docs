@@ -1,6 +1,5 @@
 ---
 title: Using the Script plugin
-category: Script
 ---
 
 Add your script as a multi-line YAML string.

@@ -1,6 +1,5 @@
 ---
 title: Setting LAMPApp PHP Configuration Options on a Drupal Installation
-category: LAMP
 ---
 
 {% highlight yaml%}

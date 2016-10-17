@@ -1,6 +1,5 @@
 ---
 title: Developing a site on Pantheon
-category: Pantheon
 ---
 
 {% highlight yaml%}

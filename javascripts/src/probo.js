@@ -15,7 +15,7 @@
         }
       });
     }
-    
+
     $('.sidebar-nav').navgoco({
       caretHtml: '<i class="icon plus-to-minus"></i>',
       accordion: true,
@@ -29,5 +29,12 @@
     });
   });
 
+  // use List.js on recipes page
+  if (List instanceof Function) {
+    var options = {
+        valueNames: [ 'name', 'recipe', 'highlight', 's', 'no' ]
+    };
+    var recipes = new List('recipes', options);
+  }
 
 })(window || {}, jQuery);
