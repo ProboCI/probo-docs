@@ -1,0 +1,11 @@
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">LAMPApp</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">mydb.sql.gz</span>
+    <span class="s">databaseName</span><span class="pi">:</span> <span class="s">mydb</span>
+    <span class="s">databaseUser</span><span class="pi">:</span> <span class="s">mydbuser</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
+

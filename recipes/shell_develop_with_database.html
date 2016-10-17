@@ -1,0 +1,12 @@
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">dev.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Import the database</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Shell</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">gunzip</span><span class="nv"> </span><span class="s">-c</span><span class="nv"> </span><span class="s">$ASSET_DIR/dev.sql.gz</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">`mysql</span><span class="nv"> </span><span class="s">foo`</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">rm</span><span class="nv"> </span><span class="s">$ASSET_DIR/dev.sql.gz'</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Move code in place</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mv</span><span class="nv"> </span><span class="s">$SRC_DIR</span><span class="nv"> </span><span class="s">/var/www/foo/code'</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Run behat tests</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">cd</span><span class="nv"> </span><span class="s">/var/www/foo/code/tests</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">composer</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">bin/behat'</span></code></pre></figure>
+

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>LAMP Plugin | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/plugins/lamp-plugin/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/plugins">plugins</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">LAMP Plugin</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" class="current">LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" >Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <p>Probo provides LAMP (Linux, Apache, MySQL, and PHP) stack configuration options to make it easier to set up your <code class="highlighter-rouge">.probo.yaml</code> file to mimic your production environment. To use the LAMP plugin you must declare <code class="highlighter-rouge">plugin: LAMPApp</code> in your <code class="highlighter-rouge">.probo.yaml</code> file, or add these options to one of the other available LAMP based Probo plugins.</p>
+
+<p>The Probo <a href="/plugins/drupal-plugin/">Drupal plugin</a>, <a href="/plugins/wordpress-plugin/">WordPress plugin</a>, and other LAMP based Probo plugins inherit these options. This allows for these configuration options to be easily used in conjunction with those plugins.</p>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Database Configuration</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">database</code></td>
+      <td>The file name of the database to import if specified. Note that this database <em>must be added to the assets array separately</em>. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseName</code></td>
+      <td>The name of the database to use. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseUser</code></td>
+      <td>The username of the database to use. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseGzipped</code></td>
+      <td>Whether the database was sent gzipped and whether it should therefore be gunzipped before importing. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseBzipped</code></td>
+      <td>Whether the database was sent bzipped and whether it should therefore be bunzipped before importing. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>PHP Configuration</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">phpIniOptions</code></td>
+      <td>A hash of options, such as {option1: ‘option1Value’, option2: ‘option2Value’,}. Accepts a <strong>hash</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phpConstants</code></td>
+      <td>A hash of constants, such as {const1: ‘const1Value’, const2: ‘const2Value’,}. This will overwrite any other auto_prepend_file directives in your php.ini. Accepts a <strong>hash</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">phpMods</code></td>
+      <td>An array of php5 modules to enable (should be installed via installPackages if needed). Accepts an <strong>array</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Apache Configuration</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">apacheMods</code></td>
+      <td>An array of apache modules to enable (should be installed via installPackages if needed). Accepts an <strong>array</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">restartApache</code></td>
+      <td>Whether to restart Apache. If phpIniOptions, phpConstants, phpMods, or apacheMods are set, Apache will be restarted automatically, so you probably won’t need to use this. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Additional Options</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">subDirectory</code></td>
+      <td>The directory of the actual web root (defaults to ‘docroot’). Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cliDefines</code></td>
+      <td>A hash of defines, such as {define1: ‘define1Value’, define2: ‘define2Value’,}. Accepts a <strong>hash</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">installPackages</code></td>
+      <td>An array of additional packages to install. Accepts an <strong>array</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+
+<p><strong>Note:</strong> The <code class="highlighter-rouge">LAMPApp</code> plugin options are inherited by the Probo Drupal, Wordpress, and other Probo plugins.</p>
+
+<p><strong>Using the <code class="highlighter-rouge">LAMPApp</code> Plugin to Test a PHP/MySQL Based Application</strong></p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">LAMPApp</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">mydb.sql.gz</span>
+    <span class="s">databaseName</span><span class="pi">:</span> <span class="s">mydb</span>
+    <span class="s">databaseUser</span><span class="pi">:</span> <span class="s">mydbuser</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
+
+<p><strong>Setting <code class="highlighter-rouge">LAMPApp</code> PHP Confiugration Options on a Drupal Installation</strong></p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">phpIniOptions</span><span class="pi">:</span>
+  <span class="s">upload_max_filesize</span><span class="pi">:</span> <span class="s">25M</span>
+  <span class="s">post_max_size</span><span class="pi">:</span> <span class="s">25M</span>
+  <span class="s">memory_limit</span><span class="pi">:</span> <span class="s">256M</span>
+<span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">mydb.sql.gz</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Generate login link</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">drush</span><span class="nv"> </span><span class="s">uli'</span></code></pre></figure>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

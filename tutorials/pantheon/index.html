@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using Probo on Your Pantheon Site | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/tutorials/pantheon/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/tutorials">tutorials</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">Using Probo on Your Pantheon Site</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" class="current">Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" >Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <p>Probo can also make your life easier if you’re developing your site on Pantheon, but there are two steps follow to configure your Probo build properly.</p>
+
+<p><strong>Note: Your must still have a repo of your code on either Github or Stash. Probo will not download the code directly from Pantheon</strong></p>
+
+<h2 id="step-1-create-a-sh-file">Step 1: Create a .sh File</h2>
+
+<p>To download the database of your Pantheon site to your Probo container you will need to use <a href="https://github.com/pantheon-systems/cli" target="_blank">Pantheon’s CLI, Terminus</a>, so that we can pass the necessary commands to Probo. However, using Terminus requires that you authenticate with Pantheon first with your username and password. To protect your security you must create a YOUR_FILE_NAME.sh file that contains your Pantheon login information. It should look like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">EMAIL</span><span class="o">=</span><span class="s2">"your_email_address"</span>
+<span class="nv">PASS</span><span class="o">=</span><span class="s2">"your_password"</span>
+</code></pre>
+</div>
+
+<p>You will need to <a href="/uploader/">upload this file as an asset</a> for your Probo build. We will use the variables that you set to authenticate with Pantheon.</p>
+
+<h2 id="step-2-update-your-proboyml-file">Step 2: Update your .probo.yml file</h2>
+
+<p>After you have uploaded your .sh file containing your login info, you’ll now need to add 3 steps to your .probo.yml file to download your Pantheon site’s database. This example uses version 0.9.3 of Pantheon’s CLI.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Download terminus</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">https://github.com/pantheon-systems/cli/releases/download/0.9.3/terminus.phar</span><span class="nv"> </span><span class="s">-L</span><span class="nv"> </span><span class="s">-o</span><span class="nv"> </span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">chmod</span><span class="nv"> </span><span class="s">+x</span><span class="nv"> </span><span class="s">$HOME/terminus'</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Log in to terminus</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">source</span><span class="nv"> </span><span class="s">$ASSET_DIR/**YOUR_FILE_NAME**.sh</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">auth</span><span class="nv"> </span><span class="s">login</span><span class="nv"> </span><span class="s">$EMAIL</span><span class="nv"> </span><span class="s">--password=$PASS'</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Download Pantheon site DB</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">site</span><span class="nv"> </span><span class="s">backups</span><span class="nv"> </span><span class="s">get</span><span class="nv"> </span><span class="s">--site=SITE_NAME</span><span class="nv"> </span><span class="s">--env=[dev,test,live]</span><span class="nv"> </span><span class="s">--element=database</span><span class="nv"> </span><span class="s">--to=$ASSET_DIR/FILE_NAME.sql.gz</span><span class="nv"> </span><span class="s">--latest'</span></code></pre></figure>
+
+<p><strong>Note: You must download your database to a gzipped file</strong></p>
+
+<p>Now that Probo has downloaded your site’s database from Pantheon it can continue with other necessary steps to build your site. The terminus steps also cooperate Probo’s Drupal plugin. View a full example of this below:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="s">assets</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">export.sh</span>
+ <span class="s">steps</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Download terminus</span>
+     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">https://github.com/pantheon-systems/cli/releases/download/0.9.3/terminus.phar</span><span class="nv"> </span><span class="s">-L</span><span class="nv"> </span><span class="s">-o</span><span class="nv"> </span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">chmod</span><span class="nv"> </span><span class="s">+x</span><span class="nv"> </span><span class="s">$HOME/terminus'</span>
+   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Log in to terminus</span>
+     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">source</span><span class="nv"> </span><span class="s">$ASSET_DIR/export.sh</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">auth</span><span class="nv"> </span><span class="s">login</span><span class="nv"> </span><span class="s">$EMAIL</span><span class="nv"> </span><span class="s">--password=$PASS'</span>
+   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Download DB</span>
+     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">site</span><span class="nv"> </span><span class="s">backups</span><span class="nv"> </span><span class="s">get</span><span class="nv"> </span><span class="s">--site=test-db-export</span><span class="nv"> </span><span class="s">--env=dev</span><span class="nv"> </span><span class="s">--element=database</span><span class="nv"> </span><span class="s">--to=$ASSET_DIR/test-export.sql.gz</span><span class="nv"> </span><span class="s">--latest'</span>
+   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+     <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+     <span class="s">database</span><span class="pi">:</span> <span class="s">test-export.sql.gz</span>
+     <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
+     <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
+     <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

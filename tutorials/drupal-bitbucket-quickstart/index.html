@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Drupal Bitbucket QuickStart | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/tutorials/drupal-bitbucket-quickstart/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/tutorials">tutorials</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">Drupal Bitbucket QuickStart</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" class="current">Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" >Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <h2 id="setup-proboci-for-a-drupal-site-that-uses-bitbucket">Setup Probo.CI for a Drupal site that uses Bitbucket.</h2>
+<p>Probo.CI is here to make your development workflow more fluid. We want you to be able to configure Probo.CI to fit your project’s needs. Below is a step by step example of a standard Drupal site install with Bitbucket. This walkthrough does not use all the available parameters provided by the Drupal plugin, but you can see more available parameters in the <a href="/plugins/drupal-plugin/" title="Drupal plugin Documentation" target="_blank">Drupal plugin documentation</a>.</p>
+
+<p>You can find this Probo.CI example repository <a href="https://bitbucket.org/Probo-Demos/probo-bitbucket" target="_blank">here</a>.</p>
+
+<p>Build Specs:</p>
+
+<ul>
+  <li>Standard Drupal site with a MySQL database</li>
+  <li>Your repository is stored on Bitbucket</li>
+</ul>
+
+<hr />
+
+<h2 id="sign-in-and-sync-up">Sign in and Sync up.</h2>
+<p><strong>Step 1: Sign into the <a href="https://app.probo.ci/" target="_blank">Probo.CI app</a> and authenticate Bitbucket.</strong>
+Go to the <a href="https://app.probo.ci/" target="_blank">Probo.CI app</a> and click on the <strong>Login with Bitbucket</strong> button. Once you get to Bitbucket, click ‘Grant access’.</p>
+
+<p><strong>Step 2: Sync your Bitbucket Repos.</strong>
+Your Bitbucket repositories will be synced automatically. You can always click the ‘Sync Repos’ button at the top right corner if you need to manually update your dashboard.  Click on the button next to each repo that you want to use with Probo.CI.</p>
+
+<p><img src="bitbucketauth.gif" alt="Authenticate Gif" /></p>
+
+<h2 id="prepare-your-database">Prepare your Database.</h2>
+<p>You will need to import your project’s database with the <a href="https://github.com/ProboCI/probo-uploader">Probo Uploader</a>, a CLI tool. You will first import your database, then you will declare the database file in a <code class="highlighter-rouge">.probo.yaml</code> file. We will use the <a href="/docs/drupal-plugin/" title="Drupal plugin" target="_blank">Drupal plugin</a> to revert features, run database updates, and clear caches. (Cache all the things!)</p>
+
+<p><strong>Step 3: Sanitize your database (optional).</strong></p>
+
+<p>Although we compress and encrypt your database, it is always best practice to sanitize and compress your files.</p>
+
+<p><strong>Very Important: Do not do this on a production database.</strong></p>
+
+<p><a href="http://drushcommands.com/drush-7x/sql/sql-sanitize" target="_blank">Drush sql-sanitize</a> will reset passwords and email addresses in the user table and truncate Drupal’s sessions tables. It is extremely important to note that you do not do this on a production database.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">drush sql-sanitize</code></pre></figure>
+
+<p><strong>Step 4: Use Drush to get and compress your database in a sql file.</strong></p>
+
+<p>If you wish to compress your database you’ll need to use <a href="http://www.gzip.org/" target="_blank">gzip</a>. Other zip files won’t work.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">drush sql-dump | gzip &gt; dev.sql.gz</code></pre></figure>
+
+<p><strong>Step 5: Install the <a href="https://github.com/ProboCI/probo-uploader" target="_blank">Probo Uploader</a> on your machine with npm.</strong></p>
+
+<p>You will need Node.js for the Probo CI Uploader. <a href="https://nodejs.org/en/" target="_blank">How to install node.js and npm.</a></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo npm install -g probo-uploader</code></pre></figure>
+
+<p><strong>Step 6: Upload your database to the Probo CI app.</strong></p>
+
+<p>Each repository will have it’s own token. You can find your project’s token on the dashboard of the Probo CI app.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">probo-uploader --token<span class="o">=[</span>your-token] dev.sql.gz</code></pre></figure>
+
+<p><img src="/assets/database-probo.gif" alt="Upload your Database Gif" class="docs-gif" /></p>
+
+<h2 id="define-your-website-configuration-for-probo">Define your website configuration for Probo.</h2>
+<p>The real magic of Probo CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
+
+<p><strong>Step 7: Create a new branch.</strong></p>
+
+<p>cd into your project and create a new branch.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout -b probo-build</code></pre></figure>
+
+<p><strong>Step 8: Create your .probo.yaml file.</strong></p>
+
+<p>You will need a <code class="highlighter-rouge">.probo.yaml</code> file in the root of your directory. You can task Probo CI to run any number of build steps. Each step is a runnable plugin, and will get a status update sent to hosted repository for the commit. * Remember that indentation and spacing is important for yaml files.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">vim .probo.yaml</code></pre></figure>
+
+<p><strong>Step 9: Declare your assets and build your steps.</strong></p>
+
+<p>Tell Probo CI what database you are going to use for your Probo CI builds. Add in your parameters as steps. You can read more in the <a href="/docs/steps/drupal-plugin/">docs about different parameter options</a>.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>     
+  <span class="pi">-</span> <span class="s">dev.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo CI site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">dev.sql.gz</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">clearCaches</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
+
+<p><strong>Step 10: In your new branch probo-build, add and commit your files to your remote origin.</strong></p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="s">git add .probo.yaml</span>  
+ <span class="s">git commit -m"Adding .probo.yaml."</span>  
+ <span class="s">git push -u origin probo-build</span>   </code></pre></figure>
+
+<p><img src="/assets/git-create-branch.gif" alt="Add your Probo CI Configuration" class="docs-gif" /></p>
+
+<h2 id="view-your-build">View your build.</h2>
+<p><strong>Step 11: Locate your branch in Bitbucket.</strong>
+Go to your Bitbucket account and click on Branches in the left navigation menu. You will see your new branch in the list. Click on the new branch name to view details.</p>
+
+<p><strong>Step 11: Create a pull request.</strong><br />
+On the details page, click the ‘Create pull request’ link. Verify your branch is pointing to master, enter the title of the pull request and click the ‘Create pull request’ button.</p>
+
+<p><strong>Step 13: Bask in the glory of Probo.CI.</strong><br />
+In the Overview section of the pull request, look for the build status link. It will say something like “3 of 5 passed”. Click this link to see the build steps and status. Click on one of the build steps to be taken to the Probo.CI dashboard.</p>
+
+<p><strong>Step 14: See your Probo.CI build.</strong><br />
+In your Probo.CI dashboard, click on ‘View site’ and your site will open in a new tab. This probo.build link uses the database defined in your <code class="highlighter-rouge">.probo.yaml</code> file and the code from your pull request.</p>
+
+<p><strong>Step 15: Share your Probo.build link with clients, managers, even your parents.</strong>
+Note: It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.</p>
+
+<p><img src="bitbucketpullrequest.gif" alt="Probo.CI Bitbucket build Gif" /></p>
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

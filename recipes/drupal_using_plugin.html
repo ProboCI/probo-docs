@@ -1,0 +1,12 @@
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">mydb.sql.gz</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">subDirectory</span><span class="pi">:</span> <span class="s">docroot</span>
+    <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
+

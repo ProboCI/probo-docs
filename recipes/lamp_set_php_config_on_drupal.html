@@ -1,0 +1,17 @@
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">phpIniOptions</span><span class="pi">:</span>
+  <span class="s">upload_max_filesize</span><span class="pi">:</span> <span class="s">25M</span>
+  <span class="s">post_max_size</span><span class="pi">:</span> <span class="s">25M</span>
+  <span class="s">memory_limit</span><span class="pi">:</span> <span class="s">256M</span>
+<span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">mydb.sql.gz</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Generate login link</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">drush</span><span class="nv"> </span><span class="s">uli'</span></code></pre></figure>
+

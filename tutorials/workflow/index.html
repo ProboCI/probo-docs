@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Feature Branch Workflow Process | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/tutorials/workflow/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/tutorials">tutorials</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">Feature Branch Workflow Process</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" class="current">Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <p>Probo.CI leverages pull requests to instigate the creation of sandbox sites. Pull requests are not dependent on one particular workflow, but consider adopting a <strong>Feature Branch Workflow</strong> to get the most out of this tool. In this workflow features are developed in small iterative chunks in individual branches and are merged frequently, engaging in continuous integration.</p>
+
+<p>You’ll be opening pull requests in <a href="/git/github/">Github</a> or <a href="/git/bitbucket/">Bitbucket</a> when a feature branch is ready for review, prompting Probo to run a build. You can still push changes to your branch after you’ve opened a pull request; Probo will simply spin up another build when you do. Once all stakeholders are satisfied with the feature and all checks pass, your pull request should be accepted, merging the branch into master.</p>
+
+<p>Changing the way your team works can be an intimidating prospect, but the lasting benefits of this workflow outweigh any initial difficulties that may arise. After you make the switch, you can expect perpetually clean master code, rapid project development/deployment and improved group collaboration, not to mention the valuable functionality of Probo.CI. If you are ready to take the plunge, keep reading to learn more about the feature branch workflow.</p>
+
+<h2 id="before-you-begin">Before You Begin</h2>
+
+<p>New to using git or still a little rough with its concepts? You should start by beefing up your git fu. There are great resources available to hone your skills:</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.codecademy.com/learn/learn-git">Codecademy</a> helps you learn git interactively and teaches you everything you need to get started.</p>
+  </li>
+  <li>
+    <p>You can access the entire <a href="https://git-scm.com/book/en/v2">Pro Git e-book</a> online for free to get more in-depth training. This site also has video tutorials and a reference guide to quickly look up specific commands.</p>
+  </li>
+</ul>
+
+<p>For the purposes of this guide, it is assumed that you have <a href="/getting-started/">created your Probo account</a> and added your <a href="/build-steps/">configured <code class="highlighter-rouge">.probo.yaml</code> file</a> to the base of your repository.</p>
+
+<h2 id="step-1-get-the-codebase">Step 1: Get the codebase</h2>
+
+<p>You will need a copy of the code on your local machine to begin working on your feature branch. If you are an authorized contributor to the repository, you will need to clone the code by running <code class="highlighter-rouge">git clone &lt;location-of-remote-repository&gt;</code>. Make sure that you are on the master branch (which doesn’t necessarily need to be named master) after cloning is complete. To verify your base commit is up to date and you are working with the latest code, run <code class="highlighter-rouge">git pull</code>. This will incorporate any commits that were merged to the repository after you cloned to your local.</p>
+
+<h2 id="step-2-make-a-feature-branch">Step 2: Make a feature branch</h2>
+
+<p>Working on an isolated feature branch ensures that your code will not accidentally get merged into the master branch and can be reviewed independently of other developers’ work. To create a new branch, run <code class="highlighter-rouge">git checkout -b &lt;name-of-branch&gt;</code>. The name of the branch should be short but descriptive of the feature and should contain no spaces (dashes and underscores are OK).</p>
+
+<h2 id="step-3-commit-your-changes-and-push">Step 3: Commit your changes and push</h2>
+
+<p>At this point you have worked on the feature, and you are ready to commit your code changes for review. Run <code class="highlighter-rouge">git status</code> to see the file paths that have differences between your local branch and the master branch. Run <code class="highlighter-rouge">git add -p</code> to review the changes one by one as a final check. This command will also stage the file.</p>
+
+<p>Once all the necessary files are checked and staged, you can create the commit with <code class="highlighter-rouge">git commit -m ‘&lt;Add commit message here&gt;’</code>. Make concise, frequent commits to make the code easier to review. Repeat these steps as needed for each commit in your branch.</p>
+
+<p>Lastly you need to push the changes to the remote repository. The first time you push commits to your new branch, git will prompt you to run something like <code class="highlighter-rouge">git push --set-upstream origin &lt;name-of-branch&gt;</code>. You will be able to simply run <code class="highlighter-rouge">git push</code> for each subsequent push.</p>
+
+<h2 id="step-4-make-a-pull-request">Step 4: Make a pull request</h2>
+
+<p>Your commits have been pushed to the repository, but you need to switch to your git version management system’s GUI in order to create a pull request. Pull requests are not a native git feature, so you can’t generate one in the command line. Refer to the application for specific steps on creating a pull request.</p>
+
+<p>You can view the progress of your Probo build as it is being created within your pull request. Remember that each time you make a commit to your feature branch, a new Probo build will be generated, so you don’t need to create a brand new pull request each time you make a change.</p>
+
+<h2 id="troubleshooting-rebasing-your-branch">Troubleshooting: Rebasing your branch</h2>
+
+<p>One of the main purposes of git is to make sure your project history remains intact. However, there are instances when it needs to be amended. Some examples include:</p>
+
+<ul>
+  <li>Your branch is changing a section of code that has already been changed and merged into master, creating a code conflict.</li>
+  <li>An integral change (a bug fix, for example) impacting your feature branch was merged into master after you pulled in the latest code.</li>
+  <li>You forgot to <code class="highlighter-rouge">git pull</code> before creating your branch, so the base commit of your branch was not the most recent when you started working on your feature.</li>
+</ul>
+
+<p>The solution to these issues is <strong>rebasing</strong>, which redefines the base commit of your feature branch to match the latest commit in master. Follow these steps to rebase your branch:</p>
+
+<ul>
+  <li>Checkout your master branch locally by running <code class="highlighter-rouge">git checkout master</code>.</li>
+  <li>Run <code class="highlighter-rouge">git pull</code> to make sure you have the latest commit on your local master branch.</li>
+  <li>Checkout your feature branch and run <code class="highlighter-rouge">git rebase master</code>. This will rewrite your branch’s history by comparing each of your branch’s commits, one by one, to the latest commit on master.
+    <ul>
+      <li>If the rebase finds a conflict between one of your branch’s commits and master, you will need to manually edit the file to resolve it.</li>
+      <li>Run <code class="highlighter-rouge">git rebase --continue</code> once you’ve resolved the conflict to continue the rebase process. If you run into another conflict, repeat these two steps.</li>
+    </ul>
+  </li>
+  <li>When the rebase is complete, run <code class="highlighter-rouge">git push --force</code> to confirm to git that you are sure you want to make this change.</li>
+</ul>
+
+<p>Keep in mind that rebasing could affect your branch’s timeline, so this action should not be taken lightly. Make sure your branch and the master branch are both up to date before you rebase and push to the repository so you don’t risk losing commits.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

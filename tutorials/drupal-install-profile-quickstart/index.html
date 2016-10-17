@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Drupal Install Profile QuickStart | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/tutorials/drupal-install-profile-quickstart/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/tutorials">tutorials</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">Drupal Install Profile QuickStart</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" class="current">Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" >Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <h2 id="setup-probo-for-a-drupal-site-with-an-install-profile">Setup Probo for a Drupal site with an Install Profile.</h2>
+<p>Want to use a Drupal Install profile with your probo builds? With this setup you do not need to import a database because the drush site-install command will drop your database tables on build.</p>
+
+<p>Below is a step by step example of a Drupal site install using Zivtech’s <a href="https://www.drupal.org/project/bear">Bear installation profile</a>. This walkthrough does not use all the available parameters provided by the Drupal plugin, you can see more available parameters in the <a href="/plugins/drupal-plugin/" title="Drupal plugin Documentation">Drupal plugin documentation</a>.</p>
+
+<p>You can find this beta tester example repository <a href="https://github.com/Probo-Demos/install-profile-demo">here</a>.</p>
+
+<p>Build Specs:</p>
+
+<ul>
+  <li>Standard Drupal site</li>
+  <li>Your repository is stored on GitHub (Although this uses Github the same principles apply if you are using Bitbucket.)</li>
+  <li>You have a really awesome <a href="https://www.drupal.org/node/306267">Drupal install profile.</a></li>
+</ul>
+
+<blockquote>
+  <p>Bonus: Want a Drupal Install Profile? Check out Zivtech’s <a href="https://www.drupal.org/project/bear">Bear Installation Profile</a>. Also, take a look at the <a href="http://bear.zivtech.com/features">features</a> of its bear_skin theme.</p>
+</blockquote>
+
+<hr />
+
+<div class="dropdown drop-click">
+  <h2 id="sign-in-and-sync-up">Sign in and Sync up.</h2>
+  <div class="drop-inner">
+    <p><strong>Step 1: Sign into the <a href="https://app.probo.ci/" target="_blank">Probo app</a> and authenticate GitHub.</strong></p>
+
+    <p>Go to the <a href="https://app.probo.ci/" target="_blank">Probo app</a> and click on the <strong>Login to GitHub</strong> button. Once you get to GitHub, click ‘Authenticate application’.</p>
+
+    <p><strong>Step 2: Sync your Github Repos.</strong></p>
+
+    <p>Your Github repositiories will be synced automatically. You can always click the ‘Sync Repos’ button at the top right corner if you need to manually update your dashboard.  Click on the button next to each repo that you want to use with Probo CI.
+<img src="/assets/authenticate.gif" alt="Authenticate Gif" class="docs-gif" /></p>
+
+  </div>
+</div>
+
+<div class="dropdown drop-click open">
+  <h2 id="define-your-install-profile-configuration">Define your Install Profile configuration.</h2>
+  <div class="drop-inner">
+    <p>The real magic of Probo CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
+
+    <p><strong>Step 7: Create a new branch.</strong></p>
+
+    <p>cd into your project and create a new branch.</p>
+
+    <figure class="highlight">
+      <pre><code class="language-bash" data-lang="bash">git checkout -b probo-build</code></pre>
+    </figure>
+
+    <p><strong>Step 8: Create your .probo.yaml file.</strong></p>
+
+    <p>You will need a <code class="highlighter-rouge">.probo.yaml</code> file in the root of your directory. You can task Probo CI to run any number of build steps. Each step is a runnable plugin, and will get a status update sent to hosted repository for the commit. * Remember that indentation and spacing is important for yaml files.</p>
+
+    <figure class="highlight">
+      <pre><code class="language-bash" data-lang="bash">vim .probo.yaml</code></pre>
+    </figure>
+
+    <p><strong>Step 10: Declare your assets and build your steps.</strong></p>
+
+    <p>You can use the Drupal plugin to build your steps. If you would like to use the <a href="/drupal/install-profile/">default shell plugin see the install profile documentation</a>.</p>
+
+    <figure class="highlight">
+      <pre><code class="language-bash" data-lang="bash">steps:
+  - name: Probo site setup
+    plugin: Drupal
+    makeFile: build-bear.make
+    installArgs: <span class="s2">"--site-name='Install Profile Drupal Plugin Demo'"</span>
+    clearCaches: <span class="nb">true
+    </span>profileName: bear
+    runInstall: <span class="nb">true
+    </span>revertFeatures: <span class="nb">true</span></code></pre>
+    </figure>
+
+    <p><strong>Step 11: In your new branch probo-build, add and commit your files to your remote origin.</strong></p>
+
+    <figure class="highlight">
+      <pre><code class="language-yaml" data-lang="yaml"><span class="s">git add .probo.yaml</span>  
+ <span class="s">git commit -m"Adding .probo.yaml."</span>  
+ <span class="s">git push -u origin probo-build</span>   </code></pre>
+    </figure>
+
+    <p><img src="/images/git-create-branch.gif" alt="Add your Probo.CI Configuration" class="docs-gif" /></p>
+  </div>
+</div>
+
+<div class="dropdown drop-click">
+  <h2 id="view-your-build">View your build.</h2>
+  <div class="drop-inner">
+    <p><strong>Step 12: Go to your GitHub account. You will see your new branch inside your project.</strong>
+<a href="https://github.com/Probo-Demos/install-profile-demo/branches" target="_blank">https://github.com/Probo-Demos/install-profile-demo/branches</a></p>
+
+    <p><strong>Step 13: Create a pull request.</strong></p>
+
+    <p>Click ‘New Pull Request’.</p>
+
+    <p><strong>Step 14: Bask in the glory of Probo.CI.</strong></p>
+
+    <p>In GitHub you will see the Probo.CI build steps. You can now click on any of the <strong>details</strong> links and it will direct you back to the Probo.CI dashboard.</p>
+
+    <p><strong>Step 15: See your Probo.CI build.</strong></p>
+
+    <p>In your Probo.CI dashboard, click on ‘View build’ and your site will open in a new tab. This Probo.build link uses the database defined in your <code class="highlighter-rouge">.probo.yaml</code> file and the code from your pull request.</p>
+
+    <p><strong>Step 16: Share your Probo.build link with clients, managers, even your parents.</strong></p>
+
+    <p>Note: It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.</p>
+
+    <p>In this repo there are two pull requests:</p>
+
+    <ul>
+      <li><a href="https://github.com/Probo-Demos/install-profile-demo/pull/2">pull request to demo this with the drupal plugin</a></li>
+      <li><a href="https://github.com/Probo-Demos/install-profile-demo/pull/1">pull request to demo this with shell plugin</a></li>
+    </ul>
+
+    <p><img src="/images/probo-build.gif" alt="Probo.CI build Gif" class="docs-gif" /></p>
+  </div>
+</div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,30 @@
+<p>Here is an example using a multi-line YAML string.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">dev.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">List Pull Request files</span>
+    <span class="s">script</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="no">gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo`</span>
+      <span class="no">rm $ASSET_DIR/dev.sql.gz</span>
+      <span class="no">cd $SRC_DIR</span>
+      <span class="no">files=$(ls)</span>
+      <span class="no">echo "Listing all files included in this Pull Request..."</span>
+      <span class="no">echo files $files</span></code></pre></figure>
+
+<p>Here is an example using traditional YAML syntax.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">dev.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">List Pull Request files</span>
+    <span class="s">script</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo`</span>
+      <span class="pi">-</span> <span class="s">rm $ASSET_DIR/dev.sql.gz</span>
+      <span class="pi">-</span> <span class="s">cd $SRC_DIR</span>
+      <span class="pi">-</span> <span class="s">files=$(ls)</span>
+      <span class="pi">-</span> <span class="s">echo "Listing all files included in this Pull Request..."</span>
+      <span class="pi">-</span> <span class="s">echo files $files</span></code></pre></figure>
+

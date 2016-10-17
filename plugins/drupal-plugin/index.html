@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Drupal Plugin | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/plugins/drupal-plugin/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/plugins">plugins</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">Drupal Plugin</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" class="current">Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" >Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <p>The Drupal plugin provides an easy way for you to configure your Drupal build and to save you some shell scripting. To use the Drupal plugin you must declare <code class="highlighter-rouge">plugin: Drupal</code> in your <code class="highlighter-rouge">.probo.yaml</code> file. The plugin’s parameters can automate your Drupal build by reverting features, running database updates, clearing caches, or performing other build configuration steps.</p>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Directory Configuration</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">makeFile</code></td>
+      <td>The name of the <a href="http://www.drush.org/en/master/make/">Drush make file</a> to run to generate                             the install directory. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">profileName</code></td>
+      <td>The profile name used in creating a symlink to this directory if a Drush make file is                                  specified with the <code class="highlighter-rouge">makeFile</code> option and used to select the profile to install if the <code class="highlighter-rouge">runInstall</code>                             option is selected. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">runInstall</code></td>
+      <td>If set, run <code class="highlighter-rouge">drush site-install</code> to perform a fresh install of the site using the                                      <code class="highlighter-rouge">profileName</code> as the install profile and allowing the <code class="highlighter-rouge">installArgs</code> option to configure the                                    install. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">installArgs</code></td>
+      <td>A set of parameters to concatenate onto the <code class="highlighter-rouge">drush site-install</code> command if the                                        <code class="highlighter-rouge">runInstall</code> option is set. Defaults to ‘’. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">siteFolder</code></td>
+      <td>Specifies the site folder to use for this build (the folder within the Drupal <code class="highlighter-rouge">sites</code>                                  folder). Defaults to <code class="highlighter-rouge">default</code>. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">subDirectory</code></td>
+      <td>The path to your docroot if it is a subdirectory of your git repository. Accepts a <strong>string</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Database Configuration</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">database</code></td>
+      <td>The name of the database to import if specified. Note that this database <em>must be added as                             an asset separately</em>. Accepts a <strong>string</strong> value. If you use this parameter, don’t add the database with the shell plugin. Do not use the zip format for your compressed database. Use the gzip format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseGzipped</code></td>
+      <td>Whether the database was sent gzipped and whether it should therefore be gunzipped before                               importing. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseBzipped</code></td>
+      <td>Whether the database was sent bzipped and whether it should therefore be bunzipped before                               importing. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Settings Options</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">settingsRequireFile</code></td>
+      <td>A file to require at the end of settings.php. This option helps you to avoid checking settings.php into your repository. Accepts a <strong>string</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">settingsAppend</code></td>
+      <td>Specify a snippet, such as a variable, to append to the end of the settings.php file. Accepts a <strong>string</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Additional Options</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">drupalVersion</code></td>
+      <td>Specifies which version of Drupal you are using so that the appropriate commands can be run. For example, if you specify “8” the <code class="highlighter-rouge">clearCaches</code> option will run <code class="highlighter-rouge">drush cache-rebuild</code>. Defaults to 7. Accepts the <strong>integer</strong> values 6, 7, or 8.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">databaseUpdates</code></td>
+      <td>Determines whether to run <code class="highlighter-rouge">drush updb</code> after the build is finished. Accepts a                                  <strong>boolean</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">clearCaches</code></td>
+      <td>Whether to clear all caches using <code class="highlighter-rouge">drush cc all</code> after the build is finished. Your Drupal site must be version 7 or older to use this option. Defaults to                                           true. Accepts a <strong>boolean</strong> value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">revertFeatures</code></td>
+      <td>Whether to revert features using <code class="highlighter-rouge">drush fra</code> after the build is finished. To use this option, your site must have the <a href="https://www.drupal.org/project/features">Features module</a> installed. Accepts a                             <strong>boolean</strong> value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+
+<p><strong>Using the <code class="highlighter-rouge">Drupal</code> plugin</strong></p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo site setup</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">database</span><span class="pi">:</span> <span class="s">mydb.sql.gz</span>
+    <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">subDirectory</span><span class="pi">:</span> <span class="s">docroot</span>
+    <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
+
+<p><strong>Using the Settings Options</strong></p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Provision Drupal</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">runInstall</span><span class="pi">:</span> <span class="s">standard</span>
+    <span class="s">settingsRequireFile</span><span class="pi">:</span> <span class="s1">'</span><span class="s">site-settings.php'</span>
+    <span class="s">settingsAppend</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="no">$bar = 'baz';</span>
+      <span class="no">$foo = 'stuff';</span></code></pre></figure>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

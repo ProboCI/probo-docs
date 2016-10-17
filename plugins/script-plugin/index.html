@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="mxk7-mw5Q4wVVctQb0ckocY0eVXeDnwWsQbLwjiwBJs" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Script Plugin | Demonstrate. Test. Approve.</title>
+  <meta name="description" content="Probo.CI documentation.">
+
+  <link rel="stylesheet" href="/css/probo_docs.css">
+  
+  <link rel="canonical" href="http://docs.probo.ci/plugins/script-plugin/">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
+
+</head>
+
+
+  <body class="sidebar-page site">
+    <div class="site-content">
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a id="simple-menu" href="#sidr">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+            </svg>
+    </a>
+
+    <div id="sidr" style="display:none">
+      <ul>
+        
+        
+        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+
+      </ul>
+    </div>
+
+    <h1 class="st"><a class="site-title" href="/">
+      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
+
+    <ul id="navigation">
+      
+
+      <li class="login">
+        <a href="https://app.probo.ci/" target="_blank">Login</a>
+      </li>
+    </ul>
+
+  </div>
+
+</header>
+
+
+      <div class="wrapper">
+
+        <header class="page-header">
+          
+
+
+<ul class="breadcrumb">
+  
+  <li><a href="/">home</a> &#187; </li>
+
+  
+  
+  
+
+  <li><a href="/plugins">plugins</a> &#187; </li>
+  
+  
+  
+</ul>
+
+          <h1 class="page-title">Script Plugin</h1>
+        </header>
+
+        <div id="sidebar-first">
+          <ul class="sidebar-nav">
+    <li><a href="/getting-started/" >Getting Started</a></li>
+    <li><a href="/build/" >Build Configuration</a></li>
+    <li><a href="/recipes" >Recipes</a></li>
+    <li><a href="/assets/" >Assets</a></li>
+    <li><a href="/app/" >Using the Probo App</a></li>
+    <li><a href="/build-steps/" >Build Steps</a></li>
+    <li><a href="/reaper/" >Reaper</a></li>
+    <li><a href="#" class=drop-top>Plugins</a>
+        <ul class="drop">
+            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
+            <li><a href="/plugins/script-plugin/" class="current">Script Plugin</a></li>
+            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
+            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
+            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Git Integrations</a>
+        <ul class="drop">
+            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
+            <li><a href="/git/github/" >GitHub Integration</a></li>
+            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Drupal</a>
+        <ul class="drop">
+            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
+            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
+            <li><a href="/drupal/solr/" >Apache Solr</a></li>
+            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class=drop-top>Tutorials</a>
+        <ul class="drop">
+            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
+            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
+            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
+            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
+            <li><a href="/tutorials/workflow/" >Feature Branch Workflow Process</a></li>
+        </ul>
+    </li>
+</ul>
+
+        </div>
+
+        <div class="page-content">
+          <p>The Probo.CI Script plugin is very similar to the <a href="/plugins/shell-plugin/">Shell plugin</a> but is designed to run multiple lines of commands.</p>
+
+<p>Instead of <code class="highlighter-rouge">command</code>, the Script plugin requires a parameter for <code class="highlighter-rouge">script</code>. This allows you to define a set of Shell commands to run during the site build. You can list as many commands as you like within the steps in your .probo.yaml file. Remember to include a <code class="highlighter-rouge">name</code> for each <code class="highlighter-rouge">script</code>.</p>
+
+<p>Like the Shell plugin, the Script plugin also provides several variables to use within your <code class="highlighter-rouge">.probo.yaml</code> file.</p>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Available Variables</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">$SRC_DIR</code></td>
+      <td>The filepath which contains the code from your pull request.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">$ASSET_DIR</code></td>
+      <td>The filepath which contains any assets you uploaded to your Probo project.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">$BUILD_ID</code></td>
+      <td>The ID for the build.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="using-the-script-plugin">Using the Script plugin</h3>
+
+<p>Add your script as a multi-line YAML string.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">List Pull Request files</span>
+    <span class="s">script</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="no">cd $SRC_DIR</span>
+      <span class="no">files=$(ls)</span>
+      <span class="no">echo "Listing all files included in this Pull Request..."</span>
+      <span class="no">echo files $files</span></code></pre></figure>
+
+<p>You can also add your script in the traditional YAML syntax. Each new line in your script is a new item in the sequence.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">List Pull Request files</span>
+    <span class="s">script</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">cd $SRC_DIR</span>
+      <span class="pi">-</span> <span class="s">files=$(ls)</span>
+      <span class="pi">-</span> <span class="s">echo "Listing all files included in this Pull Request..."</span>
+      <span class="pi">-</span> <span class="s">echo files $files</span></code></pre></figure>
+
+<h3 id="developing-on-a-site-with-a-database">Developing on a site with a database:</h3>
+
+<p>Here is an example using a multi-line YAML string.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">dev.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">List Pull Request files</span>
+    <span class="s">script</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="no">gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo`</span>
+      <span class="no">rm $ASSET_DIR/dev.sql.gz</span>
+      <span class="no">cd $SRC_DIR</span>
+      <span class="no">files=$(ls)</span>
+      <span class="no">echo "Listing all files included in this Pull Request..."</span>
+      <span class="no">echo files $files</span></code></pre></figure>
+
+<p>Here is an example using traditional YAML syntax.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">dev.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">List Pull Request files</span>
+    <span class="s">script</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo`</span>
+      <span class="pi">-</span> <span class="s">rm $ASSET_DIR/dev.sql.gz</span>
+      <span class="pi">-</span> <span class="s">cd $SRC_DIR</span>
+      <span class="pi">-</span> <span class="s">files=$(ls)</span>
+      <span class="pi">-</span> <span class="s">echo "Listing all files included in this Pull Request..."</span>
+      <span class="pi">-</span> <span class="s">echo files $files</span></code></pre></figure>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="site-footer">
+    <div class="footer-learn-more">
+        <div class="wrapper">
+            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div class="right">
+                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <div class="footer-left">
+            <div class="copyright">&copy; 2016 Probo.CI</div>
+        </div>
+
+
+        <ul class="footer-navigation right">
+            
+            <li><a href="/changelog/">Changelog</a></li>
+            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<div class="overlay"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/javascripts/build/vendor.min.js"></script>
+<script src="/javascripts/build/probo.min.js"></script>
+
+
+  </body>
+
+</html>

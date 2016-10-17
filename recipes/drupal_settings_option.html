@@ -1,0 +1,12 @@
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
+<span class="s">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Provision Drupal</span>
+    <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
+    <span class="s">runInstall</span><span class="pi">:</span> <span class="s">standard</span>
+    <span class="s">settingsRequireFile</span><span class="pi">:</span> <span class="s1">'</span><span class="s">site-settings.php'</span>
+    <span class="s">settingsAppend</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="no">$bar = 'baz';</span>
+      <span class="no">$foo = 'stuff';</span></code></pre></figure>
+
