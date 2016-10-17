@@ -65,23 +65,39 @@
         a.current {
           background: #f7f2f5;
         }
-        ul {
-          li {
-            a {
-              padding-left: 24px;
-            }
-            a.current {
-              background: #efe6eb;
-            }
-            a:before {
-              content: "\00BB \0020";
-              margin-left:-24px;
-            }
+      }
+    }
+
+    .sidebar-nav{
+      position:relative;
+
+      .drop {
+        li {
+          background: $probo-pink-light;
+          &:hover {
+            background: $probo-pink-medium;
+          }
+        }
+
+        a {
+          @include rem(margin-left, 20px);
+          border: none;
+          background: transparent;
+          padding-left: 24px;
+
+          &.current {
+            background: $probo-pink-light;
+          }
+
+          &::before {
+            content: "\00BB \0020";
+            margin-left:-24px;
           }
         }
       }
     }
   }
+
   .page-content {
     padding-bottom: 24px;
     width: 100%;
@@ -93,11 +109,6 @@
       clear: none;
     }
   }
-}
-
-
-.sidebar-nav{
-  position:relative;
 }
 
 $ease: ease;
@@ -140,7 +151,4 @@ $duration: 400ms;
   &:after {
     transform: rotate( -90deg );
   }
-}
-.wrapper #sidebar-first .open .drop-top{
-  background: #efe6eb;
 }

@@ -7184,18 +7184,37 @@ textarea:focus {
   background: #f7f2f5;
 }
 
-.wrapper #sidebar-last ul li ul li a,
-.wrapper #sidebar-first ul li ul li a {
-  padding-left: 24px;
+.wrapper #sidebar-last .sidebar-nav,
+.wrapper #sidebar-first .sidebar-nav {
+  position: relative;
 }
 
-.wrapper #sidebar-last ul li ul li a.current,
-.wrapper #sidebar-first ul li ul li a.current {
+.wrapper #sidebar-last .sidebar-nav .drop li,
+.wrapper #sidebar-first .sidebar-nav .drop li {
   background: #efe6eb;
 }
 
-.wrapper #sidebar-last ul li ul li a:before,
-.wrapper #sidebar-first ul li ul li a:before {
+.wrapper #sidebar-last .sidebar-nav .drop li:hover,
+.wrapper #sidebar-first .sidebar-nav .drop li:hover {
+  background: #e5d6df;
+}
+
+.wrapper #sidebar-last .sidebar-nav .drop a,
+.wrapper #sidebar-first .sidebar-nav .drop a {
+  margin-left: 20px;
+  margin-left: 2rem;
+  border: none;
+  background: transparent;
+  padding-left: 24px;
+}
+
+.wrapper #sidebar-last .sidebar-nav .drop a.current,
+.wrapper #sidebar-first .sidebar-nav .drop a.current {
+  background: #efe6eb;
+}
+
+.wrapper #sidebar-last .sidebar-nav .drop a::before,
+.wrapper #sidebar-first .sidebar-nav .drop a::before {
   content: "\00BB \0020";
   margin-left: -24px;
 }
@@ -7205,10 +7224,6 @@ textarea:focus {
   width: 100%;
   float: none;
   clear: both;
-}
-
-.sidebar-nav {
-  position: relative;
 }
 
 .plus-to-minus {
@@ -7252,10 +7267,6 @@ textarea:focus {
 .open .plus-to-minus:after {
   -ms-transform: rotate(-90deg);
       transform: rotate(-90deg);
-}
-
-.wrapper #sidebar-first .open .drop-top {
-  background: #efe6eb;
 }
 
 .slide-nav {
