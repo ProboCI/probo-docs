@@ -29,11 +29,12 @@
     });
   });
 
+  // use List.js on recipes page
+  if (List instanceof Function) {
+    var options = {
+        valueNames: [ 'name', 'recipe', 'highlight', 's', 'no' ]
+    };
+    var recipes = new List('recipes', options);
+  }
 
 })(window || {}, jQuery);
-
-// use List.js on recipes page
-var options = {
-    valueNames: [ 'name', 'recipe', 'highlight', 's', 'no' ]
-};
-var recipes = new List('recipes', options);

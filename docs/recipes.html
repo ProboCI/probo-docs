@@ -8,13 +8,13 @@ published: true
 
 {% assign recipes = site.recipes | sort: "name" %}
 
-<div id="recipes">
-  <input class="search" placeholder="Search for recipes" />
+<div id="recipes" class="recipes">
+  <input class="search recipes__search" placeholder="Search for recipes" />
   <br /><br />
-  <ul class="list">
+  <ul class="list recipes__list">
     {% for recipe in site.recipes %}
     <li>
-      <h3 class="name">{{recipe.title}}</h3>
+      <h3 class="name recipes__name">{{recipe.title}}</h3>
       {% if recipe.author %}
         <p>
             <em>
@@ -27,7 +27,7 @@ published: true
             </em>
         </p>
       {% endif %}
-       <p class="recipe">{{recipe.output}}</p>
+       <p class="recipe recipes__recipe">{{recipe.output}}</p>
     </li>
     {%endfor%}
   </ul>

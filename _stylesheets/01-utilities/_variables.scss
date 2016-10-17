@@ -44,7 +44,6 @@ $base-spacing: 10px;
 $site-width: 1200px;
 $inner-width: 975px;
 $inner-width-padding: ($site-width - $inner-width) / 2;
-$base-spacing: 10px;
 
 // breakpoints
 $bp-small-landscape: 480px / 16px * 1em;
@@ -57,5 +56,3 @@ $bp-larger: 1500px / 16px * 1em;
 $header-height: 70px;
 $header-line-height: 35px;
 $logo-line-height: 35px;
-
-

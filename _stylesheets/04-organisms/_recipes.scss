@@ -1,27 +1,27 @@
-#recipes {
+.recipes {
 
-  .list {
+  &__list {
     padding: 0;
-
-    h3 {
-      color: $probo-pale;
-      padding: 5px;
-      background: $probo-blue-dark;
-    }
 
     li {
       list-style: none;
       border: 2px solid $probo-pale;
-      margin-bottom: 10px;
+      margin-bottom: $base-spacing;
 
       p {
-        padding: 0 5px;
+        padding: 0 $base-spacing/2;
       }
     }
   }
 
-  .search {
+  &__name {
+    color: $probo-pale;
+    padding: $base-spacing/2;
+    background: $probo-blue-dark;
+  }
+
+  &__search {
     width: 100%;
-    height: 50px;
+    padding: 20px 15px;
   }
 }
