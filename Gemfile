@@ -5,7 +5,7 @@ gem "jekyll", "3.3.0"
 
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
-   gem 'bundler', '1.13.3'
+   gem 'bundler', '1.7.9'
    gem 'rack-jekyll', '0.5.0'
    gem 'rake-jekyll', '1.1.0'
    gem 'kramdown', '1.12.0'
