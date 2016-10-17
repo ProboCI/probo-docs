@@ -122,30 +122,15 @@
         <div class="page-content">
           
 
-<p>
-  <strong>Categories: </strong>
-  <br />|
-  
-    <a href="#Drupal">Drupal</a> |
-  
-    <a href="#LAMP">LAMP</a> |
-  
-    <a href="#Pantheon">Pantheon</a> |
-  
-    <a href="#Script">Script</a> |
-  
-    <a href="#Shell">Shell</a> |
-  
-</p>
-
-<br /><br />
-
-
-    <h2><a name="Drupal">Drupal</a></h2>
+<div id="recipes" class="recipes">
+  <input class="search recipes__search" placeholder="Search for recipes" />
+  <br /><br />
+  <ul class="list recipes__list">
     
-      <h3>Using the Settings Options</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Using the Settings Options</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
 <span class="s">steps</span><span class="pi">:</span>
@@ -157,12 +142,13 @@
       <span class="no">$bar = 'baz';</span>
       <span class="no">$foo = 'stuff';</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-      <h3>Using the Drupal plugin</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Using the Drupal plugin</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
 <span class="s">steps</span><span class="pi">:</span>
@@ -174,15 +160,13 @@
     <span class="s">subDirectory</span><span class="pi">:</span> <span class="s">docroot</span>
     <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-
-    <h2><a name="LAMP">LAMP</a></h2>
-    
-      <h3>Setting LAMPApp PHP Configuration Options on a Drupal Installation</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Setting LAMPApp PHP Configuration Options on a Drupal Installation</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">phpIniOptions</span><span class="pi">:</span>
   <span class="s">upload_max_filesize</span><span class="pi">:</span> <span class="s">25M</span>
   <span class="s">post_max_size</span><span class="pi">:</span> <span class="s">25M</span>
@@ -199,12 +183,13 @@
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Generate login link</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">drush</span><span class="nv"> </span><span class="s">uli'</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-      <h3>Using the LAMPApp Plugin to Test a PHP/MySQL Based Application</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Using the LAMPApp Plugin to Test a PHP/MySQL Based Application</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">mydb.sql.gz</span>
 <span class="s">steps</span><span class="pi">:</span>
@@ -215,15 +200,13 @@
     <span class="s">databaseUser</span><span class="pi">:</span> <span class="s">mydbuser</span>
     <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-
-    <h2><a name="Pantheon">Pantheon</a></h2>
-    
-      <h3>Developing a site on Pantheon</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Developing a site on Pantheon</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="s">assets</span><span class="pi">:</span>
    <span class="pi">-</span> <span class="s">export.sh</span>
  <span class="s">steps</span><span class="pi">:</span>
@@ -240,15 +223,13 @@
      <span class="s">databaseUpdates</span><span class="pi">:</span> <span class="s">true</span>
      <span class="s">revertFeatures</span><span class="pi">:</span> <span class="s">true</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-
-    <h2><a name="Script">Script</a></h2>
-    
-      <h3>Developing on a site with a database</h3>
-        
-      <section><p>Here is an example using a multi-line YAML string.</p>
+    <li>
+      <h3 class="name recipes__name">Developing on a site with a database</h3>
+      
+       <p class="recipe recipes__recipe"><p>Here is an example using a multi-line YAML string.</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">dev.sql.gz</span>
@@ -278,12 +259,13 @@
       <span class="pi">-</span> <span class="s">echo "Listing all files included in this Pull Request..."</span>
       <span class="pi">-</span> <span class="s">echo files $files</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-      <h3>Using the Script plugin</h3>
-        
-      <section><p>Add your script as a multi-line YAML string.</p>
+    <li>
+      <h3 class="name recipes__name">Using the Script plugin</h3>
+      
+       <p class="recipe recipes__recipe"><p>Add your script as a multi-line YAML string.</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">steps</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">plugin</span><span class="pi">:</span> <span class="s">Script</span>
@@ -305,15 +287,13 @@
       <span class="pi">-</span> <span class="s">echo "Listing all files included in this Pull Request..."</span>
       <span class="pi">-</span> <span class="s">echo files $files</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-
-    <h2><a name="Shell">Shell</a></h2>
-    
-      <h3>Developing on a site with a database</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Developing on a site with a database</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">dev.sql.gz</span>
 <span class="s">steps</span><span class="pi">:</span>
@@ -325,12 +305,13 @@
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Run behat tests</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">cd</span><span class="nv"> </span><span class="s">/var/www/foo/code/tests</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">composer</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">;</span><span class="nv"> </span><span class="s">bin/behat'</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-      <h3>Using the Shell plugin</h3>
-        
-      <section>
+    <li>
+      <h3 class="name recipes__name">Using the Shell plugin</h3>
+      
+       <p class="recipe recipes__recipe">
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">steps</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Run behat tests</span>
     <span class="s">plugin</span><span class="pi">:</span> <span class="s">Shell</span>
@@ -338,10 +319,11 @@
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Another example test with default Shell plugin</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">echo</span><span class="nv"> </span><span class="s">"Hello</span><span class="nv"> </span><span class="s">World!"'</span></code></pre></figure>
 
-</section>
-      <br />
+</p>
+    </li>
     
-
+  </ul>
+</div>
 
         </div>
 
