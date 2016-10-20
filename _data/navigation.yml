@@ -1,0 +1,9 @@
+- title: About
+  url: http://probo.ci
+  text: About
+  secondary: about
+
+- title: Blog
+  url: http://blog.probo.ci/
+  text: Blog
+  secondary: blog
