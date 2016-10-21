@@ -30,7 +30,7 @@ var paths = {
   sass: ['_stylesheets/**/*.scss', '!_stylesheets/vendor/**/*.scss'],
   css: 'css',
   images: 'images/**/*.{gif,jpg,png}',
-  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js']
+  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**']
 };
 
 
