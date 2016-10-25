@@ -93,7 +93,7 @@ gulp.task('browserSync', function () {
   });
 });
 
-gulp.task('watch', ['jekyll', 'browserSync', 'inject'], function () {
+gulp.task('watch', ['jekyll', 'browserSync'], function () {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.jekyll, ['jekyll']);
   gulp.watch([paths.js.src, paths.js.vendor], ['js']);
@@ -126,28 +126,28 @@ gulp.task('js:combine', function () {
 
 // Generate fav and app icons
 gulp.task('favicons', function () {
-  return gulp.src("images/probo-sphere.png").pipe(favicons({
-      appName: "ProboCI Docs",
-      appDescription: "Probo.CI documentation.",
-      background: "#020307",
-      path: "/images/favicons/",
-      url: "http://docs.probo.ci/",
-      display: "standalone",
-      orientation: "portrait",
-      start_url: "/?homescreen=1",
+  return gulp.src('images/probo-sphere.png').pipe(favicons({
+      appName: 'ProboCI Docs',
+      appDescription: 'Probo.CI documentation.',
+      background: '#020307',
+      path: '/images/favicons/',
+      url: 'http://docs.probo.ci/',
+      display: 'standalone',
+      orientation: 'portrait',
+      start_url: '/?homescreen=1',
       version: 1.0,
       logging: false,
       online: false,
-      html: "icon.html",
+      html: 'icon.html',
       pipeHTML: true,
       replace: true
     }))
-    .on("error", gutil.log)
+    .on('error', gutil.log)
     .pipe(gulp.dest('images/favicons/'));
 });
 
 // Inject fav and app icons into head
-gulp.task('inject', ['favicons'], function () {
+gulp.task('inject', function () {
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {
       transform: function (filePath, file) {
