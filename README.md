@@ -1,10 +1,10 @@
 # Probo documentation
 
-The docs (will soon) live at https://docs.probo.ci.
+The docs live at https://docs.probo.ci.
 
 ## Contributing
 
-Want to contribute to the docs? Have a fancy `.probo.yaml` file you want to show off? See something outdated that we missed? It's as simple as opening a pull request with some changes.
+Want to add to the docs? Have a fancy `.probo.yaml` file you want to show off? See something outdated that we missed? Contributing is as simple as opening a pull request with some changes.
 
 ### Contribute documentation
 
