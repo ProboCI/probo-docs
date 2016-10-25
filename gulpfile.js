@@ -1,24 +1,26 @@
 'use strict'
 
 // core utilities
-var gulp            = require('gulp'),
-    shell           = require('gulp-shell'),
-    gutil           = require('gulp-util'),
-    notify          = require('gulp-notify'),
-    argv            = require('yargs').argv,
-    gulpif          = require('gulp-if'),
-    browserSync     = require('browser-sync').create(),
-    uglify          = require('gulp-uglify'),
-    rename          = require('gulp-rename'),
-    concat          = require('gulp-concat');
+var gulp = require('gulp'),
+  shell = require('gulp-shell'),
+  gutil = require('gulp-util'),
+  notify = require('gulp-notify'),
+  argv = require('yargs').argv,
+  gulpif = require('gulp-if'),
+  browserSync = require('browser-sync').create(),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+  concat = require('gulp-concat'),
+  favicons = require('gulp-favicons'),
+  inject = require('gulp-inject');
 
 // css utilities
-var sass            = require('gulp-sass'),
-    cssGlobbing     = require('gulp-sass-globbing'),
-    postcss         = require('gulp-postcss'),
-    autoprefixer    = require('autoprefixer'),
-    mqpacker        = require('css-mqpacker'),
-    sourcemaps      = require('gulp-sourcemaps');
+var sass = require('gulp-sass'),
+  cssGlobbing = require('gulp-sass-globbing'),
+  postcss = require('gulp-postcss'),
+  autoprefixer = require('autoprefixer'),
+  mqpacker = require('css-mqpacker'),
+  sourcemaps = require('gulp-sourcemaps');
 
 // paths
 var paths = {
@@ -30,7 +32,8 @@ var paths = {
   sass: ['_stylesheets/**/*.scss', '!_stylesheets/vendor/**/*.scss'],
   css: 'css',
   images: 'images/**/*.{gif,jpg,png}',
-  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**']
+  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
+  favicons: ['images/favicons/icon.html']
 };
 
 
@@ -76,7 +79,7 @@ var handleError = function (task) {
   };
 };
 
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
   browserSync.init({
     open: true,
     injectChanges: true,
@@ -90,7 +93,7 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('watch', ['jekyll', 'browserSync'], function() {
+gulp.task('watch', ['jekyll', 'browserSync'], function () {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.jekyll, ['jekyll']);
   gulp.watch([paths.js.src, paths.js.vendor], ['js']);
@@ -100,23 +103,56 @@ gulp.task('jekyll', shell.task([
   'jekyll build'
 ]));
 
-gulp.task('js', ['js:combine'], function() {
+gulp.task('js', ['js:combine'], function () {
   return gulp.src(paths.js.src)
-  .pipe(uglify({
-    mangle: false,
-    preserveComments: false,
-    output: {
-      beautify: true
-    }
-  }))
-  .pipe(rename({
-    suffix: '.min'
-  }))
-  .pipe(gulp.dest(paths.js.build));
+    .pipe(uglify({
+      mangle: false,
+      preserveComments: false,
+      output: {
+        beautify: true
+      }
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(paths.js.build));
 });
 
-gulp.task('js:combine', function() {
+gulp.task('js:combine', function () {
   return gulp.src(paths.js.vendor)
-  .pipe(concat('vendor.js'))
-  .pipe(gulp.dest('javascripts/src/'));
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('javascripts/src/'));
+});
+
+// Generate fav and app icons
+gulp.task('favicons', function () {
+  return gulp.src('images/probo-sphere.png').pipe(favicons({
+      appName: 'ProboCI Docs',
+      appDescription: 'Probo.CI documentation.',
+      background: '#020307',
+      path: '/images/favicons/',
+      url: 'http://docs.probo.ci/',
+      display: 'standalone',
+      orientation: 'portrait',
+      start_url: '/?homescreen=1',
+      version: 1.0,
+      logging: false,
+      online: false,
+      html: 'icon.html',
+      pipeHTML: true,
+      replace: true
+    }))
+    .on('error', gutil.log)
+    .pipe(gulp.dest('images/favicons/'));
+});
+
+// Inject fav and app icons into head
+gulp.task('inject', function () {
+  return gulp.src('./_includes/head.html')
+    .pipe(inject(gulp.src(paths.favicons), {
+      transform: function (filePath, file) {
+        return file.contents.toString();
+      }
+    }))
+    .pipe(gulp.dest('./_includes/'));
 });
