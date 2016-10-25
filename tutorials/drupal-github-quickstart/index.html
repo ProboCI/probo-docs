@@ -209,7 +209,7 @@
 <p><strong>Step 2: Sync your Github Repos.</strong></p>
 
 <p>Your Github repositiories will be synced automatically. You can always click the ‘Sync Repos’ button at the top right corner if you need to manually update your dashboard.  Click on the button next to each repo that you want to use with Probo CI.
-<img src="/assets/authenticate.gif" alt="Authenticate Gif" class="docs-gif" /></p>
+<img src="/images/authenticate.gif" alt="Authenticate Gif" class="docs-gif" /></p>
 
 <h2 id="prepare-your-database">Prepare your Database.</h2>
 <p>You will need to import your project’s database with the <a href="https://github.com/ProboCI/probo-uploader">Probo Uploader</a>, a CLI tool. You will first import your database, then you will declare the database file in a <code class="highlighter-rouge">.probo.yaml</code> file. We will use the <a href="/docs/drupal-plugin/" title="Drupal plugin" target="_blank">Drupal plugin</a> to revert features, run database updates, and clear caches. (Cache all the things!)</p>
@@ -242,7 +242,7 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">probo-uploader --token<span class="o">=[</span>your-token] dev.sql.gz</code></pre></figure>
 
-<p><img src="/assets/database-probo.gif" alt="Upload your Database Gif" class="docs-gif" /></p>
+<p><img src="/images/database-probo.gif" alt="Upload your Database Gif" class="docs-gif" /></p>
 
 <h2 id="define-your-website-configuration-for-probo">Define your website configuration for Probo.</h2>
 <p>The real magic of Probo CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
@@ -280,7 +280,7 @@
  <span class="s">git commit -m"Adding .probo.yaml."</span>  
  <span class="s">git push -u origin probo-build</span>   </code></pre></figure>
 
-<p><img src="/assets/git-create-branch.gif" alt="Add your Probo CI Configuration" class="docs-gif" /></p>
+<p><img src="/images/git-create-branch.gif" alt="Add your Probo CI Configuration" class="docs-gif" /></p>
 
 <h2 id="view-your-build">View your build.</h2>
 <p><strong>Step 11: Go to your GitHub account. You will see your new branch inside your project.</strong>
