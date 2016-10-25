@@ -34,4 +34,4 @@ Each repository will have it's own token. You can find your project's token on t
 probo-uploader --token=[your-token] dev.sql.gz
 {% endhighlight %}
 
-<img src="/assets/database-probo.gif" alt="Upload your Database Gif" class="docs-gif">
+<img src="/images/database-probo.gif" alt="Upload your Database Gif" class="docs-gif">
