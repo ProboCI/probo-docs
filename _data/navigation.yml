@@ -1,9 +1,33 @@
-- title: About
-  url: http://probo.ci
-  text: About
+- title: Product
+  url: http://probo.ci/product/
+  text: Product
+  secondary: product
+
+- title: About Us
+  url: http://probo.ci/about/
+  text: About Us
   secondary: about
+
+- title: Pricing
+  url: http://probo.ci/pricing/
+  text: Pricing
+  secondary: pricing
 
 - title: Blog
   url: http://blog.probo.ci/
   text: Blog
   secondary: blog
+
+- title: FAQ
+  url: http://probo.ci/faq/
+  text: FAQ
+
+- title: Docs
+  url: /
+  text: Docs
+  secondary: docs
+
+- title: Contact
+  url: http://probo.ci/contact/
+  text: Contact
+  secondary: contact
