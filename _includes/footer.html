@@ -1,32 +1,28 @@
-<footer class="site-footer">
-    <div class="footer-learn-more">
-        <div class="wrapper">
-            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
-            <div class="right">
-                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
-                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+<footer class="footer">
+    <div class="footer__upper">
+        <div class="footer__upper-wrapper">
+            <p class="footer__upper-left">Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div>
+                <a href="https://www.facebook.com/proboci" class="footer__upper-link" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://github.com/ProboCI/probo" class="footer__upper-link" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
+                <a href="https://twitter.com/ProboCI" class="footer__upper-link" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
             </div>
         </div>
     </div>
-    <div>
 
-        <div class="footer-left">
-            <div class="copyright">&copy; 2016 Probo.CI</div>
+
+    <div class="footer__lower">
+        <div class="footer__lower-wrapper">
+            <div class="footer__copyright">&copy; 2016 Probo.CI</div>
+            <ul class="footer__navigation">
+                {% for link in site.data.navigation %}
+                <li class="footer__navigation-item"><a href="{{ link.url }}" class="footer__navigation-link">{{ link.title }}</a></li>
+                {% endfor %}
+                <li class="footer__navigation-item login"><a href="https://app.probo.ci/" target="_blank" class="footer__navigation-link">Login</a></li>
+            </ul>
         </div>
-
-
-        <ul class="footer-navigation right">
-            {% for link in site.data.navigation %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
-        </ul>
     </div>
-
 </footer>
-
-<div class="overlay"></div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
