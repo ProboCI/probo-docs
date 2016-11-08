@@ -3,7 +3,7 @@
   $(document).ready(function () {
     // use tinynav
     if ($.fn.tinyNav instanceof Function) {
-      $("#sidebar-first .sidebar-nav").tinyNav();
+      $("#sidebar-first .accordion-nav").tinyNav();
     }
 
     if ($.fn.sidr instanceof Function) {
@@ -16,7 +16,7 @@
       });
     }
 
-    $('.sidebar-nav').navgoco({
+    $('.accordion-nav').navgoco({
       caretHtml: '<i class="icon plus-to-minus"></i>',
       accordion: true,
       openClass: 'open',
