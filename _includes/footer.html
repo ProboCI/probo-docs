@@ -3,9 +3,9 @@
         <div class="footer__upper-wrapper">
             <p class="footer__upper-left">Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
             <div>
-                <a href="https://www.facebook.com/proboci" class="footer__upper-link" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="https://github.com/ProboCI/probo" class="footer__upper-link" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
-                <a href="https://twitter.com/ProboCI" class="footer__upper-link" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/proboci" class="footer__upper-link" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i><span class="u-accessible">Probo on Facebook</span></a>
+                <a href="https://github.com/ProboCI/probo" class="footer__upper-link" title="Probo on GitHub" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i><span class="u-accessible">Probo on GitHub</span></a>
+                <a href="https://twitter.com/ProboCI" class="footer__upper-link" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i><span class="u-accessible">Probo on Twitter</span></a>
             </div>
         </div>
     </div>
@@ -16,9 +16,9 @@
             <div class="footer__copyright">&copy; 2016 Probo.CI</div>
             <ul class="footer__navigation">
                 {% for link in site.data.navigation %}
-                <li class="footer__navigation-item"><a href="{{ link.url }}" class="footer__navigation-link">{{ link.title }}</a></li>
+                <li class="footer__navigation-item" aria-role="presentation"><a href="{{ link.url }}" class="footer__navigation-link">{{ link.title }}</a></li>
                 {% endfor %}
-                <li class="footer__navigation-item login"><a href="https://app.probo.ci/" target="_blank" class="footer__navigation-link">Login</a></li>
+                <li class="footer__navigation-item login" aria-role="presentation"><a href="https://app.probo.ci/" target="_blank" class="footer__navigation-link">Login</a></li>
             </ul>
         </div>
     </div>

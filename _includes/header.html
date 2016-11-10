@@ -2,7 +2,7 @@
 
     <div class="header__wrapper">
 
-        <a id="simple-menu" class="simple-menu" href="#sidr">
+        <a id="simple-menu" class="simple-menu" href="#sidr" aria-hidden="true" aria-role="presentation">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
                 <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3" />
                 <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3" />
@@ -10,7 +10,7 @@
             </svg>
         </a>
 
-        <div id="sidr" style="display:none">
+        <div id="sidr" style="display:none" aria-hidden="true" aria-role="presentation">
             <ul>{% assign url = page.url|remove:'index.html' %} {% for link in site.data.navigation %}
                 <li {% if url==link.url %}class="current" {% endif %}>
                     <a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
@@ -29,14 +29,14 @@
             {% assign current = 'current' %}
             {% endif %}
 
-            <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}">
+            <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}" aria-role="presentation">
                 <a class="header__navigation-link {{ current }}" href="{{ link.url }}">
                   {{ link.text }}
                 </a>
             </li>
             {% endfor %}
 
-            <li class="header__navigation-item">
+            <li class="header__navigation-item" aria-role="presentation">
                 <a href="https://app.probo.ci/" class="header__navigation-link login" target="_blank">Login</a>
             </li>
         </ul>
