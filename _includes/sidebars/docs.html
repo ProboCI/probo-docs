@@ -1,42 +1,20 @@
 <ul class="accordion-nav">
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/getting-started/">Getting Started</a></li>
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/build/">Build Configuration</a></li>
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/recipes">Recipes</a></li>
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/assets/">Assets</a></li>
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/app/">Using the Probo App</a></li>
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/build-steps/">Build Steps</a></li>
-    <li class="accordion-nav__item"><a class="accordion-nav__item-link" href="/reaper/">Reaper</a></li>
-    <li class="accordion-nav__item"><a href="#" class="accordion-nav__item-link">Plugins</a>
-        <ul class="accordion-nav__parent">
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/plugins/shell-plugin/">Shell Plugin</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/plugins/script-plugin/">Script Plugin</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/plugins/drupal-plugin/">Drupal Plugin</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/plugins/lamp-plugin/">LAMP Plugin</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/plugins/wordpress-plugin/">WordPress Plugin</a></li>
-        </ul>
+  {% for link in site.data.docs-menu %}
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}/{% else %}#{% endif %}" title="{{ link.title }}">
+        {{ link.text }}
+      </a>
+        {% if link.parent %}
+          <ul class="accordion-nav__parent">
+              {% for child in link.children %}
+                <li class="accordion-nav__child {{ current }}" aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="{{ link.parent_path }}{{ child.url }}/" title="{{ child.title }}">
+                    {{ child.text }}
+                  </a>
+                </li>
+              {% endfor %}
+          </ul>
+        {% endif %}
     </li>
-    <li class="accordion-nav__item"><a href="#" class="accordion-nav__item-link">Git Integrations</a>
-        <ul class="accordion-nav__parent">
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/git/git-integrations-overview">Git Integrations Overview</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/git/github/">GitHub Integration</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/git/bitbucket/">Bitbucket Integration</a></li>
-        </ul>
-    </li>
-    <li class="accordion-nav__item"><a href="#" class="accordion-nav__item-link">Drupal</a>
-        <ul class="accordion-nav__parent">
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/drupal/drupal-overview">Drupal Overview</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/drupal/stage-file-proxy/">Stage File Proxy</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/drupal/solr/">Apache Solr</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/drupal/install-profile/">Install Profile</a></li>
-        </ul>
-    </li>
-    <li class="accordion-nav__item"><a href="#" class="accordion-nav__item-link">Tutorials</a>
-        <ul class="accordion-nav__parent">
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/tutorials/drupal-github-quickstart/">Drupal Github QuickStart</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/tutorials/drupal-bitbucket-quickstart/">Drupal Bitbucket QuickStart</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/tutorials/drupal-install-profile-quickstart/">Drupal Install Profile QuickStart</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/tutorials/pantheon/">Using Probo on Your Pantheon Site</a></li>
-            <li class="accordion-nav__child"><a class="accordion-nav__child-link" href="/tutorials/workflow/">Feature Branch Workflow Process</a></li>
-        </ul>
-    </li>
+  {% endfor %}
 </ul>
