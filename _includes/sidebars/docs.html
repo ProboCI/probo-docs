@@ -1,42 +1,20 @@
-<ul class="sidebar-nav">
-    <li>{% link /getting-started/ Getting Started %}</li>
-    <li>{% link /build/ Build Configuration %}</li>
-    <li>{% link /recipes Recipes %}</li>
-    <li>{% link /assets/ Assets %}</li>
-    <li>{% link /app/ Using the Probo App %}</li>
-    <li>{% link /build-steps/ Build Steps %}</li>
-    <li>{% link /reaper/ Reaper %}</li>
-    <li><a href="#" class=drop-top>Plugins</a>
-        <ul class="drop">
-            <li>{% link /plugins/shell-plugin/ Shell Plugin %}</li>
-            <li>{% link /plugins/script-plugin/ Script Plugin %}</li>
-            <li>{% link /plugins/drupal-plugin/ Drupal Plugin %}</li>
-            <li>{% link /plugins/lamp-plugin/ LAMP Plugin %}</li>
-            <li>{% link /plugins/wordpress-plugin/ WordPress Plugin %}</li>
-        </ul>
+<ul class="accordion-nav">
+  {% for link in site.data.docs-menu %}
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}/{% else %}#{% endif %}" title="{{ link.title }}">
+        {{ link.text }}
+      </a>
+        {% if link.parent %}
+          <ul class="accordion-nav__parent">
+              {% for child in link.children %}
+                <li class="accordion-nav__child {{ current }}" aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="{{ link.parent_path }}{{ child.url }}/" title="{{ child.title }}">
+                    {{ child.text }}
+                  </a>
+                </li>
+              {% endfor %}
+          </ul>
+        {% endif %}
     </li>
-    <li><a href="#" class=drop-top>Git Integrations</a>
-        <ul class="drop">
-            <li>{% link /git/git-integrations-overview Git Integrations Overview %}</li>
-            <li>{% link /git/github/ GitHub Integration %}</li>
-            <li>{% link /git/bitbucket/ Bitbucket Integration %}</li>
-        </ul>
-    </li>
-    <li><a href="#" class=drop-top>Drupal</a>
-        <ul class="drop">
-            <li>{% link /drupal/drupal-overview Drupal Overview %}</li>
-            <li>{% link /drupal/stage-file-proxy/ Stage File Proxy %}</li>
-            <li>{% link /drupal/solr/ Apache Solr %}</li>
-            <li>{% link /drupal/install-profile/ Install Profile %}</li>
-        </ul>
-    </li>
-    <li><a href="#" class=drop-top>Tutorials</a>
-        <ul class="drop">
-            <li>{% link /tutorials/drupal-github-quickstart/ Drupal Github QuickStart %}</li>
-            <li>{% link /tutorials/drupal-bitbucket-quickstart/ Drupal Bitbucket QuickStart %}</li>
-            <li>{% link /tutorials/drupal-install-profile-quickstart/ Drupal Install Profile QuickStart %}</li>
-            <li>{% link /tutorials/pantheon/ Using Probo on Your Pantheon Site %}</li>
-            <li>{% link /tutorials/workflow/ Feature Branch Workflow Process %}</li>
-        </ul>
-    </li>
+  {% endfor %}
 </ul>

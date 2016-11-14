@@ -1,48 +1,46 @@
-<header class="site-header">
+<header class="header">
 
-  <div class="wrapper">
+    <div class="header__wrapper">
 
-    <a id="simple-menu" href="#sidr">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
-                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
-                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
-                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+        <a id="simple-menu" class="simple-menu" href="#sidr" aria-hidden="true" aria-role="presentation">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3" />
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3" />
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3" />
             </svg>
-    </a>
+        </a>
 
-    <div id="sidr" style="display:none">
-      <ul>
-        {% assign url = page.url|remove:'index.html' %}
-        {% for link in site.data.navigation %}
-        <li {% if url == link.url %}class="current"{% endif %}>
-          <a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
-        </li>
-        {% endfor %}
-        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        <div id="sidr" style="display:none" aria-hidden="true" aria-role="presentation">
+            <ul>{% assign url = page.url|remove:'index.html' %} {% for link in site.data.navigation %}
+                <li {% if url==link.url %}class="current" {% endif %}>
+                    <a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+                </li>
+                {% endfor %}
+                <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+            </ul>
+        </div>
 
-      </ul>
+        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"></a></h1>
+
+        <ul class="header__navigation">
+            {% for link in site.data.navigation %}
+            {% assign current = nil %}
+            {% if page.url == link.url or page.layout == link.secondary %}
+            {% assign current = 'current' %}
+            {% endif %}
+
+            <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}" aria-role="presentation">
+                <a class="header__navigation-link {{ current }}" href="{{ link.url }}">
+                  {{ link.text }}
+                </a>
+            </li>
+            {% endfor %}
+
+            <li class="header__navigation-item" aria-role="presentation">
+                <a href="https://app.probo.ci/" class="header__navigation-link login" target="_blank">Login</a>
+            </li>
+        </ul>
+
     </div>
-
-    <h1 class="st"><a class="site-title" href="http://probo.ci/">
-      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
-
-    <ul id="navigation">
-      {% for link in site.data.navigation %}
-      {% assign current = nil %}
-      {% if page.url == link.url or page.layout == link.secondary %}
-        {% assign current = 'current' %}
-      {% endif %}
-
-      <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}">
-        <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
-      </li>
-    {% endfor %}
-
-      <li class="login">
-        <a href="https://app.probo.ci/" target="_blank">Login</a>
-      </li>
-    </ul>
-
-  </div>
 
 </header>
