@@ -13,6 +13,7 @@
   <link rel="canonical" href="http://docs.probo.ci/tutorials/workflow/">
 
   <link rel="stylesheet" href="/css/probo_docs.css">
+  <link rel="stylesheet" href="/css/probo.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://cdn.rawgit.com/ProboCI/probo-styleguide/master/dist/probo.css" rel="stylesheet">
 
@@ -58,116 +59,126 @@
 
   <body class="sidebar-page site">
     <div class="site-content">
-      <header class="site-header">
+      <header class="header">
 
-  <div class="wrapper">
+    <div class="header__wrapper">
 
-    <a id="simple-menu" href="#sidr">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
-                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3"/>
-                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3"/>
-                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3"/>
+        <a id="simple-menu" class="simple-menu" href="#sidr" aria-hidden="true" aria-role="presentation">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
+                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3" />
+                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3" />
+                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3" />
             </svg>
-    </a>
+        </a>
 
-    <div id="sidr" style="display:none">
-      <ul>
-        
-        
-        <li >
-          <a href="http://probo.ci/product/" title="Product">Product</a>
-        </li>
-        
-        <li >
-          <a href="http://probo.ci/about/" title="About Us">About Us</a>
-        </li>
-        
-        <li >
-          <a href="http://probo.ci/pricing/" title="Pricing">Pricing</a>
-        </li>
-        
-        <li >
-          <a href="http://blog.probo.ci/" title="Blog">Blog</a>
-        </li>
-        
-        <li >
-          <a href="http://probo.ci/faq/" title="FAQ">FAQ</a>
-        </li>
-        
-        <li >
-          <a href="/" title="Docs">Docs</a>
-        </li>
-        
-        <li >
-          <a href="http://probo.ci/contact/" title="Contact">Contact</a>
-        </li>
-        
-        <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        <div id="sidr" style="display:none" aria-hidden="true" aria-role="presentation">
+            <ul> 
+                <li >
+                    <a href="http://probo.ci/product/" title="Product">Product</a>
+                </li>
+                
+                <li >
+                    <a href="http://probo.ci/about/" title="About Us">About Us</a>
+                </li>
+                
+                <li >
+                    <a href="http://probo.ci/pricing/" title="Pricing">Pricing</a>
+                </li>
+                
+                <li >
+                    <a href="http://blog.probo.ci/" title="Blog">Blog</a>
+                </li>
+                
+                <li >
+                    <a href="http://probo.ci/faq/" title="FAQ">FAQ</a>
+                </li>
+                
+                <li >
+                    <a href="/" title="Docs">Docs</a>
+                </li>
+                
+                <li >
+                    <a href="http://probo.ci/contact/" title="Contact">Contact</a>
+                </li>
+                
+                <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+            </ul>
+        </div>
 
-      </ul>
+        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"></a></h1>
+
+        <ul class="header__navigation">
+            
+            
+            
+
+            <li class="header__navigation-item first   Product" aria-role="presentation">
+                <a class="header__navigation-link " href="http://probo.ci/product/">
+                  Product
+                </a>
+            </li>
+            
+            
+            
+
+            <li class="header__navigation-item    About Us" aria-role="presentation">
+                <a class="header__navigation-link " href="http://probo.ci/about/">
+                  About Us
+                </a>
+            </li>
+            
+            
+            
+
+            <li class="header__navigation-item    Pricing" aria-role="presentation">
+                <a class="header__navigation-link " href="http://probo.ci/pricing/">
+                  Pricing
+                </a>
+            </li>
+            
+            
+            
+
+            <li class="header__navigation-item    Blog" aria-role="presentation">
+                <a class="header__navigation-link " href="http://blog.probo.ci/">
+                  Blog
+                </a>
+            </li>
+            
+            
+            
+
+            <li class="header__navigation-item    FAQ" aria-role="presentation">
+                <a class="header__navigation-link " href="http://probo.ci/faq/">
+                  FAQ
+                </a>
+            </li>
+            
+            
+            
+
+            <li class="header__navigation-item  current  Docs" aria-role="presentation">
+                <a class="header__navigation-link current" href="/">
+                  Docs
+                </a>
+            </li>
+            
+            
+            
+
+            <li class="header__navigation-item   last Contact" aria-role="presentation">
+                <a class="header__navigation-link " href="http://probo.ci/contact/">
+                  Contact
+                </a>
+            </li>
+            
+
+            <li class="header__navigation-item" aria-role="presentation">
+                <a href="https://app.probo.ci/" class="header__navigation-link login" target="_blank">Login</a>
+            </li>
+        </ul>
+
     </div>
-
-    <h1 class="st"><a class="site-title" href="http://probo.ci/">
-      <img src="/images/probo-logo-no-slogan-white.png" alt="Probo logo with name"></a></h1>
-
-    <ul id="navigation">
-      
-      
-      
-
-      <li class="first   Product">
-        <a class="" href="http://probo.ci/product/">Product</a>
-      </li>
-    
-      
-      
-
-      <li class="   About Us">
-        <a class="" href="http://probo.ci/about/">About Us</a>
-      </li>
-    
-      
-      
-
-      <li class="   Pricing">
-        <a class="" href="http://probo.ci/pricing/">Pricing</a>
-      </li>
-    
-      
-      
-
-      <li class="   Blog">
-        <a class="" href="http://blog.probo.ci/">Blog</a>
-      </li>
-    
-      
-      
-
-      <li class="   FAQ">
-        <a class="" href="http://probo.ci/faq/">FAQ</a>
-      </li>
-    
-      
-      
-
-      <li class=" current  Docs">
-        <a class="current" href="/">Docs</a>
-      </li>
-    
-      
-      
-
-      <li class="  last Contact">
-        <a class="" href="http://probo.ci/contact/">Contact</a>
-      </li>
-    
-
-      <li class="login">
-        <a href="https://app.probo.ci/" target="_blank">Login</a>
-      </li>
-    </ul>
-
-  </div>
 
 </header>
 
@@ -196,47 +207,203 @@
         </header>
 
         <div id="sidebar-first">
-          <ul class="sidebar-nav">
-    <li><a href="/getting-started/" >Getting Started</a></li>
-    <li><a href="/build/" >Build Configuration</a></li>
-    <li><a href="/recipes" >Recipes</a></li>
-    <li><a href="/assets/" >Assets</a></li>
-    <li><a href="/app/" >Using the Probo App</a></li>
-    <li><a href="/build-steps/" >Build Steps</a></li>
-    <li><a href="/reaper/" >Reaper</a></li>
-    <li><a href="#" class=drop-top>Plugins</a>
-        <ul class="drop">
-            <li><a href="/plugins/shell-plugin/" >Shell Plugin</a></li>
-            <li><a href="/plugins/script-plugin/" >Script Plugin</a></li>
-            <li><a href="/plugins/drupal-plugin/" >Drupal Plugin</a></li>
-            <li><a href="/plugins/lamp-plugin/" >LAMP Plugin</a></li>
-            <li><a href="/plugins/wordpress-plugin/" >WordPress Plugin</a></li>
-        </ul>
+          <ul class="accordion-nav">
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/getting-started/" title="Getting Started">
+        Getting Started
+      </a>
+        
     </li>
-    <li><a href="#" class=drop-top>Git Integrations</a>
-        <ul class="drop">
-            <li><a href="/git/git-integrations-overview" >Git Integrations Overview</a></li>
-            <li><a href="/git/github/" >GitHub Integration</a></li>
-            <li><a href="/git/bitbucket/" >Bitbucket Integration</a></li>
-        </ul>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/build/" title="Build Configuration">
+        Build Configuration
+      </a>
+        
     </li>
-    <li><a href="#" class=drop-top>Drupal</a>
-        <ul class="drop">
-            <li><a href="/drupal/drupal-overview" >Drupal Overview</a></li>
-            <li><a href="/drupal/stage-file-proxy/" >Stage File Proxy</a></li>
-            <li><a href="/drupal/solr/" >Apache Solr</a></li>
-            <li><a href="/drupal/install-profile/" >Install Profile</a></li>
-        </ul>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/recipes/" title="Recipes">
+        Recipes
+      </a>
+        
     </li>
-    <li><a href="#" class=drop-top>Tutorials</a>
-        <ul class="drop">
-            <li><a href="/tutorials/drupal-github-quickstart/" >Drupal Github QuickStart</a></li>
-            <li><a href="/tutorials/drupal-bitbucket-quickstart/" >Drupal Bitbucket QuickStart</a></li>
-            <li><a href="/tutorials/drupal-install-profile-quickstart/" >Drupal Install Profile QuickStart</a></li>
-            <li><a href="/tutorials/pantheon/" >Using Probo on Your Pantheon Site</a></li>
-            <li><a href="/tutorials/workflow/" class="current">Feature Branch Workflow Process</a></li>
-        </ul>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/assets/" title="Assets">
+        Assets
+      </a>
+        
     </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/app/" title="Using the Probo App">
+        Using the Probo App
+      </a>
+        
+    </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/build-steps/" title="Build Steps">
+        Build Steps
+      </a>
+        
+    </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="/reaper/" title="Reaper">
+        Reaper
+      </a>
+        
+    </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="#" title="Plugins">
+        Plugins
+      </a>
+        
+          <ul class="accordion-nav__parent">
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/plugins/shell-plugin/" title="Shell Plugin">
+                    Shell Plugin
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/plugins/script-plugin/" title="Script Plugin">
+                    Script Plugin
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/plugins/drupal-plugin/" title="Drupal Plugin">
+                    Drupal Plugin
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/plugins/lamp-plugin/" title="LAMP Plugin">
+                    LAMP Plugin
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/plugins/wordpress-plugin/" title="WordPress Plugin">
+                    WordPress Plugin
+                  </a>
+                </li>
+              
+          </ul>
+        
+    </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="#" title="Git Integrations">
+        Git Integrations
+      </a>
+        
+          <ul class="accordion-nav__parent">
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/git/git-integrations-overview/" title="Git Integrations Overview">
+                    Git Integrations Overview
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/git/github/" title="GitHub Integration">
+                    GitHub Integration
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/git/bitbucket/" title="Bitbucket Integration">
+                    Bitbucket Integration
+                  </a>
+                </li>
+              
+          </ul>
+        
+    </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="#" title="Drupal">
+        Drupal
+      </a>
+        
+          <ul class="accordion-nav__parent">
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/drupal/drupal-overview/" title="Drupal Overview">
+                    Drupal Overview
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/drupal/stage-file-proxy/" title="Stage File Proxy">
+                    Stage File Proxy
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/drupal/solr/" title="Apache Solr">
+                    Apache Solr
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/drupal/install-profile/" title="Install Profile">
+                    Install Profile
+                  </a>
+                </li>
+              
+          </ul>
+        
+    </li>
+  
+    <li class="accordion-nav__item" aria-role="presentation">
+      <a class="accordion-nav__item-link" href="#" title="Tutorials">
+        Tutorials
+      </a>
+        
+          <ul class="accordion-nav__parent">
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/drupal-github-quickstart/" title="Drupal GitHub QuickStart">
+                    Drupal GitHub QuickStart
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/drupal-bitbucket-quickstart/" title="Drupal Bitbucket QuickStart">
+                    Drupal Bitbucket QuickStart
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/drupal-install-profile-quickstart/" title="Drupal Install Profile QuickStart">
+                    Drupal Install Profile QuickStart
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/pantheon/" title="Using Probo on Your Pantheon Site">
+                    Using Probo on Your Pantheon Site
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow Process">
+                    Feature Branch Workflow Process
+                  </a>
+                </li>
+              
+          </ul>
+        
+    </li>
+  
 </ul>
 
         </div>
@@ -316,47 +483,43 @@
       </div>
 
     </div>
-    <footer class="site-footer">
-    <div class="footer-learn-more">
-        <div class="wrapper">
-            <p>Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
-            <div class="right">
-                <a href="https://www.facebook.com/proboci" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="https://github.com/ProboCI/probo" title="Probo on Github" target="_blank"><i class="fa fa-github-alt"></i></a>
-                <a href="https://twitter.com/ProboCI" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter"></i></a>
+    <footer class="footer">
+    <div class="footer__upper">
+        <div class="footer__upper-wrapper">
+            <p class="footer__upper-left">Want to try Probo today? <a href="https://app.probo.ci">Get started.</a></p>
+            <div>
+                <a href="https://www.facebook.com/proboci" class="footer__upper-link" title="Probo on Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i><span class="u-accessible">Probo on Facebook</span></a>
+                <a href="https://github.com/ProboCI/probo" class="footer__upper-link" title="Probo on GitHub" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i><span class="u-accessible">Probo on GitHub</span></a>
+                <a href="https://twitter.com/ProboCI" class="footer__upper-link" title="Sweet Probo Tweets" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i><span class="u-accessible">Probo on Twitter</span></a>
             </div>
         </div>
     </div>
-    <div>
 
-        <div class="footer-left">
-            <div class="copyright">&copy; 2016 Probo.CI</div>
+
+    <div class="footer__lower">
+        <div class="footer__lower-wrapper">
+            <div class="footer__copyright">&copy; 2016 Probo.CI</div>
+            <ul class="footer__navigation">
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="http://probo.ci/product/" class="footer__navigation-link">Product</a></li>
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="http://probo.ci/about/" class="footer__navigation-link">About Us</a></li>
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="http://probo.ci/pricing/" class="footer__navigation-link">Pricing</a></li>
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="http://blog.probo.ci/" class="footer__navigation-link">Blog</a></li>
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="http://probo.ci/faq/" class="footer__navigation-link">FAQ</a></li>
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="/" class="footer__navigation-link">Docs</a></li>
+                
+                <li class="footer__navigation-item" aria-role="presentation"><a href="http://probo.ci/contact/" class="footer__navigation-link">Contact</a></li>
+                
+                <li class="footer__navigation-item login" aria-role="presentation"><a href="https://app.probo.ci/" target="_blank" class="footer__navigation-link">Login</a></li>
+            </ul>
         </div>
-
-
-        <ul class="footer-navigation right">
-            
-            <li><a href="http://probo.ci/product/">Product</a></li>
-            
-            <li><a href="http://probo.ci/about/">About Us</a></li>
-            
-            <li><a href="http://probo.ci/pricing/">Pricing</a></li>
-            
-            <li><a href="http://blog.probo.ci/">Blog</a></li>
-            
-            <li><a href="http://probo.ci/faq/">FAQ</a></li>
-            
-            <li><a href="/">Docs</a></li>
-            
-            <li><a href="http://probo.ci/contact/">Contact</a></li>
-            
-            <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
-        </ul>
     </div>
-
 </footer>
-
-<div class="overlay"></div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
