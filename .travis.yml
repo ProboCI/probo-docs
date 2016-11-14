@@ -2,7 +2,7 @@ language: ruby
 sudo: false
 rvm: 2.2.0
 script: bundle exec rake deploy
-before_deploy:
+before_script:
   - git config --global user.name "Travis CI"
   - git config --global user.email "nobody@nobody.org"
 branches:
