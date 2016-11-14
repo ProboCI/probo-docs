@@ -30,6 +30,7 @@ var paths = {
     build: 'javascripts/build/'
   },
   sass: ['_stylesheets/**/*.scss', '!_stylesheets/vendor/**/*.scss'],
+  styleguide: './node_modules/probo-styleguide/styleguide/probo.css',
   css: 'css',
   images: 'images/**/*.{gif,jpg,png}',
   jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
@@ -59,6 +60,12 @@ gulp.task('sass', function () {
     .on('error', handleError('Post CSS Processing'))
     .pipe(gulpif(buildSourceMaps, sourcemaps.write()))
     .pipe(gulp.dest(paths.css));
+});
+
+// Use styleguide
+gulp.task('styleguide', function() {
+  return gulp.src(paths.styleguide)
+    .pipe(gulp.dest(paths.css))
 });
 
 // error notifications
@@ -99,7 +106,7 @@ gulp.task('watch', ['jekyll', 'browserSync'], function () {
   gulp.watch([paths.js.src, paths.js.vendor], ['js']);
 });
 
-gulp.task('jekyll', shell.task([
+gulp.task('jekyll', ['styleguide'], shell.task([
   'jekyll build'
 ]));
 
