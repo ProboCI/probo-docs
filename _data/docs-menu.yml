@@ -68,6 +68,9 @@
     - title: Bitbucket Integration
       url: /bitbucket
       text: Bitbucket Integration
+    - title: Bitbucket Server Integration
+      url: /bitbucket-server
+      text: Bitbucket Server Integration
 
 - title: Drupal
   text: Drupal

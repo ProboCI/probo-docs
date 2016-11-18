@@ -27,7 +27,8 @@ img {
 	max-width: 100%;
 
 	&.full-width {
-		width: auto;
+    padding: $base-spacing 0;
+    width: auto;
 	}
 
 	&.drop-shadow {
