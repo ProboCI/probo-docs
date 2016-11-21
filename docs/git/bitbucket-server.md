@@ -5,7 +5,9 @@ class: documentation
 permalink: /git/bitbucket-server/
 published: true
 ---
-You can use Probo with your instance of [Bitbucket Server](https://bitbucket.org/product/server). Follow these steps to set it all up:
+You can use Probo with your instance of [Bitbucket Server](https://bitbucket.org/product/server). Just like the [Bitbucket Integration](/git/bitbucket/ "Bitbucket Integration"), Probo uses the build status pop-up to display the list of build steps as defined in your `.probo.yaml` file and their statuses. The link can be found in the Overview section of the pull request details page.
+
+Follow these steps to get started using Probo with your instance of Bitbucket Server:
 
   1. <a href="#create-link">Create an Application Link in Bitbucket Server.</a>
   2. <a href="#configure-auth">Configure authentication settings.</a>

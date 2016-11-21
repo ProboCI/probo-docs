@@ -59,9 +59,6 @@
   parent: true
   parent_path: /git
   children:
-    - title: Git Integrations Overview
-      url: /git-integrations-overview
-      text: Git Integrations Overview
     - title: GitHub Integration
       url: /github
       text: GitHub Integration
