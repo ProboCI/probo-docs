@@ -29,12 +29,12 @@ In your .probo.yml file add the following Script:
 
 Note: This installs packages required to run Drupal.
 
-## Setup Probo.CI with PHP 5.6
+## Setup Probo.CI with PHP 7
 
 In your .probo.yml file add the following Script:
 
 ```
-  - name: add php7
+  - name: Upgrade to php 7
     plugin: Script
     script: |
       apt-get update
