@@ -9,12 +9,11 @@ You can use Probo with your instance of [Bitbucket Server](https://bitbucket.org
 
 Follow these steps to get started using Probo with your instance of Bitbucket Server:
 
-  1. <a href="#create-link">Create an Application Link in Bitbucket Server.</a>
-  2. <a href="#configure-auth">Configure authentication settings.</a>
-  3. <a href="#activate-repos">Activate repositories.</a>
+  1. <a href="#create-an-application-link-in-bitbucket-server">Create an Application Link in Bitbucket Server.</a>
+  2. <a href="#configure-authentication-settings">Configure authentication settings.</a>
+  3. <a href="#activate-repositories">Activate repositories.</a>
   4. <a href="#configure-webhooks">Configure webhooks.</a>
 
-<a name="create-link"></a>
 ## Create an Application Link in Bitbucket Server.
 
 1. Go to the administration section of your Bitbucket Server installation and create an Application Link.
@@ -36,7 +35,6 @@ Follow these steps to get started using Probo with your instance of Bitbucket Se
   <img src="/images/bitbucket-server/bbserver-setup-3--configure-app-link-name.png" alt="" class="full-width">
   </a>
 
-<a name="configure-auth"></a>
 ## Configure authentication settings.
 
 1. Edit the application link you configured for Probo.CI.
@@ -65,7 +63,6 @@ Follow these steps to get started using Probo with your instance of Bitbucket Se
   <img src="/images/bitbucket-server/bbserver-setup-7--incoming-auth-save.png" alt="" class="full-width">
   </a>
 
-<a name="activate-repos"></a>
 ## Activate repositories.
 
 1. Go to `https://app.probo.ci/auth/stash/[your full Bitbucket Server instance url]` to sign in.
@@ -88,7 +85,6 @@ Follow these steps to get started using Probo with your instance of Bitbucket Se
   <img src="/images/bitbucket-server/bbserver-setup-10--enable-repo.png" alt="" class="full-width">
   </a>
 
-<a href="configure-webhooks"></a>
 ## Configure webhooks.
 Due to limitations in the Bitbucket Server API, we cannot reliably create webhooks for your repositories. You will need to do this manually for each project you enable in Probo.
 
