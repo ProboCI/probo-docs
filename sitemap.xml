@@ -25,6 +25,9 @@
 <loc>http://docs.probo.ci/plugins/drupal-plugin/</loc>
 </url>
 <url>
+<loc>http://docs.probo.ci/tutorials/switch-php/</loc>
+</url>
+<url>
 <loc>http://docs.probo.ci/drupal/drupal-overview/</loc>
 </url>
 <url>
@@ -113,6 +116,6 @@
 </url>
 <url>
 <loc>http://docs.probo.ci/images/favicons/icon.html</loc>
-<lastmod>2016-11-14T20:17:25+00:00</lastmod>
+<lastmod>2016-11-29T22:00:04+00:00</lastmod>
 </url>
 </urlset>
