@@ -104,6 +104,6 @@
     - title: Using Probo on Your Pantheon Site
       url: /pantheon
       text: Using Probo on Your Pantheon Site
-    - title: Feature Branch Workflow Process
+    - title: Feature Branch Workflow
       url: /workflow
-      text: Feature Branch Workflow Process
+      text: Feature Branch Workflow

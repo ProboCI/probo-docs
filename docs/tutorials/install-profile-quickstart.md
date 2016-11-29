@@ -9,14 +9,12 @@ published: true
 ## Setup Probo for a Drupal site with an Install Profile.
 Want to use a Drupal Install profile with your probo builds? With this setup you do not need to import a database because the drush site-install command will drop your database tables on build.
 
-Below is a step by step example of a Drupal site install using Zivtech's [Bear installation profile](https://www.drupal.org/project/bear). This walkthrough does not use all the available parameters provided by the Drupal plugin, you can see more available parameters in the [Drupal plugin documentation](/plugins/drupal-plugin/ "Drupal plugin Documentation").
-
-You can find this beta tester example repository [here](https://github.com/Probo-Demos/install-profile-demo).
+Below is a step by step example of a Drupal site install using Zivtech's [Bear installation profile](https://www.drupal.org/project/bear). Note that this walkthrough does not use all the available parameters provided by the Drupal plugin. You can find all available parameters in the [Drupal plugin documentation](/plugins/drupal-plugin/ "Drupal plugin Documentation").
 
 Build Specs:
 
 * Standard Drupal site
-* Your repository is stored on GitHub (Although this uses Github the same principles apply if you are using Bitbucket.)
+* Your repository is stored on GitHub (Although this uses GitHub, the same principles apply if you are using Bitbucket.)
 * You have a really awesome [Drupal install profile.](https://www.drupal.org/node/306267)
 
 > Bonus: Want a Drupal Install Profile? Check out Zivtech's [Bear Installation Profile](https://www.drupal.org/project/bear). Also, take a look at the [features](http://bear.zivtech.com/features) of its bear_skin theme.

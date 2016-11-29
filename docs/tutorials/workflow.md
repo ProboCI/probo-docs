@@ -1,6 +1,6 @@
 ---
 layout: "docs"
-title: Feature Branch Workflow Process
+title: Feature Branch Workflow
 class: documentation
 permalink: /tutorials/workflow/
 ---
