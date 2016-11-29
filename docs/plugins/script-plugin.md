@@ -11,8 +11,9 @@ Instead of `command`, the Script plugin requires a parameter for `script`. This 
 
 Like the Shell plugin, the Script plugin also provides several variables to use within your `.probo.yaml` file.
 
+## Available Variables
+
 {: .table .table-striped .table-bordered}
-| Available Variables |                                                                     |
 | ----------- | --------------------------------------------------------------------------- |
 | `$SRC_DIR`  | The filepath which contains the code from your pull request.                |
 | `$ASSET_DIR`| The filepath which contains any assets you uploaded to your Probo project.  |
