@@ -108,5 +108,5 @@
       url: /workflow
       text: Feature Branch Workflow
     - title: Switch PHP Versions
-      url: /tutorials/switch-php
+      url: /switch-php
       text: Switch PHP Versions
