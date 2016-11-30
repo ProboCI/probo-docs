@@ -1,33 +1,132 @@
 - title: Product
-  url: http://probo.ci/product/
+  url: http://probo.ci/product
   text: Product
   secondary: product
 
 - title: About Us
-  url: http://probo.ci/about/
+  url: http://probo.ci/about
   text: About Us
   secondary: about
 
 - title: Pricing
-  url: http://probo.ci/pricing/
+  url: http://probo.ci/pricing
   text: Pricing
   secondary: pricing
 
 - title: Blog
-  url: http://blog.probo.ci/
+  url: http://blog.probo.ci
   text: Blog
   secondary: blog
 
 - title: FAQ
-  url: http://probo.ci/faq/
+  url: http://probo.ci/faq
   text: FAQ
 
 - title: Docs
   url: /
   text: Docs
   secondary: docs
+  children:
+    - title: Getting Started
+      url: /getting-started
+      text: Getting Started
+
+    - title: Build Configuration
+      url: /build
+      text: Build Configuration
+
+    - title: Recipes
+      url: /recipes
+      text: Recipes
+
+    - title: Assets
+      url: /assets
+      text: Assets
+
+    - title: Using the Probo App
+      url: /app
+      text: Using the Probo App
+
+    - title: Build Steps
+      url: /build-steps
+      text: Build Steps
+
+    - title: Reaper
+      url: /reaper
+      text: Reaper
+
+    - title: Plugins
+      text: Plugins
+      parent_path: /plugins
+      children:
+        - title: Shell Plugin
+          url: /shell-plugin
+          text: Shell Plugin
+        - title: Script Plugin
+          url: /script-plugin
+          text: Script Plugin
+        - title: Drupal Plugin
+          url: /drupal-plugin
+          text: Drupal Plugin
+        - title: LAMP Plugin
+          url: /lamp-plugin
+          text: LAMP Plugin
+        - title: WordPress Plugin
+          url: /wordpress-plugin
+          text: WordPress Plugin
+
+    - title: Git Integrations
+      text: Git Integrations
+      parent_path: /git
+      children:
+        - title: Git Integrations Overview
+          url: /git-integrations-overview
+          text: Git Integrations Overview
+        - title: GitHub Integration
+          url: /github
+          text: GitHub Integration
+        - title: Bitbucket Integration
+          url: /bitbucket
+          text: Bitbucket Integration
+
+    - title: Drupal
+      text: Drupal
+      parent_path: /drupal
+      children:
+        - title: Drupal Overview
+          url: /drupal-overview
+          text: Drupal Overview
+        - title: Stage File Proxy
+          url: /stage-file-proxy
+          text: Stage File Proxy
+        - title: Apache Solr
+          url: /solr
+          text: Apache Solr
+        - title: Install Profile
+          url: /install-profile
+          text: Install Profile
+
+    - title: Tutorials
+      text: Tutorials
+      parent_path: /tutorials
+      children:
+        - title: Drupal GitHub QuickStart
+          url: /drupal-github-quickstart
+          text: Drupal GitHub QuickStart
+        - title: Drupal Bitbucket QuickStart
+          url: /drupal-bitbucket-quickstart
+          text: Drupal Bitbucket QuickStart
+        - title: Drupal Install Profile QuickStart
+          url: /drupal-install-profile-quickstart
+          text: Drupal Install Profile QuickStart
+        - title: Using Probo on Your Pantheon Site
+          url: /pantheon
+          text: Using Probo on Your Pantheon Site
+        - title: Feature Branch Workflow Process
+          url: /workflow
+          text: Feature Branch Workflow Process
 
 - title: Contact
-  url: http://probo.ci/contact/
+  url: http://probo.ci/contact
   text: Contact
   secondary: contact
