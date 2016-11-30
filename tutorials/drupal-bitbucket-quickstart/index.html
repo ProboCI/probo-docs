@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
   <meta charset="utf-8">
@@ -105,7 +105,7 @@
             </ul>
         </div>
 
-        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"></a></h1>
+        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"><span class="u-accessible">Probo.CI home page</span></a></h1>
 
         <ul class="header__navigation">
             
@@ -395,8 +395,14 @@
                 </li>
               
                 <li class="accordion-nav__child " aria-role="presentation">
-                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow Process">
-                    Feature Branch Workflow Process
+                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow">
+                    Feature Branch Workflow
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/tutorials/switch-php/" title="Switch PHP Versions">
+                    Switch PHP Versions
                   </a>
                 </li>
               
@@ -433,7 +439,7 @@ Your Bitbucket repositories will be synced automatically. You can always click t
 <p><img src="/images/bitbucketauth.gif" alt="Authenticate GIF" class="docs-gif" /></p>
 
 <h2 id="prepare-your-database">Prepare your Database.</h2>
-<p>You will need to import your project’s database with the <a href="https://github.com/ProboCI/probo-uploader">Probo Uploader</a>, a CLI tool. You will first import your database, then you will declare the database file in a <code class="highlighter-rouge">.probo.yaml</code> file. We will use the <a href="/docs/drupal-plugin/" title="Drupal plugin" target="_blank">Drupal plugin</a> to revert features, run database updates, and clear caches. (Cache all the things!)</p>
+<p>You will need to import your project’s database with the <a href="https://github.com/ProboCI/probo-uploader">Probo Uploader</a>, a CLI tool. You will first import your database, then you will declare the database file in a <code class="highlighter-rouge">.probo.yaml</code> file. We will use <a href="/docs/drupal-plugin/" title="Drupal plugin" target="_blank">the Drupal plugin</a> to revert features, run database updates, and clear caches. (Cache all the things!)</p>
 
 <p><strong>Step 3: Sanitize your database (optional).</strong></p>
 
@@ -453,20 +459,20 @@ Your Bitbucket repositories will be synced automatically. You can always click t
 
 <p><strong>Step 5: Install the <a href="https://github.com/ProboCI/probo-uploader" target="_blank">Probo Uploader</a> on your machine with npm.</strong></p>
 
-<p>You will need Node.js for the Probo CI Uploader. <a href="https://nodejs.org/en/" target="_blank">How to install node.js and npm.</a></p>
+<p>You will need Node.js for the Probo.CI Uploader. <a href="https://nodejs.org/en/" target="_blank">Install node.js and npm if you don’t already have them.</a></p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo npm install -g probo-uploader</code></pre></figure>
 
-<p><strong>Step 6: Upload your database to the Probo CI app.</strong></p>
+<p><strong>Step 6: Upload your database to the Probo.CI app.</strong></p>
 
-<p>Each repository will have it’s own token. You can find your project’s token on the dashboard of the Probo CI app.</p>
+<p>Each repository will have it’s own token. You can find your project’s token on the dashboard of the Probo.CI app.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">probo-uploader --token<span class="o">=[</span>your-token] dev.sql.gz</code></pre></figure>
 
 <p><img src="/images/database-probo.gif" alt="Upload your Database Gif" class="docs-gif" /></p>
 
 <h2 id="define-your-website-configuration-for-probo">Define your website configuration for Probo.</h2>
-<p>The real magic of Probo CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
+<p>The real magic of Probo.CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
 
 <p><strong>Step 7: Create a new branch.</strong></p>
 
@@ -476,18 +482,18 @@ Your Bitbucket repositories will be synced automatically. You can always click t
 
 <p><strong>Step 8: Create your .probo.yaml file.</strong></p>
 
-<p>You will need a <code class="highlighter-rouge">.probo.yaml</code> file in the root of your directory. You can task Probo CI to run any number of build steps. Each step is a runnable plugin, and will get a status update sent to hosted repository for the commit. * Remember that indentation and spacing is important for yaml files.</p>
+<p>You will need a <code class="highlighter-rouge">.probo.yaml</code> file in the root of your directory. You can task Probo.CI to run any number of build steps. Each step is a runnable plugin, and will get a status update sent to hosted repository for the commit. * Remember that indentation and spacing is important for yaml files.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">vim .probo.yaml</code></pre></figure>
 
 <p><strong>Step 9: Declare your assets and build your steps.</strong></p>
 
-<p>Tell Probo CI what database you are going to use for your Probo CI builds. Add in your parameters as steps. You can read more in the <a href="/docs/steps/drupal-plugin/">docs about different parameter options</a>.</p>
+<p>Tell Probo.CI what database you are going to use for your Probo.CI builds. Add in your parameters as steps. You can <a href="/docs/steps/drupal-plugin/">read more in the docs about different parameter options</a>.</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">assets</span><span class="pi">:</span>     
   <span class="pi">-</span> <span class="s">dev.sql.gz</span>
 <span class="s">steps</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo CI site setup</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Probo.CI site setup</span>
     <span class="s">plugin</span><span class="pi">:</span> <span class="s">Drupal</span>
     <span class="s">database</span><span class="pi">:</span> <span class="s">dev.sql.gz</span>
     <span class="s">databaseGzipped</span><span class="pi">:</span> <span class="s">true</span>
@@ -498,10 +504,10 @@ Your Bitbucket repositories will be synced automatically. You can always click t
 <p><strong>Step 10: In your new branch probo-build, add and commit your files to your remote origin.</strong></p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="s">git add .probo.yaml</span>  
- <span class="s">git commit -m"Adding .probo.yaml."</span>  
+ <span class="s">git commit -m "Adding .probo.yaml."</span>  
  <span class="s">git push -u origin probo-build</span>   </code></pre></figure>
 
-<p><img src="/images/git-create-branch.gif" alt="Add your Probo CI Configuration" class="docs-gif" /></p>
+<p><img src="/images/git-create-branch.gif" alt="Add your Probo.CI Configuration" class="docs-gif" /></p>
 
 <h2 id="view-your-build">View your build.</h2>
 <p><strong>Step 11: Locate your branch in Bitbucket.</strong>

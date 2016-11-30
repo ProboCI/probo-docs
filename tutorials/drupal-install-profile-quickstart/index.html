@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
   <meta charset="utf-8">
@@ -105,7 +105,7 @@
             </ul>
         </div>
 
-        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"></a></h1>
+        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"><span class="u-accessible">Probo.CI home page</span></a></h1>
 
         <ul class="header__navigation">
             
@@ -395,8 +395,14 @@
                 </li>
               
                 <li class="accordion-nav__child " aria-role="presentation">
-                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow Process">
-                    Feature Branch Workflow Process
+                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow">
+                    Feature Branch Workflow
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/tutorials/switch-php/" title="Switch PHP Versions">
+                    Switch PHP Versions
                   </a>
                 </li>
               
@@ -412,15 +418,13 @@
           <h2 id="setup-probo-for-a-drupal-site-with-an-install-profile">Setup Probo for a Drupal site with an Install Profile.</h2>
 <p>Want to use a Drupal Install profile with your probo builds? With this setup you do not need to import a database because the drush site-install command will drop your database tables on build.</p>
 
-<p>Below is a step by step example of a Drupal site install using Zivtech’s <a href="https://www.drupal.org/project/bear">Bear installation profile</a>. This walkthrough does not use all the available parameters provided by the Drupal plugin, you can see more available parameters in the <a href="/plugins/drupal-plugin/" title="Drupal plugin Documentation">Drupal plugin documentation</a>.</p>
-
-<p>You can find this beta tester example repository <a href="https://github.com/Probo-Demos/install-profile-demo">here</a>.</p>
+<p>Below is a step by step example of a Drupal site install using Zivtech’s <a href="https://www.drupal.org/project/bear">Bear installation profile</a>. Note that this walkthrough does not use all the available parameters provided by the Drupal plugin. You can find all available parameters in the <a href="/plugins/drupal-plugin/" title="Drupal plugin Documentation">Drupal plugin documentation</a>.</p>
 
 <p>Build Specs:</p>
 
 <ul>
   <li>Standard Drupal site</li>
-  <li>Your repository is stored on GitHub (Although this uses Github the same principles apply if you are using Bitbucket.)</li>
+  <li>Your repository is stored on GitHub (Although this uses GitHub, the same principles apply if you are using Bitbucket.)</li>
   <li>You have a really awesome <a href="https://www.drupal.org/node/306267">Drupal install profile.</a></li>
 </ul>
 
@@ -433,13 +437,13 @@
 <div class="dropdown drop-click">
   <h2 id="sign-in-and-sync-up">Sign in and Sync up.</h2>
   <div class="drop-inner">
-    <p><strong>Step 1: Sign into the <a href="https://app.probo.ci/" target="_blank">Probo app</a> and authenticate GitHub.</strong></p>
+    <p><strong>Step 1: Sign into the Probo app and authenticate GitHub.</strong></p>
 
-    <p>Go to the <a href="https://app.probo.ci/" target="_blank">Probo app</a> and click on the <strong>Login to GitHub</strong> button. Once you get to GitHub, click ‘Authenticate application’.</p>
+    <p><a href="https://app.probo.ci/" target="_blank">Go to the Probo app</a> and click on the <strong>Login to GitHub</strong> button. Once you get to GitHub, click ‘Authenticate application’.</p>
 
-    <p><strong>Step 2: Sync your Github Repos.</strong></p>
+    <p><strong>Step 2: Sync your GitHub Repos.</strong></p>
 
-    <p>Your Github repositiories will be synced automatically. You can always click the ‘Sync Repos’ button at the top right corner if you need to manually update your dashboard.  Click on the button next to each repo that you want to use with Probo CI.
+    <p>Your GitHub repositiories will be synced automatically. You can always click the ‘Sync Repos’ button at the top right corner if you need to manually update your dashboard.  Click on the button next to each repo that you want to use with Probo CI.
 <img src="/images/authenticate.gif" alt="Authenticate Gif" class="docs-gif" /></p>
 
   </div>
@@ -448,7 +452,7 @@
 <div class="dropdown drop-click open">
   <h2 id="define-your-install-profile-configuration">Define your Install Profile configuration.</h2>
   <div class="drop-inner">
-    <p>The real magic of Probo CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
+    <p>The real magic of Probo.CI is automating pull requests to create test environments for you. In order to do that, you will need to add a few things to your project.</p>
 
     <p><strong>Step 7: Create a new branch.</strong></p>
 
@@ -460,7 +464,7 @@
 
     <p><strong>Step 8: Create your .probo.yaml file.</strong></p>
 
-    <p>You will need a <code class="highlighter-rouge">.probo.yaml</code> file in the root of your directory. You can task Probo CI to run any number of build steps. Each step is a runnable plugin, and will get a status update sent to hosted repository for the commit. * Remember that indentation and spacing is important for yaml files.</p>
+    <p>You will need a <code class="highlighter-rouge">.probo.yaml</code> file in the root of your directory. You can task Probo.CI to run any number of build steps. Each step is a runnable plugin, and will get a status update sent to hosted repository for the commit. * Remember that indentation and spacing is important for yaml files.</p>
 
     <figure class="highlight">
       <pre><code class="language-bash" data-lang="bash">vim .probo.yaml</code></pre>

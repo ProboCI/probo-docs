@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
   <meta charset="utf-8">
@@ -105,7 +105,7 @@
             </ul>
         </div>
 
-        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"></a></h1>
+        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"><span class="u-accessible">Probo.CI home page</span></a></h1>
 
         <ul class="header__navigation">
             
@@ -395,8 +395,14 @@
                 </li>
               
                 <li class="accordion-nav__child " aria-role="presentation">
-                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow Process">
-                    Feature Branch Workflow Process
+                  <a class="accordion-nav__child-link" href="/tutorials/workflow/" title="Feature Branch Workflow">
+                    Feature Branch Workflow
+                  </a>
+                </li>
+              
+                <li class="accordion-nav__child " aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="/tutorials/tutorials/switch-php/" title="Switch PHP Versions">
+                    Switch PHP Versions
                   </a>
                 </li>
               
@@ -409,13 +415,13 @@
         </div>
 
         <div class="page-content">
-          <p>Probo can also make your life easier if you’re developing your site on Pantheon, but there are two steps follow to configure your Probo build properly.</p>
+          <p>Probo can make your life easier if you’re developing your site on Pantheon. There are two steps to follow to configure Probo properly.</p>
 
-<p><strong>Note: Your must still have a repo of your code on either Github or Stash. Probo will not download the code directly from Pantheon</strong></p>
+<p><strong>Note: You must still have your code in a repository on either GitHub or Bitbucket. Probo will not download the code directly from Pantheon.</strong></p>
 
 <h2 id="step-1-create-a-sh-file">Step 1: Create a .sh File</h2>
 
-<p>To download the database of your Pantheon site to your Probo container you will need to use <a href="https://github.com/pantheon-systems/cli" target="_blank">Pantheon’s CLI, Terminus</a>, so that we can pass the necessary commands to Probo. However, using Terminus requires that you authenticate with Pantheon first with your username and password. To protect your security you must create a YOUR_FILE_NAME.sh file that contains your Pantheon login information. It should look like this:</p>
+<p>To download a database from your Pantheon site to your Probo container you will need to use <a href="https://github.com/pantheon-systems/cli" target="_blank">Pantheon’s CLI, Terminus</a>, so that we can pass the necessary commands to Probo. However, using Terminus requires that you authenticate with Pantheon first with your username and password. To protect your security you must create a YOUR_FILE_NAME.sh file that contains your Pantheon login information. It should look like this:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="nv">EMAIL</span><span class="o">=</span><span class="s2">"your_email_address"</span>
@@ -427,7 +433,7 @@
 
 <h2 id="step-2-update-your-proboyml-file">Step 2: Update your .probo.yml file</h2>
 
-<p>After you have uploaded your .sh file containing your login info, you’ll now need to add 3 steps to your .probo.yml file to download your Pantheon site’s database. This example uses version 0.9.3 of Pantheon’s CLI.</p>
+<p>After you have uploaded your .sh file containing your login info, you need to add 3 steps to your .probo.yml file to download your Pantheon site’s database. This example uses version 0.9.3 of Pantheon’s CLI.</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">steps</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Download terminus</span>
@@ -437,9 +443,9 @@
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Download Pantheon site DB</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$HOME/terminus</span><span class="nv"> </span><span class="s">site</span><span class="nv"> </span><span class="s">backups</span><span class="nv"> </span><span class="s">get</span><span class="nv"> </span><span class="s">--site=SITE_NAME</span><span class="nv"> </span><span class="s">--env=[dev,test,live]</span><span class="nv"> </span><span class="s">--element=database</span><span class="nv"> </span><span class="s">--to=$ASSET_DIR/FILE_NAME.sql.gz</span><span class="nv"> </span><span class="s">--latest'</span></code></pre></figure>
 
-<p><strong>Note: You must download your database to a gzipped file</strong></p>
+<p><strong>Note: You must download your database to a gzipped file!</strong></p>
 
-<p>Now that Probo has downloaded your site’s database from Pantheon it can continue with other necessary steps to build your site. The terminus steps also cooperate Probo’s Drupal plugin. View a full example of this below:</p>
+<p>Now that Probo has downloaded your site’s database from Pantheon it can continue with other necessary steps to build your site. The Terminus steps also cooperate with Probo’s Drupal plugin. Here’s an example of what that looks like:</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="s">assets</span><span class="pi">:</span>
    <span class="pi">-</span> <span class="s">export.sh</span>
