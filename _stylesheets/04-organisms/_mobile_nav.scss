@@ -1,0 +1,112 @@
+#mainMenuContainer {
+  @include breakpoint($bp-medium-portrait) {
+    @include visuallyhidden;
+  }
+
+  #mainMenu {
+    display: none;
+    position: absolute;
+    top: 59px;
+    right: 0;
+  }
+
+  &.is-revealed {
+    #mainMenu {
+      display: block;
+      width: 100%;
+      z-index: 9999;
+      overflow: hidden;
+    }
+  }
+}
+
+.accordion-nav{
+  &__item {
+    &.is-open {
+      > ul {
+        display: block;
+        opacity: 1;
+        height: auto;
+      }
+    }
+  }
+
+  &__toggle-children {
+    display: block;
+    position: absolute;
+    // top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.main-menu {
+  &__toggle {
+    // Simple menu
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: block;
+    z-index: 10000;
+    @include breakpoint($bp-medium-portrait) {
+      display: none;
+      visibility: hidden;
+      height: 0;
+    }
+
+    appearance: none;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    width: 25px;
+    height: 20px;
+
+    &:focus,
+    &:active {
+      outline: none;
+      background-color: transparent;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 0.2s cubic-bezier(0.7,0,0.36,0.63);
+      width: 25px;
+    }
+
+    &::before {
+      bottom: 0;
+      border-top: 3px solid $probo-pale;
+      border-bottom: 3px solid $probo-pale;
+    }
+
+    &::after {
+      margin-top: -1.5px;
+      height: 3px;
+      top: 50%;
+      background-color: $probo-pale;
+    }
+  }
+
+  &.is-revealed {
+    .main-menu__toggle {
+      &::after {
+        transform: rotate(-45deg);
+        margin-top: 0;
+        top: 30%;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        border-bottom: none;
+        top: 4px;
+        left: -4px;
+      }
+    }
+  }
+}

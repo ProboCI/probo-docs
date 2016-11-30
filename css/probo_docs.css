@@ -7286,7 +7286,7 @@ textarea:focus {
   position: absolute;
   right: 12px;
   transition: transform ease 400ms;
-  margin-top: 3px;
+  margin-top: -30px;
 }
 
 .plus-to-minus:before, .plus-to-minus:after {
@@ -7312,12 +7312,12 @@ textarea:focus {
   right: .5px;
 }
 
-.open .plus-to-minus {
+.is-open .plus-to-minus {
   -ms-transform: rotate(-90deg);
       transform: rotate(-90deg);
 }
 
-.open .plus-to-minus:after {
+.is-open .plus-to-minus:after {
   -ms-transform: rotate(-90deg);
       transform: rotate(-90deg);
 }
@@ -7615,6 +7615,93 @@ textarea:focus {
   padding: 20px 15px;
 }
 
+#mainMenuContainer #mainMenu {
+  display: none;
+  position: absolute;
+  top: 59px;
+  right: 0;
+}
+
+#mainMenuContainer.is-revealed #mainMenu {
+  display: block;
+  width: 100%;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.accordion-nav__item.is-open > ul {
+  display: block;
+  opacity: 1;
+  height: auto;
+}
+
+.accordion-nav__toggle-children {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 45px;
+  height: 45px;
+}
+
+.main-menu__toggle {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: block;
+  z-index: 10000;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  width: 25px;
+  height: 20px;
+}
+
+.main-menu__toggle:focus, .main-menu__toggle:active {
+  outline: none;
+  background-color: transparent;
+}
+
+.main-menu__toggle::after, .main-menu__toggle::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.2s cubic-bezier(0.7, 0, 0.36, 0.63);
+  width: 25px;
+}
+
+.main-menu__toggle::before {
+  bottom: 0;
+  border-top: 3px solid #f7f7f7;
+  border-bottom: 3px solid #f7f7f7;
+}
+
+.main-menu__toggle::after {
+  margin-top: -1.5px;
+  height: 3px;
+  top: 50%;
+  background-color: #f7f7f7;
+}
+
+.main-menu.is-revealed .main-menu__toggle::after {
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  margin-top: 0;
+  top: 30%;
+}
+
+.main-menu.is-revealed .main-menu__toggle::before {
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  border-bottom: none;
+  top: 4px;
+  left: -4px;
+}
+
 @media (min-width: 48em){
   .simple-menu{
     display: none;
@@ -7661,6 +7748,21 @@ textarea:focus {
     padding: 0;
     position: absolute;
     width: 1px;
+  }
+  #mainMenuContainer{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .main-menu__toggle{
+    display: none;
+    visibility: hidden;
+    height: 0;
   }
 }
 

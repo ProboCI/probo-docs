@@ -9,7 +9,8 @@ $duration: 400ms;
   position: absolute;
   right: 12px;
   transition: transform $ease $duration;
-  margin-top:3px;
+  margin-top: -30px;
+
   &:before, &:after {
     content: '';
     position: absolute;
@@ -33,7 +34,7 @@ $duration: 400ms;
   }
 
 }
-.open .plus-to-minus{
+.is-open .plus-to-minus {
   transform: rotate( -90deg );
   &:after {
     transform: rotate( -90deg );

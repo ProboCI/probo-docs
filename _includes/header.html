@@ -2,23 +2,53 @@
 
     <div class="header__wrapper">
 
-        <a id="simple-menu" class="simple-menu" href="#sidr" aria-hidden="true" aria-role="presentation">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 29.1 22.4" enable-background="new 0 0 29.1 22.4" xml:space="preserve">
-                <rect x="0.1" y="0" fill="#f7f4f8" width="25" height="3" />
-                <rect x="0.1" y="8.1" fill="#f7f4f8" width="25" height="3" />
-                <rect x="0.1" y="16.2" fill="#f7f4f8" width="25" height="3" />
-            </svg>
-        </a>
+      <div id="mainMenuContainer" aria-role="presentation" class="main-menu">
 
-        <div id="sidr" style="display:none" aria-hidden="true" aria-role="presentation">
-            <ul>{% assign url = page.url|remove:'index.html' %} {% for link in site.data.navigation %}
-                <li {% if url==link.url %}class="current" {% endif %}>
-                    <a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
-                </li>
-                {% endfor %}
-                <li class="login"><a href="https://app.probo.ci/" target="_blank">Login</a></li>
+        <button id="mobileMenuToggle" class="main-menu__toggle">
+          <span class="u-hidden">Open mobile menu</span>
+        </button>
+
+        <ul id="mainMenu" class="accordion-nav" aria-hidden="true">
+          <!-- Render a list item for each link -->
+          {% for link in site.data.navigation %}
+          <li class="accordion-nav__item {% if link.children %}has-children{% endif %}" aria-role="presentation">
+            <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}/{% else %}#{% endif %}" title="{{ link.title }}">
+              {{ link.text }}
+            </a>
+
+            <!-- If link has children, render an unordered list of child links -->
+            {% if link.children %}
+            <ul class="accordion-nav__parent" aria-hidden="true">
+              {% for child in link.children %}
+              <li class="accordion-nav__child {% if child.children %}has-children{% endif %}" aria-role="presentation">
+                <a class="accordion-nav__child-link" href="{{ link.parent_path }}{{ child.url }}/" title="{{ child.title }}">
+                  {{ child.text }}
+                </a>
+
+                <!-- If child link has children, render an unordered list of grandchildren -->
+                {% if child.children %}
+                  <ul class="accordion-nav__parent" aria-hidden="true">
+                    {% for grandchild in child.children %}
+                    <li class="accordion-nav__child {{ current }}" aria-role="presentation">
+                      <a class="accordion-nav__child-link" href="{{ child.parent_path }}{{ grandchild.url }}/" title="{{ grandchild.title }}">
+                        {{ grandchild.text }}
+                      </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+              </li>
+              {% endfor %}
             </ul>
-        </div>
+            {% endif %}
+
+          </li>
+          {% endfor %}
+
+          <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link" target="_blank">Login</a></li>
+        </ul>
+      </div>
 
         <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"><span class="u-accessible">Probo.CI home page</span></a></h1>
 
