@@ -2,7 +2,7 @@
   {% for parent in site.data.navigation %}
   {% if parent.title == 'Docs' %}
   {% for link in parent.children %}
-    <li class="accordion-nav__item" aria-role="presentation">
+    <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
       <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}#{% endif %}" title="{{ link.title }}">
         {{ link.text }}
       </a>

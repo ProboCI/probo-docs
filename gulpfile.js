@@ -59,7 +59,9 @@ gulp.task('sass', function () {
     .pipe(postcss(processors))
     .on('error', handleError('Post CSS Processing'))
     .pipe(gulpif(buildSourceMaps, sourcemaps.write()))
-    .pipe(gulp.dest(paths.css));
+    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest('_site/css'))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 // Use styleguide
@@ -95,15 +97,14 @@ gulp.task('browserSync', function () {
     browser: ['google chrome'],
     server: {
       baseDir: '_site'
-    },
-    files: ['_site/**']
+    }
   });
 });
 
 gulp.task('watch', ['jekyll', 'browserSync'], function () {
   gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.jekyll, ['jekyll']);
-  gulp.watch([paths.js.src, paths.js.vendor], ['js']);
+  gulp.watch(paths.jekyll, ['jekyll'], browserSync.reload);
+  gulp.watch([paths.js.src, paths.js.vendor], ['js'], browserSync.reload);
 });
 
 gulp.task('jekyll', ['styleguide'], shell.task([

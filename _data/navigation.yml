@@ -28,35 +28,28 @@
   secondary: docs
   children:
     - title: Getting Started
-      url: /getting-started
+      url: /
       text: Getting Started
+      parent: false
 
     - title: Build Configuration
-      url: /build
       text: Build Configuration
-
-    - title: Recipes
-      url: /recipes
-      text: Recipes
-
-    - title: Assets
-      url: /assets
-      text: Assets
-
-    - title: Using the Probo App
-      url: /app
-      text: Using the Probo App
-
-    - title: Build Steps
-      url: /build-steps
-      text: Build Steps
-
-    - title: Reaper
-      url: /reaper
-      text: Reaper
+      parent: true
+      parent_path: /build
+      children:
+        - title: Configuration File
+          url: /configuration
+          text: Configuration File
+        - title: Assets
+          url: /assets
+          text: Assets
+        - title: Build Steps
+          url: /steps
+          text: Build Steps
 
     - title: Plugins
       text: Plugins
+      parent: true
       parent_path: /plugins
       children:
         - title: Shell Plugin
@@ -65,32 +58,56 @@
         - title: Script Plugin
           url: /script-plugin
           text: Script Plugin
-        - title: Drupal Plugin
-          url: /drupal-plugin
-          text: Drupal Plugin
         - title: LAMP Plugin
           url: /lamp-plugin
           text: LAMP Plugin
+        - title: Drupal Plugin
+          url: /drupal-plugin
+          text: Drupal Plugin
         - title: WordPress Plugin
           url: /wordpress-plugin
           text: WordPress Plugin
 
+    - title: Using the Probo App
+      text: Using the Probo App
+      parent: true
+      parent_path: /app
+      children:
+        - title: The Dashboard
+          url: /dashboard
+          text: The Dashboard
+        - title: Build Pages
+          url: /builds
+          text: Build Pages
+
+    - title: Recipes
+      url: /recipes
+      text: Recipes
+      parent: false
+
+    - title: Reaper
+      url: /reaper
+      text: Reaper
+      parent: false
+
     - title: Git Integrations
       text: Git Integrations
+      parent: true
       parent_path: /git
       children:
-        - title: Git Integrations Overview
-          url: /git-integrations-overview
-          text: Git Integrations Overview
         - title: GitHub Integration
           url: /github
           text: GitHub Integration
         - title: Bitbucket Integration
           url: /bitbucket
           text: Bitbucket Integration
+        - title: Bitbucket Server Integration
+          url: /bitbucket-server
+          text: Bitbucket Server Integration
 
     - title: Drupal
       text: Drupal
+      parent: true
       parent_path: /drupal
       children:
         - title: Drupal Overview
@@ -108,6 +125,7 @@
 
     - title: Tutorials
       text: Tutorials
+      parent: true
       parent_path: /tutorials
       children:
         - title: Drupal GitHub QuickStart
@@ -122,9 +140,12 @@
         - title: Using Probo on Your Pantheon Site
           url: /pantheon
           text: Using Probo on Your Pantheon Site
-        - title: Feature Branch Workflow Process
+        - title: Feature Branch Workflow
           url: /workflow
-          text: Feature Branch Workflow Process
+          text: Feature Branch Workflow
+        - title: Switch PHP Versions
+          url: /switch-php
+          text: Switch PHP Versions
 
 - title: Contact
   url: http://probo.ci/contact

@@ -7,6 +7,8 @@
 .wrapper {
   #sidebar-first {
     float: none;
+		display: none;
+
     @include breakpoint($bp-medium-portrait) {
       float: left;
     }
@@ -19,18 +21,19 @@
   }
   #sidebar-last {
     float: none;
+		display: block;
     @include breakpoint($bp-medium-portrait) {
       float: right;
     }
   }
   #sidebar-last,
   #sidebar-first {
-    display: block;
     width: 100%;
     margin-bottom: 24px;
     padding: 25px 0 0 0;
     clear: both;
     @include breakpoint($bp-medium-portrait) {
+			display: block;
       padding: 0;
       width: 24%;
       max-width: 270px;

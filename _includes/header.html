@@ -7,47 +7,49 @@
         <button id="mobileMenuToggle" class="main-menu__toggle">
           <span class="u-hidden">Open mobile menu</span>
         </button>
+        <div class="main-menu__body">
+          <ul id="mainMenu" class="accordion-nav" aria-hidden="true">
+            <!-- Render a list item for each link -->
+            {% for link in site.data.navigation %}
+            <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
+              <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}#{% endif %}" title="{{ link.title }}">
+                {{ link.text }}
+              </a>
 
-        <ul id="mainMenu" class="accordion-nav" aria-hidden="true">
-          <!-- Render a list item for each link -->
-          {% for link in site.data.navigation %}
-          <li class="accordion-nav__item {% if link.children %}has-children{% endif %}" aria-role="presentation">
-            <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}/{% else %}#{% endif %}" title="{{ link.title }}">
-              {{ link.text }}
-            </a>
+              <!-- If link has children, render an unordered list of child links -->
+              {% if link.children %}
+              <ul class="accordion-nav__parent" aria-hidden="true">
+                {% for child in link.children %}
+                <li class="accordion-nav__child {% if child.children %}has-children is-closed{% endif %}" aria-role="presentation">
+                  <a class="accordion-nav__child-link" href="{% if child.url %}{{ child.url }}{% if link.url != '/' %}/{% endif %}{% else %}#{% endif %}" title="{{ child.title }}">
+                    {{ child.text }}
+                  </a>
 
-            <!-- If link has children, render an unordered list of child links -->
-            {% if link.children %}
-            <ul class="accordion-nav__parent" aria-hidden="true">
-              {% for child in link.children %}
-              <li class="accordion-nav__child {% if child.children %}has-children{% endif %}" aria-role="presentation">
-                <a class="accordion-nav__child-link" href="{{ link.parent_path }}{{ child.url }}/" title="{{ child.title }}">
-                  {{ child.text }}
-                </a>
+                  <!-- If child link has children, render an unordered list of grandchildren -->
+                  {% if child.children %}
+                    <ul class="accordion-nav__parent" aria-hidden="true">
+                      {% for grandchild in child.children %}
+                      <li class="accordion-nav__child accordion-nav__grandchild {{ current }}" aria-role="presentation">
+                        <a class="accordion-nav__child-link accordion-nav__grandchild-link" href="{{ child.parent_path }}{{ grandchild.url }}/" title="{{ grandchild.title }}">
+                          {{ grandchild.text }}
+                        </a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
 
-                <!-- If child link has children, render an unordered list of grandchildren -->
-                {% if child.children %}
-                  <ul class="accordion-nav__parent" aria-hidden="true">
-                    {% for grandchild in child.children %}
-                    <li class="accordion-nav__child {{ current }}" aria-role="presentation">
-                      <a class="accordion-nav__child-link" href="{{ child.parent_path }}{{ grandchild.url }}/" title="{{ grandchild.title }}">
-                        {{ grandchild.text }}
-                      </a>
-                    </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
 
-              </li>
-              {% endfor %}
-            </ul>
-            {% endif %}
+            </li>
+            {% endfor %}
 
-          </li>
-          {% endfor %}
-
-          <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link" target="_blank">Login</a></li>
-        </ul>
+            <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link" target="_blank">Login</a></li>
+          </ul>
+        </div>
+        <div id="overlay" aria-role="presentation" aria-hidden="true"></div>
       </div>
 
         <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"><span class="u-accessible">Probo.CI home page</span></a></h1>

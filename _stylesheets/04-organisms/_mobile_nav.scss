@@ -1,66 +1,70 @@
-#mainMenuContainer {
+.menu-is-open {
+  overflow: hidden;
+}
+
+.main-menu {
+  width: $probo-menu-width;
+
   @include breakpoint($bp-medium-portrait) {
     @include visuallyhidden;
   }
 
-  #mainMenu {
-    display: none;
-    position: absolute;
-    top: 59px;
-    right: 0;
-  }
+  &__body {
+    position: fixed;
+    overflow: hidden;
+    top: $header-height;
+    right: -1 * $probo-menu-width;
+    background: $probo-pale;
+    height: calc(100vh - #{$header-height});
+    transform: translate3d($probo-menu-width, 0, 0);
+    transition: transform .5s cubic-bezier(.55,.085,0,.99);
 
-  &.is-revealed {
-    #mainMenu {
-      display: block;
-      width: 100%;
-      z-index: 9999;
-      overflow: hidden;
-    }
-  }
-}
-
-.accordion-nav{
-  &__item {
-    &.is-open {
-      > ul {
-        display: block;
-        opacity: 1;
-        height: auto;
+    @at-root {
+      .no-js {
+        .main-menu__body {
+          height: calc(100vh - #{$header-height});
+        }
       }
     }
   }
 
-  &__toggle-children {
-    display: block;
-    position: absolute;
-    // top: 0;
-    right: 0;
-    width: 45px;
-    height: 45px;
+  &.is-revealed {
+    .main-menu__body {
+      overflow-y: scroll;
+      z-index: 9999;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+      transform: translate3d(0, 0, 0);
+      transition: transform .5s cubic-bezier(.55,.085,0,.99);
+      right: 0;
+    }
   }
-}
 
-.main-menu {
+  &__overlay {
+    position: fixed;
+    overflow: hidden;
+    top: $header-height;
+    left: 0;
+    right: 0;
+    height: calc(100vh - #{$header-height});
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all .5s ease;
+  }
+
   &__toggle {
-    // Simple menu
     position: absolute;
     right: 15px;
-    top: 15px;
+    top: 20px;
     display: block;
     z-index: 10000;
-    @include breakpoint($bp-medium-portrait) {
-      display: none;
-      visibility: hidden;
-      height: 0;
-    }
-
-    appearance: none;
     border: none;
     background-image: none;
     background-color: transparent;
     width: 25px;
     height: 20px;
+
+    @include breakpoint($bp-medium-portrait) {
+      @include visuallyhidden;
+    }
 
     &:focus,
     &:active {
@@ -94,6 +98,7 @@
   }
 
   &.is-revealed {
+
     .main-menu__toggle {
       &::after {
         transform: rotate(-45deg);
@@ -107,6 +112,109 @@
         top: 4px;
         left: -4px;
       }
+    }
+  }
+}
+
+.accordion-nav {
+  background: $probo-soft-peach;
+
+  &__parent {
+    display: block; // @TODO: remove 'display: none' from styleguide
+  }
+
+  &__child,
+  &__item {
+    position: relative;
+    right: 0;
+
+    i {
+      font-size: 30px;
+      position: relative;
+      top: 8px;
+    }
+
+    &.is-closed {
+      > ul {
+        transition: max-height .15s cubic-bezier(0.7, 0.05, 0.15, 0.95), opacity .2s cubic-bezier(0.7, 0.05, 0.15, 0.95);
+        max-height: 0;
+        opacity: 0;
+      }
+    }
+
+    &.is-open {
+      border-bottom: none;
+
+      > ul {
+        transition: max-height .4s cubic-bezier(0.7, 0.05, 0.15, 0.95), opacity .3s cubic-bezier(0.7, 0.05, 0.15, 0.95);
+        max-height: 9999px;
+        opacity: 1;
+      }
+    }
+
+    li:first-of-type {
+      border-top: 2px solid $probo-pale-darker;
+    }
+  }
+
+  &__item {
+    .accordion-nav__toggle-children {
+      border-right: 1px solid #f7f2f5;
+      border-left: 1px solid #f7f2f5;
+    }
+  }
+
+  &__child {
+    border-bottom: 1px solid $probo-soft-peach-medium;
+    text-indent: 0;
+
+    &:hover {
+      background-color: $probo-soft-peach;
+    }
+
+    .accordion-nav__toggle-children {
+      border-right: 1px solid $probo-soft-peach-medium;
+      border-left: 1px solid $probo-soft-peach-medium;
+    }
+  }
+
+  &__grandchild {
+    background-color: $probo-soft-peach-medium;
+    border-bottom: 1px solid $probo-soft-peach-dark;
+    text-indent: 0;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  &__grandchild-link {
+    margin-left: 4rem;
+  }
+
+  &__child-link,
+  &__grandchild-link {
+    &:before {
+      content: none;
+    }
+  }
+
+  &__toggle-children {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    z-index: 10;
+    color: $probo-purple-dark;
+    text-indent: 4px;
+    text-align: center;
+    border-right: 1px solid $probo-soft-peach-medium;
+    border-left: 1px solid $probo-soft-peach-medium;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }
