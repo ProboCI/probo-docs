@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ProboCI/probo-docs.svg?branch=master)](https://travis-ci.org/ProboCI/probo-docs)
+
 # Probo documentation
 
 The docs live at https://docs.probo.ci.
