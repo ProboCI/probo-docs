@@ -1,10 +1,8 @@
 language: ruby
 sudo: false
 rvm: 2.2.0
-script: bundle exec rake deploy
-before_script:
-  - git config --global user.name "Travis CI"
-  - git config --global user.email "nobody@nobody.org"
+addons:
+  ssh_known_hosts: 45.33.65.194
 branches:
   only:
   - master
@@ -15,3 +13,12 @@ notifications:
   hipchat:
     rooms:
       secure: hI5E3zqdF1wklSpuY+s4hXEEfpWa1Pg2b+DTBsveUucks/i81JtfOtyYrIg0VXMPufSawDspV/kpskU+mItNdgKk63iCBAuTdBcNc5za3i6ohP4td1fIJlGVenksLVlTSwZKSe6K1K6QOHij/8K8yQfYjxhzsvfOvEGeqXVVubUgId9N3QJa7c321YB6RX/MGaZp/V8tnbbjWN5TF+ld67Zd7Yhz26OBjashyTUFeOHKv005WHV8Vq1sSdsRi9/wKgHfzKJKXgjrUUBlLG6lQmkOqDJmg7/mPSg0fNloBmfIzmK9vwxG6MCxOgIyxvem269QY9dnOWlKxv8vfHdynLW3DzDQ96uUhAlPDCOv+gunRbh9+CPZHFMgGckBXcquhx+w0kdlic73uWZHKPL1aG/4g+lbObr8v5Mtnuc5TBnBGtL0HqsTsmHtAH1s3V2LSKUdD+y/zTqyr4W0waO+ebtVmZTazrDGcY5o3Op11B/4KacXToO1ij4uC40Gp0TgPbPg0U9Ogo3E1Et4LYgMY0xnTyKVBMEbNOl8TTLxL4sCQ3EJU0Hso02quCRgxPFq5TapmJtvIZPhJcsHo2ENIx6iqRpAzJu3ec9BEVbduqh7+eKHtg6DgA6XwSmlxTFQN07apL7AyVZaFiyKX4W1mypX/PP6i+YleaBu1yNxYC8=
+after_success:
+- openssl aes-256-cbc -K $encrypted_f10450ccb48f_key -iv $encrypted_f10450ccb48f_iv
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
+- rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site webadmin@45.33.65.194:/var/www/probo_docs
+script:
+- bundle exec jekyll build
