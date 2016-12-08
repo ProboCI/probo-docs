@@ -12,5 +12,4 @@ Probo is a powerful continuous automation and software testing tool. Our documen
 * [Getting Started](/getting-started/ "Getting Started"): The basics of setting up Probo.
 * [Build Configuration](/build/ "Build Configuration"): Configure Probo builds to suit your needs.
 * [Using the Probo App](/app/ "Using the Probo App"): Learn all about Probo's custom user interface.
-* [Git Repository Integrations](/git/git-integrations-overview/ "Git Repository Integrations"): Find out how Probo merges with some of the most popular git repository management systems.
 * [Drupal Quickstart](/tutorials/drupal-github-quickstart/ "Drupal Quickstart"): Get Probo up and running with your Drupal site.

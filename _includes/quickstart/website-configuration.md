@@ -3,7 +3,7 @@
 
 **Step 9: Declare your assets and build your steps.**
 
-Tell Probo.CI what database you are going to use for your Probo.CI builds. Add in your parameters as steps. You can [read more in the docs about different parameter options](/docs/steps/drupal-plugin/).
+Tell Probo.CI what database you are going to use for your Probo.CI builds. Add in your parameters as steps. You can [read more in the docs about different parameter options](/plugins/drupal-plugin/).
 {% highlight yaml%}
 assets:     
   - dev.sql.gz

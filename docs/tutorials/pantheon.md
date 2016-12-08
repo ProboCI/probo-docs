@@ -19,7 +19,7 @@ EMAIL="your_email_address"
 PASS="your_password"
 ```
 
-You will need to [upload this file as an asset](/uploader/) for your Probo build. We will use the variables that you set to authenticate with Pantheon.
+You will need to [upload this file as an asset](/assets/) for your Probo build. We will use the variables that you set to authenticate with Pantheon.
 
 ## Step 2: Update your .probo.yml file
 
