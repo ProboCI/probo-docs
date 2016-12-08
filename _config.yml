@@ -17,7 +17,7 @@ title: Probo.CI Documentation
 email: info@probo.ci
 description: Probo.CI documentation.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://docs.probo.ci"
+url: "https://docs.probo.ci"
 twitter_username: zivtech
 github_username:  proboci
 
