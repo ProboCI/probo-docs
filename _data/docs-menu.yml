@@ -19,9 +19,16 @@
   parent: false
 
 - title: Using the Probo App
-  url: /app
   text: Using the Probo App
-  parent: false
+  parent: true
+  parent_path: /app
+  children:
+    - title: The Dashboard
+      url: /dashboard
+      text: The Dashboard
+    - title: Build Pages
+      url: /builds
+      text: Build Pages
 
 - title: Build Steps
   url: /build-steps
