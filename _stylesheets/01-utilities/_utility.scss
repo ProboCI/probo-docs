@@ -1,17 +1,3 @@
-@font-face {
-  font-family:Merriweather;
-  font-style:normal;
-  font-weight:400;
-  src:local('Merriweather'),url(//themes.googleusercontent.com/static/fonts/merriweather/v5/RFda8w1V0eDZheqfcyQ4EKRDOzjiPcYnFooOUGCOsRk.woff) format('woff')
-}
-
-@font-face {
-  font-family:'Open Sans';
-  font-style:normal;
-  font-weight:400;
-  src:local('Open Sans'),local('OpenSans'),url(//fonts.gstatic.com/s/opensans/v10/u-WUoqrET9fUeobQW7jkRZBw1xU1rKptJj_0jans920.woff2) format('woff2'),local('Open Sans'),local('OpenSans'),url(//fonts.gstatic.com/s/opensans/v10/u-WUoqrET9fUeobQW7jkRbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');unicode-range:U+0100024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF
-}
-
 .u-hidden {
   @extend %visuallyhidden;
 }
@@ -24,20 +10,20 @@
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 
-	&.full-width {
+  &.full-width {
     padding: $base-spacing 0;
     width: auto;
-	}
+  }
 
-	&.drop-shadow {
-		box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-	}
+  &.drop-shadow {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+  }
 }
 
 .wrapper {
-	@extend %wrapper;
+  @extend %wrapper;
 }
 
 .highlight{
