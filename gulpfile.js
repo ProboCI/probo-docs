@@ -119,6 +119,7 @@ gulp.task('js', ['js:combine'], function () {
         beautify: true
       }
     }))
+    .on('error', handleError('Uglifying JS'))
     .pipe(rename({
       suffix: '.min'
     }))

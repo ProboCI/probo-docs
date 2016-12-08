@@ -1,11 +1,11 @@
 ---
 layout: "docs"
-title: Bitbucket Server Integration
+title: Bitbucket Integration
 class: documentation
 permalink: /git/bitbucket/
 published: true
 ---
-Probo integrates with [Bitbucket](https://bitbucket.org), a git repository management system created by Atlassian. Probo also supports [Bitbucket Server](https://bitbucket.org/product/server), however it requires manual setup on our part.
+Probo integrates with [Bitbucket](https://bitbucket.org), a git repository management system created by Atlassian.
 
 Probo uses Bitbucket's build status pop-up to display the list of build steps and their statuses. The link can be found in the Overview section of the pull request detail page.
 

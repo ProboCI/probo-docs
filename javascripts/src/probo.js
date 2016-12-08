@@ -17,7 +17,7 @@
     }
 
     $('.accordion-nav').navgoco({
-      caretHtml: '<i class='icon plus-to-minus'></i>',
+      caretHtml: '<i class="icon plus-to-minus"></i>',
       accordion: true,
       openClass: 'open',
       save: true,

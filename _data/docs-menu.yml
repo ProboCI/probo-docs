@@ -59,15 +59,15 @@
   parent: true
   parent_path: /git
   children:
-    - title: Git Integrations Overview
-      url: /git-integrations-overview
-      text: Git Integrations Overview
     - title: GitHub Integration
       url: /github
       text: GitHub Integration
     - title: Bitbucket Integration
       url: /bitbucket
       text: Bitbucket Integration
+    - title: Bitbucket Server Integration
+      url: /bitbucket-server
+      text: Bitbucket Server Integration
 
 - title: Drupal
   text: Drupal
