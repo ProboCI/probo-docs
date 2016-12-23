@@ -24,6 +24,7 @@ In your .probo.yml file add the following Script:
       a2dismod php5
       a2enmod php5.6
       apachectl graceful
+      update-alternatives --set php /usr/bin/php5.6 # Needed for 5.6.29-1+deb.sury.org~trusty+1 and up.
       php -v
 ```
 
