@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ProboCI/probo-docs.svg?branch=master)](https://travis-ci.org/ProboCI/probo-docs)
+
 # Probo documentation
 
 The docs live at https://docs.probo.ci.
@@ -65,3 +67,4 @@ You can share your super slick `.probo.yaml` in just a few steps:
 2. Enter a title for your recipe. You can optionally add you or your organization's name as you would like it displayed and your GitHub username so we can link to your profile.
 3. Paste the contents of your `.probo.yaml` file between the `highlight yaml` tags.
 4. Submit a pull request and add the **needs review** label.
+

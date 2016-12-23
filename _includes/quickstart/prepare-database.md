@@ -1,4 +1,4 @@
-You will need to import your project's database with the [Probo Uploader](https://github.com/ProboCI/probo-uploader), a CLI tool. You will first import your database, then you will declare the database file in a `.probo.yaml` file. We will use the [Drupal plugin](/docs/drupal-plugin/ "Drupal plugin"){:target="_blank"} to revert features, run database updates, and clear caches. (Cache all the things!)
+You will need to import your project's database with the [Probo Uploader](https://github.com/ProboCI/probo-uploader), a CLI tool. You will first import your database, then you will declare the database file in a `.probo.yaml` file. We will use [the Drupal plugin](/plugins/drupal-plugin/ "Drupal plugin"){:target="_blank"} to revert features, run database updates, and clear caches. (Cache all the things!)
 
 **Step 3: Sanitize your database (optional).**
 
@@ -22,14 +22,14 @@ drush sql-dump | gzip > dev.sql.gz
 
 **Step 5: Install the [Probo Uploader](https://github.com/ProboCI/probo-uploader){:target="_blank"} on your machine with npm.**
 
-You will need Node.js for the Probo CI Uploader. [How to install node.js and npm.](https://nodejs.org/en/){:target="_blank"}
+You will need Node.js for the Probo.CI Uploader. [Install node.js and npm if you don't already have them.](https://nodejs.org/en/){:target="_blank"}
 {% highlight bash %}
 sudo npm install -g probo-uploader
 {% endhighlight %}
 
-**Step 6: Upload your database to the Probo CI app.**
+**Step 6: Upload your database to the Probo.CI app.**
 
-Each repository will have it's own token. You can find your project's token on the dashboard of the Probo CI app.
+Each repository will have it's own token. You can find your project's token on the dashboard of the Probo.CI app.
 {% highlight bash %}
 probo-uploader --token=[your-token] dev.sql.gz
 {% endhighlight %}

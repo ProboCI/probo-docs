@@ -34,6 +34,7 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "list.js": "^1.2.0",
+    "probo-styleguide": "^3.0.0",
     "yargs": "^6.0.0"
   }
 }

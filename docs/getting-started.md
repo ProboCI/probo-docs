@@ -12,7 +12,7 @@ The first step to using Probo is logging in to the Probo App, where you can sync
 
 **Bitbucket:** Go to the [Probo App](https://app.probo.ci/ "Probo App") and click **Login with Bitbucket**. On the authorization page, grant Probo permission to access your repos. Back in the Probo App, enter your user information and click Submit.
 
-**Bitbucket Server:** [Contact us](/contact/ "Contact us") to complete the login process.
+**Bitbucket Server:** See the docs for [setting up Bitbucket Server](/git/bitbucket-server/).
 
 ## Sync Your Repos
 After logging in you will land on the **Probo Dashboard** which contains a list of all your available repositories. Click the Activate Repos button, click Sync Repos, then flip the toggle switch next to a repository to enable Probo on that project. If you add a new repository, click the **Sync Repos** button to update your list.
