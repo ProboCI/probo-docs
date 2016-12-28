@@ -13,12 +13,16 @@ img {
   max-width: 100%;
 
   &.full-width {
-    padding: $base-spacing 0;
     width: auto;
   }
 
   &.drop-shadow {
     box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+  }
+
+  &.screenshot {
+    margin: $base-spacing 0;
+    border: 1px solid $probo-pale-darker;
   }
 }
 

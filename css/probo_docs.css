@@ -917,8 +917,7 @@ button.ui-button::-moz-focus-inner {
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
-  -webkit-filter: inherit;
-          filter: inherit;
+  filter: inherit;
 }
 
 .ui-slider-horizontal {
@@ -2838,8 +2837,7 @@ button.ui-button::-moz-focus-inner {
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
-  -webkit-filter: inherit;
-          filter: inherit;
+  filter: inherit;
 }
 
 .ui-slider-horizontal {
@@ -4146,8 +4144,7 @@ body .ui-tooltip {
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .fa-stack {
@@ -7100,32 +7097,21 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   }
 }
 
-@font-face {
-  font-family: Merriweather;
-  font-style: normal;
-  font-weight: 400;
-  src: local("Merriweather"), url(//themes.googleusercontent.com/static/fonts/merriweather/v5/RFda8w1V0eDZheqfcyQ4EKRDOzjiPcYnFooOUGCOsRk.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Open Sans"), local("OpenSans"), url(//fonts.gstatic.com/s/opensans/v10/u-WUoqrET9fUeobQW7jkRZBw1xU1rKptJj_0jans920.woff2) format("woff2"), local("Open Sans"), local("OpenSans"), url(//fonts.gstatic.com/s/opensans/v10/u-WUoqrET9fUeobQW7jkRbO3LdcAZYWl9Si6vvxL-qU.woff) format("woff");
-  unicode-range: U+0100024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF;
-}
-
 img {
   max-width: 100%;
 }
 
 img.full-width {
-  padding: 10px 0;
   width: auto;
 }
 
 img.drop-shadow {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+img.screenshot {
+  margin: 10px 0;
+  border: 1px solid #c8c8c8;
 }
 
 .highlight {

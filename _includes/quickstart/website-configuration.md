@@ -26,4 +26,4 @@ steps:
  git push -u origin probo-build   
 {% endhighlight %}
 
-<img src="/images/git-create-branch.gif" alt="Add your Probo.CI Configuration" class="docs-gif">
+<img src="/images/git-create-branch.gif" alt="Add your Probo.CI Configuration" class="docs-gif screenshot">

@@ -1,37 +1,22 @@
 - title: Getting Started
-  url: /getting-started
+  url: /
   text: Getting Started
   parent: false
 
 - title: Build Configuration
-  url: /build
   text: Build Configuration
-  parent: false
-
-- title: Recipes
-  url: /recipes
-  text: Recipes
-  parent: false
-
-- title: Assets
-  url: /assets
-  text: Assets
-  parent: false
-
-- title: Using the Probo App
-  url: /app
-  text: Using the Probo App
-  parent: false
-
-- title: Build Steps
-  url: /build-steps
-  text: Build Steps
-  parent: false
-
-- title: Reaper
-  url: /reaper
-  text: Reaper
-  parent: false
+  parent: true
+  parent_path: /build
+  children:
+    - title: Configuration File
+      url: /configuration
+      text: Configuration File
+    - title: Assets
+      url: /assets
+      text: Assets
+    - title: Build Steps
+      url: /steps
+      text: Build Steps
 
 - title: Plugins
   text: Plugins
@@ -44,15 +29,37 @@
     - title: Script Plugin
       url: /script-plugin
       text: Script Plugin
-    - title: Drupal Plugin
-      url: /drupal-plugin
-      text: Drupal Plugin
     - title: LAMP Plugin
       url: /lamp-plugin
       text: LAMP Plugin
+    - title: Drupal Plugin
+      url: /drupal-plugin
+      text: Drupal Plugin
     - title: WordPress Plugin
       url: /wordpress-plugin
       text: WordPress Plugin
+
+- title: Using the Probo App
+  text: Using the Probo App
+  parent: true
+  parent_path: /app
+  children:
+    - title: The Dashboard
+      url: /dashboard
+      text: The Dashboard
+    - title: Build Pages
+      url: /builds
+      text: Build Pages
+
+- title: Recipes
+  url: /recipes
+  text: Recipes
+  parent: false
+
+- title: Reaper
+  url: /reaper
+  text: Reaper
+  parent: false
 
 - title: Git Integrations
   text: Git Integrations

@@ -5,17 +5,9 @@ class: documentation
 permalink: /plugins/shell-plugin/
 published: true
 ---
-The Shell plugin requires a parameter for `command`. This allows you to define Shell commands to run during the site build. You can list as many commands as you like within the steps in your `.probo.yaml` file. Remember to include a `name` for each `command`. You must also declare `plugin: Shell` in your `.probo.yaml` file.
+The Shell plugin provides the `command` parameter. This allows you to define bash commands to run during the site build. You can list as many commands as you like within the steps in your `.probo.yaml` file.
 
-The Shell plugin provides several variables to use within your `.probo.yaml` file.
-
-## Available Variables
-
-{: .table .table-striped .table-bordered}
-| ----------- | --------------------------------------------------------------------------- |
-| `$SRC_DIR`  | The filepath which contains the code from your pull request.                |
-| `$ASSET_DIR`| The filepath which contains any assets you uploaded to your Probo project.  |
-| `$BUILD_ID` | The ID for the build.                                                       |
+You will need to include a `name` for each `command` since you can only declare a given parameter once per step. [The Script plugin](/plugins/script-plugin/) is available for multi-line commands.
 
 ## Examples
 

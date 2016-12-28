@@ -9,16 +9,6 @@ The Probo.CI Script plugin is very similar to the [Shell plugin](/plugins/shell-
 
 Instead of `command`, the Script plugin requires a parameter for `script`. This allows you to define a set of Shell commands to run during the site build. You can list as many commands as you like within the steps in your .probo.yaml file. Remember to include a `name` for each `script`.
 
-Like the Shell plugin, the Script plugin also provides several variables to use within your `.probo.yaml` file.
-
-## Available Variables
-
-{: .table .table-striped .table-bordered}
-| ----------- | --------------------------------------------------------------------------- |
-| `$SRC_DIR`  | The filepath which contains the code from your pull request.                |
-| `$ASSET_DIR`| The filepath which contains any assets you uploaded to your Probo project.  |
-| `$BUILD_ID` | The ID for the build.                                                       |
-
 ## Examples
 
 ### Using the Script plugin

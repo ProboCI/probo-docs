@@ -1,15 +1,16 @@
 ---
 layout: "docs"
-title: Switch Version of PHP
+title: Switch PHP Versions
 class: documentation
 permalink: /tutorials/switch-php/
 ---
-Probo CI LampApp comes with PHP 5.5 by default. If you'd like to upgrade to 5.6 or 7.0, you need to add a script
-to your .probo.yml file.
+Probo.CI LAMP containers come with PHP 5.5 by default. If you'd like to upgrade to 5.6 or 7.0, you need to add a script to your `.probo.yml` file.
+
+**Note: These scripts install packages required to run Drupal.**
 
 ## Setup Probo.CI with PHP 5.6
 
-In your .probo.yml file add the following Script:
+In your `.probo.yml` file add the following Script:
 
 ```
   - name: Upgrade to php 5.6
@@ -27,11 +28,9 @@ In your .probo.yml file add the following Script:
       php -v
 ```
 
-Note: This installs packages required to run Drupal.
-
 ## Setup Probo.CI with PHP 7
 
-In your .probo.yml file add the following Script:
+In your `.probo.yml` file add the following Script:
 
 ```
   - name: Upgrade to php 7

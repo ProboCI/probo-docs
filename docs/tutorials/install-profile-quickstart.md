@@ -7,32 +7,21 @@ published: true
 ---
 
 ## Setup Probo for a Drupal site with an Install Profile.
-Want to use a Drupal Install profile with your probo builds? With this setup you do not need to import a database because the drush site-install command will drop your database tables on build.
+Want to use a Drupal Install profile with your Probo builds? With this setup you do not need to import a database because the drush site-install command will drop your database tables on build.
 
 Below is a step by step example of a Drupal site install using Zivtech's [Bear installation profile](https://www.drupal.org/project/bear). Note that this walkthrough does not use all the available parameters provided by the Drupal plugin. You can find all available parameters in the [Drupal plugin documentation](/plugins/drupal-plugin/ "Drupal plugin Documentation").
 
-Build Specs:
+**You will need:**
 
-* Standard Drupal site
-* Your repository is stored on GitHub (Although this uses GitHub, the same principles apply if you are using Bitbucket.)
-* You have a really awesome [Drupal install profile.](https://www.drupal.org/node/306267)
+1. A standard Drupal site
+2. Your code stored in a repository on GitHub (although this tutorial uses GitHub, the same principles apply if you are using Bitbucket)
+3. A really awesome [Drupal install profile.](https://www.drupal.org/node/306267)
 
-> Bonus: Want a Drupal Install Profile? Check out Zivtech's [Bear Installation Profile](https://www.drupal.org/project/bear). Also, take a look at the [features](http://bear.zivtech.com/features) of its bear_skin theme.
-
-----
-
-{::options parse_block_html="true" /}
-<div class="dropdown drop-click">
 ## Sign in and Sync up.
-<div class="drop-inner">
 {% include quickstart/github-sign-in.md %}
-</div>
-</div>
 
-{::options parse_block_html="true" /}
-<div class="dropdown drop-click open">
 ## Define your Install Profile configuration.
-<div class="drop-inner">
+
 {% include quickstart/create-branch.md %}
 
 **Step 10: Declare your assets and build your steps.**
@@ -56,21 +45,15 @@ steps:
 
 {% highlight yaml %}
 git add .probo.yaml  
- git commit -m"Adding .probo.yaml."  
- git push -u origin probo-build   
+git commit -m"Adding .probo.yaml."  
+git push -u origin probo-build   
 {% endhighlight %}
 
 <img src='/images/git-create-branch.gif' alt='Add your Probo.CI Configuration' class='docs-gif'>
-</div>
-</div>
 
-{::options parse_block_html="true" /}
-<div class="dropdown drop-click">
 ## View your build.
-<div class="drop-inner">
 **Step 12: Go to your GitHub account. You will see your new branch inside your project.**
-[https://github.com/Probo-Demos/install-profile-demo/branches](https://github.com/Probo-Demos/install-profile-demo/branches){:target="_blank"}
-
+[https://github.com/Probo-Demos/install-profile-demo/branches](https://github.com/Probo-Demos/install-profile-demo/branches){:target="\_blank"}
 
 **Step 13: Create a pull request.**  
 
@@ -90,9 +73,7 @@ Note: It might take a few seconds for your Probo.CI environment to build. Wait u
 
   In this repo there are two pull requests:  
 
-  * [pull request to demo this with the drupal plugin](https://github.com/Probo-Demos/install-profile-demo/pull/2)   
-  * [pull request to demo this with shell plugin](https://github.com/Probo-Demos/install-profile-demo/pull/1)  
+  1. [Pull request demo with the Drupal plugin](https://github.com/Probo-Demos/install-profile-demo/pull/2)   
+  2. [Pull request demo with the Shell plugin](https://github.com/Probo-Demos/install-profile-demo/pull/1)  
 
-<img src='/images/probo-build.gif' alt='Probo.CI build Gif' class='docs-gif'>
-</div>
-</div>
+<img src='/images/probo-build.gif' alt='Probo.CI build Gif' class='docs-gif screenshot'>
