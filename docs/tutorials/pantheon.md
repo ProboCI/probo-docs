@@ -11,7 +11,7 @@ Probo can make your life easier if you're developing your site on Pantheon. Ther
 
 ## Step 1: Create a .sh File
 
-To download a database from your Pantheon site to your Probo container you will need to use [Pantheon's CLI, Terminus](https://github.com/pantheon-systems/cli){:target="_blank"}, so that we can pass the necessary commands to Probo. However, using Terminus requires that you authenticate with Pantheon first with your username and password. To protect your security you must create a YOUR_FILE_NAME.sh file that contains your Pantheon login information. It should look like this:
+To download a database from your Pantheon site to your Probo container you will need to use [Pantheon's CLI, Terminus](https://github.com/pantheon-systems/cli){:target="\_blank"}, so that we can pass the necessary commands to Probo. However, using Terminus requires that you authenticate with Pantheon first with your username and password. To protect your security you must create a YOUR_FILE_NAME.sh file that contains your Pantheon login information. It should look like this:
 
 ```bash
 #!/bin/bash
