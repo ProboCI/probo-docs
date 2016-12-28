@@ -1,7 +1,7 @@
 <ul class="accordion-nav">
   {% for link in site.data.docs-menu %}
     <li class="accordion-nav__item" aria-role="presentation">
-      <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}/{% else %}#{% endif %}" title="{{ link.title }}">
+      <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}#{% endif %}" title="{{ link.title }}">
         {{ link.text }}
       </a>
         {% if link.parent %}

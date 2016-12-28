@@ -1,22 +1,43 @@
 - title: Getting Started
-  url: /getting-started
+  url: /
   text: Getting Started
   parent: false
 
 - title: Build Configuration
-  url: /build
   text: Build Configuration
-  parent: false
+  parent: true
+  parent_path: /build
+  children:
+    - title: Configuration File
+      url: /configuration
+      text: Configuration File
+    - title: Assets
+      url: /assets
+      text: Assets
+    - title: Build Steps
+      url: /steps
+      text: Build Steps
 
-- title: Recipes
-  url: /recipes
-  text: Recipes
-  parent: false
-
-- title: Assets
-  url: /assets
-  text: Assets
-  parent: false
+- title: Plugins
+  text: Plugins
+  parent: true
+  parent_path: /plugins
+  children:
+    - title: Shell Plugin
+      url: /shell-plugin
+      text: Shell Plugin
+    - title: Script Plugin
+      url: /script-plugin
+      text: Script Plugin
+    - title: LAMP Plugin
+      url: /lamp-plugin
+      text: LAMP Plugin
+    - title: Drupal Plugin
+      url: /drupal-plugin
+      text: Drupal Plugin
+    - title: WordPress Plugin
+      url: /wordpress-plugin
+      text: WordPress Plugin
 
 - title: Using the Probo App
   text: Using the Probo App
@@ -30,36 +51,15 @@
       url: /builds
       text: Build Pages
 
-- title: Build Steps
-  url: /build-steps
-  text: Build Steps
+- title: Recipes
+  url: /recipes
+  text: Recipes
   parent: false
 
 - title: Reaper
   url: /reaper
   text: Reaper
   parent: false
-
-- title: Plugins
-  text: Plugins
-  parent: true
-  parent_path: /plugins
-  children:
-    - title: Shell Plugin
-      url: /shell-plugin
-      text: Shell Plugin
-    - title: Script Plugin
-      url: /script-plugin
-      text: Script Plugin
-    - title: Drupal Plugin
-      url: /drupal-plugin
-      text: Drupal Plugin
-    - title: LAMP Plugin
-      url: /lamp-plugin
-      text: LAMP Plugin
-    - title: WordPress Plugin
-      url: /wordpress-plugin
-      text: WordPress Plugin
 
 - title: Git Integrations
   text: Git Integrations
