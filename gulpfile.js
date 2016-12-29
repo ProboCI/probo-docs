@@ -21,6 +21,7 @@ var sass = require('gulp-sass'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
   sourcemaps = require('gulp-sourcemaps');
+var runSequence = require('run-sequence');
 
 // paths
 var paths = {
@@ -40,7 +41,7 @@ var paths = {
 
 // post CSS processors
 var processors = [
-  autoprefixer({browsers: ['last 2 version', 'IE 9']}), // specify browser compatibility with https://github.com/ai/browserslist
+  autoprefixer({browsers: ['last 2 version', '> 5%']}), // specify browser compatibility with https://github.com/ai/browserslist
   mqpacker({sort: true}) // this will reorganize css into media query groups, better for performance
 ];
 
@@ -101,7 +102,7 @@ gulp.task('browserSync', function () {
   });
 });
 
-gulp.task('watch', ['jekyll', 'browserSync'], function () {
+gulp.task('watch', ['build:dev'], function () {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.jekyll, ['jekyll'], browserSync.reload);
   gulp.watch([paths.js.src, paths.js.vendor], ['js'], browserSync.reload);
@@ -120,10 +121,11 @@ gulp.task('js', ['js:combine'], function () {
         beautify: true
       }
     }))
-    .on('error', handleError('Uglifying JS'))
+    .on('error', handleError('JS minifying'))
     .pipe(rename({
       suffix: '.min'
     }))
+    .on('error', handleError('JS renaming'))
     .pipe(gulp.dest(paths.js.build));
 });
 
@@ -164,4 +166,12 @@ gulp.task('inject', function () {
       }
     }))
     .pipe(gulp.dest('./_includes/'));
+});
+
+gulp.task('build', function(cb) {
+  runSequence('favicons', 'inject', ['js', 'sass'], 'styleguide', 'jekyll', cb);
+});
+
+gulp.task('build:dev', function(cb) {
+  runSequence('build', 'browserSync', cb);
 });
