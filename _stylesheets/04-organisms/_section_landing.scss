@@ -1,0 +1,34 @@
+.section-landing {
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__list-item {
+  }
+
+  &__list-link {
+    @include link-colors($probo-purple-dark, $probo-purple, $probo-purple-dark, $probo-purple-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    background: $probo-pale;
+    margin: 0 $base-margin $base-margin 0;
+    height: 50px;
+    width: 100%;
+    padding: 0 $base-spacing;
+    border: 1px solid $probo-pale-dark;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @include breakpoint($bp-medium-portrait) {
+      text-align: center;
+      width: 30%;
+      padding: 75px $base-spacing * 5;
+    }
+  }
+}

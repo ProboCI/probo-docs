@@ -12,7 +12,7 @@
             <!-- Render a list item for each link -->
             {% for link in site.data.navigation %}
             <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
-              <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}#{% endif %}" title="{{ link.title }}">
+              <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}/{% endif %}" title="{{ link.title }}">
                 {{ link.text }}
               </a>
 
@@ -30,7 +30,7 @@
                     <ul class="accordion-nav__parent" aria-hidden="true">
                       {% for grandchild in child.children %}
                       <li class="accordion-nav__child accordion-nav__grandchild {{ current }}" aria-role="presentation">
-                        <a class="accordion-nav__child-link accordion-nav__grandchild-link" href="{{ child.parent_path }}{{ grandchild.url }}/" title="{{ grandchild.title }}">
+                        <a class="accordion-nav__child-link accordion-nav__grandchild-link" href="{{ child.url }}{{ grandchild.url }}/" title="{{ grandchild.title }}">
                           {{ grandchild.text }}
                         </a>
                       </li>

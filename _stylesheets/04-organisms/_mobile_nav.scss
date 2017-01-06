@@ -218,3 +218,9 @@
     }
   }
 }
+
+.accordion-nav {
+  &__item-link:hover {
+    background: $probo-pale;
+  }
+}

@@ -30,12 +30,10 @@
     - title: Getting Started
       url: /
       text: Getting Started
-      parent: false
 
     - title: Build Configuration
       text: Build Configuration
-      parent: true
-      parent_path: /build
+      url: /build
       children:
         - title: Configuration File
           url: /configuration
@@ -49,8 +47,7 @@
 
     - title: Plugins
       text: Plugins
-      parent: true
-      parent_path: /plugins
+      url: /plugins
       children:
         - title: Shell Plugin
           url: /shell-plugin
@@ -70,8 +67,7 @@
 
     - title: Using the Probo App
       text: Using the Probo App
-      parent: true
-      parent_path: /app
+      url: /app
       children:
         - title: The Dashboard
           url: /dashboard
@@ -83,17 +79,14 @@
     - title: Recipes
       url: /recipes
       text: Recipes
-      parent: false
 
     - title: Reaper
       url: /reaper
       text: Reaper
-      parent: false
 
     - title: Git Integrations
       text: Git Integrations
-      parent: true
-      parent_path: /git
+      url: /git
       children:
         - title: GitHub Integration
           url: /github
@@ -107,12 +100,8 @@
 
     - title: Drupal
       text: Drupal
-      parent: true
-      parent_path: /drupal
+      url: /drupal
       children:
-        - title: Drupal Overview
-          url: /drupal-overview
-          text: Drupal Overview
         - title: Stage File Proxy
           url: /stage-file-proxy
           text: Stage File Proxy
@@ -125,8 +114,7 @@
 
     - title: Tutorials
       text: Tutorials
-      parent: true
-      parent_path: /tutorials
+      url: /tutorials
       children:
         - title: Drupal GitHub QuickStart
           url: /drupal-github-quickstart

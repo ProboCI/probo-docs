@@ -3,14 +3,14 @@
   {% if parent.title == 'Docs' %}
   {% for link in parent.children %}
     <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
-      <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}#{% endif %}" title="{{ link.title }}">
+      <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}/{% endif %}" title="{{ link.title }}">
         {{ link.text }}
       </a>
         {% if link.children %}
           <ul class="accordion-nav__parent">
               {% for child in link.children %}
                 <li class="accordion-nav__child {{ current }}" aria-role="presentation">
-                  <a class="accordion-nav__child-link" href="{{ link.parent_path }}{{ child.url }}/" title="{{ child.title }}">
+                  <a class="accordion-nav__child-link" href="{{ link.url }}{{ child.url }}/" title="{{ child.title }}">
                     {{ child.text }}
                   </a>
                 </li>

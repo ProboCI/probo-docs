@@ -6,7 +6,7 @@ permalink: /drupal/install-profile/
 published: true
 ---
 
-Installation profiles combine Drupal core, contributed modules, pre-defined functionality and configuration for the purpose to quickly set up Drupal sites. You can read more about [Drupal Installation profiles on drupal.org](https://www.drupal.org/project/project_distribution). A great example of an installation profile is Zivtech's [Bear](https://www.drupal.org/project/bear) profile.
+Installation profiles combine Drupal core, contributed modules, pre-defined functionality and configuration for the purpose to quickly set up Drupal sites. You can read more about [Drupal Installation profiles on drupal.org](https://www.drupal.org/project/project_distribution).
 
 You can use the default Shell plugin or the Drupal plugin.
 
