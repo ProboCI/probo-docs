@@ -17,6 +17,9 @@
     - title: Build Steps
       url: /steps
       text: Build Steps
+    - title: Notifications
+      url: /notifications
+      text: Notifications
 
 - title: Plugins
   text: Plugins
