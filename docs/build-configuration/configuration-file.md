@@ -8,7 +8,7 @@ published: true
 After you have synced your repos to Probo, you need to create a configuration file. This file tells Probo how to build your test environments.
 
 ## Create a Configuration File
-In a new branch, create a `.probo.yaml` file in the root of your codebase. The `.probo.yaml` file is split into a section for declaring **Assets** and a section for defining **Steps**.
+In a new branch, create a `.probo.yaml` file in the root of your codebase. The `.probo.yaml` file is split into a section for declaring **Assets**, a section for defining **Steps**, and any environment configuration options.
 
 **Assets:** Assets are any files you want available to your Probo environments that are not found within your repository. For example, a database is an important asset for many web applications. These assets must be uploaded to Probo before they can be used in a build. [See the Assets section](/build/assets/ "Build Assets") for details on uploading assets and adding them to the configuration file.
 

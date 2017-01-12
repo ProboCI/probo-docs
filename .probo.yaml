@@ -1,3 +1,6 @@
+basicAuth:
+  username: foo
+  password: bar
 steps:
   - name: Update system
     plugin: Script
