@@ -6,9 +6,13 @@ permalink: /build/notifications/
 published: true
 ---
 
-You can add notifications to your build by adding a notifications key to your `.probo.yaml` file. This will allow you to start getting webhooks delivered to your service when changes happen to your builds, including steps completing and builds passing or failing.
+Enabling notifications from Probo allows you to be automatically informed about your builds' status and completion. Currently, Probo supports webhook  `POST` notifications, but will soon support HipChat and Slack notifications as well.
 
-## Examples
+## Webhook notifications
+
+Get started with webbook notifications by adding a `notifications` key to your `.probo.yaml` file. Within this `notifications` key, add your webhook `POST` URL. You can add a single URL or multiple URLs. See the following examples for more information:
+
+### Examples
 
 {% highlight yaml %}
 notifications:
