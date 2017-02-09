@@ -117,9 +117,6 @@ gulp.task('js', ['js:combine'], function () {
     .pipe(uglify({
       mangle: false,
       preserveComments: false,
-      output: {
-        beautify: true
-      }
     }))
     .on('error', handleError('JS minifying'))
     .pipe(rename({
