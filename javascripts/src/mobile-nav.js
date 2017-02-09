@@ -57,6 +57,10 @@
     this.menuIsOpen = false;
   };
 
+  MobileMenu.prototype.toggleMenu = function() {
+    (this.menuIsOpen) ? this.closeMenu() : this.openMenu();
+  }
+
   return PROBO.MobileMenu = MobileMenu;
 
 })(jQuery, PROBO);

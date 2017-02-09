@@ -1,24 +1,5 @@
 (function (window, $, PROBO) {
 
-  // $(document).ready(function () {
-  //   use tinynav
-  //   if ($.fn.tinyNav instanceof Function) {
-  //     $('#sidebar-first .accordion-nav').tinyNav();
-  //   }
-  //
-  //   $('.accordion-nav').navgoco({
-  //     caretHtml: '<i class="icon plus-to-minus"></i>',
-  //     accordion: true,
-  //     openClass: 'open',
-  //     save: true,
-  //     cookie: {
-  //       name: 'navgoco',
-  //       expires: false,
-  //       path: '/'
-  //     }
-  //   });
-  // });
-
   // use List.js on recipes page
   if (List instanceof Function) {
     var options = {
@@ -38,12 +19,12 @@
 
     $menuToggle.on('click', function(e) {
       e.preventDefault();
-      (mobileMenu.menuIsOpen) ? mobileMenu.closeMenu() : mobileMenu.openMenu();
+      mobileMenu.toggleMenu();
     });
 
     $overlay.on('click', function(e) {
       e.preventDefault();
-      (mobileMenu.menuIsOpen) ? mobileMenu.closeMenu() : mobileMenu.openMenu();
+      mobileMenu.toggleMenu();
     });
   });
 
