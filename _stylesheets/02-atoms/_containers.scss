@@ -1,13 +1,13 @@
 .site-content {
-	@include breakpoint($bp-medium-portrait) {
-		min-height: 90vh;
-	}
+  @include breakpoint($bp-medium-portrait) {
+    min-height: 90vh;
+  }
 }
 
 .wrapper {
   #sidebar-first {
     float: none;
-		display: none;
+    display: none;
 
     @include breakpoint($bp-medium-portrait) {
       float: left;
@@ -21,7 +21,7 @@
   }
   #sidebar-last {
     float: none;
-		display: block;
+    display: block;
     @include breakpoint($bp-medium-portrait) {
       float: right;
     }
@@ -33,7 +33,7 @@
     padding: 25px 0 0 0;
     clear: both;
     @include breakpoint($bp-medium-portrait) {
-			display: block;
+      display: block;
       padding: 0;
       width: 24%;
       max-width: 270px;

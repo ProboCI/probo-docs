@@ -31,7 +31,6 @@ $probo-alert-error: #cf3e34;
 $probo-alert-info: lighten($probo-blue, 40%);
 
 // typography
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic');
 $body-font-size: 14px;
 $body-line-height: 1.5;
 $base-font-color: $probo-gray-dark;
@@ -43,7 +42,6 @@ $link-color-hover: $probo-blue;
 $probo-sitewidth: 1200px;
 $probo-menu-width: 300px;
 $border-radius: 4px;
-$old-header-height: 60px;
 $base-margin: 12px;
 $base-spacing: 10px;
 $site-width: 1200px;
