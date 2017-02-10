@@ -7377,6 +7377,323 @@ textarea:focus {
   overflow: hidden;
 }
 
+.sites-nav {
+  display: none;
+}
+
+.sites-nav__wrapper {
+  max-width: 975px;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sites-nav__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+.sites-nav__menu-item {
+  list-style-type: none;
+}
+
+.sites-nav__menu-link {
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.sites-nav .purple {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #a6548c 50%, #440027 50%);
+  background: linear-gradient(to bottom, #a6548c 50%, #440027 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #a6548c;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sites-nav .purple:hover {
+  color: #f7f7f7;
+}
+
+.sites-nav .purple:active {
+  color: #f7f7f7;
+}
+
+.sites-nav .purple:focus {
+  color: #f7f7f7;
+}
+
+.sites-nav .purple:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #440027;
+}
+
+.sites-nav .green {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #5fae85 50%, #2a4f3b 50%);
+  background: linear-gradient(to bottom, #5fae85 50%, #2a4f3b 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #5fae85;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sites-nav .green:hover {
+  color: #f7f7f7;
+}
+
+.sites-nav .green:active {
+  color: #f7f7f7;
+}
+
+.sites-nav .green:focus {
+  color: #f7f7f7;
+}
+
+.sites-nav .green:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #2a4f3b;
+}
+
+.sites-nav .blue {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #062c50 50%, #062c50 50%);
+  background: linear-gradient(to bottom, #062c50 50%, #062c50 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #062c50;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sites-nav .blue:hover {
+  color: #f7f7f7;
+}
+
+.sites-nav .blue:active {
+  color: #f7f7f7;
+}
+
+.sites-nav .blue:focus {
+  color: #f7f7f7;
+}
+
+.sites-nav .blue:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #062c50;
+}
+
+.sites-nav .login {
+  color: #1f1f1f;
+  background: -webkit-linear-gradient(top, #ebebeb 50%, #ebebeb 50%);
+  background: linear-gradient(to bottom, #ebebeb 50%, #ebebeb 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #ebebeb;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sites-nav .login:hover {
+  color: #1f1f1f;
+}
+
+.sites-nav .login:active {
+  color: #1f1f1f;
+}
+
+.sites-nav .login:focus {
+  color: #1f1f1f;
+}
+
+.sites-nav .login:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #ebebeb;
+}
+
+.header {
+  background: #062c50;
+  position: fixed;
+}
+
+.header__navigation-item {
+  padding: 0 12px;
+}
+
+.header__navigation-item:last-of-type {
+  padding-right: 0;
+}
+
+.header__navigation-link {
+  padding: 0;
+}
+
+.header__navigation-link.login {
+  color: #1f1f1f !important;
+  background: #ebebeb;
+}
+
+.header__navigation-link.login:hover {
+  background: #f7f7f7;
+}
+
+.accordion-nav__item {
+  border: none;
+}
+
+.accordion-nav__item-link {
+  border: 1px solid #f5f5f5;
+}
+
+.accordion-nav .purple {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #a6548c 50%, #440027 50%);
+  background: linear-gradient(to bottom, #a6548c 50%, #440027 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #a6548c;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.accordion-nav .purple:hover {
+  color: #f7f7f7;
+}
+
+.accordion-nav .purple:active {
+  color: #f7f7f7;
+}
+
+.accordion-nav .purple:focus {
+  color: #f7f7f7;
+}
+
+.accordion-nav .purple:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #440027;
+}
+
+.accordion-nav .green {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #5fae85 50%, #2a4f3b 50%);
+  background: linear-gradient(to bottom, #5fae85 50%, #2a4f3b 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #5fae85;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.accordion-nav .green:hover {
+  color: #f7f7f7;
+}
+
+.accordion-nav .green:active {
+  color: #f7f7f7;
+}
+
+.accordion-nav .green:focus {
+  color: #f7f7f7;
+}
+
+.accordion-nav .green:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #2a4f3b;
+}
+
+.accordion-nav .blue {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #0055a4 50%, #062c50 50%);
+  background: linear-gradient(to bottom, #0055a4 50%, #062c50 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #0055a4;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.accordion-nav .blue:hover {
+  color: #f7f7f7;
+}
+
+.accordion-nav .blue:active {
+  color: #f7f7f7;
+}
+
+.accordion-nav .blue:focus {
+  color: #f7f7f7;
+}
+
+.accordion-nav .blue:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #062c50;
+}
+
+.accordion-nav .login {
+  color: #f7f7f7;
+  background: -webkit-linear-gradient(top, #440027 50%, #33001d 50%);
+  background: linear-gradient(to bottom, #440027 50%, #33001d 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  border-color: #440027;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.accordion-nav .login:hover {
+  color: #f7f7f7;
+}
+
+.accordion-nav .login:active {
+  color: #f7f7f7;
+}
+
+.accordion-nav .login:focus {
+  color: #f7f7f7;
+}
+
+.accordion-nav .login:hover {
+  text-decoration: none;
+  background-position: bottom;
+  border-color: #33001d;
+}
+
 .recipes__list {
   padding: 0;
 }
@@ -7441,6 +7758,7 @@ textarea:focus {
 
 .section-landing__list-link:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 
 @media (min-width: 48em){
@@ -7464,6 +7782,18 @@ textarea:focus {
     float: right;
     clear: none;
   }
+  .sites-nav{
+    vertical-align: auto;
+    zoom: 1;
+    display: inline;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    background: #1f1f1f;
+  }
+  .header{
+    position: static;
+  }
   .section-landing__list-link{
     text-align: center;
     width: 30%;
@@ -7479,6 +7809,10 @@ textarea:focus {
   .right{
     float: right;
     display: inline-block;
+  }
+  .sites-nav__wrapper{
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

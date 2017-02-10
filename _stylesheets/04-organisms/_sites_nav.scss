@@ -1,0 +1,141 @@
+@mixin header-button($color, $hover-color: $probo-purple-dark, $font-color: $probo-pale) {
+  @include link-colors($font-color);
+
+  background: linear-gradient(to bottom, $color 50%, $hover-color 50%);
+  background-size: 100% 200%;
+  background-position: top;
+  transition: background-position 0.1s linear;
+  border-color: $color;
+
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+    background-position: bottom;
+    border-color: $hover-color;
+  }
+}
+
+// Alternate color scheme
+// $probo-green-dark: #00856A;
+// $probo-blue-darkester: #005869;
+// $probo-purple: #5E0042;
+// $probo-pale-dark: #8DB500;
+
+.sites-nav {
+  display: none;
+
+  @include breakpoint($bp-medium-portrait) {
+    @include inline-block;
+    width: 100%;
+    background: $probo-gray-darkest;
+  }
+
+  &__wrapper {
+    max-width: $inner-width;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint($bp-medium-landscape) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu-item {
+    list-style-type: none;
+  }
+
+  &__menu-link {
+    @include inline-block;
+
+    padding: $base-spacing $base-spacing * 2;
+    font-size: 12px;
+  }
+
+  .purple {
+    @include header-button($probo-purple, $probo-purple-dark);
+  }
+
+  .green {
+    @include header-button($probo-green-dark, $probo-green-darkester);
+  }
+
+  .blue {
+    @include header-button($probo-blue-darkester, $probo-blue-darkester);
+  }
+
+  .login {
+    @include header-button($probo-pale-dark, $probo-pale-dark, $probo-gray-darkest);
+  }
+}
+
+//*************
+// OVERRIDES
+//*************
+
+.header {
+  background: $probo-blue-darkester;
+  position: fixed;
+
+  @include breakpoint($bp-medium-portrait) {
+    position: static;
+  }
+
+  &__navigation-item {
+    padding: 0 12px;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  &__navigation-link {
+    padding: 0;
+
+    &.login {
+      color: $probo-gray-darkest !important;
+      background: $probo-pale-dark;
+
+      &:hover {
+        background: $probo-pale;
+      }
+    }
+  }
+}
+
+.accordion-nav {
+  &__item {
+    border: none;
+  }
+
+  &__item-link {
+    border: 1px solid $probo-pale-medium;
+  }
+
+  .purple {
+    @include header-button($probo-purple, $probo-purple-dark);
+  }
+
+  .green {
+    @include header-button($probo-green-dark, $probo-green-darkester);
+  }
+
+  .blue {
+    @include header-button($probo-blue-dark, $probo-blue-darkester);
+  }
+
+  .login {
+    @include header-button($probo-purple-dark, $probo-purple-darkest);
+  }
+}

@@ -20,6 +20,7 @@
 
     &:hover {
       text-decoration: none;
+      cursor: pointer;
     }
 
     @include breakpoint($bp-medium-portrait) {
