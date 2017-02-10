@@ -4152,10 +4152,14 @@ select,
       font-size: 30px;
       position: relative;
       top: 8px; }
+    .accordion-nav__child > ul, .accordion-nav__item > ul {
+      position: static; }
     .accordion-nav__child.is-closed > ul, .accordion-nav__item.is-closed > ul {
+      position: absolute;
       transition: max-height 0.15s cubic-bezier(0.7, 0.05, 0.15, 0.95), opacity 0.2s cubic-bezier(0.7, 0.05, 0.15, 0.95);
       max-height: 0;
-      opacity: 0; }
+      opacity: 0;
+      top: -999em; }
     .accordion-nav__child.is-open, .accordion-nav__item.is-open {
       border-bottom: none; }
       .accordion-nav__child.is-open > ul, .accordion-nav__item.is-open > ul {

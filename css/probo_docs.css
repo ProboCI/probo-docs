@@ -7149,19 +7149,6 @@ h1.page-title {
 .wrapper #sidebar-first {
   float: none;
   display: none;
-}
-
-.wrapper #sidebar-first ul {
-  display: none;
-}
-
-.wrapper #sidebar-last {
-  float: none;
-  display: block;
-}
-
-.wrapper #sidebar-last,
-.wrapper #sidebar-first {
   width: 100%;
   margin-bottom: 24px;
   padding: 25px 0 0 0;
@@ -7466,17 +7453,8 @@ textarea:focus {
     min-height: 90vh;
   }
   .wrapper #sidebar-first{
+    display: block;
     float: left;
-  }
-  .wrapper #sidebar-first ul{
-    display: block;
-  }
-  .wrapper #sidebar-last{
-    float: right;
-  }
-  .wrapper #sidebar-last,
-  .wrapper #sidebar-first{
-    display: block;
     padding: 0;
     width: 24%;
     max-width: 270px;
