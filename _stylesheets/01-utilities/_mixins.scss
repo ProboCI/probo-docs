@@ -73,11 +73,3 @@
     color: $focus;
   }
 }
-
-@mixin inline-block {
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  display: inline-block;
-  vertical-align: middle;
-}

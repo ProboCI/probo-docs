@@ -3,7 +3,6 @@ layout: "docs"
 title: The Dashboard
 class: documentation
 permalink: /app/dashboard/
-redirect_from: /app/
 published: true
 ---
 The [Probo App](https://app.probo.ci/ "Probo App") is your Probo control center. It provides a user interface for accessing and managing your Probo environments.
