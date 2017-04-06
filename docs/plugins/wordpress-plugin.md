@@ -38,19 +38,4 @@ WordPress core and plugins generally prefer absolute URLs for links and images i
 
 **Using the Wordpress plugin**
 
-{% highlight yaml%}
- assets:
-  - dev.sql.gz
-  steps:
-  - name: Site setup
-    plugin: WordPressApp
-    database: dev.sql.gz
-    databaseName: wordpress
-    databaseGzipped: true
-    subDirectory: code
-    devDomain: example.com
-    devHome: example.com/home
-  - name: Flush the cache
-    plugin: WordPressApp
-    flushCaches: true
-{% endhighlight %}
+{{ site.recipes | where: 'uid', 'wordpress_using_plugin' }}

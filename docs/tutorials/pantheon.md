@@ -47,4 +47,4 @@ steps:
 
 Now that Probo has downloaded your site's database from Pantheon it can continue with other necessary steps to build your site. The Terminus steps also cooperate with Probo's Drupal plugin. Here's an example of what that looks like:
 
-{{ site.recipes | where: 'uid', 'pantheon' }}
+{{ site.recipes | where: 'uid', 'pantheon_example' }}

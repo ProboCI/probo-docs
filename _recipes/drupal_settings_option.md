@@ -1,5 +1,6 @@
 ---
 title: Using the Settings Options
+uid: drupal_settings_option
 ---
 
 {% highlight yaml%}
