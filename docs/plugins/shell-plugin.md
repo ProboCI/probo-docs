@@ -13,26 +13,8 @@ You will need to include a `name` for each `command` since you can only declare 
 
 **Using the `Shell` plugin**
 
-{% highlight yaml%}
-steps:
-  - name: Run behat tests
-    plugin: Shell
-    command: 'cd tests ; composer install ; bin/behat'
-  - name: Another example test with default Shell plugin
-    command: 'echo "Hello World!"'
-{% endhighlight %}
+{{ site.recipes | where: 'uid', 'shell_using_plugin' }}
 
 **Developing on a site with a database**
 
-{% highlight yaml%}
-assets:
-  - dev.sql.gz
-steps:
-  - name: Import the database
-    plugin: Shell
-    command: 'gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo` ; rm $ASSET_DIR/dev.sql.gz'
-  - name: Move code in place
-    command: 'mv $SRC_DIR /var/www/foo/code'
-  - name: Run behat tests
-    command: 'cd /var/www/foo/code/tests ; composer install ; bin/behat'
-{% endhighlight %}
+{{ site.recipes | where: 'uid', 'shell_develop_with_database' }}

@@ -1,5 +1,6 @@
 ---
 title: Using the WordPress Plugin
+uid: wordpress_using_plugin
 ---
 
 {% highlight yaml%}

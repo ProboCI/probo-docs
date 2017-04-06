@@ -47,30 +47,8 @@ The Drupal plugin provides an easy way for you to configure your Drupal build an
 
 **Using the `Drupal` plugin**
 
-{% highlight yaml%}
-assets:
-  - mydb.sql.gz
-steps:
-  - name: Probo site setup
-    plugin: Drupal
-    database: mydb.sql.gz
-    databaseGzipped: true
-    databaseUpdates: true
-    subDirectory: docroot
-    revertFeatures: true
-{% endhighlight %}
+{{ site.recipes | where: 'uid', 'drupal_using_plugin' }}
 
 **Using the Settings Options**
 
-{% highlight yaml%}
-assets:
-  - mydb.sql.gz
-steps:
-  - name: Provision Drupal
-    plugin: Drupal
-    runInstall: standard
-    settingsRequireFile: 'site-settings.php'
-    settingsAppend: |
-      $bar = 'baz';
-      $foo = 'stuff';
-{% endhighlight %}
+{{ site.recipes | where: 'uid', 'drupal_settings_option' }}

@@ -1,5 +1,6 @@
 ---
 title: Using the Shell plugin
+uid: shell_using_plugin
 ---
 
 {% highlight yaml %}

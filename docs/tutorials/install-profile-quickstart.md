@@ -45,8 +45,8 @@ steps:
 
 {% highlight yaml %}
 git add .probo.yaml  
-git commit -m"Adding .probo.yaml."  
-git push -u origin probo-build   
+git commit -m "Adding .probo.yaml."  
+git push -u origin probo-build
 {% endhighlight %}
 
 <img src='/images/git-create-branch.gif' alt='Add your Probo.CI Configuration' class='docs-gif'>

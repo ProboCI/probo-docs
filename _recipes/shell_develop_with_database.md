@@ -1,5 +1,6 @@
 ---
 title: Developing on a site with a database
+uid: shell_develop_with_database
 ---
 
 {% highlight yaml %}
