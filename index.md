@@ -28,7 +28,7 @@ You can test the connection between Probo.CI and your repository by creating a d
 steps:
   - name: Test Connection
     plugin: Shell
-    command: 'print "Hello World!"'
+    command: 'echo "Hello World!"'
 {% endhighlight %}
 
 Create a new pull request for this branch. If the check passes and the connection is successful, you can begin [configuring your Probo build.](/build/configuration/ "Build Configuration")
