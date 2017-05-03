@@ -22,4 +22,4 @@ after_success:
 - rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/* webadmin@50.116.56.130:/var/www/probo_docs
 script:
 - bundle exec jekyll build
-# - bundle exec htmlproofer ./_site
+# - bundle exec htmlproofer ./_site 
