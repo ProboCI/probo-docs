@@ -9,12 +9,12 @@ uid: wordpress_using_plugin
   steps:
   - name: Site setup
     plugin: WordPressApp
-    database: dev.sql.gz
-    databaseName: wordpress
+    database: 'dev.sql.gz'
+    databaseName: 'wordpress'
     databaseGzipped: true
-    subDirectory: code
-    devDomain: example.com
-    devHome: example.com/home
+    subDirectory: 'code'
+    devDomain: 'http://example.com'
+    devHome: 'http://example.com/'
   - name: Flush the cache
     plugin: WordPressApp
     flushCaches: true
