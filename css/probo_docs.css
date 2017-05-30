@@ -139,6 +139,7 @@
 * Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
 /* Layout helpers
 ----------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Martel");
 .ui-helper-hidden {
   display: none;
 }
@@ -6958,7 +6959,6 @@ body.lb-disable-scrolling {
   background: url(../../images/lightbox/prev.png) left 48% no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
 
@@ -6974,7 +6974,6 @@ body.lb-disable-scrolling {
   background: url(../../images/lightbox/next.png) right 48% no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
 }
 
@@ -7038,7 +7037,6 @@ body.lb-disable-scrolling {
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
@@ -7080,8 +7078,7 @@ svg:not(:root) {
 .m-scene .scene_element {
   -webkit-animation-duration: 0.25s;
           animation-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in;
-          transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
@@ -7143,7 +7140,7 @@ img.screenshot {
 h1.page-title {
   margin-bottom: 12px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #EBEBEB;
+  border-bottom: 1px solid #ebebeb;
 }
 
 .wrapper #sidebar-first {
@@ -7155,7 +7152,7 @@ h1.page-title {
   clear: both;
 }
 
-.wrapper .page-content {
+.wrapper .body-text {
   padding-bottom: 24px;
   width: 100%;
   float: none;
@@ -7186,7 +7183,6 @@ h1.page-title {
 }
 
 h1.section-title {
-  font-size: 42px;
   margin-bottom: 0;
 }
 
@@ -7253,7 +7249,7 @@ input[type="password"]:focus,
 textarea:active,
 textarea:focus {
   background-color: #f7f7f7;
-  outline: 1px solid #a6548c;
+  outline: 1px solid #4d0027;
 }
 
 .logo__vendor {
@@ -7290,7 +7286,7 @@ textarea:focus {
 }
 
 .slide-nav a.active {
-  background-color: #a75f90;
+  background-color: #e8d7dd;
 }
 
 .search-section {
@@ -7303,10 +7299,8 @@ textarea:focus {
   z-index: 9999;
   overflow-y: scroll;
   width: 100%;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-          transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
 .search-section a {
@@ -7325,10 +7319,8 @@ textarea:focus {
 .search-section.on {
   opacity: 1;
   height: 100vh;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-in;
-          transition-timing-function: ease-in;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
 }
 
 .search-section .content-wrapper {
@@ -7357,7 +7349,6 @@ textarea:focus {
 }
 
 .search-section input[type=text]:focus::-webkit-input-placeholder {
-  -webkit-transition: text-indent 0.5s 0.5s ease;
   transition: text-indent 0.5s 0.5s ease;
   text-indent: -100%;
   opacity: 1;
@@ -7388,13 +7379,15 @@ textarea:focus {
 }
 
 .recipes__list li p {
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 .recipes__name {
   color: #f7f7f7;
-  padding: 5px;
   background: #0055a4;
+  margin: 0;
+  padding-left: 10px;
+  padding-bottom: 5px;
 }
 
 .recipes__search {
@@ -7405,6 +7398,10 @@ textarea:focus {
 .section-landing__list {
   list-style: none;
   padding: 0;
+}
+
+.section-landing__list-item {
+  font-family: "sofia-pro", sans-serif;
 }
 
 .section-landing__list-link {
@@ -7428,7 +7425,7 @@ textarea:focus {
 }
 
 .section-landing__list-link:hover {
-  color: #a6548c;
+  color: #4d0027;
 }
 
 .section-landing__list-link:active {
@@ -7447,7 +7444,7 @@ textarea:focus {
   h1.page-title{
     margin-bottom: 26px;
     padding-bottom: 26px;
-    border-bottom: 1px solid #EBEBEB;
+    border-bottom: 1px solid #ebebeb;
   }
   .site-content{
     min-height: 90vh;
@@ -7459,7 +7456,7 @@ textarea:focus {
     width: 24%;
     max-width: 270px;
   }
-  .wrapper .page-content{
+  .wrapper .body-text{
     width: 70%;
     float: right;
     clear: none;

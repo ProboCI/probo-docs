@@ -5,6 +5,10 @@
     padding: 0;
   }
 
+  &__list-item {
+    font-family: $sans-serif;
+  }
+
   &__list-link {
     @include link-colors($probo-purple-dark, $probo-purple, $probo-purple-dark, $probo-purple-dark);
     display: flex;

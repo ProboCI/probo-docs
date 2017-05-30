@@ -24,6 +24,19 @@ $probo-green-darkest: #4a986e;
 $probo-lime: #b5d556;
 $probo-tapestry: #A5548B;
 
+
+// New colors being phased in
+$probo-black: #000000;
+$probo-gray-dark: #333333;
+$probo-gray: #4a4a4a;
+$probo-gray-light: #d8d8d8;
+$probo-white: #ffffff;
+$probo-purple: #4d0027;
+$probo-purple-light: #a74783;
+$probo-pink: #e8d7dd;
+$probo-green: #9ac36c;
+$probo-blue: #3276b6;
+
 // alert colors
 $probo-alert-success: $probo-green;
 $probo-alert-warning: #ffb502;
@@ -31,12 +44,12 @@ $probo-alert-error: #cf3e34;
 $probo-alert-info: lighten($probo-blue, 40%);
 
 // typography
-$body-font-size: 14px;
+@import url('https://fonts.googleapis.com/css?family=Martel');
+$body-font-size: 17px;
 $body-line-height: 1.5;
-$base-font-color: $probo-gray-dark;
-$body-text-font-family: 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
-$link-color: $probo-blue-dark;
-$link-color-hover: $probo-blue;
+$base-font-color: $probo-gray;
+$serif: 'Martel', serif;
+$sans-serif: 'sofia-pro', sans-serif;
 
 // layout
 $probo-sitewidth: 1200px;
