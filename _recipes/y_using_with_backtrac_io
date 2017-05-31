@@ -1,6 +1,6 @@
 ---
 title: Using Probo with Backtrac.io for Visual Regression Testing
-uid: using_with_backtrac_io
+uid: y_using_with_backtrac_io
 ---
 Be sure to replace _BACKTRAC_API_KEY with your project's API key, _BACKTRAC_PROJECT_NID with the appropriate API id, and _CURRENT_LIVE_SITE with the site that you're testing against (ex: https:\/\/docs.probo.ci). 
 {% highlight yaml%}
