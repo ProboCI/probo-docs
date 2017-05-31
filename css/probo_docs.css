@@ -7523,6 +7523,22 @@ textarea:focus {
   padding: 20px 15px;
 }
 
+.body-text {
+  font-size: calc(12px + 5 * ((100vw - 420px) / 860));
+}
+
+@media screen and (min-width: 1280px){
+  .body-text{
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 420px){
+  .body-text{
+    font-size: 12px;
+  }
+}
+
 .section-landing__list {
   list-style: none;
   padding: 0;
