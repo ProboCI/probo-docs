@@ -26,7 +26,7 @@
       text-decoration: none;
     }
 
-    @include breakpoint($bp-medium-portrait) {
+    @include breakpoint($bp-medium) {
       text-align: center;
       width: 30%;
       padding: 75px $base-spacing * 5;

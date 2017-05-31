@@ -55,6 +55,9 @@ gulp.task('sass', function () {
     .pipe(gulpif(buildSourceMaps, sourcemaps.init()))
     .pipe(sass({
       outputStyle: 'expanded'
+      // includePaths: [
+      //   'node_modules/probo-styleguide/scss'
+      // ]
     }))
     .on('error', handleError('Sass Compiling'))
     .pipe(postcss(processors))
@@ -65,7 +68,7 @@ gulp.task('sass', function () {
     .pipe(browserSync.reload({stream: true}));
 });
 
-// Use styleguide
+// compile installed version of styleguide (update with npm)
 gulp.task('styleguide', function() {
   return gulp.src(paths.styleguide)
     .pipe(gulp.dest(paths.css))

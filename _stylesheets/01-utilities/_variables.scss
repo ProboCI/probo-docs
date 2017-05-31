@@ -2,46 +2,45 @@
 $probo-blue: #00b7ff;
 $probo-blue-dark: #0055a4;
 $probo-midnight: #2e263b;
+
 $probo-purple-darkest: #33001d;
 $probo-purple-dark: #440027;
 $probo-purple: #a6548c;
 $probo-soft-peach: #efe6eb;
 $probo-soft-peach-medium: darken(#efe6eb, 5%);
 $probo-soft-peach-dark: darken(#efe6eb, 10%);
-$probo-pink: lighten(#985483, 5%);
-$probo-pink-light: #efe6eb;
-$probo-pink-medium: darken(#efe6eb, 5%);
-$probo-gray-dark: #404040;
-$probo-gray-dark-medium: #525252;
-$probo-gray-medium: #7d7d7d;
-$probo-pale: #f7f7f7;
-$probo-pale-medium: #f5f5f5;
-$probo-pale-dark: #ebebeb;
-$probo-pale-darker: #c8c8c8;
+
 $probo-green: #67c293;
 $probo-green-dark: #5fae85;
 $probo-green-darkest: #4a986e;
 $probo-lime: #b5d556;
-$probo-tapestry: #A5548B;
 
-
-// New colors being phased in
-$probo-black: #000000;
-$probo-gray-dark: #333333;
-$probo-gray: #4a4a4a;
-$probo-gray-light: #d8d8d8;
-$probo-white: #ffffff;
-$probo-purple: #4d0027;
-$probo-purple-light: #a74783;
-$probo-pink: #e8d7dd;
-$probo-green: #9ac36c;
-$probo-blue: #3276b6;
+$probo-gray-dark: #404040;
+$probo-gray-dark-medium: #525252;
+$probo-gray-medium: #7d7d7d;
+$probo-pale-darker: #c8c8c8;
+$probo-pale-dark: #ebebeb;
+$probo-pale-medium: #f5f5f5;
+$probo-pale: #f7f7f7;
 
 // alert colors
 $probo-alert-success: $probo-green;
 $probo-alert-warning: #ffb502;
 $probo-alert-error: #cf3e34;
 $probo-alert-info: lighten($probo-blue, 40%);
+
+//// New colors being phased in
+$probo-black: #000000;
+$probo-gray-dark: #333333;
+$probo-gray: #4a4a4a;
+$probo-gray-light: #d8d8d8;
+$probo-white: #ffffff;
+
+$probo-purple: #4d0027;
+$probo-purple-light: #a74783;
+$probo-pink: #e8d7dd;
+$probo-green: #9ac36c;
+$probo-blue: #3276b6;
 
 // typography
 @import url('https://fonts.googleapis.com/css?family=Martel');
@@ -52,18 +51,19 @@ $serif: 'Martel', serif;
 $sans-serif: 'sofia-pro', sans-serif;
 
 // layout
-$probo-sitewidth: 1200px;
+$probo-sitewidth: 975px;
 $probo-menu-width: 300px;
 $border-radius: 4px;
+$header-height: 60px;
 $base-margin: 12px;
 $base-spacing: 10px;
 $site-width: 1200px;
 $inner-width: 975px;
-$inner-width-padding: ($site-width - $inner-width) / 2;
+$inner-width-padding: ($probo-sitewidth - $inner-width) / 2;
 
 // breakpoints
 $bp-small-landscape: 480px / 16px * 1em;
-$bp-medium-portrait: 768px / 16px * 1em;
+$bp-medium: 768px / 16px * 1em;
 $bp-medium-landscape: 1024px / 16px * 1em;
 $bp-large: 1200px / 16px * 1em;
 $bp-larger: 1500px / 16px * 1em;
@@ -72,3 +72,11 @@ $bp-larger: 1500px / 16px * 1em;
 $header-height: 59px;
 $header-line-height: 35px;
 $logo-line-height: 35px;
+
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Martel'), local('Martel-Regular'), url(https://fonts.gstatic.com/s/martel/v1/ovCvXzSjesSyDxdnHqyGiuvvDin1pK8aKteLpeZ5c0A.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}

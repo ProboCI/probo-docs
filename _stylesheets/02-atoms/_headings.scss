@@ -3,7 +3,7 @@ h1.page-title {
   padding-bottom: 12px;
   border-bottom: 1px solid $probo-pale-dark;
 
-  @include breakpoint($bp-medium-portrait) {
+  @include breakpoint($bp-medium) {
     margin-bottom: 26px;
     padding-bottom: 26px;
     border-bottom: 1px solid $probo-pale-dark;

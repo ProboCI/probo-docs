@@ -1,5 +1,8 @@
-@import 'variables';
-@import 'mixins';
-@import 'reusable';
+// Import from styleguide
+@import '../node_modules/probo-styleguide/scss/01-utilities/variables';
+@import '../node_modules/probo-styleguide/scss/01-utilities/mixins';
+@import '../node_modules/probo-styleguide/scss/01-utilities/utility';
+@import '../node_modules/probo-styleguide/scss/01-utilities/reusable';
+
+// Import from local directories
 @import 'page_transitions';
-@import 'utility';
