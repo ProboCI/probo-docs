@@ -32,7 +32,7 @@ svg:not(:root) {
   opacity: 1;
   transition: none !important;
   background: $probo-purple-dark;
-  @include breakpoint($bp-medium-portrait) {
+  @include breakpoint($bp-medium) {
     opacity: .95;
   }
 }
@@ -46,7 +46,7 @@ svg:not(:root) {
   height: 48px;
   width: 48px;
   padding: 12px 8px;
-  @include breakpoint($bp-medium-portrait) {
+  @include breakpoint($bp-medium) {
     display: none;
     visibility: hidden;
     height: 0;
@@ -60,7 +60,7 @@ svg:not(:root) {
   float: none;
   margin: 0 auto;
   line-height:$logo-line-height;
-  @include breakpoint($bp-medium-portrait) {
+  @include breakpoint($bp-medium) {
     float: left;
   }
 }
@@ -69,23 +69,19 @@ svg:not(:root) {
   float: right;
   margin: auto;
   display: none;
-  @include breakpoint($bp-medium-portrait) {
+  @include breakpoint($bp-medium) {
     display: block;
   }
 }
 
 %wrapper {
   margin: 0 auto;
-  padding: 12px;
-  // @include cf;
+  @include cf;
   @include breakpoint($bp-medium-landscape) {
     width: 95%;
-    padding: 10px 22px;
   }
   @include breakpoint($bp-large) {
-    max-width: $site-width;
-    padding-left: $inner-width-padding;
-    padding-right: $inner-width-padding;
+    max-width: $probo-sitewidth;
   }
 }
 
@@ -139,7 +135,7 @@ svg:not(:root) {
 }
 
 %pullquote {
-  // @include cf;
+  @include cf;
   border-radius: 12px;
   background-color: #EBEBEB;
   text-align: left;
