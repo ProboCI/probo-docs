@@ -1,5 +1,5 @@
 ---
-title: Posting Tickets
+title: Posting Probo and Backtrac links to Jira
 uid: z_posting_tickets_to_jira
 ---
 This recipe assumes you're using Backtrack.io and GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).
@@ -20,7 +20,7 @@ Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira
  script: |
     echo '{"body": "Probo build at ' $BUILD_DOMAIN  >> comment.json
     echo ' and visual test at https://backtrac.io/node' >> comment.json
-    curl --header 'x-api-key: 0f8ce8c48323a0f933af9a277877e6df' --request POST https://backtrac.io/api/project/_BACKTRAC_PROJECT_NID/compare_custom --data '{"url1":"_URL","sn1_name":"Prod","url2":"'"$BUILD_DOMAIN"'","sn2_name":"Probo ","diff_name":"Prod vs Probo"}' | rev | awk -F , '{print $2}' | rev | awk -F \\ '{print $5 $6}' | tr -d '\"' >> comment.json
+    curl --header 'x-api-key: _BACKTRAC_API_KEY' --request POST https://backtrac.io/api/project/_BACKTRAC_PROJECT_NID/compare_custom --data '{"url1":"_URL","sn1_name":"Prod","url2":"'"$BUILD_DOMAIN"'","sn2_name":"Probo ","diff_name":"Prod vs Probo"}' | rev | awk -F , '{print $2}' | rev | awk -F \\ '{print $5 $6}' | tr -d '\"' >> comment.json
     echo '"}' >> comment.json
     source $ASSET_DIR/credentials.sh
     BRANCH_NAME=$(echo $BRANCH_NAME | awk '{print toupper($0)}')
