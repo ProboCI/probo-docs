@@ -1,9 +1,17 @@
+// Import from vendor
 @import 'vendor/breakpoint/stylesheets/breakpoint';
 @import 'vendor/jeet/index';
 @import 'vendor/jquery-ui/index';
 @import 'vendor/font-awesome/font-awesome';
 @import 'vendor/lightbox/lightbox';
 
+// Import from styleguide
+@import 'styleguide/scss/01-utilities/variables';
+@import 'styleguide/scss/01-utilities/mixins';
+@import 'styleguide/scss/01-utilities/utility';
+@import 'styleguide/scss/01-utilities/reusable';
+
+// Import from local directories
 @import '01-utilities/all';
 @import '02-atoms/all';
 @import '03-molecules/all';
