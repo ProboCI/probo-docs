@@ -4,17 +4,26 @@
   }
 }
 
+// @TODO: add this to the styleguide
+body {
+  .wrapper {
+    margin: 0 $base-margin * 2;
+
+    @include breakpoint($bp-medium-landscape) {
+      margin: 0 auto;
+    }
+  }
+}
+
 .wrapper {
   #sidebar-first {
-    float: none;
-    display: none;
-    width: 100%;
-    margin-bottom: 24px;
-    padding: 25px 0 0 0;
-    clear: both;
+    @include visuallyhidden;
 
     @include breakpoint($bp-medium) {
+      @include visuallyhidden-off;
+
       display: block;
+      clear: both;
       float: left;
       padding: 0;
       width: 24%;

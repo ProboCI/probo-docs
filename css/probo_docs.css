@@ -7292,13 +7292,28 @@ h1.page-title {
   border-bottom: 1px solid #ebebeb;
 }
 
+body .wrapper {
+  margin: 0 24px;
+}
+
 .wrapper #sidebar-first {
-  float: none;
-  display: none;
-  width: 100%;
-  margin-bottom: 24px;
-  padding: 25px 0 0 0;
-  clear: both;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.wrapper #sidebar-first.focusable {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 .wrapper .body-text {
@@ -7522,22 +7537,6 @@ textarea:focus {
   padding: 20px 15px;
 }
 
-.body-text {
-  font-size: calc(12px + 5 * ((100vw - 420px) / 860));
-}
-
-@media screen and (min-width: 1280px){
-  .body-text{
-    font-size: 17px;
-  }
-}
-
-@media screen and (max-width: 420px){
-  .body-text{
-    font-size: 12px;
-  }
-}
-
 .section-landing__list {
   list-style: none;
   padding: 0;
@@ -7596,7 +7595,13 @@ textarea:focus {
     min-height: 90vh;
   }
   .wrapper #sidebar-first{
+    clip: auto;
+    height: auto;
+    width: auto;
+    position: static;
+    overflow: auto;
     display: block;
+    clear: both;
     float: left;
     padding: 0;
     width: 24%;
@@ -7624,6 +7629,9 @@ textarea:focus {
   }
   .wrapper{
     width: 95%;
+  }
+  body .wrapper{
+    margin: 0 auto;
   }
 }
 
