@@ -1,4 +1,22 @@
 <header class="header">
+    <div class="sites-nav">
+      <div class="sites-nav__wrapper">
+        <ul class="sites-nav__menu">
+          <li class="sites-nav__menu-item">
+            <a class="sites-nav__menu-link purple" href="https://probo.ci">Probo.CI</a>
+          </li>
+          <li class="sites-nav__menu-item">
+            <a class="sites-nav__menu-link green" href="https://blog.probo.ci">Blog</a>
+          </li>
+          <li class="sites-nav__menu-item">
+            <a class="sites-nav__menu-link blue" href="https://docs.probo.ci">Docs</a>
+          </li>
+          <li class="sites-nav__menu-item">
+            <a href="https://app.probo.ci/" class="sites-nav__menu-link login" target="_blank">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <div class="header__wrapper">
 
@@ -9,10 +27,11 @@
         </button>
         <div class="main-menu__body">
           <ul id="mainMenu" class="accordion-nav" aria-hidden="true">
-            <!-- Render a list item for each link -->
+            <!-- Render Docs navigation -->
             {% for link in site.data.navigation %}
-            <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
-              <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}/{% endif %}" title="{{ link.title }}">
+            {% if link.title == 'Docs' %}
+            <li class="accordion-nav__item" aria-role="presentation">
+              <a class="accordion-nav__item-link blue" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}/{% endif %}" title="{{ link.title }}">
                 {{ link.text }}
               </a>
 
@@ -44,34 +63,63 @@
               {% endif %}
 
             </li>
+            {% endif %}
             {% endfor %}
 
-            <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link" target="_blank">Login</a></li>
+            <!-- Render Probo.Ci link -->
+            <li class="accordion-nav__item">
+              <a class="accordion-nav__item-link purple" href="https://probo.ci">Probo.CI</a>
+            </li>
+
+            <!-- Render a list item for each non-special link -->
+            {% for link in site.data.navigation %}
+            {% if link.title != 'Docs' %}
+            {% if link.title != 'Blog' %}
+            <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
+              <a class="accordion-nav__item-link" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}/{% endif %}" title="{{ link.title }}">
+                {{ link.text }}
+              </a>
+            </li>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+            <!-- Render Blog link -->
+            {% for link in site.data.navigation %}
+            {% if link.title == 'Blog' %}
+            <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
+              <a class="accordion-nav__item-link green" href="{% if link.url %}{{ link.url }}{% if link.url != '/' %}/{% endif %}{% else %}/{% endif %}" title="{{ link.title }}">
+                {{ link.text }}
+              </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            <!-- Render app login link -->
+            <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link login" target="_blank">Log In</a></li>
+
           </ul>
         </div>
         <div id="overlay" aria-role="presentation" aria-hidden="true"></div>
       </div>
 
-        <h1 class="header__title"><a class="header__title-link" href="http://probo.ci/"><span class="u-accessible">Probo.CI home page</span></a></h1>
+      <h1 class="header__title"><a class="header__title-link" href="/"><span class="u-accessible">Probo.CI Docs home page</span></a></h1>
 
-        <ul class="header__navigation">
-            {% for link in site.data.navigation %}
-            {% assign current = nil %}
-            {% if page.url == link.url or page.layout == link.secondary %}
-            {% assign current = 'current' %}
-            {% endif %}
+      <ul class="header__navigation">
+        {% for link in site.data.navigation %}
+        {% assign current = nil %}
+        {% if link.title != 'Docs' %}
+        {% if link.title != 'Blog' %}
 
-            <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}" aria-role="presentation">
-                <a class="header__navigation-link {{ current }}" href="{{ link.url }}">
-                  {{ link.text }}
-                </a>
-            </li>
-            {% endfor %}
-
-            <li class="header__navigation-item" aria-role="presentation">
-                <a href="https://app.probo.ci/" class="header__navigation-link login" target="_blank">Login</a>
-            </li>
-        </ul>
+        <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}" aria-role="presentation">
+            <a class="header__navigation-link {{ current }}" href="{{ link.url }}">
+              {{ link.text }}
+            </a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+      </ul>
 
     </div>
 
