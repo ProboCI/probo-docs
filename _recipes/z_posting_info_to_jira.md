@@ -4,7 +4,7 @@ uid: z_posting_tickets_to_jira
 ---
 This recipe assumes you're using Backtrack.io and GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).
 
-Please note that you should not add your passwords or API keys to a public repository! Probo will soon be releasing a safe process for posting build information into Jira and using Backtrac for testing.
+<em>Please note that you should not add your passwords or API keys to a public repository! Probo will soon be releasing a safer process for posting build information into Jira and using Backtrac for testing.</em>
 
 **Step One.**
 
