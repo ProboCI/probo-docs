@@ -139,7 +139,6 @@
 * Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
 /* Layout helpers
 ----------------------------------*/
-@import url("https://fonts.googleapis.com/css?family=Martel");
 .ui-helper-hidden {
   display: none;
 }
@@ -7584,7 +7583,7 @@ textarea:focus {
   text-decoration: none;
 }
 
-@media (min-width: 48em){
+@media (min-width: 45.17647em){
   .u-hidden-sm{
     display: block;
   }
@@ -7615,7 +7614,7 @@ textarea:focus {
   }
 }
 
-@media (min-width: 64em){
+@media (min-width: 60.23529em){
   .u-hidden-md{
     display: block;
   }
@@ -7628,13 +7627,13 @@ textarea:focus {
   }
 }
 
-@media (min-width: 75em){
+@media (min-width: 70.58824em){
   .wrapper{
-    max-width: 975px;
+    max-width: 60.23529em;
   }
 }
 
-@media (max-width: 48em){
+@media (max-width: 45.17647em){
   .u-unfloat-mobile{
     float: none;
   }
