@@ -2,20 +2,26 @@
 title: Posting Probo and Backtrac links to Jira
 uid: z_posting_tickets_to_jira
 ---
-<p>This recipe assumes you're using Backtrack.io and GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).</p>
-<p><b>Step One</b></p>
-<p>Upload a probo project asset 'credentials.sh'with a Jira account's credentials, as well as your Bactrac.io API key and NID, which should be put in the appropriate place in the quotes.</p>
+This recipe assumes you're using Backtrack.io and GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).
+
+Please note that you should not add your passwords or API keys to a public repository! Probo will soon be releasing a safe process for posting build information into Jira and using Backtrac for testing.
+
+**Step One.**
+
+Upload a probo project asset 'credentials.sh' with a Jira account's credentials, as well as your Bactrac.io API key and NID, which should be put in the appropriate place in the quotes.
+
 {% highlight yaml%}
 #!/bin/bash
 JIRA_NAME=""
 JIRA_PASS=""
 BACKTRAC_PROJECT_NID=""
 BACKTRAC_API_KEY=""
-
 {% endhighlight %}
 
-<p><b>Step Two.</b></p>
-<p>Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance.</p>
+**Step Two.**
+
+Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance.
+
 {% highlight yaml%}
  - plugin: Script
  name: Run visual comparision to test via backtrac.io and comment in Jira

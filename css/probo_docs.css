@@ -7077,47 +7077,6 @@ svg:not(:root) {
   padding: 12px;
 }
 
-.m-scene .scene_element {
-  -webkit-animation-duration: 0.25s;
-          animation-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in;
-          transition-timing-function: ease-in;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-}
-
-.m-scene.transiting .scene_element {
-  -webkit-animation-direction: alternate-reverse;
-          animation-direction: alternate-reverse;
-}
-
-.m-scene .scene_element.scene_element--content {
-  -webkit-animation-name: content;
-          animation-name: content;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-}
-
-@-webkit-keyframes content {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes content {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 img {
   max-width: 100%;
 }
@@ -7269,6 +7228,10 @@ textarea:focus {
 .logo__bitbucket svg {
   height: 24px;
   margin-bottom: 12px;
+}
+
+figure {
+  margin: 0;
 }
 
 .slide-nav {
