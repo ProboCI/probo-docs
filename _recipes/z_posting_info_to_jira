@@ -4,22 +4,25 @@ uid: z_posting_tickets_to_jira
 ---
 <p>This recipe assumes you're using Backtrack.io and GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).</p>
 <p><b>Step One</b></p>
-<p>Upload a probo project asset 'credentials.sh'with a Jira account's credentials, which should be put in the appropriate place in the quotes.</p>
+<p>Upload a probo project asset 'credentials.sh'with a Jira account's credentials, as well as your Bactrac.io API key and NID, which should be put in the appropriate place in the quotes.</p>
 {% highlight yaml%}
 #!/bin/bash
 JIRA_NAME=""
 JIRA_PASS=""
+BACKTRAC_PROJECT_NID=""
+BACKTRAC_API_KEY=""
+
 {% endhighlight %}
 
 <p><b>Step Two.</b></p>
-<p>Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance, _BACKTRAC_PROJECT_NID with your Backtrac NID, and _BACKTRAC_API_KEY with the project's API key</p>
+<p>Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance, BACKTRAC_PROJECT_NID with your Backtrac NID, and  with the project's API key</p>
 {% highlight yaml%}
  - plugin: Script
  name: Run visual comparision to test via backtrac.io and comment in Jira
  script: |
     echo '{"body": "Probo build at ' $BUILD_DOMAIN  >> comment.json
     echo ' and visual test at https://backtrac.io/node' >> comment.json
-    curl --header 'x-api-key: _BACKTRAC_API_KEY' --request POST https://backtrac.io/api/project/_BACKTRAC_PROJECT_NID/compare_custom --data '{"url1":"_URL","sn1_name":"Prod","url2":"'"$BUILD_DOMAIN"'","sn2_name":"Probo ","diff_name":"Prod vs Probo"}' | rev | awk -F , '{print $2}' | rev | awk -F \\ '{print $5 $6}' | tr -d '\"' >> comment.json
+    curl --header 'x-api-key: $BACKTRAC_API_KEY' --request POST https://backtrac.io/api/project/$BACKTRAC_PROJECT_NID/compare_custom --data '{"url1":"_URL","sn1_name":"Prod","url2":"'"$BUILD_DOMAIN"'","sn2_name":"Probo ","diff_name":"Prod vs Probo"}' | rev | awk -F , '{print $2}' | rev | awk -F \\ '{print $5 $6}' | tr -d '\"' >> comment.json
     echo '"}' >> comment.json
     source $ASSET_DIR/credentials.sh
     BRANCH_NAME=$(echo $BRANCH_NAME | awk '{print toupper($0)}')
