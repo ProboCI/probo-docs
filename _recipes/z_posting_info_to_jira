@@ -11,7 +11,7 @@ JIRA_NAME=""
 JIRA_PASS=""
 {% endhighlight %}
 
-<p><b>Step Two.</em></p>
+<p><b>Step Two.</b></p>
 <p>Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance, _BACKTRAC_PROJECT_NID with your Backtrac NID, and _BACKTRAC_API_KEY with the project's API key</p>
 {% highlight yaml%}
  - plugin: Script
