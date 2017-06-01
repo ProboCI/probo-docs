@@ -15,7 +15,7 @@ BACKTRAC_API_KEY=""
 {% endhighlight %}
 
 <p><b>Step Two.</b></p>
-<p>Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance, BACKTRAC_PROJECT_NID with your Backtrac NID, and  with the project's API key</p>
+<p>Add this to your Probo yaml file, replaceing _JIRA_URL with the URL to your Jira instance.</p>
 {% highlight yaml%}
  - plugin: Script
  name: Run visual comparision to test via backtrac.io and comment in Jira
