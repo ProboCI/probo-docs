@@ -109,7 +109,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails (= 6.5.0.2)
   breakpoint (= 2.7.0)
-  bundler (~> 1.13.7)
+  bundler (~> 1.15.0)
   compass (> 1.0)
   compass-normalize (= 1.5)
   font-awesome-sass (~> 4.6.0)
@@ -127,4 +127,4 @@ RUBY VERSION
    ruby 2.2.2p95
 
 BUNDLED WITH
-   1.13.7
+   1.15.1
