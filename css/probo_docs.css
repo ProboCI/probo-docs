@@ -7323,6 +7323,10 @@ body .wrapper {
   clear: both;
 }
 
+.wrapper .body-text *:first-child {
+  margin-top: 0;
+}
+
 .breadcrumb {
   padding-left: 0;
   padding-bottom: 24px;
