@@ -37,6 +37,10 @@ body {
     float: none;
     clear: both;
 
+    *:first-child {
+      margin-top: 0;
+    }
+
     @include breakpoint($bp-medium) {
       width: 70%;
       float: right;

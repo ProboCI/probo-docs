@@ -2938,7 +2938,8 @@ button,
   cursor:pointer;
   background-color:#4a4a4a;
   color:#ffffff;
-  border:2px solid #4a4a4a; }
+  border:2px solid #4a4a4a;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
   button:hover, button:active, button:focus,
   .button:hover,
   .sweet-alert button:hover,
@@ -2979,7 +2980,8 @@ button,
     cursor:pointer;
     background-color:#ffffff;
     color:#4a4a4a;
-    border:2px solid #4a4a4a; }
+    border:2px solid #4a4a4a;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     button--inverse:hover, button--inverse:active, button--inverse:focus,
     .button--inverse:hover,
     .button--inverse:active,
@@ -3013,7 +3015,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#4a4a4a;
-    border:2px solid #4a4a4a; }
+    border:2px solid #4a4a4a;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     button--transparent--dark:hover, button--transparent--dark:active, button--transparent--dark:focus,
     .button--transparent--dark:hover,
     .button--transparent--dark:active,
@@ -3047,7 +3050,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#ffffff;
-    border:2px solid #ffffff; }
+    border:2px solid #ffffff;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     button--transparent--light:hover, button--transparent--light:active, button--transparent--light:focus,
     .button--transparent--light:hover,
     .button--transparent--light:active,
@@ -3082,7 +3086,8 @@ button,
   cursor:pointer;
   background-color:#9ac36c;
   color:#ffffff;
-  border:2px solid #9ac36c; }
+  border:2px solid #9ac36c;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
   .button--success:hover, .form__submit:hover, .sweet-alert button.confirm:hover, .button--success:active, .form__submit:active, .sweet-alert button.confirm:active, .button--success:focus, .form__submit:focus, .sweet-alert button.confirm:focus,
   .button--green:hover,
   .button--green:active,
@@ -3116,7 +3121,8 @@ button,
     cursor:pointer;
     background-color:#ffffff;
     color:#9ac36c;
-    border:2px solid #9ac36c; }
+    border:2px solid #9ac36c;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--success--inverse:hover, .button--success--inverse:active, .button--success--inverse:focus,
     .button--green--inverse:hover,
     .button--green--inverse:active,
@@ -3150,7 +3156,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#9ac36c;
-    border:2px solid #9ac36c; }
+    border:2px solid #9ac36c;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--success--transparent:hover, .button--success--transparent:active, .button--success--transparent:focus,
     .button--green--transparent:hover,
     .button--green--transparent:active,
@@ -3184,7 +3191,8 @@ button,
   cursor:pointer;
   background-color:#a74783;
   color:#ffffff;
-  border:2px solid #a74783; }
+  border:2px solid #a74783;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
   .button--purple:hover, .button--purple:active, .button--purple:focus{
     text-decoration:none;
     background-color:#ffffff;
@@ -3210,7 +3218,8 @@ button,
     cursor:pointer;
     background-color:#ffffff;
     color:#a74783;
-    border:2px solid #a74783; }
+    border:2px solid #a74783;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--purple--inverse:hover, .button--purple--inverse:active, .button--purple--inverse:focus{
       text-decoration:none;
       background-color:#a74783;
@@ -3236,7 +3245,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#a74783;
-    border:2px solid #a74783; }
+    border:2px solid #a74783;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--purple--transparent:hover, .button--purple--transparent:active, .button--purple--transparent:focus{
       text-decoration:none;
       background-color:#a74783;
@@ -3264,7 +3274,8 @@ button,
   cursor:pointer;
   background-color:#a83028;
   color:#ffffff;
-  border:2px solid #a83028; }
+  border:2px solid #a83028;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
   .button--warning:hover, .sweet-alert button.cancel:hover, .button--warning:active, .sweet-alert button.cancel:active, .button--warning:focus, .sweet-alert button.cancel:focus,
   .button--red:hover,
   .button--red:active,
@@ -3298,7 +3309,8 @@ button,
     cursor:pointer;
     background-color:#ffffff;
     color:#a83028;
-    border:2px solid #a83028; }
+    border:2px solid #a83028;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--warning--inverse:hover, .button--warning--inverse:active, .button--warning--inverse:focus,
     .button--red--inverse:hover,
     .button--red--inverse:active,
@@ -3332,7 +3344,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#a83028;
-    border:2px solid #a83028; }
+    border:2px solid #a83028;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--warning--transparent:hover, .button--warning--transparent:active, .button--warning--transparent:focus,
     .button--red--transparent:hover,
     .button--red--transparent:active,
@@ -3367,7 +3380,8 @@ button,
   cursor:pointer;
   background-color:#3276b6;
   color:#ffffff;
-  border:2px solid #3276b6; }
+  border:2px solid #3276b6;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
   .button--info:hover, .button--info:active, .button--info:focus,
   .button--blue:hover,
   .button--blue:active,
@@ -3401,7 +3415,8 @@ button,
     cursor:pointer;
     background-color:#ffffff;
     color:#3276b6;
-    border:2px solid #3276b6; }
+    border:2px solid #3276b6;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--info--inverse:hover, .button--info--inverse:active, .button--info--inverse:focus,
     .button--blue--inverse:hover,
     .button--blue--inverse:active,
@@ -3435,7 +3450,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#3276b6;
-    border:2px solid #3276b6; }
+    border:2px solid #3276b6;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--info--transparent:hover, .button--info--transparent:active, .button--info--transparent:focus,
     .button--blue--transparent:hover,
     .button--blue--transparent:active,
@@ -3469,7 +3485,8 @@ button,
   cursor:pointer;
   background-color:#333333;
   color:#ffffff;
-  border:2px solid #333333; }
+  border:2px solid #333333;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
   .button--dark-gray:hover, .button--dark-gray:active, .button--dark-gray:focus{
     text-decoration:none;
     background-color:#ffffff;
@@ -3495,7 +3512,8 @@ button,
     cursor:pointer;
     background-color:#ffffff;
     color:#333333;
-    border:2px solid #333333; }
+    border:2px solid #333333;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--dark-gray--inverse:hover, .button--dark-gray--inverse:active, .button--dark-gray--inverse:focus{
       text-decoration:none;
       background-color:#333333;
@@ -3521,7 +3539,8 @@ button,
     cursor:pointer;
     background-color:transparent;
     color:#333333;
-    border:2px solid #333333; }
+    border:2px solid #333333;
+    transition:background 0.1s ease-in-out, color 0.1s ease-in-out; }
     .button--dark-gray--transparent:hover, .button--dark-gray--transparent:active, .button--dark-gray--transparent:focus{
       text-decoration:none;
       background-color:#333333;
@@ -3571,6 +3590,7 @@ button,
   background-color:#4a4a4a;
   color:#ffffff;
   border:2px solid #4a4a4a;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out;
   float:left;
   margin:0;
   border-radius:0; }
@@ -3614,6 +3634,7 @@ button,
   background-color:#9ac36c;
   color:#ffffff;
   border:2px solid #9ac36c;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out;
   float:left;
   margin:0;
   border-radius:0; }
@@ -3657,6 +3678,7 @@ button,
   background-color:#a74783;
   color:#ffffff;
   border:2px solid #a74783;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out;
   float:left;
   margin:0;
   border-radius:0; }
@@ -3700,6 +3722,7 @@ button,
   background-color:#3276b6;
   color:#ffffff;
   border:2px solid #3276b6;
+  transition:background 0.1s ease-in-out, color 0.1s ease-in-out;
   float:left;
   margin:0;
   border-radius:0; }
@@ -3937,13 +3960,12 @@ h6,
 .h6{
   font-size:1.4rem; }
 
-p,
 .p{
   font-size:1.7rem;
   margin:0; }
-  p + p,
-  .p + p{
-    margin-top:12px; }
+
+p + p{
+  margin-top:12px; }
 
 .f-underline{
   text-decoration:underline; }
@@ -4201,7 +4223,6 @@ select,
   border-radius:24px; }
 
 .footer{
-  font-size:1.4rem;
   background-color:#333333;
   color:#f7f7f7;
   display:block;
@@ -4224,9 +4245,8 @@ select,
         -webkit-justify-content:space-between;
             -ms-flex-pack:justify;
                 justify-content:space-between; } }
-  @media (min-width: 28.23529em){
-    .footer__upper-left{
-      margin-top:12px; } }
+    .footer__upper-wrapper > *{
+      font-size:1.4rem; }
   .footer__upper-link{
     color:#333333;
     transition:color 0.2s ease;
@@ -4249,6 +4269,8 @@ select,
       -webkit-justify-content:space-between;
           -ms-flex-pack:justify;
               justify-content:space-between; } }
+  .footer__lower-wrapper > *{
+    font-size:1.4rem; }
   .footer__copyright{
     color:#7d7d7d; }
     @media (min-width: 60.23529em){
