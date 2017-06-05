@@ -20,8 +20,9 @@ var sass = require('gulp-sass'),
   postcss = require('gulp-postcss'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
-  sourcemaps = require('gulp-sourcemaps');
-var runSequence = require('run-sequence');
+  sourcemaps = require('gulp-sourcemaps'),
+  runSequence = require('run-sequence'),
+  responsiveType = require('postcss-responsive-type');
 
 // paths
 var paths = {
@@ -42,7 +43,8 @@ var paths = {
 // post CSS processors
 var processors = [
   autoprefixer({browsers: ['last 2 version', '> 5%']}), // specify browser compatibility with https://github.com/ai/browserslist
-  mqpacker({sort: true}) // this will reorganize css into media query groups, better for performance
+  mqpacker({sort: true}), // this will reorganize css into media query groups, better for performance
+  responsiveType() // this makes the font size *~*~ automagically ~*~* responsive
 ];
 
 //  should we build sourcemaps? "gulp build --sourcemaps"
@@ -55,6 +57,9 @@ gulp.task('sass', function () {
     .pipe(gulpif(buildSourceMaps, sourcemaps.init()))
     .pipe(sass({
       outputStyle: 'expanded'
+      // includePaths: [
+      //   'node_modules/probo-styleguide/scss'
+      // ]
     }))
     .on('error', handleError('Sass Compiling'))
     .pipe(postcss(processors))
@@ -65,7 +70,7 @@ gulp.task('sass', function () {
     .pipe(browserSync.reload({stream: true}));
 });
 
-// Use styleguide
+// compile installed version of styleguide (update with npm)
 gulp.task('styleguide', function() {
   return gulp.src(paths.styleguide)
     .pipe(gulp.dest(paths.css))

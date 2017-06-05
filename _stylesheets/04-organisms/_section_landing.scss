@@ -1,8 +1,16 @@
+.body-text {
+  font-size: responsive 12px 17px;
+}
+
 .section-landing {
 
   &__list {
     list-style: none;
     padding: 0;
+  }
+
+  &__list-item {
+    font-family: $sans-serif;
   }
 
   &__list-link {
@@ -22,7 +30,7 @@
       text-decoration: none;
     }
 
-    @include breakpoint($bp-medium-portrait) {
+    @include breakpoint($bp-medium) {
       text-align: center;
       width: 30%;
       padding: 75px $base-spacing * 5;
