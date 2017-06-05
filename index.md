@@ -1,11 +1,11 @@
 ---
 layout: "docs"
-title: Getting Started
+title: Probo Documentation
 class: documentation
 redirect_from: /getting-started/
 published: true
 ---
-## Log In to the Probo App
+## Getting Started
 The first step to using Probo is logging in to the Probo App, where you can sync your repositories, view your builds and access build information like the console output.
 
 Go to the [Probo App](https://app.probo.ci/ "Probo App") and login with your **GitHub** or **Bitbucket** account. On the authorization page, grant Probo permission to access your repos. Back in the Probo App, enter your user information and click Submit.
