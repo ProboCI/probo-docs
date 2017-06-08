@@ -15,7 +15,7 @@ steps:
     script:
       - apt-get install -y ruby2.2 ruby2.2-dev
       - update-alternatives --config ruby
-      - gem install bundler -v 1.7.9
+      - gem install bundler
   - name: Install Jekyll Dependencies
     plugin: Script
     script:
