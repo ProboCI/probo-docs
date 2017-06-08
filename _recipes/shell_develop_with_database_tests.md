@@ -1,6 +1,6 @@
 ---
-title: Developing on a site with a database
-uid: shell_develop_with_database
+title: Using shell plugin to import database and run tests
+uid: shell_develop_with_database_tests
 ---
 
 {% highlight yaml %}
