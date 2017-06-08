@@ -2,7 +2,6 @@
 title: Using shell plugin to import database and run tests
 uid: shell_develop_with_database_tests
 ---
-
 {% highlight yaml %}
 assets:
   - dev.sql.gz
