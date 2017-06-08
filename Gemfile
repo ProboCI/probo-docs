@@ -4,7 +4,7 @@ ruby "2.2.7"
 gem "jekyll", "3.3.0"
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
-   gem 'bundler', '~> 1.15.0'
+   gem 'bundler', '~> 1.15.1'
    gem 'kramdown', '1.12.0'
    gem 'sass', '>=3.4'
    gem 'uglifier', '3.0.2'
@@ -17,4 +17,5 @@ group :jekyll_plugins do
    gem 'jekyll-sitemap', '~> 0.12.0'
    gem 'jekyll-redirect-from', '~> 0.11.0'
    gem 'html-proofer'
+   gem 'algoliasearch-jekyll', '~> 0.8.0'
 end
