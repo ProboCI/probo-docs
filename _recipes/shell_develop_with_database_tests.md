@@ -1,5 +1,5 @@
 ---
-title: Using shell plugin to import database and run tests
+title: Import a database and run tests using shell
 uid: shell_develop_with_database_tests
 ---
 {% highlight yaml %}
