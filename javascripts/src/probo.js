@@ -30,38 +30,24 @@
     //****************//
     // Algolia Search //
     //****************//
-    var appId = 'SVDV4TVTRX';
-    var searchKey = '9dff47d4e1874ea1dd1bbb323220ec88';
-    var indexName = 'probo-docs';
+    var appId = 'SVDV4TVTRX',
+        searchKey = '9dff47d4e1874ea1dd1bbb323220ec88',
+        indexName = 'probo-docs';
 
-    var client = algoliasearch(appId, searchKey);
-    var index = client.initIndex(indexName);
+    var client = algoliasearch(appId, searchKey),
+        index = client.initIndex(indexName);
 
-    var $inputField = $('.search__input');
-    var $submitButton = $('.search__submit');
-    var $resultsArea = $('.search__results');
+    var $inputField = $('.search__input'),
+        $submitButton = $('.search__submit'),
+        $resultsArea = $('.search__results');
 
-    var baseUrl = document.location.origin;
-    var savedQuery = localStorage.getItem('searchQuery');
+    var baseUrl = document.location.origin,
+        savedQuery = document.location.search.substring(7);
 
-    $('#sidebarSubmit').on('click', function storeQuery(e) {
-      localStorage.setItem('searchQuery', $('#sidebarInput').val());
-    });
-
-    if (savedQuery != null) {
+    if (savedQuery != false) {
       $inputField.val(savedQuery);
       getSearchResults(savedQuery);
-      localStorage.removeItem('searchQuery');
     };
-
-    $submitButton.on('click', getSearchResults($inputField.val()));
-
-    $inputField.on('keypress', function(e) {
-      var pressedKey = (event.keyCode ? event.keyCode : event.which);
-      if (pressedKey == 13 ) {
-        $submitButton.click();
-      }
-    });
 
     function clearSearchResults() {
       $('.search__result').remove();
@@ -77,10 +63,11 @@
           if (err) {
             console.error(err);
             return;
-          };
-          if (content.hits.length > 0) {
-            resultsCount = content.hits.length + ' results';
-          };
+          }
+          if (content.hits.length > 0 ) {
+            var results = content.hits.length > 1 ? ' results' : ' result';
+            resultsCount = content.hits.length + results;
+          }
           $resultsArea.append('<div class="search__results-count">' + resultsCount + '</div>');
           for (var h in content.hits) {
             var hit = content.hits[h];
@@ -90,13 +77,26 @@
               '<div class="search__result-text">' + hit.text + '</div>' +
               '</div>';
             $resultsArea.append(searchResult);
-          };
+          }
         });
       }
       else {
         $resultsArea.append('<div class="search__results-count">' + resultsCount + '</div>');
-      };
+      }
     };
+
+    // $submitButton.on('click', function(e) {
+    //   e.preventDefault();
+    //   var query = $inputField.val();
+    //   getSearchResults(query);
+    // });
+    //
+    // $inputField.on('keypress', function(e) {
+    //   var pressedKey = (event.keyCode ? event.keyCode : event.which);
+    //   if (pressedKey == 13 ) {
+    //     $submitButton.click();
+    //   }
+    // });
 
   });
 

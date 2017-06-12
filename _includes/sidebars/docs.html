@@ -1,10 +1,9 @@
 <ul class="accordion-nav">
   <li class="accordion-nav__item search">
-    <input type="text" title="Search" placeholder="Search the docs" class="accordion-nav__search-input" id="sidebarInput">
-    <a href="/search" class="accordion-nav__search-submit" id="sidebarSubmit">
-      <i class="fa fa-search"></i>
-      <span class="u-accessible">use the search form</span>
-    </a>
+    <form action="/search" method="GET">
+      <input type="text" name="query" placeholder="Search the docs" class="accordion-nav__search-input" id="sidebarInput">
+      <input type="submit" value="Search" class="accordion-nav__search-submit" id="sidebarSubmit">
+    </form>
   </li>
   {% for parent in site.data.navigation %}
   {% if parent.title == 'Docs' %}
