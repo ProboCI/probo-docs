@@ -7600,83 +7600,86 @@ figure {
   margin: 0;
 }
 
-.search-section {
-  background: rgba(68, 0, 39, 0.98);
-  height: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow-y: scroll;
+.search__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.search__submit {
+  margin-top: 12px;
+}
+
+.search__input {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+}
+
+.search__results {
+  background: #f7f7f7;
+  margin: 24px 0;
+}
+
+.search__results-count {
+  padding: 12px;
+}
+
+.search__result {
+  padding: 24px 0;
+  margin: 0 12px;
+  border-bottom: 1px solid #d8d8d8;
+  word-wrap: break-word;
+}
+
+.search__result:last-of-type {
+  border-bottom: none;
+}
+
+.search__result-title {
+  margin: 0;
+}
+
+.search__result-link {
+  font-family: sans-serif;
+  color: #440027;
+}
+
+.search__result-text {
+  font-size: 1.4rem;
+}
+
+.accordion-nav__item.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.accordion-nav__search-input {
   width: 100%;
-  transition-duration: 0.5s;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  height: 45px;
 }
 
-.search-section a {
-  color: white;
-}
-
-.search-section a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.search-section article {
-  padding-bottom: 10px;
-}
-
-.search-section.on {
-  opacity: 1;
-  height: 100vh;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in;
-}
-
-.search-section .content-wrapper {
-  max-width: 940px;
-  margin: 100px auto 50px auto;
-  text-align: left;
-  position: relative;
-  padding: 0 20px;
-}
-
-.search-section .content-wrapper .close-out {
+.accordion-nav__search-submit {
+  display: block;
   position: absolute;
-  right: 20px;
-  top: -45px;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  z-index: 10;
+  background-color: #440027;
+  text-indent: 4px;
+  text-align: center;
 }
 
-.search-section .fa-times {
-  font-size: 30px;
-}
-
-.search-section input[type=text] {
-  width: 100%;
-  font-family: fontawesome, arial;
-  height: 60px;
-  line-height: 60px;
-}
-
-.search-section input[type=text]:focus::-webkit-input-placeholder {
-  transition: text-indent 0.5s 0.5s ease;
-  text-indent: -100%;
-  opacity: 1;
-}
-
-#search-results {
-  color: white;
-}
-
-#search-results h1 {
-  text-align: left;
-  margin: 25px 0;
-  color: white;
-}
-
-.overflow-hidden {
-  overflow: hidden;
+.accordion-nav__search-submit i {
+  font-size: 2.4rem;
+  color: #f7f7f7;
 }
 
 .recipes__list {
@@ -7749,6 +7752,17 @@ figure {
 
 .section-landing__list-link:hover {
   text-decoration: none;
+}
+
+@media (min-width: 28.23529em){
+  .search__container{
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  .search__submit{
+    margin-top: 0;
+    margin-left: 12px;
+  }
 }
 
 @media (min-width: 45.17647em){
