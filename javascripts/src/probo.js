@@ -42,10 +42,14 @@
         $resultsArea = $('.search__results');
 
     var baseUrl = document.location.origin,
+        currentPage = document.location.pathname,
         savedQuery = document.location.search.substring(7);
 
+    if (currentPage.substring(0, 7) === '/search') {
+      $('.accordion-nav__item.search').remove();
+    };
+
     if (savedQuery != false) {
-      $inputField.val(savedQuery);
       getSearchResults(savedQuery);
     };
 
@@ -56,7 +60,6 @@
 
     function getSearchResults(query) {
       clearSearchResults();
-      var resultsCount = 'No results found.';
       // Ensure we have a real query since empty queries match all in the index
       if (query != '') {
         index.search(query, function searchDone(err, content) {
@@ -64,11 +67,11 @@
             console.error(err);
             return;
           }
-          if (content.hits.length > 0 ) {
-            var results = content.hits.length > 1 ? ' results' : ' result';
-            resultsCount = content.hits.length + results;
-          }
-          $resultsArea.append('<div class="search__results-count">' + resultsCount + '</div>');
+
+          var results = content.hits.length > 1 ? ' results' : ' result';
+          var resultsMessage = 'Showing ' + content.hits.length + results + ' for "' + query + '"';
+          $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
+
           for (var h in content.hits) {
             var hit = content.hits[h];
             var searchResult = '<div class="search__result">' +
@@ -84,19 +87,6 @@
         $resultsArea.append('<div class="search__results-count">' + resultsCount + '</div>');
       }
     };
-
-    // $submitButton.on('click', function(e) {
-    //   e.preventDefault();
-    //   var query = $inputField.val();
-    //   getSearchResults(query);
-    // });
-    //
-    // $inputField.on('keypress', function(e) {
-    //   var pressedKey = (event.keyCode ? event.keyCode : event.which);
-    //   if (pressedKey == 13 ) {
-    //     $submitButton.click();
-    //   }
-    // });
 
   });
 
