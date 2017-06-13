@@ -138,7 +138,8 @@ gulp.task('js:combine', function () {
 });
 
 // Generate fav and app icons
-gulp.task('favicons', function () {
+gulp.task('generate', function () {
+  gutil.log('Generating favicons...');
   return gulp.src('images/probo-sphere.png').pipe(favicons({
       appName: 'ProboCI Docs',
       appDescription: 'Probo.CI documentation.',
@@ -161,6 +162,7 @@ gulp.task('favicons', function () {
 
 // Inject fav and app icons into head
 gulp.task('inject', function () {
+  gutil.log('Injecting favicons into <head>...');
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {
       transform: function (filePath, file) {
@@ -170,8 +172,18 @@ gulp.task('inject', function () {
     .pipe(gulp.dest('./_includes/'));
 });
 
+gulp.task('index', shell.task([
+  'echo Updating Algolia search index...',
+  'jekyll algolia push'
+]));
+
+
+gulp.task('favicons', function () {
+  runSequence('generate', 'inject');
+})
+
 gulp.task('build', function(cb) {
-  runSequence('favicons', 'inject', ['js', 'sass'], 'styleguide', 'jekyll', cb);
+  runSequence('js', 'sass', 'styleguide', 'jekyll', cb);
 });
 
 gulp.task('build:dev', function(cb) {

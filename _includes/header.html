@@ -9,6 +9,17 @@
         </button>
         <div class="main-menu__body">
           <ul id="mainMenu" class="accordion-nav" aria-hidden="true">
+            <li class="accordion-nav__item search">
+              <form action="/search" method="GET">
+                <label for="sidebarInput">search for text</label>
+                <input type="text" name="query" placeholder="Search the docs" class="accordion-nav__search-input" id="sidebarInput">
+                <label for="sidebarSubmit">search</label>
+                <button type="submit" class="accordion-nav__search-submit button--blue" id="sidebarSubmit">
+                  <i class="fa fa-search accordion-nav__search-submit-icon" aria-hidden="true"></i>
+                </button>
+              </form>
+            </li>
+
             <!-- Render a list item for each link -->
             {% for link in site.data.navigation %}
             <li class="accordion-nav__item {% if link.children %}has-children is-closed{% endif %}" aria-role="presentation">
@@ -47,6 +58,7 @@
             {% endfor %}
 
             <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link" target="_blank">Login</a></li>
+
           </ul>
         </div>
         <div id="overlay" aria-role="presentation" aria-hidden="true"></div>
@@ -87,22 +99,22 @@
         </div>
 
         <ul class="header__navigation">
-            {% for link in site.data.navigation %}
-            {% assign current = nil %}
-            {% if page.url == link.url or page.layout == link.secondary %}
-            {% assign current = 'current' %}
-            {% endif %}
+          {% for link in site.data.navigation %}
+          {% assign current = nil %}
+          {% if page.url == link.url or page.layout == link.secondary %}
+          {% assign current = 'current' %}
+          {% endif %}
 
-            <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}" aria-role="presentation">
-                <a class="header__navigation-link {{ current }}" href="{{ link.url }}">
-                  {{ link.text }}
-                </a>
-            </li>
-            {% endfor %}
+          <li class="header__navigation-item {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %} {{ link.text }}" aria-role="presentation">
+              <a class="header__navigation-link {{ current }}" href="{{ link.url }}">
+                {{ link.text }}
+              </a>
+          </li>
+          {% endfor %}
 
-            <li class="header__navigation-item" aria-role="presentation">
-                <a href="https://app.probo.ci/" class="header__navigation-link login" target="_blank">Login</a>
-            </li>
+          <li class="header__navigation-item" aria-role="presentation">
+              <a href="https://app.probo.ci/" class="header__navigation-link login" target="_blank">Login</a>
+          </li>
         </ul>
 
     </div>

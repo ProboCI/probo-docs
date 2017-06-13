@@ -8,8 +8,6 @@ published: true
 
 Once your repositories are synced and you have begun using Probo, you can view all the Probo builds for each project. Each build page shows the list of the steps that were run, the log output for each step, and a link to the build itself.
 
-<!-- Need screenshot of a build page -->
-
 ## Build Controls
 
 ### <i class="fa fa-refresh"></i> Rebuild

@@ -1,4 +1,14 @@
 <ul class="accordion-nav">
+  <li class="accordion-nav__item search">
+    <form action="/search" method="GET">
+      <label for="sidebarInput">search for text</label>
+      <input type="text" name="query" placeholder="Search the docs" class="accordion-nav__search-input" id="sidebarInput">
+      <label for="sidebarSubmit">search</label>
+      <button type="submit" class="accordion-nav__search-submit button--blue" id="sidebarSubmit">
+        <i class="fa fa-search accordion-nav__search-submit-icon" aria-hidden="true"></i>
+      </button>
+    </form>
+  </li>
   {% for parent in site.data.navigation %}
   {% if parent.title == 'Docs' %}
   {% for link in parent.children %}

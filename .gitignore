@@ -4,3 +4,4 @@ _site
 node_modules
 _site
 *.DS_Store
+_algolia_api_key

@@ -41,3 +41,7 @@ exclude:
 collections:
   recipes:
     output: true
+
+algolia:
+  application_id: 'SVDV4TVTRX'
+  index_name:     'probo-docs'
