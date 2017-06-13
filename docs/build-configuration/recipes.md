@@ -10,7 +10,6 @@ published: true
 
 <div id="recipes" class="recipes">
   <input class="search recipes__search" title="Search for recipes" placeholder="Search for recipes" />
-  <br /><br />
   <ul class="list recipes__list">
     {% for recipe in site.recipes %}
     <li>
@@ -27,7 +26,7 @@ published: true
             </em>
         </p>
       {% endif %}
-       <p class="recipe recipes__recipe">{{recipe.output}}</p>
+       <div class="recipe recipes__recipe">{{recipe.output}}</div>
     </li>
     {%endfor%}
   </ul>

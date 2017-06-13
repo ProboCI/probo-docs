@@ -7688,24 +7688,27 @@ figure {
 .recipes__list li {
   list-style: none;
   border: 2px solid #f7f7f7;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
 
 .recipes__list li p {
-  padding: 0 10px;
+  padding: 0 12px;
 }
 
 .recipes__name {
   color: #f7f7f7;
   background: #0055a4;
   margin: 0;
-  padding-left: 10px;
-  padding-bottom: 5px;
+  padding: 12px;
 }
 
 .recipes__search {
   width: 100%;
-  padding: 20px 15px;
+  padding: 12px;
+}
+
+.wrapper .body-text .recipes__recipe > p {
+  margin-top: 1em;
 }
 
 .section-landing__list {
