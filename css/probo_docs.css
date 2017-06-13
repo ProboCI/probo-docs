@@ -7611,6 +7611,26 @@ figure {
           justify-content: space-between;
 }
 
+.search__container label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.search__container label.focusable {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
 .search__submit {
   margin-top: 12px;
 }
@@ -7621,7 +7641,6 @@ figure {
 }
 
 .search__results {
-  background: #f7f7f7;
   margin: 24px 0;
 }
 
@@ -7645,16 +7664,34 @@ figure {
 }
 
 .search__result-link {
+  font-size: 1.4rem;
   font-family: sans-serif;
   color: #440027;
-}
-
-.search__result-text {
-  font-size: 1.4rem;
+  padding: 2px 0;
 }
 
 .accordion-nav__item.search {
   text-indent: 0;
+}
+
+.accordion-nav__item.search label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.accordion-nav__item.search label.focusable {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 .accordion-nav__search-input {
