@@ -7,6 +7,10 @@
     @include breakpoint($bp-small-landscape) {
       flex-wrap: nowrap;
     }
+
+    label {
+      @include visuallyhidden;
+    }
   }
 
   &__submit {
@@ -47,18 +51,21 @@
   }
 
   &__result-link {
+    @include rem(font-size, 14px);
+
     font-family: sans-serif;
     color: $probo-purple-dark;
-  }
-
-  &__result-text {
-    @include rem(font-size, 14px);
+    padding: 2px 0;
   }
 }
 
 // @TODO: add below to styleguide
 .accordion-nav__item.search {
   text-indent: 0;
+
+  label {
+    @include visuallyhidden;
+  }
 }
 
 .accordion-nav__search-input {
