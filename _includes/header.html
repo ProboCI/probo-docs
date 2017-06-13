@@ -12,7 +12,9 @@
             <li class="accordion-nav__item search">
               <form action="/search" method="GET">
                 <input type="text" name="query" placeholder="Search the docs" class="accordion-nav__search-input" id="sidebarInput">
-                <input type="submit" value="Search" class="accordion-nav__search-submit" id="sidebarSubmit">
+                <button type="submit" class="accordion-nav__search-submit button--blue" id="sidebarSubmit">
+                  <i class="fa fa-search accordion-nav__search-submit-icon" aria-hidden="true"></i>
+                </button>
               </form>
             </li>
 
@@ -55,7 +57,6 @@
 
             <li class="accordion-nav__item login"><a href="https://app.probo.ci/" class="accordion-nav__item-link" target="_blank">Login</a></li>
 
-            <li class="accordion-nav__item search"><a href="/search" class="accordion-nav__item-link">Search the Docs</a></li>
           </ul>
         </div>
         <div id="overlay" aria-role="presentation" aria-hidden="true"></div>
