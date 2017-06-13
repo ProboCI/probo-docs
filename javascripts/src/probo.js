@@ -72,6 +72,7 @@
           var resultsMessage = 'Showing ' + content.hits.length + results + ' for "' + query + '"';
           $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
 
+          var results = [];
           for (var h in content.hits) {
             var hit = content.hits[h];
             var searchResult = '<div class="search__result">' +
@@ -79,8 +80,9 @@
               '<div class="search__result-link">'+ baseUrl + hit.url + '</div>' +
               '<div class="search__result-text">' + hit.text + '</div>' +
               '</div>';
-            $resultsArea.append(searchResult);
+            results.push(searchResult);
           }
+          $resultsArea.append(results.join(''));
         });
       }
       else {
