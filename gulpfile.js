@@ -170,6 +170,11 @@ gulp.task('inject', function () {
     .pipe(gulp.dest('./_includes/'));
 });
 
+gulp.task('index', shell.task([
+  'echo Updating Algolia search index...',
+  'jekyll algolia push'
+]));
+ 
 gulp.task('build', function(cb) {
   runSequence('favicons', 'inject', ['js', 'sass'], 'styleguide', 'jekyll', cb);
 });
