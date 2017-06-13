@@ -2,7 +2,9 @@
   <li class="accordion-nav__item search">
     <form action="/search" method="GET">
       <input type="text" name="query" placeholder="Search the docs" class="accordion-nav__search-input" id="sidebarInput">
-      <input type="submit" value="Search" class="accordion-nav__search-submit" id="sidebarSubmit">
+      <button type="submit" class="accordion-nav__search-submit button--blue" id="sidebarSubmit">
+        <i class="fa fa-search accordion-nav__search-submit-icon" aria-hidden="true"></i>
+      </button>
     </form>
   </li>
   {% for parent in site.data.navigation %}

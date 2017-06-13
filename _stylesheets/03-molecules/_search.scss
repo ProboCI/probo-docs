@@ -56,6 +56,7 @@
   }
 }
 
+// @TODO: add below to styleguide
 .accordion-nav__item.search {
   text-indent: 0;
 }
@@ -67,22 +68,21 @@
 }
 
 .accordion-nav__search-submit {
-  border-style: none;
+  border-radius: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 40px;
 
   // @extend .accordion-nav__toggle-children;
-  display: block;
   position: absolute;
   top: 0;
   right: 0;
-  // width: 45px;
   height: 45px;
   z-index: 10;
-  background-color: $probo-purple-dark;
   text-indent: 4px;
   text-align: center;
-  color: $probo-pale;
 
-  &:hover {
-    background-color: lighten($probo-purple-dark, 10%);
+  i {
+    top: -2px;
   }
 }

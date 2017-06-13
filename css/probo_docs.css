@@ -7664,21 +7664,24 @@ figure {
 }
 
 .accordion-nav__search-submit {
-  border-style: none;
-  display: block;
+  border-radius: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 40px;
   position: absolute;
   top: 0;
   right: 0;
   height: 45px;
   z-index: 10;
-  background-color: #440027;
   text-indent: 4px;
   text-align: center;
-  color: #f7f7f7;
 }
 
-.accordion-nav__search-submit:hover {
-  background-color: #770044;
+.accordion-nav__search-submit i {
+  top: -2px;
 }
 
 .recipes__list {
