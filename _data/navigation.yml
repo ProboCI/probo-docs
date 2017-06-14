@@ -137,9 +137,6 @@
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
-        - title: Switch PHP Versions
-          url: /switch-php
-          text: Switch PHP Versions
 
 - title: Contact
   url: http://probo.ci/contact

@@ -3,6 +3,7 @@ layout: "docs"
 title: Switch PHP Versions
 class: documentation
 permalink: /tutorials/switch-php/
+redirect_to: /build/environment-configuration/
 ---
 Probo.CI LAMP containers come with PHP 5.5 by default. If you'd like to upgrade to 5.6 or 7.0, you need to add a script to your `.probo.yml` file.
 
@@ -41,7 +42,7 @@ In your `.probo.yml` file add the following Script:
       apt-get install -y software-properties-common language-pack-en-base
       LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
       apt-get update
-      DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0 libapache2-mod-php7.0 php7.0-gd php7.0-curl php7.0-json php7.0-mbstring php7.0-mysql php7.0-mcrypt php7.0-imagick php7.0-dev php7.0-gmp php7.0-xml 
+      DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0 libapache2-mod-php7.0 php7.0-gd php7.0-curl php7.0-json php7.0-mbstring php7.0-mysql php7.0-mcrypt php7.0-imagick php7.0-dev php7.0-gmp php7.0-xml
       cp /etc/php5/mods-available/general_settings.ini /etc/php/7.0/apache2/conf.d/20-general_settings.ini
       a2dismod php5
       a2enmod php7.0
