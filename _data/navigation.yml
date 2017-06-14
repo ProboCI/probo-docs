@@ -45,8 +45,11 @@
           url: /steps
           text: Build Steps
         - title: Environment Configuration
-          url: /environment-configuration/
+          url: /environment-configuration
           text: Environment Configuration
+        - title: Environment Variables
+          url: /environment-variables
+          text: Environment Variables
 
     - title: Plugins
       text: Plugins
@@ -134,9 +137,6 @@
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
-        - title: Switch PHP Versions
-          url: /switch-php
-          text: Switch PHP Versions
 
 - title: Contact
   url: http://probo.ci/contact
