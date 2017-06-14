@@ -47,6 +47,9 @@
         - title: Environment Configuration
           url: /environment-configuration/
           text: Environment Configuration
+        - title: Environment Variables
+          url: /environment-variables/
+          text: Environment Variables
 
     - title: Plugins
       text: Plugins
