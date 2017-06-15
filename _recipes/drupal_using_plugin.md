@@ -1,6 +1,5 @@
 ---
 title: Using the Drupal plugin
-uid: drupal_using_plugin
 ---
 
 {% highlight yaml%}

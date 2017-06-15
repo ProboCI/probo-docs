@@ -1,6 +1,5 @@
 ---
 title: Setting LAMPApp PHP Configuration Options on a Drupal Installation
-uid: lamp_set_php_config_on_drupal
 ---
 
 {% highlight yaml%}

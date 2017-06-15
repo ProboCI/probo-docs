@@ -1,6 +1,5 @@
 ---
 title: Developing on a site with a database
-uid: script_site_with_database
 ---
 
 Here is an example using a multi-line YAML string.

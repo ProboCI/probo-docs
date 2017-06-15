@@ -41,6 +41,15 @@ exclude:
 collections:
   recipes:
     output: true
+    permalink: /:collection/:path/
+    category: recipe
+
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe
 
 algolia:
   application_id: 'SVDV4TVTRX'

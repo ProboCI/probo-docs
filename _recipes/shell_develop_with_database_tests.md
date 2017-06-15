@@ -1,6 +1,5 @@
 ---
 title: Import a database and run tests using shell
-uid: shell_develop_with_database_tests
 ---
 {% highlight yaml %}
 assets:

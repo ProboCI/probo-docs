@@ -68,3 +68,4 @@ You can share your super slick `.probo.yaml` in just a few steps:
 3. Paste the contents of your `.probo.yaml` file between the `highlight yaml` tags.
 4. Submit a pull request and add the **needs review** label.
 
+Thank you for your contribution!

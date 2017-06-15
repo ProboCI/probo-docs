@@ -1,6 +1,5 @@
 ---
 title: Using the LAMPApp Plugin to Test a PHP/MySQL Based Application
-uid: lamp_test_phpmysql_app
 ---
 
 {% highlight yaml%}
