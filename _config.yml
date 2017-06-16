@@ -42,7 +42,6 @@ collections:
   recipes:
     output: true
     permalink: /:collection/:path/
-    category: recipe
 
 defaults:
   - scope:
@@ -50,7 +49,20 @@ defaults:
       type: recipes
     values:
       layout: recipe
+      category: recipe
 
 algolia:
   application_id: 'SVDV4TVTRX'
   index_name:     'probo-docs'
+  settings:
+    attributesToIndex:
+      - title
+      - h1
+      - h2
+      - h3
+      - h4
+      - h5
+      - h6
+      - body
+      - unordered(text)
+      - unordered(tags)

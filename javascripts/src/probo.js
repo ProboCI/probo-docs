@@ -43,14 +43,16 @@
 
     var baseUrl = document.location.origin,
         currentPage = document.location.pathname,
-        savedQuery = document.location.search.substring(7);
+        urlParams = new URLSearchParams(window.location.search),
+        savedQuery = urlParams.get('query'),
+        categorySelection = urlParams.get('category');
 
     if (currentPage.substring(0, 7) === '/search') {
       $('.accordion-nav__item.search').remove();
-    };
 
-    if (savedQuery != false) {
-      getSearchResults(savedQuery);
+      if (savedQuery != false) {
+        getSearchResults(savedQuery, categorySelection);
+      };
     };
 
     function clearSearchResults() {
@@ -58,11 +60,16 @@
       $('.search__results-count').remove();
     };
 
-    function getSearchResults(query) {
+    function getSearchResults(query, category) {
       clearSearchResults();
+
       // Ensure we have a real query since empty queries match all in the index
       if (query != '') {
-        index.search(query, function searchDone(err, content) {
+        index.search({
+          query: query,
+          facetFilters: ['category:' + category]
+        },
+        function searchDone(err, content) {
           if (err) {
             console.error(err);
             return;
