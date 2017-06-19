@@ -41,17 +41,14 @@
         $submitButton = $('.search__submit'),
         $resultsArea = $('.search__results');
 
-    var baseUrl = document.location.origin,
-        currentPage = document.location.pathname,
-        urlParams = new URLSearchParams(window.location.search),
-        savedQuery = urlParams.get('query'),
-        categorySelection = urlParams.get('category');
+    var urlParams = new URLSearchParams(window.location.search);
 
-    if (currentPage.substring(0, 7) === '/search') {
+    if (document.location.pathname.substring(0, 7) === '/search') {
       $('.accordion-nav__item.search').remove();
 
-      if (savedQuery != false) {
-        getSearchResults(savedQuery, categorySelection);
+      if (getQuery(urlParams) != false) {
+        clearSearchResults();
+        getSearchResults(urlParams);
       };
     };
 
@@ -60,23 +57,47 @@
       $('.search__results-count').remove();
     };
 
-    function getSearchResults(query, category) {
-      clearSearchResults();
+    function getQuery(urlParams) {
+      var query = urlParams.get('query');
+      return query;
+    }
+
+    function getFilters(urlParams) {
+      // Loop through URL parameters Iterator to get filter values.
+      // gulp-uglify does not support for...of loops.
+      var params = urlParams.entries();
+      var nextParam = params.next().value;
+      var filters = [];
+
+      do {
+        if (nextParam[0] != 'query') {
+          filters.push(nextParam[0] + ':' + nextParam[1]);
+        }
+        nextParam = params.next().value;
+      }
+      while (nextParam != undefined);
+      return filters;
+    };
+
+    function getSearchResults(urlParams) {
+      var query = getQuery(urlParams);
+      var filters = getFilters(urlParams);
+      var searchObj = {
+        query: query,
+        facetFilters: filters
+      };
 
       // Ensure we have a real query since empty queries match all in the index
       if (query != '') {
-        index.search({
-          query: query,
-          facetFilters: ['category:' + category]
-        },
+        index.search(searchObj,
         function searchDone(err, content) {
           if (err) {
             console.error(err);
             return;
           }
 
-          var results = content.hits.length > 1 ? ' results' : ' result';
-          var resultsMessage = 'Showing ' + content.hits.length + results + ' for "' + query + '"';
+          var resultsLabel = content.hits.length > 1 ? ' results' : ' result';
+          var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
           $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
 
           var results = [];
@@ -84,7 +105,7 @@
             var hit = content.hits[h];
             var searchResult = '<div class="search__result">' +
               '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
-              '<div class="search__result-link">'+ baseUrl + hit.url + '</div>' +
+              '<div class="search__result-link">'+ document.location.origin + hit.url + '</div>' +
               '<div class="search__result-text">' + hit.text + '</div>' +
               '</div>';
             results.push(searchResult);
