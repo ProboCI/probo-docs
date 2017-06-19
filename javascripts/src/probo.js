@@ -47,13 +47,21 @@
       $('.accordion-nav__item.search').remove();
 
       if (getQuery(urlParams) != false) {
-        $inputField.val(getQuery(urlParams));
+        reapplySettings(urlParams);
         getSearchResults(urlParams);
       }
       else {
         setResultsMessage('You haven\'t searched for anything yet.')
       };
     };
+
+    function reapplySettings(urlParams) {
+      $inputField.val(getQuery(urlParams));
+      filters = getFilters(urlParams);
+      for (filter in filters) {
+        $('select[name=' + filter + ']').val(filters[filter]);
+      }
+    }
 
     function clearSearchResults() {
       $('.search__result').remove();
@@ -74,11 +82,11 @@
       // gulp-uglify does not support for...of loops.
       var params = urlParams.entries();
       var nextParam = params.next().value;
-      var filters = [];
+      var filters = {};
 
       do {
         if (nextParam[0] != 'query') {
-          filters.push(nextParam[0] + ':' + nextParam[1]);
+          filters[nextParam[0]] = nextParam[1];
         }
         nextParam = params.next().value;
       }
@@ -86,9 +94,20 @@
       return filters;
     };
 
+    function filtersToArray(filters) {
+      var filterArray = [];
+
+      for (key in filters) {
+        var value = filters[key];
+        filterArray.push(key + ':' + value)
+      }
+
+      return filterArray;
+    }
+
     function getSearchResults(urlParams) {
       var query = getQuery(urlParams);
-      var filters = getFilters(urlParams);
+      var filters = filtersToArray(getFilters(urlParams));
       var searchObj = {
         query: query,
         facetFilters: filters
