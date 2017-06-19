@@ -39,6 +39,7 @@
 
     var $inputField = $('.search__input'),
         $submitButton = $('.search__submit'),
+        $resetButton = $('.search__reset'),
         $resultsArea = $('.search__results');
 
     var urlParams = new URLSearchParams(window.location.search);
@@ -66,6 +67,16 @@
         $('select[name=' + filter + ']').val(filters[filter]);
       }
     }
+
+    /**
+     * Clears all values out of search form.
+     */
+    function resetSearch() {
+      $inputField.val('');
+      $('.search__container > select').val('');
+    }
+
+    $resetButton.on('click', resetSearch);
 
     /**
      * Clears the search results area.
