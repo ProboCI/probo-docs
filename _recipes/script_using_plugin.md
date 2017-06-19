@@ -1,5 +1,6 @@
 ---
 title: Using the Script plugin
+uid: script_using_plugin
 ---
 
 Add your script as a multi-line YAML string.

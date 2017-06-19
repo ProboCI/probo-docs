@@ -1,5 +1,6 @@
 ---
 title: Getting a database for a Drupal site hosted on Pantheon
+uid: pantheon_example
 ---
 
 Be sure to substitute the name of your Pantheon site for 'YOURSITE'.
