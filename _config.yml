@@ -54,15 +54,4 @@ defaults:
 algolia:
   application_id: 'SVDV4TVTRX'
   index_name:     'probo-docs'
-  settings:
-    attributesToIndex:
-      - title
-      - h1
-      - h2
-      - h3
-      - h4
-      - h5
-      - h6
-      - body
-      - unordered(text)
-      - unordered(tags)
+  record_css_selector: 'p,code,table'
