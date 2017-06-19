@@ -47,8 +47,11 @@
       $('.accordion-nav__item.search').remove();
 
       if (getQuery(urlParams) != false) {
-        clearSearchResults();
+        $inputField.val(getQuery(urlParams));
         getSearchResults(urlParams);
+      }
+      else {
+        setResultsMessage('You haven\'t searched for anything yet.')
       };
     };
 
@@ -56,6 +59,10 @@
       $('.search__result').remove();
       $('.search__results-count').remove();
     };
+
+    function setResultsMessage(message) {
+      $resultsArea.append('<p class="search__results-count">' + message + '</p>');
+    }
 
     function getQuery(urlParams) {
       var query = urlParams.get('query');
@@ -96,7 +103,7 @@
             return;
           }
 
-          var resultsLabel = content.hits.length > 1 ? ' results' : ' result';
+          var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
           var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
           $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
 
@@ -112,9 +119,6 @@
           }
           $resultsArea.append(results.join(''));
         });
-      }
-      else {
-        $resultsArea.append('<div class="search__results-count">' + resultsCount + '</div>');
       }
     };
 
