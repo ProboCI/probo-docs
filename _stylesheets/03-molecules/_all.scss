@@ -1,0 +1,99 @@
+@import 'chosen';
+
+.search {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    font-family: $sans-serif;
+
+    @include breakpoint($bp-small-landscape) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    label {
+      @include visuallyhidden;
+    }
+
+    // label[for='category'] {
+    //   @include visuallyhidden-off;
+    //
+    //   font-family: $sans-serif;
+    // }
+  }
+
+  &__submit,
+  &__reset {
+    margin-top: $base-margin;
+
+    @include breakpoint($bp-small-landscape) {
+      margin-top: 0;
+      margin-left: $base-margin;
+    }
+  }
+
+  &__input-form {
+    flex-basis: 75%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__input {
+    flex-basis: 100%;
+  }
+
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    margin-top: $base-margin;
+  }
+
+  &__filter {
+    flex-basis: 25%;
+  }
+
+  &__select {
+    margin-top: $base-margin;
+  }
+
+  &__results {
+    margin: $base-margin * 2 0;
+  }
+
+  &__results-count {
+    padding: $base-margin;
+  }
+
+  &__result {
+    padding: $base-margin * 2 0;
+    margin: 0 $base-margin;
+    border-bottom: 1px solid $probo-gray-light;
+    word-wrap: break-word;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  &__result-title {
+    margin: 0;
+  }
+
+  &__result-link {
+    @include rem(font-size, 14px);
+
+    font-family: sans-serif;
+    color: $probo-purple-dark;
+    padding: 2px 0;
+  }
+
+  &__algolia {
+    @include rem(font-size, 14px);
+    svg {
+      display: block;
+      width: 10%;
+    }
+  }
+}

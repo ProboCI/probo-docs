@@ -44,6 +44,12 @@
 
     var urlParams = new URLSearchParams(window.location.search);
 
+    $('.search__select').chosen({
+      allow_single_deselect: true,
+      disable_search_threshold: 10,
+      width: '100%'
+    });
+
     if (document.location.pathname.substring(0, 7) === '/search') {
       $('.accordion-nav__item.search').remove();
 
