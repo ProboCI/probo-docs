@@ -15,12 +15,14 @@
 
   var urlParams = new URLSearchParams(window.location.search);
 
+  // Chosen settings
   $('.search__select').chosen({
     allow_single_deselect: true,
     disable_search_threshold: 10,
     width: '100%'
   });
 
+  // Remove sidebar nav mini search form.
   $('.accordion-nav__item.search').remove();
 
   if (getQuery(urlParams) != false) {
@@ -30,6 +32,43 @@
   else {
     setResultsMessage('You haven\'t searched for anything yet.')
   };
+
+  // User interactions
+  $submitButton.on('click', function(e) {
+    e.preventDefault();
+    updateQuery();
+  });
+
+  $inputField.on('blur', function (e) {
+    updateQuery();
+  });
+
+  $('.chosen-results > li').on('click', function (e) {
+    updateQuery();
+  });
+
+  /**
+   * Compares search params in URL with search form values and runs a new
+   * search if any form value has changed.
+   */
+  function updateQuery() {
+    // Structure filters as a string to append to new URL.
+    var filters = getFiltersFromSearchForm();
+    var filterString = '&';
+    for (var key in filters) {
+      var value = filters[key];
+      filterString += key + '=' + value + '&';
+    }
+
+    var oldUrl = window.location.pathname + window.location.search;
+    var newUrl = '/search/?query=' + getQueryFromSearchForm() + filterString;
+    if (newUrl != oldUrl) {
+      clearSearchResults();
+      window.history.pushState({}, '', newUrl);
+      getSearchResults(urlParams);
+      console.log("Query updated!");
+    }
+  }
 
   /**
    * Populates search fields with parameters in URL.
@@ -57,6 +96,7 @@
    * Clears the search results area.
    */
   function clearSearchResults() {
+    console.log('Clearing search results.');
     $('.search__result').remove();
     $('.search__results-count').remove();
   };
@@ -68,24 +108,32 @@
    */
   function setResultsMessage(message) {
     $resultsArea.append('<p class="search__results-count">' + message + '</p>');
-  }
+  };
 
   /**
    * Gets the user-submitted query string from the URL.
    * @param {Object} urlParams - A URLSearchParams object.
    * @return {String} The user-submitted query string.
    */
-  function getQuery(urlParams) {
+  function getQueryFromUrl(urlParams) {
     var query = urlParams.get('query');
     return query;
-  }
+  };
 
   /**
-   * Gets the user-selected filters from the URL.
-   * @param {Object} urlParams - A URLSearchParams object.
-   * @return {Object} An object full of filter category keys with their values.
+   * Gets the query string from the search form.
+   * @return {String} The user-submitted query string.
    */
-  function getFilters(urlParams) {
+  function getQueryFromSearchForm() {
+    return $inputField.val();
+  };
+
+  /**
+   * Gets filter values from the URL.
+   * @param {Object} urlParams - A URLSearchParams object.
+   * @return {Object} An object full of filter keys with their values.
+   */
+  function getFiltersFromUrl(urlParams) {
     // Loop through URL parameters Iterator to get filter values.
     // gulp-uglify does not support for...of loops.
     var params = urlParams.entries();
@@ -102,8 +150,23 @@
   };
 
   /**
+   * Gets values from select list filters.
+   * @return {Object} An object full of filter keys with their values.
+   */
+  function getFiltersFromSearchForm() {
+    var filters = $('.search__filter');
+    var filtersObj = {};
+    filters.each(function (e) {
+      var $categoryId = jQuery('select', this).attr('id');
+      var $filterVal = jQuery('.chosen-container > a:not(.chosen-default) > span', this).text();
+      filtersObj[$categoryId] = $filterVal;
+    });
+    return filtersObj;
+  };
+
+  /**
    * Converts a filter object into an array.
-   * @param {Object} filters - Filters returned from the getFilters() function.
+   * @param {Object} filters - A filters object returned from a getFilters function.
    * @return {Array} An array of strings, formatted as 'key:value'.
    */
   function filtersToArray(filters) {
@@ -120,8 +183,9 @@
    * @param {Object} urlParams - A URLSearchParams object.
    */
   function getSearchResults(urlParams) {
-    var query = getQuery(urlParams);
-    var filters = filtersToArray(getFilters(urlParams));
+    console.log('Search initiated!');
+    var query = getQueryFromUrl(urlParams);
+    var filters = filtersToArray(getFiltersFromUrl(urlParams));
     var searchObj = {
       query: query,
       facetFilters: filters
