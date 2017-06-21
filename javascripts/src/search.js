@@ -25,8 +25,9 @@
   // Remove sidebar nav mini search form.
   $('.accordion-nav__item.search').remove();
 
-  if (getQuery(urlParams) != false) {
-    reapplySettings(urlParams);
+  // Initialize search state from URL params.
+  if (getQueryFromUrl(urlParams) != false) {
+    applyUrlValues(urlParams)
     getSearchResults(urlParams);
   }
   else {
@@ -74,11 +75,27 @@
    * Populates search fields with parameters in URL.
    * @param {Object} urlParams - A URLSearchParams object.
    */
-  function reapplySettings(urlParams) {
-    $inputField.val(getQuery(urlParams));
-    var filters = getFilters(urlParams);
-    for (var filter in filters) {
-      $('select[name=' + filter + ']').val(filters[filter]);
+  function applyUrlValues(urlParams) {
+    // Update query
+    $inputField.val(getQueryFromUrl(urlParams));
+
+    // Update form filters
+    var formFilters = getFiltersFromSearchForm();
+    var urlFilters = getFiltersFromUrl(urlParams);
+    for (var formFilter in formFilters) {
+      var formFilterVal = formFilters[formFilter];
+      for (var urlFilter in urlFilters) {
+        // Compare filter IDs.
+        if (urlFilter == formFilter) {
+          var urlFilterVal = urlFilters[urlFilter];
+          // Compare matching filters' values.
+          if (formFilterVal != urlFilterVal) {
+            // Find DOM element with id/name equal to filter ID and update its
+            // "value" with urlFilterVal.
+            $('select[name=' + formFilter + '] ~ .chosen-container > a > span').text(urlFilterVal);
+          }
+        }
+      }
     }
   }
 
