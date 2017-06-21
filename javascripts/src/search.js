@@ -48,6 +48,10 @@
     updateQuery();
   });
 
+  $resetButton.on('click', function (e) {
+    resetSearch();
+  });
+
   /**
    * Compares search params in URL with search form values and runs a new
    * search if any form value has changed.
@@ -106,8 +110,6 @@
     $inputField.val('');
     $('.search__container > select').val('');
   }
-
-  $resetButton.on('click', resetSearch);
 
   /**
    * Clears the search results area.
@@ -201,8 +203,8 @@
    */
   function getSearchResults(urlParams) {
     console.log('Search initiated!');
-    var query = getQueryFromUrl(urlParams);
-    var filters = filtersToArray(getFiltersFromUrl(urlParams));
+    var query = getQueryFromSearchForm(urlParams);
+    var filters = filtersToArray(getFiltersFromSearchForm(urlParams));
     var searchObj = {
       query: query,
       facetFilters: filters
