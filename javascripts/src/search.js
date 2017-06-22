@@ -19,7 +19,10 @@
   $('.search__select').chosen({
     allow_single_deselect: true,
     disable_search_threshold: 10,
+    inherit_select_classes: true,
     width: '100%'
+  }).change(function (e) {
+    updateQuery();
   });
 
   // Remove sidebar nav mini search form.
@@ -44,11 +47,8 @@
     updateQuery();
   });
 
-  $('.chosen-results > li').on('click', function (e) {
-    updateQuery();
-  });
-
   $resetButton.on('click', function (e) {
+    e.preventDefault();
     resetSearch();
   });
 
@@ -71,7 +71,6 @@
       clearSearchResults();
       window.history.pushState({}, '', newUrl);
       getSearchResults(urlParams);
-      console.log("Query updated!");
     }
   }
 
@@ -96,7 +95,7 @@
           if (formFilterVal != urlFilterVal) {
             // Find DOM element with id/name equal to filter ID and update its
             // "value" with urlFilterVal.
-            $('select[name=' + formFilter + '] ~ .chosen-container > a > span').text(urlFilterVal);
+            $('select[name=' + formFilter + ']').val(urlFilterVal).trigger('chosen:updated');
           }
         }
       }
@@ -108,14 +107,14 @@
    */
   function resetSearch() {
     $inputField.val('');
-    $('.search__container > select').val('');
+    $('.search__list').val('').trigger('chosen:updated');
+    window.history.pushState({}, '', '');
   }
 
   /**
    * Clears the search results area.
    */
   function clearSearchResults() {
-    console.log('Clearing search results.');
     $('.search__result').remove();
     $('.search__results-count').remove();
   };
@@ -186,7 +185,8 @@
   /**
    * Converts a filter object into an array.
    * @param {Object} filters - A filters object returned from a getFilters function.
-   * @return {Array} An array of strings, formatted as 'key:value'.
+   * @return {Array} An array of strings, formatted as 'key:value', where the key
+   * is the filter ID and the value is the filter value, e.g. 'category:recipe'.
    */
   function filtersToArray(filters) {
     var filterArray = [];
@@ -202,34 +202,35 @@
    * @param {Object} urlParams - A URLSearchParams object.
    */
   function getSearchResults(urlParams) {
-    console.log('Search initiated!');
     var query = getQueryFromSearchForm(urlParams);
     var filters = filtersToArray(getFiltersFromSearchForm(urlParams));
     var searchObj = {
       query: query,
       facetFilters: filters
     };
-    index.search(searchObj,
-    function searchDone(err, content) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
-      var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
-      $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
-      var results = [];
-      for (var h in content.hits) {
-        var hit = content.hits[h];
-        var searchResult = '<div class="search__result">' +
-          '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
-          '<div class="search__result-link">'+ document.location.origin + hit.url + '</div>' +
-          '<div class="search__result-text">' + hit.text + '</div>' +
-          '</div>';
-        results.push(searchResult);
-      }
-      $resultsArea.append(results.join(''));
-    });
+    if (query != '') {
+      index.search(searchObj,
+      function searchDone(err, content) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
+        var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
+        $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
+        var results = [];
+        for (var h in content.hits) {
+          var hit = content.hits[h];
+          var searchResult = '<div class="search__result">' +
+            '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
+            '<div class="search__result-link">'+ document.location.origin + hit.url + '</div>' +
+            '<div class="search__result-text">' + hit.text + '</div>' +
+            '</div>';
+          results.push(searchResult);
+        }
+        $resultsArea.append(results.join(''));
+      });
+    }
   };
 
 })(jQuery);
