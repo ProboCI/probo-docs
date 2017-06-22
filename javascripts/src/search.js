@@ -1,66 +1,56 @@
-(function($) {
+(function($, PROBO) {
   'use strict';
 
-  var appId = 'SVDV4TVTRX',
-      searchKey = '9dff47d4e1874ea1dd1bbb323220ec88',
-      indexName = 'probo-docs';
+  PROBO = PROBO || {};
 
-  var client = algoliasearch(appId, searchKey),
-      index = client.initIndex(indexName);
+  function ProboSearch(appId, searchKey, indexName, client, index, inputField, submitButton, resetButton, resultsArea, result, resultCount, searchFilter) {
+    this.client = algoliasearch(appId, searchKey);
+    this.index = client.initIndex(indexName);
+    this.urlParams = new URLSearchParams(window.location.search);
 
-  var $inputField = $('.search__input'),
-      $submitButton = $('.search__submit'),
-      $resetButton = $('.search__reset'),
-      $resultsArea = $('.search__results');
+    this.inputField = inputField;
+    this.submitButton = submitButton;
+    this.resetButton = resetButton;
+    this.resultsArea = resultsArea;
+    this.result = result;
+    this.resultCount = resultCount;
+    this.searchFilter = searchFilter;
+  }
 
-  var urlParams = new URLSearchParams(window.location.search);
+  ProboSearch.prototype.initialize = function () {
+    var proboSearch = this;
+    // Chosen settings
+    $('.search__select').chosen({
+      allow_single_deselect: true,
+      disable_search_threshold: 10,
+      inherit_select_classes: true,
+      width: '100%'
+    }).change(function (e) {
+      proboSearch.updateQuery();
+    });
 
-  // Chosen settings
-  $('.search__select').chosen({
-    allow_single_deselect: true,
-    disable_search_threshold: 10,
-    inherit_select_classes: true,
-    width: '100%'
-  }).change(function (e) {
-    updateQuery();
-  });
+    // Remove sidebar nav mini search form.
+    $('.accordion-nav__item.search').remove();
 
-  // Remove sidebar nav mini search form.
-  $('.accordion-nav__item.search').remove();
+    // Initialize search state from URL params.
+    this.applyUrlValues(this.urlParams)
+    this.getSearchResults(this.urlParams);
 
-  // Initialize search state from URL params.
-  applyUrlValues(urlParams)
-  getSearchResults(urlParams);
-
-  // User interactions
-  $submitButton.on('click', function(e) {
-    e.preventDefault();
-    updateQuery();
-  });
-
-  $inputField.on('blur', function (e) {
-    updateQuery();
-  });
-
-  $resetButton.on('click', function (e) {
-    e.preventDefault();
-    resetSearch();
-  });
-
-  $(window).keydown(function(event){
-    if(event.keyCode == 13) {
-      event.preventDefault();
-      updateQuery();
-    }
-  });
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        proboSearch.updateQuery();
+      }
+    });
+  };
 
   /**
    * Compares search form values with search params in URL and updates the URL
    * params and runs a new search if any form value has changed.
    */
-  function updateQuery() {
+  ProboSearch.prototype.updateQuery = function() {
     // Structure filters as a string to append to new URL.
-    var filters = getFiltersFromSearchForm();
+    var filters = this.getFiltersFromSearchForm();
     var filterString = '&';
     for (var key in filters) {
       var value = filters[key];
@@ -68,25 +58,25 @@
     }
 
     var oldUrl = window.location.pathname + window.location.search;
-    var newUrl = '/search/?query=' + getQueryFromSearchForm() + filterString;
+    var newUrl = '/search/?query=' + this.getQueryFromSearchForm() + filterString;
     if (newUrl != oldUrl) {
-      clearSearchResults();
+      this.clearSearchResults();
       window.history.pushState({}, '', newUrl);
-      getSearchResults(urlParams);
+      this.getSearchResults(this.urlParams);
     }
-  }
+  };
 
   /**
    * Populates search fields with parameters in URL.
    * @param {Object} urlParams - A URLSearchParams object.
    */
-  function applyUrlValues(urlParams) {
+  ProboSearch.prototype.applyUrlValues = function(urlParams) {
     // Update query
-    $inputField.val(getQueryFromUrl(urlParams));
+    this.inputField.val(this.getQueryFromUrl(urlParams));
 
     // Update form filters
-    var formFilters = getFiltersFromSearchForm();
-    var urlFilters = getFiltersFromUrl(urlParams);
+    var formFilters = this.getFiltersFromSearchForm();
+    var urlFilters = this.getFiltersFromUrl(urlParams);
     for (var formFilter in formFilters) {
       var formFilterVal = formFilters[formFilter];
       for (var urlFilter in urlFilters) {
@@ -107,18 +97,18 @@
   /**
    * Clears all values out of search form.
    */
-  function resetSearch() {
-    $inputField.val('');
+  ProboSearch.prototype.resetSearch = function() {
+    this.inputField.val('');
     $('select').val('').trigger('chosen:updated');
-    updateQuery();
+    this.updateQuery();
   }
 
   /**
    * Clears the search results area.
    */
-  function clearSearchResults() {
-    $('.search__result').remove();
-    $('.search__results-count').remove();
+  ProboSearch.prototype.clearSearchResults = function () {
+    this.result.remove();
+    this.resultCount.remove();
   };
 
   /**
@@ -126,8 +116,8 @@
    * not return results.
    * @param {String} message - The message to print.
    */
-  function setResultsMessage(message) {
-    $resultsArea.append('<p class="search__results-count">' + message + '</p>');
+  ProboSearch.prototype.setResultsMessage = function (message) {
+    this.resultsArea.append('<p class="search__results-count">' + message + '</p>');
   };
 
   /**
@@ -135,7 +125,7 @@
    * @param {Object} urlParams - A URLSearchParams object.
    * @return {String} The user-submitted query string.
    */
-  function getQueryFromUrl(urlParams) {
+  ProboSearch.prototype.getQueryFromUrl = function (urlParams) {
     var query = urlParams.get('query');
     return query;
   };
@@ -144,8 +134,8 @@
    * Gets the query string from the search form.
    * @return {String} The user-submitted query string.
    */
-  function getQueryFromSearchForm() {
-    return $inputField.val();
+  ProboSearch.prototype.getQueryFromSearchForm = function () {
+    return this.inputField.val();
   };
 
   /**
@@ -153,7 +143,7 @@
    * @param {Object} urlParams - A URLSearchParams object.
    * @return {Object} An object full of filter keys with their values.
    */
-  function getFiltersFromUrl(urlParams) {
+  ProboSearch.prototype.getFiltersFromUrl = function (urlParams) {
     // Loop through URL parameters Iterator to get filter values.
     // gulp-uglify does not support for...of loops.
     var params = urlParams.entries();
@@ -173,8 +163,8 @@
    * Gets values from select list filters.
    * @return {Object} An object full of filter keys with their values.
    */
-  function getFiltersFromSearchForm() {
-    var filters = $('.search__filter');
+  ProboSearch.prototype.getFiltersFromSearchForm = function () {
+    var filters = this.searchFilter;
     var filtersObj = {};
     filters.each(function (e) {
       var $categoryId = jQuery('select', this).attr('id');
@@ -190,7 +180,7 @@
    * @return {Array} An array of strings, formatted as 'key:value', where the key
    * is the filter ID and the value is the filter value, e.g. 'category:recipe'.
    */
-  function filtersToArray(filters) {
+  ProboSearch.prototype.filtersToArray = function (filters) {
     var filterArray = [];
     for (var key in filters) {
       var value = filters[key];
@@ -203,7 +193,7 @@
    * Replaces the page title with new text.
    * @param {String} title - The new title text.
    */
-  function setTitle(title) {
+  ProboSearch.prototype.setTitle = function (title) {
     $('.page-title').replaceWith('<h1 class="page-title">' + title + '</h1>');
   }
 
@@ -211,15 +201,16 @@
    * Gets search results from the index and prints them to the results area.
    * @param {Object} urlParams - A URLSearchParams object.
    */
-  function getSearchResults(urlParams) {
-    var query = getQueryFromSearchForm(urlParams);
-    var filters = filtersToArray(getFiltersFromSearchForm(urlParams));
+  ProboSearch.prototype.getSearchResults = function (urlParams) {
+    var proboSearch = this;
+    var query = this.getQueryFromSearchForm(urlParams);
+    var filters = this.filtersToArray(this.getFiltersFromSearchForm(urlParams));
     var searchObj = {
       query: query,
       facetFilters: filters
     };
     if (query != '') {
-      index.search(searchObj,
+      this.index.search(searchObj,
       function searchDone(err, content) {
         if (err) {
           console.error(err);
@@ -227,7 +218,7 @@
         }
         var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
         var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
-        setTitle(resultsMessage);
+        proboSearch.setTitle(resultsMessage);
 
         var results = [];
         for (var h in content.hits) {
@@ -239,13 +230,15 @@
             '</div>';
           results.push(searchResult);
         }
-        $resultsArea.append(results.join(''));
+        proboSearch.resultsArea.append(results.join(''));
       });
     }
     else {
-      setTitle('Search');
-      setResultsMessage('You haven\'t searched for anything yet.');
+      this.setTitle('Search');
+      this.setResultsMessage('You haven\'t searched for anything yet.');
     }
   };
 
-})(jQuery);
+  return PROBO.ProboSearch = ProboSearch;
+
+})(jQuery, PROBO);

@@ -9,6 +9,7 @@
   }
 
   $(document).ready(function(e) {
+    // Mobile menu
     var $menuContainer = $('#mainMenuContainer');
     var $menuToggle = $('#mobileMenuToggle', $menuContainer);
     var $menu = $('#mainMenu', $menuContainer);
@@ -27,6 +28,37 @@
       mobileMenu.toggleMenu();
     });
 
+    // Algolia search
+    var appId = 'SVDV4TVTRX',
+        searchKey = '9dff47d4e1874ea1dd1bbb323220ec88',
+        indexName = 'probo-docs',
+        client = algoliasearch(appId, searchKey),
+        index = client.initIndex(indexName),
+        $inputField = $('.search__input'),
+        $submitButton = $('.search__submit'),
+        $resetButton = $('.search__reset'),
+        $resultsArea = $('.search__results'),
+        $result = $('.search__result'),
+        $resultCount = $('.search__results-count'),
+        $searchFilter = $('.search__filter');
+
+    var proboSearch = new PROBO.ProboSearch(appId, searchKey, indexName, client, index, $inputField, $submitButton, $resetButton, $resultsArea, $result, $resultCount, $searchFilter);
+
+    proboSearch.initialize();
+
+    $submitButton.on('click', function(e) {
+      e.preventDefault();
+      proboSearch.updateQuery();
+    });
+
+    $inputField.on('blur', function (e) {
+      proboSearch.updateQuery();
+    });
+
+    $resetButton.on('click', function (e) {
+      e.preventDefault();
+      proboSearch.resetSearch();
+    });
   });
 
 })(window || {}, jQuery, PROBO);
