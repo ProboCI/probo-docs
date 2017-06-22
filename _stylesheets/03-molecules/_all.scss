@@ -4,58 +4,73 @@
   &__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: baseline;
+    align-items: center;
     font-family: $sans-serif;
 
     @include breakpoint($bp-small-landscape) {
-      justify-content: space-between;
       flex-wrap: nowrap;
     }
 
     label {
       @include visuallyhidden;
     }
-
-    // label[for='category'] {
-    //   @include visuallyhidden-off;
-    //
-    //   font-family: $sans-serif;
-    // }
   }
 
-  &__submit,
-  &__reset {
-    margin-top: $base-margin;
-
-    @include breakpoint($bp-small-landscape) {
-      margin-top: 0;
-      margin-left: $base-margin;
-    }
-  }
-
-  &__input-form {
-    flex-basis: 75%;
+  &__input-container {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-basis: 100%;
   }
 
   &__input {
     flex-basis: 100%;
+    padding-right: 8rem !important;
+  }
+
+  &__icons {
+    display: flex;
+    position: relative;
+    right: 8rem;
+  }
+
+  &__icon-wrapper {
+    background: none;
+    border: none;
+    padding: 0;
+    color: $probo-gray;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+      outline: none;
+      color: $probo-gray-dark;
+    }
+  }
+
+  &__submit,
+  &__reset {
+    cursor: pointer;
+    margin-left: $base-margin;
   }
 
   &__filters {
     display: flex;
-    flex-direction: column;
     margin-top: $base-margin;
+
+    @include breakpoint($bp-small-landscape) {
+      margin-top: 0;
+    }
   }
 
   &__filter {
-    flex-basis: 25%;
+    @include breakpoint($bp-small-landscape) {
+      margin-left: $base-margin;
+    }
   }
 
   &__select {
-    margin-top: $base-margin;
+    // margin-top: $base-margin;
   }
 
   &__results {

@@ -1,20 +1,23 @@
 <form class="search__container">
-  <div class="search__input-form">
+  <div class="search__input-container">
     <label for="searchInput">search for text</label>
     <input type="text" name="query" placeholder="Search the docs" class="search__input" id="searchInput">
-    <div class="search__filters">
-      <div class="search__filter">
-        <label for="category">Category</label>
-        <select name="category" class="search__select chosen-select-deselect" tabindex="-1" id="category" data-placeholder="Category">
-          <option value=""></option>
-          <option value="recipe">Recipe</option>
-        </select>
-      </div>
+    <div class="search__icons">
+      <button type="submit" value="Search" class="search__icon-wrapper">
+        <i class="search__submit fa fa-search" id="searchSubmit"></i>
+      </button>
+      <button class="search__icon-wrapper">
+        <i class="search__reset fa fa-refresh" id="searchReset"></i>
+      </button>
     </div>
   </div>
-
-  <label for="searchSubmit">search</label>
-  <input type="submit" value="Search" class="button button--blue search__submit" id="searchSubmit">
-  <label for="searchReset">reset</label>
-  <button class="button button--blue--inverse search__reset" id="searchReset">Reset</button>
+  <div class="search__filters">
+    <div class="search__filter">
+      <label for="category">Category</label>
+      <select name="category" class="search__select chosen-select-deselect" tabindex="-1" id="category" data-placeholder="Category">
+        <option value=""></option>
+        <option>Recipe</option>
+      </select>
+    </div>
+  </div>
 </form>
