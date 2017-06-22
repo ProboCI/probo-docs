@@ -98,7 +98,7 @@
   &__algolia {
     @include rem(font-size, 14px);
     a {
-      display: block;
+      display: inline-block;
     }
 
     svg {
