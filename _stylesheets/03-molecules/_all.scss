@@ -69,21 +69,12 @@
     }
   }
 
-  &__select {
-    // margin-top: $base-margin;
-  }
-
-  &__results {
-    margin: $base-margin * 2 0;
-  }
-
   &__results-count {
     padding: $base-margin;
   }
 
   &__result {
     padding: $base-margin * 2 0;
-    margin: 0 $base-margin;
     border-bottom: 1px solid $probo-gray-light;
     word-wrap: break-word;
 
