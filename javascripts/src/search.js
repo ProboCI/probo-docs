@@ -29,13 +29,8 @@
   $('.accordion-nav__item.search').remove();
 
   // Initialize search state from URL params.
-  if (getQueryFromUrl(urlParams) != false) {
-    applyUrlValues(urlParams)
-    getSearchResults(urlParams);
-  }
-  else {
-    setResultsMessage('You haven\'t searched for anything yet.')
-  };
+  applyUrlValues(urlParams)
+  getSearchResults(urlParams);
 
   // User interactions
   $submitButton.on('click', function(e) {
@@ -52,9 +47,16 @@
     resetSearch();
   });
 
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      updateQuery();
+    }
+  });
+
   /**
-   * Compares search params in URL with search form values and runs a new
-   * search if any form value has changed.
+   * Compares search form values with search params in URL and updates the URL
+   * params and runs a new search if any form value has changed.
    */
   function updateQuery() {
     // Structure filters as a string to append to new URL.
@@ -107,8 +109,8 @@
    */
   function resetSearch() {
     $inputField.val('');
-    $('.search__list').val('').trigger('chosen:updated');
-    window.history.pushState({}, '', '');
+    $('select').val('').trigger('chosen:updated');
+    updateQuery();
   }
 
   /**
@@ -198,6 +200,14 @@
   }
 
   /**
+   * Replaces the page title with new text.
+   * @param {String} title - The new title text.
+   */
+  function setTitle(title) {
+    $('.page-title').replaceWith('<h1 class="page-title">' + title + '</h1>');
+  }
+
+  /**
    * Gets search results from the index and prints them to the results area.
    * @param {Object} urlParams - A URLSearchParams object.
    */
@@ -217,7 +227,8 @@
         }
         var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
         var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
-        $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
+        setTitle(resultsMessage);
+
         var results = [];
         for (var h in content.hits) {
           var hit = content.hits[h];
@@ -230,6 +241,10 @@
         }
         $resultsArea.append(results.join(''));
       });
+    }
+    else {
+      setTitle('Search');
+      setResultsMessage('You haven\'t searched for anything yet.');
     }
   };
 
