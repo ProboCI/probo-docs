@@ -3,9 +3,9 @@
 
   PROBO = PROBO || {};
 
-  function ProboSearch(appId, searchKey, indexName, client, index, inputField, submitButton, resetButton, resultsArea, result, resultCount, searchFilter) {
-    this.client = algoliasearch(appId, searchKey);
-    this.index = client.initIndex(indexName);
+  function ProboSearch(appId, searchKey, indexName, client, index, inputField, submitButton, resetButton, resultsArea, result, searchFilter) {
+    this.client = client;
+    this.index = index;
     this.urlParams = new URLSearchParams(window.location.search);
 
     this.inputField = inputField;
@@ -13,35 +13,32 @@
     this.resetButton = resetButton;
     this.resultsArea = resultsArea;
     this.result = result;
-    this.resultCount = resultCount;
     this.searchFilter = searchFilter;
+    this.searchCacheTimeout = 5;
   }
 
   ProboSearch.prototype.initialize = function () {
     var proboSearch = this;
-    // Chosen settings
-    $('.search__select').chosen({
-      allow_single_deselect: true,
-      disable_search_threshold: 10,
-      inherit_select_classes: true,
-      width: '100%'
-    }).change(function (e) {
-      proboSearch.updateQuery();
-    });
-
-    // Remove sidebar nav mini search form.
-    $('.accordion-nav__item.search').remove();
 
     // Initialize search state from URL params.
     this.applyUrlValues(this.urlParams)
-    this.getSearchResults(this.urlParams);
+    this.updateQuery();
 
+    // Force return key to update search without page reload.
     $(window).keydown(function(event){
       if(event.keyCode == 13) {
         event.preventDefault();
         proboSearch.updateQuery();
       }
     });
+  };
+
+  /**
+   *
+   */
+  ProboSearch.prototype.setDefaultMessage = function() {
+    this.setTitle('Search');
+    this.setResultsMessage('You haven\'t searched for anything yet.');
   };
 
   /**
@@ -57,12 +54,11 @@
       filterString += key + '=' + value + '&';
     }
 
-    var oldUrl = window.location.pathname + window.location.search;
     var newUrl = '/search/?query=' + this.getQueryFromSearchForm() + filterString;
-    if (newUrl != oldUrl) {
+    if (newUrl) {
       this.clearSearchResults();
       window.history.pushState({}, '', newUrl);
-      this.getSearchResults(this.urlParams);
+      this.getSearchResults(this.urlParams, newUrl);
     }
   };
 
@@ -107,8 +103,7 @@
    * Clears the search results area.
    */
   ProboSearch.prototype.clearSearchResults = function () {
-    this.result.remove();
-    this.resultCount.remove();
+    this.resultsArea.empty();
   };
 
   /**
@@ -167,8 +162,8 @@
     var filters = this.searchFilter;
     var filtersObj = {};
     filters.each(function (e) {
-      var $categoryId = jQuery('select', this).attr('id');
-      var $filterVal = jQuery('.chosen-container > a:not(.chosen-default) > span', this).text();
+      var $categoryId = $('select', this).attr('id');
+      var $filterVal = $('.chosen-container > a:not(.chosen-default) > span', this).text();
       filtersObj[$categoryId] = $filterVal;
     });
     return filtersObj;
@@ -201,44 +196,73 @@
    * Gets search results from the index and prints them to the results area.
    * @param {Object} urlParams - A URLSearchParams object.
    */
-  ProboSearch.prototype.getSearchResults = function (urlParams) {
+  ProboSearch.prototype.getSearchResults = function (urlParams, newUrl) {
     var proboSearch = this;
-    var query = this.getQueryFromSearchForm(urlParams);
-    var filters = this.filtersToArray(this.getFiltersFromSearchForm(urlParams));
-    var searchObj = {
-      query: query,
-      facetFilters: filters
-    };
-    if (query != '') {
-      this.index.search(searchObj,
-      function searchDone(err, content) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
-        var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + query + '"';
-        proboSearch.setTitle(resultsMessage);
+    var cache = PROBO.storage.load(newUrl)
 
-        var results = [];
-        for (var h in content.hits) {
-          var hit = content.hits[h];
-          var searchResult = '<div class="search__result">' +
-            '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
-            '<div class="search__result-link">'+ document.location.origin + hit.url + '</div>' +
-            '<div class="search__result-text">' + hit.text + '</div>' +
-            '</div>';
-          results.push(searchResult);
-        }
-        proboSearch.resultsArea.append(results.join(''));
+    if (!cache) {
+      var query = this.getQueryFromSearchForm(urlParams);
+      var filters = this.filtersToArray(this.getFiltersFromSearchForm(urlParams));
+      var searchObj = {
+        query: query,
+        facetFilters: filters
+      };
+
+      if (query === '') {
+        return this.setDefaultMessage();
+      }
+
+      this.index.search(searchObj, function searchDone(err, content) {
+        if (err) return;
+        PROBO.storage.save(newUrl, content, proboSearch.searchCacheTimeout);
+        return proboSearch.parseSearchResults(content);
       });
     }
     else {
-      this.setTitle('Search');
-      this.setResultsMessage('You haven\'t searched for anything yet.');
+      return proboSearch.parseSearchResults(cache);
     }
   };
+
+  ProboSearch.prototype.parseSearchResults = function(content) {
+    if (!content) {
+      return this.setDefaultMessage();
+    }
+
+    var resultsLabel = content.hits.length == 1 ? ' result' : ' results';
+    var resultsMessage = 'Showing ' + content.hits.length + resultsLabel + ' for "' + content.query + '"';
+    this.setTitle(resultsMessage);
+
+    var results = [];
+    for (var h in content.hits) {
+      var hit = content.hits[h];
+      var searchResult = '<div class="search__result">' +
+        '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
+        '<div class="search__result-link">'+ document.location.origin + hit.url + '</div>' +
+        '<div class="search__result-text">' + hit.text + '</div>' +
+        '</div>';
+      results.push(searchResult);
+    }
+
+    this.resultsArea.append(results.join(''));
+  }
 
   return PROBO.ProboSearch = ProboSearch;
 
 })(jQuery, PROBO);
+
+PROBO.storage = {
+	save: function(key, jsonData, expirationMin) {
+		var expirationMS = expirationMin * 60 * 1000;
+		var record = {
+      value: JSON.stringify(jsonData),
+      timestamp: new Date().getTime() + expirationMS
+    };
+		localStorage.setItem(key, JSON.stringify(record));
+		return jsonData;
+	},
+	load: function(key) {
+		var record = JSON.parse(localStorage.getItem(key));
+		if (!record){return false;}
+		return (new Date().getTime() < record.timestamp && JSON.parse(record.value));
+	}
+};

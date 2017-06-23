@@ -39,10 +39,24 @@
         $resetButton = $('.search__reset'),
         $resultsArea = $('.search__results'),
         $result = $('.search__result'),
-        $resultCount = $('.search__results-count'),
         $searchFilter = $('.search__filter');
 
-    var proboSearch = new PROBO.ProboSearch(appId, searchKey, indexName, client, index, $inputField, $submitButton, $resetButton, $resultsArea, $result, $resultCount, $searchFilter);
+    var proboSearch = new PROBO.ProboSearch(appId, searchKey, indexName, client, index, $inputField, $submitButton, $resetButton, $resultsArea, $result, $searchFilter);
+
+    // Chosen settings
+    $('select.search__select')
+      .chosen({
+        allow_single_deselect: true,
+        disable_search_threshold: 10,
+        inherit_select_classes: true,
+        width: '100%'
+      })
+      .change(function (e) {
+        proboSearch.updateQuery();
+      });
+
+    // Remove sidebar nav mini search form.
+    $('.accordion-nav__item.search').remove();
 
     proboSearch.initialize();
 
@@ -51,12 +65,9 @@
       proboSearch.updateQuery();
     });
 
-    $inputField.on('blur', function (e) {
-      proboSearch.updateQuery();
-    });
-
     $resetButton.on('click', function (e) {
       e.preventDefault();
+      e.stopPropagation();
       proboSearch.resetSearch();
     });
   });
