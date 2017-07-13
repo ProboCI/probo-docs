@@ -6,7 +6,7 @@ permalink: /tutorials/acquia-blt/
 published: true
 ---
 
-Probo can make your life easier if you're developing your site using Acquia BLT (short for Buid and Launch Tools). There are two steps to follow to configure Probo properly to utilize .
+Probo can make your life easier if you're developing your site using Acquia BLT (short for Buid and Launch Tools). There are XXXXX steps to follow to configure Probo properly to utilize .
 
 **Note: You must still have your code in a repository on either GitHub or Bitbucket. Probo will not download the code directly from Acquia.**
 
@@ -30,6 +30,6 @@ steps:
 
 **Note: You must download your database to a gzipped file!**
 
-Now that Probo has downloaded your site's database from Pantheon it can continue with other necessary steps to build your site. The Terminus steps also cooperate with Probo's Drupal plugin. Here's an example of what that looks like:
+Here's a recipe to use Acquia BLT with:
 
 {{ site.recipes | where: 'uid', 'acquia_blt_example' }}
