@@ -1,0 +1,108 @@
+@import 'chosen';
+
+.search {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: $sans-serif;
+
+    @include breakpoint($bp-small-landscape) {
+      flex-wrap: nowrap;
+    }
+
+    label {
+      @include visuallyhidden;
+    }
+  }
+
+  &__input-container {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+  }
+
+  &__input {
+    flex-basis: 100%;
+    padding-right: 8rem !important;
+  }
+
+  &__icons {
+    display: flex;
+    position: relative;
+    right: 8rem;
+  }
+
+  &__icon-wrapper {
+    background: none;
+    border: none;
+    padding: 0;
+    color: $probo-gray;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+      outline: none;
+      color: $probo-gray-dark;
+    }
+  }
+
+  &__submit,
+  &__reset {
+    cursor: pointer;
+    margin-left: $base-margin;
+  }
+
+  &__filters {
+    display: flex;
+    margin-top: $base-margin;
+
+    @include breakpoint($bp-small-landscape) {
+      margin-top: 0;
+    }
+  }
+
+  &__filter {
+    @include breakpoint($bp-small-landscape) {
+      margin-left: $base-margin;
+    }
+  }
+
+  &__results-count {
+    padding: $base-margin;
+  }
+
+  &__result {
+    padding: $base-margin * 2 0;
+    border-bottom: 1px solid $probo-gray-light;
+    word-wrap: break-word;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  &__result-title {
+    margin: 0;
+  }
+
+  &__result-link {
+    @include rem(font-size, 14px);
+
+    font-family: sans-serif;
+    color: $probo-purple-dark;
+    padding: 2px 0;
+  }
+
+  &__algolia {
+    @include rem(font-size, 14px);
+    a {
+      display: inline-block;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}

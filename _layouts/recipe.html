@@ -1,0 +1,18 @@
+---
+layout: docs
+---
+
+{% if page.author %}
+<p>
+  <em>
+    This recipe was generously contributed by
+    {% if page.github %}
+    <a href="https://github.com/{{github}}">{{ page.author }}.</a>
+    {% else %}
+    {{ page.author }}.
+    {% endif %}
+  </em>
+</p>
+{% endif %}
+
+{{ content }}

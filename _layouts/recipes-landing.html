@@ -1,0 +1,17 @@
+---
+layout: docs
+---
+
+{{ content }}
+
+{% assign recipes = site.recipes | sort: "name" %}
+
+<div id="recipes" class="recipes f-sans-serif">
+  <ul class="list recipes__list">
+    {% for recipe in site.recipes %}
+    <li>
+      <a href="{{ recipe.url }}">{{ recipe.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

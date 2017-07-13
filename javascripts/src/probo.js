@@ -9,6 +9,7 @@
   }
 
   $(document).ready(function(e) {
+    // Mobile menu
     var $menuContainer = $('#mainMenuContainer');
     var $menuToggle = $('#mobileMenuToggle', $menuContainer);
     var $menu = $('#mainMenu', $menuContainer);
@@ -27,69 +28,48 @@
       mobileMenu.toggleMenu();
     });
 
-    //****************//
-    // Algolia Search //
-    //****************//
+    // Algolia search
     var appId = 'SVDV4TVTRX',
         searchKey = '9dff47d4e1874ea1dd1bbb323220ec88',
-        indexName = 'probo-docs';
-
-    var client = algoliasearch(appId, searchKey),
-        index = client.initIndex(indexName);
-
-    var $inputField = $('.search__input'),
+        indexName = 'probo-docs',
+        client = algoliasearch(appId, searchKey),
+        index = client.initIndex(indexName),
+        $inputField = $('.search__input'),
         $submitButton = $('.search__submit'),
-        $resultsArea = $('.search__results');
+        $resetButton = $('.search__reset'),
+        $resultsArea = $('.search__results'),
+        $result = $('.search__result'),
+        $searchFilter = $('.search__filter');
 
-    var baseUrl = document.location.origin,
-        currentPage = document.location.pathname,
-        savedQuery = document.location.search.substring(7);
+    var proboSearch = new PROBO.ProboSearch(appId, searchKey, indexName, client, index, $inputField, $submitButton, $resetButton, $resultsArea, $result, $searchFilter);
 
-    if (currentPage.substring(0, 7) === '/search') {
-      $('.accordion-nav__item.search').remove();
-    };
+    // Chosen settings
+    $('select.search__select')
+      .chosen({
+        allow_single_deselect: true,
+        disable_search_threshold: 10,
+        inherit_select_classes: true,
+        width: '100%'
+      })
+      .change(function (e) {
+        proboSearch.updateQuery();
+      });
 
-    if (savedQuery != false) {
-      getSearchResults(savedQuery);
-    };
+    // Remove sidebar nav mini search form.
+    $('.accordion-nav__item.search').remove();
 
-    function clearSearchResults() {
-      $('.search__result').remove();
-      $('.search__results-count').remove();
-    };
+    proboSearch.initialize();
 
-    function getSearchResults(query) {
-      clearSearchResults();
-      // Ensure we have a real query since empty queries match all in the index
-      if (query != '') {
-        index.search(query, function searchDone(err, content) {
-          if (err) {
-            console.error(err);
-            return;
-          }
+    $submitButton.on('click', function(e) {
+      e.preventDefault();
+      proboSearch.updateQuery();
+    });
 
-          var results = content.hits.length > 1 ? ' results' : ' result';
-          var resultsMessage = 'Showing ' + content.hits.length + results + ' for "' + query + '"';
-          $('.page-title').replaceWith('<h1 class="page-title">' + resultsMessage + '</h1>');
-
-          var results = [];
-          for (var h in content.hits) {
-            var hit = content.hits[h];
-            var searchResult = '<div class="search__result">' +
-              '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
-              '<div class="search__result-link">'+ baseUrl + hit.url + '</div>' +
-              '<div class="search__result-text">' + hit.text + '</div>' +
-              '</div>';
-            results.push(searchResult);
-          }
-          $resultsArea.append(results.join(''));
-        });
-      }
-      else {
-        $resultsArea.append('<div class="search__results-count">' + resultsCount + '</div>');
-      }
-    };
-
+    $resetButton.on('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      proboSearch.resetSearch();
+    });
   });
 
 })(window || {}, jQuery, PROBO);

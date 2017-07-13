@@ -41,7 +41,19 @@ exclude:
 collections:
   recipes:
     output: true
+    permalink: /:collection/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe
+      category: recipe
 
 algolia:
   application_id: 'SVDV4TVTRX'
   index_name:     'probo-docs'
+  record_css_selector: 'p,code,table'
+  excluded_files:
+    - search/index.html

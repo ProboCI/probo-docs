@@ -1,6 +1,6 @@
 ---
 title: Posting Probo and Backtrac links to Jira
-uid: z_posting_tickets_to_jira
+uid: posting_info_to_jira
 ---
 This recipe assumes you're using Backtrack.io and GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).
 
