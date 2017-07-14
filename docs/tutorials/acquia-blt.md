@@ -11,10 +11,10 @@ Probo can make your life easier if you're developing your site using Acquia BLT 
 **Note: You must still have your code in a repository on either GitHub or Bitbucket. Probo will not download the code directly from Acquia.**
 
 ## Step 1: 
+Do stuff. 
 
-## Step 2: Update your .probo.yml file
-
-After you have uploaded your `terminus.sh` file containing your authentication info, you need to include it in your `.probo.yml` file's assets and add some steps to download your Pantheon site's database.
+## Step 2: 
+Do other stuff
 
 {% highlight yaml %}
 assets:
