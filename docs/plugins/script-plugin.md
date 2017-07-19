@@ -13,8 +13,17 @@ Instead of `command`, the Script plugin requires a parameter for `script`. This 
 
 ### Using the Script plugin
 
-{{ site.recipes | where: 'uid', 'script_using_plugin' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'script_using_plugin' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
+
 
 ### Developing on a site with a database:
 
-{{ site.recipes | where: 'uid', 'script_site_with_database' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'script_site_with_database' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}

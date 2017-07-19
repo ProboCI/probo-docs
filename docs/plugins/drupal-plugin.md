@@ -47,8 +47,16 @@ The Drupal plugin provides an easy way for you to configure your Drupal build an
 
 **Using the `Drupal` plugin**
 
-{{ site.recipes | where: 'uid', 'drupal_using_plugin' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'drupal_using_plugin' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
 
 **Using the Settings Options**
 
-{{ site.recipes | where: 'uid', 'drupal_settings_option' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'drupal_settings_option' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}

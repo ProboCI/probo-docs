@@ -48,8 +48,16 @@ The Probo [Drupal plugin](/plugins/drupal-plugin/), [WordPress plugin](/plugins/
 
 **Using the `LAMPApp` Plugin to Test a PHP/MySQL Based Application**
 
-{{ site.recipes | where: 'uid', 'lamp_test_phpmysql_app' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_test_phpmysql_app' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
 
 **Setting `LAMPApp` PHP Configuration Options on a Drupal Installation**
 
-{{ site.recipes | where: 'uid', 'lamp_set_php_config_on_drupal' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_set_php_config_on_drupal' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}

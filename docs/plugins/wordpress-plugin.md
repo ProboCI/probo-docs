@@ -38,4 +38,8 @@ WordPress core and plugins generally prefer absolute URLs for links and images i
 
 **Using the Wordpress plugin**
 
-{{ site.recipes | where: 'uid', 'wordpress_using_plugin' }}
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'wordpress_using_plugin' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
