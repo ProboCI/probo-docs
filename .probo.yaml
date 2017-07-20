@@ -26,3 +26,5 @@ steps:
     script:
       - locale-gen en_US.UTF-8
       - LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 bundle exec jekyll build --destination=/var/www/html
+notification:
+  webhook: https://requestb.in/yfefp1yf
