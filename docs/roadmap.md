@@ -12,7 +12,7 @@ Below are items that the Probo CI team has identified as items we're committed t
 
 ## Branch Builds and Status Badges
 **Github Issue:** https://github.com/ProboCI/probo/issues/44   
-**Status:** In Progress  
+**Status:** In progress  
 
 Currently, probo creates a build for every pull request you open and for every new push you make to an existing pull request. Many of our users have said that there are other non-pull request branches that they always want to have a probo environment for. That they would like to verify that a fresh probo build will always work for `master` or for `develop`. We plan to allow you to specify a list of branches that we should always build for every push with or without a pull request. Once we have this we can also provide build badges that you can use in your project README so that everyone can always the status of that branch.
 
@@ -20,21 +20,23 @@ We also plan to provide consistent links to the most recent build for a given br
 
 ## Live web updates via WebSockets
 **Github Issue:**  
-**Status:** In Progress  
+**Status:** In progress  
 
 When you have a build running you don't want to pound the refresh button and with many CI services you don't have to. We built our infrastructure to support this feature but it has perpetually slipped into "sprint next". This feature is nearing the top of our priority list and we have started to create our WebSocket implementation in a way that will allow us to open source it and also provide this as a part of the forthcoming public API (more on that below). Our WebSocket feature aims to update build statuses, update step statuses, and stream log messages for builds in progress to the browser in realtime.
 
-## Multiple Containers Per-Project
-**Github Issue:**  
-**Status:** Not started
-
-Currently Probo runs each environment in a "fat container". What does that mean? It means we have a [docker base image](https://hub.docker.com/r/proboci/ubuntu-14.04-lamp/) that contains all of our services and our [simple process manager ](https://github.com/proboci/proboscis) starts the LAMP stack and multiplexes the stdout and stderr output so that all are available outside of docker. This approach has had a number of benefits for us in that we can very easily encapsulate control, and monitor an entire build's environment with the fewest moving parts as possible. It also means, though, that it's harder for us to provide a mix-and-match set of services that you can opt in and out of. We plan to support sets of containers in addition to the single monolith as an upcoming feature to enable an easier mix-and-match of services at different versions. This could also play a part in our matrix build feature further described below.
-
 ## First class support for non-LAMP Stacks
 **Github Issue:**  
-**Status:** Not Started  
+**Status:** In progress  
 
 Currently Probo provides a LAMP environment as the basis for every build. Some industrious users have coerced Probo into supporting other stacks through means that are not for the faint of heart. It has always been our intention to support other languages and we abhor hacks and have always intended to provide both alternative language images that ship with other languages pre-installed (you can always install them yourself) and to make the services that we start on boot completely configurable.
+
+Now that [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), this should be relatively straight forward.
+
+## Multiple Containers Per-Project
+**Github Issue:**  
+**Status:** In progress
+
+Currently Probo runs each environment in a "fat container". What does that mean? It means we have a [docker base image](https://hub.docker.com/r/proboci/ubuntu-14.04-lamp/) that contains all of our services and our [simple process manager ](https://github.com/proboci/proboscis) starts the LAMP stack and multiplexes the stdout and stderr output so that all are available outside of docker. This approach has had a number of benefits for us in that we can very easily encapsulate control, and monitor an entire build's environment with the fewest moving parts as possible. It also means, though, that it's harder for us to provide a mix-and-match set of services that you can opt in and out of. We plan to support sets of containers in addition to the single monolith as an upcoming feature to enable an easier mix-and-match of services at different versions. This could also play a part in our matrix build feature further described below.
 
 ## Matrix builds
 **Github Issue:**  
@@ -50,12 +52,12 @@ Some of projects have time consuming and computationally expensive steps necessa
 
 ## SSH Access to Your Build Environments
 **Github Issue:**  
-**Status:**  In Progress
+**Status:**  In progress
 
 Nothing is more frustrating than when a CI build on some remote service has failed without any helpful message in the logs and without any way to go and figure out what went wrong. Probo already has a leg up on many services because you can click around your website to see what caused the failed test, but that only works if your build was able to bootstrap the project. If you have a complex build setup getting your initial successful build run can sometimes be a little tricky. Currently we have a probo employee look at your build and answer your questions but we want to empower you so we have always planned to give you SSH access to your build environments. We have even written a simple proof of concept implementation that terminates your SSH connection, fires up your container, and pipes your SSH terminal session into a bash process inside the container. We plan to turn this into a fully supported and open sourced component that will allow you to SSH into any container to do some live exploration and debugging. This will support your proper OpenSSH client and we hope to follow on with a web console as well. It is worth noting that an alternative implementation is already available to enterprise customers.
 
 ## Gitlab support
-**Github Issue:** https://github.com/ProboCI/probo-gitlab  
+**Github Link:** https://github.com/ProboCI/probo-gitlab  
 **Status:** In progress on the Probo Gitlab Handler repository  
 
 We plan to provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This will be an open source component just like our other handlers.
@@ -68,25 +70,45 @@ One of the features that differentiates Probo from many other CI tools is our As
 
 ## Automatic Synchronization with Acquia and Pantheon
 **Github Issue:**  
-**Status:**
+**Status:**  Not started
 
 Currently if you want to use a sanitized database from a Drupal site hosted on Aqcuia or Pantheon you either need to download it from the respective dashboard and upload it to Probo manually, create a cron job to do it, or import the database in each build ([as documented](http://probo.ci/docs/tutorials/pantheon/)) which slows down your build. Many of our users are hosting with Acquia and Pantheon and so we plan to roll out first-class integrations as and addition to our [Drupal plugin](http://probo.ci/docs/plugins/drupal-plugin/) to simplify this process.
 
 ## Public API
 **Github Issue:**  
-**Status:** 
+**Status:** In progress
 
 We built Probo API first but as developers we know that an API is a contract with your most invested users. We want to expose and document a REST and WebSocket API that will allow you to fetch information about your organizations, projects, and builds. We plan to allow you to subscribe to changes via our WebSocket API and to allow you to trigger builds over the API. This last point is useful if something has changed external to your code like an updated dependency or new version of a build asset.
+
+## Improvements to the Bitbucket Server / Stash integration
+**Github Issue:**  
+**Status:** Not started  
+
+In order to better integrate with Bitbucket Server (fka Stash) we really need to build a plugin that works from within Bitbucket and which will ensure that upgrading the version of Bitbucket Server doesn't affect the Probo integration.
 
 ## Drupal Multisite Support
 **Github Issue:** https://github.com/ProboCI/probo/issues/72  
 **Status:** In progress 
 
-
 ## Replace RethinkDB with pgSQL
-**Github Issue:**  
-**Status:**  
+**Github link:** https://github.com/ProboCI/probo-db  
+**Status:**  In progress  
+When we built Probo we decided to use RethinkDB to power most of our database needs, but over time we came to feel that rethink was not stable enough, and the company behind Rethink has since gone out of business. We have been removing Rethink piece by piece and will soon be totally onto the much more stable and highly adopted pgSQL. 
 
+## Slack & Hipchat integration
+**Github Issue:**  
+**Status:**  Not started
+
+## Jira integration
+**Github Issue:**  
+**Status:**  Not started
+
+Currently, if you want to integrate with Jira you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Jira integration directly through the Probo app interface. 
+
+## Displaying logs in the app.probo.ci interface
+**Github Issue:**  
+**Status:**  Not started
+There isn't currently a way to see the logs that get created during the build process, and if an error occurs that stops the build process without an obvious error there isn't a great way for users to troubleshoot what happened. While we intend to give SSH access to the containers, we also want to show any errors that occur during the build process, as well as other logs that might be helpful for our end users.
 
 # Recently Completed Roadmap Items
 
