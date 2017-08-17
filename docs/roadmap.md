@@ -11,15 +11,15 @@ Below are items that the Probo CI team has identified as items we're committed t
 # Currently Active Roadmap Items
 
 ## Branch Builds and Status Badges
-**Github Issue:** .
-**Status:** In Progress
+**Github Issue:**    
+**Status:** In Progress  
 
 Currently, probo creates a build for every pull request you open and for every new push you make to an existing pull request. Many of our users have said that there are other non-pull request branches that they always want to have a probo environment for. That they would like to verify that a fresh probo build will always work for `master` or for `develop`. We plan to allow you to specify a list of branches that we should always build for every push with or without a pull request. Once we have this we can also provide build badges that you can use in your project README so that everyone can always the status of that branch.
 
 We also plan to provide consistent links to the most recent build for a given branch. This will be especially helpful for building and testing micro-services as you will be able point one service at the most recent build on the appropriate branch of another service, always present and always up to date.
 
 ## Live web updates via WebSockets
-**Github Issue:** .
+**Github Issue:** 
 **Status:** In Progress
 
 When you have a build running you don't want to pound the refresh button and with many CI services you don't have to. We built our infrastructure to support this feature but it has perpetually slipped into "sprint next". This feature is nearing the top of our priority list and we have started to create our WebSocket implementation in a way that will allow us to open source it and also provide this as a part of the forthcoming public API (more on that below). Our WebSocket feature aims to update build statuses, update step statuses, and stream log messages for builds in progress to the browser in realtime.
@@ -55,8 +55,8 @@ Some of projects have time consuming and computationally expensive steps necessa
 Nothing is more frustrating than when a CI build on some remote service has failed without any helpful message in the logs and without any way to go and figure out what went wrong. Probo already has a leg up on many services because you can click around your website to see what caused the failed test, but that only works if your build was able to bootstrap the project. If you have a complex build setup getting your initial successful build run can sometimes be a little tricky. Currently we have a probo employee look at your build and answer your questions but we want to empower you so we have always planned to give you SSH access to your build environments. We have even written a simple proof of concept implementation that terminates your SSH connection, fires up your container, and pipes your SSH terminal session into a bash process inside the container. We plan to turn this into a fully supported and open sourced component that will allow you to SSH into any container to do some live exploration and debugging. This will support your proper OpenSSH client and we hope to follow on with a web console as well. It is worth noting that an alternative implementation is already available to enterprise customers.
 
 ## Gitlab support
-**Github Issue:** https://github.com/ProboCI/probo-gitlab 
-**Status:** In progress on the Probo Gitlab Handler repository
+**Github Issue:** https://github.com/ProboCI/probo-gitlab  
+**Status:** In progress on the Probo Gitlab Handler repository  
 
 We plan to provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This will be an open source component just like our other handlers.
 
