@@ -9,8 +9,8 @@ Here is an example using a multi-line YAML string.
 assets:
   - dev.sql.gz
 steps:
-  - plugin: Script
-    name: List Pull Request files
+  - name: List Pull Request files
+    plugin: Script
     script: |
       gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo`
       rm $ASSET_DIR/dev.sql.gz
@@ -26,8 +26,8 @@ Here is an example using traditional YAML syntax.
 assets:
   - dev.sql.gz
 steps:
-  - plugin: Script
-    name: List Pull Request files
+  - name: List Pull Request files
+    plugin: Script
     script:
       - gunzip -c $ASSET_DIR/dev.sql.gz | `mysql foo`
       - rm $ASSET_DIR/dev.sql.gz

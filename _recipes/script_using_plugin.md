@@ -7,8 +7,8 @@ Add your script as a multi-line YAML string.
 
 {% highlight yaml%}
 steps:
-  - plugin: Script
-    name: List Pull Request files
+  - name: List Pull Request files
+    plugin: Script
     script: |
       cd $SRC_DIR
       files=$(ls)
@@ -20,8 +20,8 @@ You can also add your script in the traditional YAML syntax. Each new line in yo
 
 {% highlight yaml%}
 steps:
-  - plugin: Script
-    name: List Pull Request files
+  - name: List Pull Request files
+    plugin: Script
     script:
       - cd $SRC_DIR
       - files=$(ls)
