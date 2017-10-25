@@ -26,6 +26,18 @@ WordPress core and plugins generally prefer absolute URLs for links and images i
 | databaseName   | The name of the database. Accepts a **string** value. Defaults to `wordpress`. |
 | databaseGzipped| Whether the database was sent gzipped and whether it should therefore be gunzipped before importing. Accepts a **boolean** value. |
 
+### Known Issues
+
+Currenty in Wordpress 4.8.x the MySQL database collation can be in a COLLATION format, `utf8mb4_unicode_520_ci`, that is unsupported by our current docker images depending on your site's current MySQL Server version. If you exported your DB from MySQL 5.6 or higher you might receive the following error:
+
+    ERROR 1273 (HY000) at line 25: Unknown collation: 'utf8mb4_unicode_520_ci'
+    
+You will need to modify your exported `sitename.sql` file to allow your exported DB to import properly on Probo's current Docker images
+    
+#### Workaround:
+
+Find and replace `utf8mb4_unicode_520_ci` with `utf8mb4_unicode_ci` in your exported `sitename.sql` file. Then upload this modified file as a Probo Asset and set this DB as an asset in  your .probo.yaml file. Once we have newer docker images created that support the newer `utf8mb4_unicode_520_ci` format this will no longer be neccessary.
+
 ## Additional Options
 
 {: .table .table-striped .table-bordered}
