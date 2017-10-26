@@ -20,3 +20,31 @@ You can find this Probo.CI example repository [here](https://github.com/Probo-De
 
 ## Sign in and Sync up.
 {% include quickstart/github-sign-in.md %}
+
+## Prepare your Database.
+{% include quickstart/prepare-database-wordpress.md %}
+
+## Define your website configuration for Probo.
+{% include quickstart/website-configuration-wordpress.md %}
+
+## View your build.
+**Step 11: Go to your GitHub account. You will see your new branch inside your project.**
+[https://github.com/Probo-Demos/wordpress_github](https://github.com/Probo-Demos/wordpress_github){:target="\_blank"}
+
+**Step 12: Create a pull request.**
+
+Click 'New Pull Request'.
+
+**Step 13: Bask in the glory of Probo.CI.**
+
+In GitHub you will see the Probo.CI build steps. You can now click on any of the **details** links and it will direct you back to the Probo.CI dashboard.
+
+**Step 14: See your Probo.CI build.**
+
+In your Probo.CI dashboard, click on 'View build' and your site will open in a new tab. This Probo.build link uses the database defined in your `.probo.yaml` file and the code from your pull request.
+
+**Step 15: Share your Probo.build link with clients, managers, even your parents.**
+
+**Note:** It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.
+
+<img src="/images/probo-build.gif" alt="Probo.CI build Gif" class="docs-gif screenshot">
