@@ -19,6 +19,30 @@ assets:
     flushCaches: true
 {% endhighlight %}
 
+**Note:** The [wp-cli](http://wp-cli.org/) version we have currently on our docker images is old. Add a step before the Site setup step to update `wp-cli` if you receive the following error in your "Site setup" build step:
+
+    Fatal error: Call to undefined function apply_filters() in /src/wp-includes/load.php on line 316
+
+Update `wp-cli` in your `.probo.yaml` steps.
+
+    {% highlight yaml%}
+    assets:
+      - wordpress.sql.gz
+    steps:
+      - name: Update wp-cli.
+        plugin: Script
+        script:
+          - wp cli update --allow-root --yes
+      - name: Site setup
+        plugin: WordPressApp
+        database: 'wordpress.sql.gz'
+        databaseName: 'wordpress'
+        databaseGzipped: true
+        subDirectory: 'code'
+        devDomain: 'http://example.com'
+        devHome: 'http://example.com/'
+        flushCaches: true
+    {% endhighlight %}
 
 **Step 10: In your new branch probo-build, add and commit your files to your remote origin.**
 
