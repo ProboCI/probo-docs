@@ -137,6 +137,9 @@
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
+        - title: Wordpress GitHub QuickStart
+          url: /wordpress-github-quickstart
+          text: Wordpress GitHub QuickStart
 
 - title: Contact
   url: http://probo.ci/contact
