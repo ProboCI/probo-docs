@@ -17,11 +17,32 @@ We have pre-built several different flavors of Probo Docker images for you to ch
 
 **Please note:** Not all of the image tags on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in the Probo app.
 
-Please [let us know](https://probo.ci/contact/) if you are looking for software or tools that are missing from our current Probo Docker images!
-
 ### Available Images
 
 - `proboci/ubuntu-14.04-lamp` _(default)_ - Ubuntu 14.04.5 including LAMP with Apache 2.4.7, MySQL 5.5.47, and PHP 5.5.9.
 - `proboci/ubuntu-14.04-lamp:php-5.6` - Ubuntu 14.04.5 including LAMP with Apache 2.4.7, MySQL 5.5.54, and PHP 5.6.30.
 - `proboci/ubuntu-14.04-lamp:php-7.0` - Ubuntu 14.04.5 including LAMP with Apache 2.4.7, MySQL 5.5.54, and PHP 7.0.16.
 - `proboci/ubuntu-14.04-lamp:php-7.1` - Ubuntu 14.04.5 including LAMP with Apache 2.4.7, MySQL 5.5.54, and PHP 7.1.2.
+
+### Installed Software and Tools
+
+All Probo Docker Images have the following software packages and development tools installed.
+
+- bundler
+- compass
+- composer
+- curl
+- drupal console
+- drush
+- git
+- memcached
+- nodejs
+- ntp
+- openjdk-8-jre
+- redis-server
+- ruby
+- solr
+- wget
+- wp-cli
+
+Please [let us know](https://probo.ci/contact/) if you would like to see additional software packages or development tools that your team uses added to the Probo Docker images.
