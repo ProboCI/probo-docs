@@ -138,10 +138,13 @@
           url: /workflow
           text: Feature Branch Workflow
     
-    - title: Open Source Quickstart
-      text: Open Source Quickstart
+    - title: Open Source
+      text: Open Source
       url: /open-source
       children:
+        - title: Introduction
+          text: Introduction
+          url: /introduction
         - title: Getting Started
           text: Getting Started
           url: /getting-started
@@ -150,10 +153,13 @@
           url: /container-manager
         - title: GitHub Handler
           text: GitHub Handler
-          url: /github-handler
+          url: /github
+        - title: Bitbucket Handler
+          text: Bitbucket Handler
+          url: /bitbucket
         - title: Probo Proxy
           text: Probo Proxy
-          url: /probo-proxy
+          url: /proxy
         - title: Loom
           text: Loom
           url: /loom
@@ -162,13 +168,10 @@
           url: /asset-receiver
         - title: Probo Reaper
           text: Probo Reaper
-          url: /probo-reaper
-        - title: Probo Bitbucket Handler
-          text: Probo Bitbucket Handler
-          url: /probo-bitbucket
+          url: /reaper
         - title: Systemd Startup Scripts
           text: Systemd Startup Scripts
-          url: /systemd-startup-scripts
+          url: /systemd
 
 - title: Contact
   url: http://probo.ci/contact
