@@ -6,21 +6,7 @@ permalink: /build/environment-configuration/
 published: true
 ---
 
-You have access to certain environment options while configuring your Probo builds. These options are set as top level keys, on the same level as `assets` or `steps` in your `probo.yaml` file.
-
-## Image
-
-You can select which Docker image you want your environments to use.
-
-{% highlight yaml %}
-image: proboci/ubuntu-14.04-lamp:php-5.6
-{% endhighlight %}
-
-### Available Images
-
-* `proboci/ubuntu-14.04-lamp:php-5.6`
-* `proboci/ubuntu-14.04-lamp:php-7.0`
-* `proboci/ubuntu-14.04-lamp:php-7.1`
+You have access to certain environment options while configuring your Probo builds. These options are set as top level keys, on the same level as `image:`, `assets:`, or `steps:` in your `probo.yaml` file.
 
 
 ## Allow Environment Access While Building
