@@ -15,7 +15,7 @@ You can find this Probo.CI example repository [here](https://github.com/Probo-De
 
 **You will need:**
 
-1. A standard Wordpress site with a MySQL database. **Note:** Currently, databases must be collated.
+1. A standard Wordpress site with a MySQL database. **Note:** Currently, databases cannot be collated as `utf8mb4_unicode_520_ci`. See notes below in Prepare your Database.
 2. Your code stored in a repository on GitHub.
 
 ## Sign in and Sync up.
