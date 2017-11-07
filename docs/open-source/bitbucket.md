@@ -45,7 +45,7 @@ Under permissions, check the Read option in Pull Requests. This will automatical
 
 The next step is to go to the pbbcg webapp URL. It will ask you for the client key that you were just assigned by Bitbucket for the consumer you added. Enter this in the space provided and press the submit button. You will be asked to authorize your application to your Bitbucket account. Once authorized, you will be returned to the pbbcg webapp and be asked for your client key again along with the client secret. Don't worry, these are not stored anywhere be it in a cookie, session or file anywhere on the server. If you like, you can also install pbbcg on an SSL enabled server for additional security.
 
-Once you have provided the key and secret in their respective fields, click the submit button. If everything went well, you will be greeted with a success message and four lines of YAML that you copy and paste into Probo's Bitbucket handler configuration file. A sample of this file would look like something below. The four options (bbClientKey, bbClientSecret, bbAccessToken, bbRefreshToken) would all be copied and pasted from pbbcg.
+Once you have provided the key and secret in their respective fields, click the submit button. If everything went well, you will be greeted with a success message and four lines of YAML that you copy and paste into Probo's Bitbucket handler configuration file. A sample of this file would look like something below. The four options (`bbClientKey`, `bbClientSecret`, `bbAccessToken`, `bbRefreshToken`) would all be copied and pasted from pbbcg.
 
 **SECURITY TIP:** The access point on the handler is a public access point. To secure it, you can obfuscate it with a token or some other random string. You will need to just make sure this is included in the webhook you create on repositories you implement Probo.
 
@@ -69,7 +69,7 @@ api:
 You can then run the handler by executing the following bit of code from within the probo-bitbucket folder on your Probo server (replace your configuration file name in place of defaults.yaml if you have done so).
 
 ```bash
-node ./bin/probo-bitbucket-handler -c defaults.yaml > ../logs/bitbucket.log &
+node ./bin/probo-bitbucket-handler -c defaults.yaml > /dev/null &
 ```
 
 **Container Manager**  
@@ -78,7 +78,7 @@ The Container Manager (CM) manages Docker containers and kicks off builds. With 
 The Configuration Manager is implemented as a plugin of the probo repository.
 
 **Configure**  
-Create a file cm.yaml with the following contents:
+Create a file `cm.yaml` with the following contents:
 
 ```yaml
 hostname: localhost

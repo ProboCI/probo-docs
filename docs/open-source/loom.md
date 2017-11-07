@@ -17,7 +17,7 @@ npm install
 
 Before starting this process, keep in mind that you will need to start the RethinkDB daemon before starting loom. This is an important step not only for the installation of Probo, but also for subsequent restarts. 
 
-You will want to edit the defaults.yaml file to look as follows. Of particular note is to comment out the section on tokens. These are primarily for tailing streams which will be covered in the future.
+You will want to edit the `defaults.yaml` file to look as follows. Of particular note is to comment out the section on tokens. These are primarily for tailing streams which will be covered in the future.
 
 ```yaml
 # server host to listen on, defaults to localhost
@@ -56,7 +56,7 @@ storageDataDir: "/opt/probo/probo-loom/data"
 #  - tok
 ```
 
-Then you can start by using the following commands inside the probo-loom directory:
+Then you can start by using the following commands inside the `probo-loom` directory:
 
 ```bash
 rethinkdb --daemon

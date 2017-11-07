@@ -9,8 +9,7 @@ published: true
 ## Open Source Probo Container Manager
 The Container Manager (CM) manages Docker containers and kicks off builds. It is implemented as a plugin of the probo repository. This is the process that does the heavy lifting of the probo system and is the most important system. It can work with both the GitHub or Bitbucket handler although at this time there is no easy way to make it work with both handlers at the same time.
 
-**Installation**
-
+**Installation**  
 To install the dependent packages, change directory into the `probo` directory and run the following command:
 
 ```bash
@@ -19,8 +18,7 @@ npm install
 
 If you have installed all of your prerequisites correctly, you will get a successful build and can move on to the next step. If you have issues here, please revisit the step on installing [prerequisites](/open-source/getting-started) and make sure that everything is done correctly. If all else fails, please contact Probo support.
 
-**Configure**
-
+**Configure**  
 The next step is to create a configuration file create a container manager configuration yaml file called `cm.yaml` with the following contents:
 
 ```yaml
@@ -45,8 +43,7 @@ You will want to be sure to modify the instanceName as this is what is prefixed 
 
 You should replace {YOUR_DOMAIN} with your fully qualified domain name for your server that you will be using to serve probo sites. Note that this CANNOT be an IP address. It must be a domain name. The port number (3050 in this case) should match the port number in the proxy configuration mention later on in this tutorial).
 
-**Execution**
-
+**Execution**  
 ```bash
 node ./bin/probo container-manager -c cm.yaml > /dev/null &
 ```

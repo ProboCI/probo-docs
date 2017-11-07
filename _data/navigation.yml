@@ -175,9 +175,6 @@
         - title: Probo Reaper
           text: Probo Reaper
           url: /reaper
-        - title: Systemd Startup Scripts
-          text: Systemd Startup Scripts
-          url: /systemd
 
 - title: Contact
   url: http://probo.ci/contact

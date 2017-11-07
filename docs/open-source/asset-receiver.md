@@ -11,7 +11,7 @@ The Probo Asset Receiver is really an important piece for uploading items such a
 
 This example uses AmazonS3 to store files because it is quick, convenient, and I want to save my disc space for builds and not large database files. You can configure it to store files on the Probo Asset Receiver server file system if you wish.
 
-Configure your Probo Asset Receiver with a configuration file as follows modifying the defaults.config.yaml file in the git repository you downloaded with the values below:
+Configure your Probo Asset Receiver with a configuration file as follows modifying the `defaults.config.yaml` file in the git repository you downloaded with the values below:
 
 ```yaml
 # The host and port to listen on.
@@ -49,9 +49,31 @@ npm install
 node ./bin/probo-asset-receiver --c default.config.yaml > /dev/null &
 ```
 
-In the asset receiver, bucket names must be calculated in order to work with .probo.yaml files. The asset id must be the same as the asset file name. As such if your database file is database.sql.gz both the asset name and asset id specified in the upload string must be database.sql.gz
+For the asset receiver, you must create buckets and tokens for each bucket. Once you have done this you can upload files into your buckets for use by Probo. Each file uploaded through the asset receiver is encrypted, so there are no unencrypted files stored on your file servers or S3. Below are examples of curl commands you can use to create buckets and tokens as well as upload and download files from the asset receiver.
 
-The bucket name must be in the format of organization-repository_name. For example, if I was to use the cmp_build repository in my ElusiveMind organization, the bucket name must be: Elusivemind-cmp_build. We will provide code examples for all of this in a future blog post complete with example URL's and real-life scenario's and specific project .probo.yaml files that match.
+**Create A Bucket**  
+```bash
+curl -XPOST -H "Content-Type: application/json" -i -d '{"some":"metadata"}' http://{ASSET_RECEIVER_URL}:3070/buckets/{BUCKET_NAME}  
+```
 
+**Create A Bucket Token**  
+```bash
+curl -i -XPOST http://{ASSET_RECEIVER_URL}:3070/buckets/{BUCKET_NAME}/token/{TOKEN}  
+```
+
+**Upload A File With A Bucket Token**  
+```bash
+curl -i -XPOST --data-binary @{FILENAME} http://{ASSET_RECEIVER_URL}:3070/asset/{TOKEN}/{FILENAME}  
+```
+
+**Download A File With the Bucket Name**  
+```bash
+curl -O http://{ASSET_RECEIVER_URL}:3070/asset/{BUCKET_NAME}/{FILENAME} > {FILENAME}  
+```  
+  
+**Calculating Bucket Names and File Names For Use with .probo.yaml files**  
+In the asset receiver, bucket names must be calculated in order to work with your `.probo.yaml` file. The asset id must be the same as the asset file name. As such if your database file is `database.sql.gz` both the asset name and asset id specified in the upload string must be `database.sql.gz`
+
+The bucket name must be in the format of `organization-repository_name`. For example, if I was to use the `cmp_build` repository in my `ElusiveMind` organization, the bucket name must be: `Elusivemind-cmp_build`.
 
 ## Next Step: [Reaper >>](/open-source/reaper/)

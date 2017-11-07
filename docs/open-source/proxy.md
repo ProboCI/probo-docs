@@ -16,7 +16,7 @@ npm install
 ```
 
 **Configure**  
-Edit the file  defaults.yaml with the following contents:
+Edit the file `defaults.yaml` with the following contents:
 
 ```yaml
 # port that the proxy server is running on
@@ -42,9 +42,9 @@ redirectUrl: ''
 custom404Html: '<h1>404 - Build Not Found</h1><p>The build could not be found</p>'
 ```
 
-Be sure that containerLookupHost has the same port number as your container manager instance. As you can imagine - that's pretty important!
+Be sure that `containerLookupHost` has the same port number as your container manager instance.  
 
-Also if you are going to use port 80, you may need to run this process as the root user. Failing to do so could cause port-locking issues and CentOS may not allow you to do it. Keep this in mind when selecting a port.
+Also if you are going to use port 80, you may need to run this process as the root user. Failing to do so could cause port-locking issues and CentOS may not allow you to do it. Keep this in mind when selecting a port.  
 
 ```bash
 node ./index.js -c defaults.yaml > /dev/null &

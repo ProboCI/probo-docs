@@ -7,7 +7,7 @@ published: true
 ---
 
 ## GitHub Handler 
-The GitHub Handler (GHH) processes GitHub hook events each time a pull request is created or updated. It then triggers builds through the Container Manager. The GitHub Handler also sends commit status updates back to GitHub.
+The GitHub Handler processes GitHub hook events each time a pull request is created or updated. It then triggers builds through the Container Manager. The GitHub Handler also sends commit status updates back to GitHub.
 
 It is implemented as a plugin of the Probo repository. There is also a Bitbucket plugin that is in a separate repository and it's function and configuration is discussed in a different documentation entry as there are conditions and parameters outside the scope of this document which must be taken into consideration before you can successfully run Bitbucket.
 
@@ -16,7 +16,7 @@ cd probo
 npm install
 ```
 
-Create a file ggh.yaml with the following contents:
+Create a file `ggh.yaml` with the following contents:
 
 ```yaml
 # Port for the server to listen on
@@ -33,9 +33,9 @@ api:
   url: "http://localhost:3020"
 ```
 
-Of the defaults above, githubAPIToken must be set to your token. You can generate a personal token at [https://github.com/settings/tokens]. A token created from an OAuth flow will also work here. Probo requires the response.
+Of the defaults above, `githubAPIToken` must be set to your token. You can generate a personal token at [https://github.com/settings/tokens]. A token created from an OAuth flow will also work here. Probo requires the response.
 
-The githubWebhookSecret value should be modified to a secure string as well. This is a random token containing a string value that you select and will need to be used when you configure your webhook in GitHub.
+The `githubWebhookSecret` value should be modified to a secure string as well. This is a random token containing a string value that you select and will need to be used when you configure your webhook in GitHub.
 
 **Execution**
 
