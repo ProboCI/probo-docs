@@ -38,6 +38,9 @@
         - title: Configuration File
           url: /configuration
           text: Configuration File
+        - title: Docker Images
+          url: /images
+          text: Docker Images
         - title: Assets
           url: /assets
           text: Assets
@@ -137,6 +140,9 @@
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
+        - title: Wordpress GitHub QuickStart
+          url: /wordpress-github-quickstart
+          text: Wordpress GitHub QuickStart
     
     - title: Open Source
       text: Open Source

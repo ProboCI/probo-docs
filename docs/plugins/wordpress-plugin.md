@@ -26,6 +26,48 @@ WordPress core and plugins generally prefer absolute URLs for links and images i
 | databaseName   | The name of the database. Accepts a **string** value. Defaults to `wordpress`. |
 | databaseGzipped| Whether the database was sent gzipped and whether it should therefore be gunzipped before importing. Accepts a **boolean** value. |
 
+### Known Issues
+
+#### Database Collation Errors on Builds
+Currenty in Wordpress 4.8.x, the MySQL database collation can be in COLLATION format `utf8mb4_unicode_520_ci`. This format is unsupported by our current docker images depending on your site's MySQL Server version. If you exported your DB from MySQL 5.6 or higher, you might receive the following error:
+
+    ERROR 1273 (HY000) at line 25: Unknown collation: 'utf8mb4_unicode_520_ci'
+    
+You will need to modify your exported `sitename.sql` file to allow your exported DB to import properly on Probo's current Docker images.
+    
+##### Workaround:
+
+Find and replace `utf8mb4_unicode_520_ci` with `utf8mb4_unicode_ci` in your exported `sitename.sql` file. Then, upload this modified file as a Probo Asset, and set this DB as an asset in  your `.probo.yaml` file. This will no longer be neccessary once we create docker images that support the newer `utf8mb4_unicode_520_ci` format.
+
+#### WP-CLI Version Errors
+In some cases we have seen the [wp-cli](http://wp-cli.org/) tool error out during a build using the `utf8mb4_unicode_ci` DB collation. Updating the `wp-cli` tool in the `.probo.yaml` file resolves this issue. You will need to update your `wp-cli` version if you receive the following error in your Probo build logs for the "Site setup" step:
+
+    Fatal error: Call to undefined function apply_filters() in /src/wp-includes/load.php on line 316
+
+##### Workaround:
+
+Update `wp-cli` in your `.probo.yaml` steps.
+
+    {% highlight yaml%}
+    assets:
+      - wordpress.sql.gz
+    steps:
+      - name: Update wp-cli.
+        plugin: Script
+        script:
+          - wp cli update --allow-root --yes
+      - name: Site setup
+        plugin: WordPressApp
+        database: 'wordpress.sql.gz'
+        databaseName: 'wordpress'
+        databaseGzipped: true
+        subDirectory: 'code'
+        devDomain: 'http://example.com'
+        devHome: 'http://example.com/'
+        flushCaches: true
+    {% endhighlight %}
+
+
 ## Additional Options
 
 {: .table .table-striped .table-bordered}
