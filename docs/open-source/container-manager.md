@@ -36,12 +36,12 @@ loom:
 assets:
   url: "http://{YOUR_DOMAIN}:3070"
 
-buildUrl: "http://{{buildId}}.{YOUR_DOMAIN}:3050/"
+buildUrl: "http://{% raw %}{{buildId}}{% endraw %}.{YOUR_DOMAIN}:3050/"
 ```
 
-You will want to be sure to modify the instanceName as this is what is prefixed in your GitHub status updates as tests are conducted. This will differentiate those tests from those done by the ProboCI SASS service a little more clearly. Also be sure to provide your domain name in the proper space. Leave {{buildId}} as it is. That is an important token used by the container manager to build URL's to your containers. If you modify the port of your probo-proxy daemon (such as to port 80), you will need to change the port in the buildUrl (or remove it) manually as well.
+You will want to be sure to modify the `instanceName` as this is what is prefixed in your GitHub status updates as tests are conducted. This will differentiate those tests from those done by the ProboCI SASS service a little more clearly. Also be sure to provide your domain name in the proper space. Leave {&#123;buildId&#125;} as it is. That is an important token used by the container manager to build URL's to your containers. If you modify the port of your probo-proxy daemon (such as to port 80), you will need to change the port in the buildUrl (or remove it) manually as well.
 
-You should replace {YOUR_DOMAIN} with your fully qualified domain name for your server that you will be using to serve probo sites. Note that this CANNOT be an IP address. It must be a domain name. The port number (3050 in this case) should match the port number in the proxy configuration mention later on in this tutorial).
+You should replace {YOUR_DOMAIN} with your fully qualified domain name for your server that you will be using to serve probo sites. Note that this CANNOT be an IP address. It must be a domain name. The port number (3050 in this case) should match the port number in the proxy configuration mention later on in this tutorial.
 
 **Execution**  
 ```bash
