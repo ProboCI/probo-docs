@@ -21,10 +21,20 @@ allowAccessWhileBuilding: true
 
 ## Basic Environment Authentication
 
-You can set up basic authentication for your Probo environments with `basicAuth`. This will require users to enter the correct username and password to access the Probo site.
+You can set up Basic Authentication for your Probo builds with `basicAuth`. This will require users to enter the correct username and password to access the Probo build site.
 
 {% highlight yaml %}
 basicAuth:
   username: foo
   password: bar
+{% endhighlight %}
+
+## Modify PHP Environment Options in a Build
+Probo builds have their own isolated `php.ini` files. The isolated `php.ini` file can be modified to set specific PHP options for your build using the `phpIniOptions` option. Like other environment options available to any Probo builds, the `phpIniOptions` option can also be paired with [Probo Plugins](https://docs.probo.ci/plugins/) to set specific PHP settings within the plugin's steps.
+
+{% highlight yaml %}
+phpIniOptions:
+  upload_max_filesize: 25M
+  post_max_size: 25M
+  memory_limit: 256M
 {% endhighlight %}
