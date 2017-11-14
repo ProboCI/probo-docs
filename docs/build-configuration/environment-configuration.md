@@ -30,7 +30,7 @@ basicAuth:
 {% endhighlight %}
 
 ## Modify PHP Environment Options in a Build
-Probo builds have their own isolated `php.ini` files. These can be modified to set specific PHP options for your build using the `phpIniOptions` option. Like other environment options available to your Probo builds, the `phpIniOptions` option can be paired with the [Probo Drupal Plugin](/plugins/drupal-plugin/) or [Probo WordPress Plugin](/plugins/wordpress-plugin/) to set specific PHP settings for your Drupal or WordPress sites during the Probo build process.
+Probo builds have their own isolated `php.ini` files. The isolated `php.ini` file can be modified to set specific PHP options for your build using the `phpIniOptions` option. Like other environment options available to any Probo builds, the `phpIniOptions` option can also be paired with [Probo Plugins](https://docs.probo.ci/plugins/) to set specific PHP settings within the plugin's steps.
 
 {% highlight yaml %}
 phpIniOptions:
