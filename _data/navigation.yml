@@ -143,6 +143,38 @@
         - title: Wordpress GitHub QuickStart
           url: /wordpress-github-quickstart
           text: Wordpress GitHub QuickStart
+    
+    - title: Open Source
+      text: Open Source
+      url: /open-source
+      children:
+        - title: Introduction
+          text: Introduction
+          url: /introduction
+        - title: Getting Started
+          text: Getting Started
+          url: /getting-started
+        - title: Container Manager
+          text: Container Manager
+          url: /container-manager
+        - title: GitHub Handler
+          text: GitHub Handler
+          url: /github
+        - title: Bitbucket Handler
+          text: Bitbucket Handler
+          url: /bitbucket
+        - title: Probo Proxy
+          text: Probo Proxy
+          url: /proxy
+        - title: Loom
+          text: Loom
+          url: /loom
+        - title: Asset Receiver
+          text: Asset Receiver
+          url: /asset-receiver
+        - title: Probo Reaper
+          text: Probo Reaper
+          url: /reaper
 
 - title: Contact
   url: http://probo.ci/contact
