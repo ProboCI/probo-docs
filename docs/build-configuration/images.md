@@ -20,7 +20,9 @@ The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration
 
 **Please note:** Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo build.
 
-### Available Images
+### Stable Probo Images
+
+The Stable Probo Docker Images below have been built specifically for Probo Builds and are known good configurations that we do not change without advanced notice to ensure existing builds are not affected.
 
 - `proboci/ubuntu-14.04-lamp` _(default)_
   - Ubuntu 14.04.5
@@ -31,7 +33,7 @@ The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration
   - Ubuntu 14.04.5
   - Apache 2.4.7
   - MySQL 5.5.54
-  - PHP 5.6.30.
+  - PHP 5.6.30
 - `proboci/ubuntu-14.04-lamp:php-7.0`
   - Ubuntu 14.04.5
   - Apache 2.4.7
@@ -43,10 +45,31 @@ The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration
   - MySQL 5.5.54
   - PHP 7.1.2
 
+### Nightly Probo Images
+
+The Nightly Probo Docker Images below are updated with the latest versions of the Installed Software and Tools listed below this section when the images are rebuilt. We plan to have these updating on a true nightly schedule in the near future, but for now they are being built manually and tested before pushing up to the docker hub and pulling down to the Production Probo server.
+
+- `proboci/ubuntu-14.04-lamp:php-5.6-nightly`
+  - Ubuntu 14.04.5 (latest)
+  - Apache 2.4.7
+  - MySQL 5.5.x (latest)
+  - PHP 5.6.x (latest)
+- `proboci/ubuntu-14.04-lamp:php-7.0-nightly`
+  - Ubuntu 14.04.5 (latest)
+  - Apache 2.4.7
+  - MySQL 5.5.x (latest)
+  - PHP 7.0.x (latest)
+- `proboci/ubuntu-14.04-lamp:php-7.1-nightly`
+  - Ubuntu 14.04.5 (latest)
+  - Apache 2.4.7
+  - MySQL 5.5.x (latest)
+  - PHP 7.1.x (latest)
+
 ### Installed Software and Tools
 
-All Probo Docker Images have the following software packages and development tools installed.
+The Probo Docker Images have the following software packages and development tools installed. **Note:** Some packages are currently only available in our newer `-nightly` tagged builds. Those packages will be labeled with (Nightly) below.
 
+- bower (Nightly)
 - bundler
 - compass
 - composer
@@ -54,6 +77,9 @@ All Probo Docker Images have the following software packages and development too
 - drupal console
 - drush
 - git
+- google-chrome-stable (Nightly)
+- grunt-cli (Nightly)
+- gulp-cli (Nightly)
 - memcached
 - nodejs
 - ntp
@@ -63,5 +89,6 @@ All Probo Docker Images have the following software packages and development too
 - solr
 - wget
 - wp-cli
+- yarn (Nightly)
 
 Please [let us know](https://probo.ci/contact/) if you would like to see additional software packages or development tools that your team uses added to the Probo Docker images.
