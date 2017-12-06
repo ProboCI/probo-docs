@@ -67,7 +67,7 @@ The Nightly Probo Docker Images below are updated with the latest versions of th
 
 ### Installed Software and Tools
 
-The Probo Docker Images have the following software packages and development tools installed. **Note:** Some packages are currently only available in our newer `-nightly` tagged builds. Those packages will be labeled with (Nightly) below.
+The Probo Docker Images have the following software packages and development tools installed. **Note:** Some packages are currently only available in our newer `-nightly` tagged images above. Those packages will be labeled with (Nightly) below.
 
 - bower (Nightly)
 - bundler
