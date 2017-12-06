@@ -140,6 +140,9 @@
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
+        - title: Wordpress Bitbucket QuickStart
+          url: /wordpress-bitbucket-quickstart
+          text: Wordpress Bitbucket QuickStart
         - title: Wordpress GitHub QuickStart
           url: /wordpress-github-quickstart
           text: Wordpress GitHub QuickStart
