@@ -9,9 +9,9 @@ published: true
 
 ## Setup Probo.CI for a Wordpress site that uses GitHub.
 
-Below is a step by step example of a standard Wordpress site install with GitHub. This walkthrough does not use all the available parameters provided by the Wordpress plugin, but you can see more available parameters in the [Drupal plugin documentation](plugins/wordpress-plugin/ "Wordpress Plugin Documentation"){:target="\_blank"}.
+Below is a step by step example of a standard Wordpress site install with GitHub. This walkthrough does not use all the available parameters provided by the Wordpress plugin, but you can see more available parameters in the [Probo Wordpress Plugin documentation](plugins/wordpress-plugin/ "Probo Wordpress Plugin documentation"){:target="\_blank"}.
 
-You can find this Probo.CI example repository [here](https://github.com/Probo-Demos/wordpress_github "Wordpress using Probo.CI demo repository"){:target="\_blank"}.
+You can find this Probo.CI example repository [here](https://github.com/Probo-Demos/probo-example-wordpress "Wordpress using Probo.CI demo repository"){:target="\_blank"}.
 
 **You will need:**
 
@@ -29,7 +29,7 @@ You can find this Probo.CI example repository [here](https://github.com/Probo-De
 
 ## View your build.
 **Step 11: Go to your GitHub account. You will see your new branch inside your project.**
-[https://github.com/Probo-Demos/wordpress_github](https://github.com/Probo-Demos/wordpress_github){:target="\_blank"}
+[https://github.com/Probo-Demos/probo-example-wordpress](https://github.com/Probo-Demos/probo-example-wordpress){:target="\_blank"}
 
 **Step 12: Create a pull request.**
 

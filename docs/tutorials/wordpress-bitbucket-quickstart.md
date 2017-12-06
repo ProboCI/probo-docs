@@ -38,7 +38,7 @@ Your Bitbucket repositories will be synced automatically. You can always click t
 **Step 11: Locate your branch in Bitbucket.**
 Go to your Bitbucket account and click on Branches in the left navigation menu. You will see your new branch in the list. Click on the new branch name to view details.
 
-**Step 11: Create a pull request.**  
+**Step 12: Create a pull request.**
 On the details page, click the 'Create pull request' link. Verify your branch is pointing to master, enter the title of the pull request and click the 'Create pull request' button.    
 
 **Step 13: Bask in the glory of Probo.CI.**  
@@ -49,5 +49,3 @@ In your Probo.CI dashboard, click on 'View site' and your site will open in a ne
 
 **Step 15: Share your Probo.build link with clients, managers, even your parents.**
 Note: It might take a few seconds for your Probo.CI environment to build. Wait until all checks have passed before following your Probo.build link.  
-
-![Probo.CI Bitbucket build Gif](/images/bitbucketpullrequest.gif){:class="docs-gif screenshot"}
