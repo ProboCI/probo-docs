@@ -13,7 +13,7 @@ You have access to certain environment options while configuring your Probo buil
 
 We assume environments have confidential data and can be in potentially insecure or unstable states while building. Because of this, our default settings make sure environments are not made public until all of the steps have completed and the build is finished.
 
-Setting the `allowAccessWhileBuilding` configuration flag to true allows access to the environment while building. This configuration variable can be used in combination with the `$BUILD_URL` environment variable to make your site available to external services and to kick them off in build steps.
+Setting the `allowAccessWhileBuilding` configuration flag to true allows access to the environment while building. This configuration variable can be used in combination with the `$BUILD_DOMAIN` environment variable to make your site available to external services and to kick them off in build steps.
 
 {% highlight yaml %}
 allowAccessWhileBuilding: true
