@@ -43,9 +43,18 @@
       });
 
       var currentSection = window.location.pathname.split( '/' )[1];
-      if ($parentLi.children('a').attr('href') === '/' + currentSection + '/') {
+      if ($parentLi.children('.accordion-nav__item-link').attr('href') === '/' + currentSection + '/') {
         toggleItem($thisToggler, $parentLi, $icon);
       }
+    });
+
+    var $pageLinks = $('.accordion-nav__child-link', '#sidebar-first');
+    $pageLinks.each(function(i) {
+      $thisLink = $($pageLinks[i]);
+
+      if ($thisLink.attr('href') === window.location.pathname) {
+        $thisLink.addClass('active');
+      };
     });
   };
 

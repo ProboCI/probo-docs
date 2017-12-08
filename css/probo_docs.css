@@ -7493,6 +7493,10 @@ body .wrapper {
   width: auto;
 }
 
+.wrapper #sidebar-first .active {
+  font-weight: 600;
+}
+
 .wrapper .body-text {
   padding-bottom: 24px;
   width: 100%;
