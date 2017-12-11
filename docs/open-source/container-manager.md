@@ -47,5 +47,3 @@ You should replace {YOUR_DOMAIN} with your fully qualified domain name for your 
 ```bash
 node ./bin/probo container-manager -c cm.yaml > /dev/null &
 ```
-
-## Next Step: [GitHub Handler >>](/open-source/github/)

@@ -28,11 +28,11 @@ databaseConfig:
 encryptionCipher: 'aes-256-cbc'
 encryptionPassword: {YOUR CHOSE A SECRET PASS PHRASE}
 recipheredOutputDir: null
- 
+
 # API tokens for creating all routes except asset upload (disabled by default)
 tokens: null
 uploadsPaused: false
- 
+
 # Amazon S3 File Storage Configuration Settings
 fileStoragePlugin: AwsS3Storage
 fileStorageConfig:
@@ -70,10 +70,8 @@ curl -i -XPOST --data-binary @{FILENAME} http://{ASSET_RECEIVER_URL}:3070/asset/
 ```bash
 curl -O http://{ASSET_RECEIVER_URL}:3070/asset/{BUCKET_NAME}/{FILENAME} > {FILENAME}  
 ```  
-  
+
 **Calculating Bucket Names and File Names For Use with .probo.yaml files**  
 In the asset receiver, bucket names must be calculated in order to work with your `.probo.yaml` file. The asset id must be the same as the asset file name. As such if your database file is `database.sql.gz` both the asset name and asset id specified in the upload string must be `database.sql.gz`
 
 The bucket name must be in the format of `organization-repository_name`. For example, if I was to use the `cmp_build` repository in my `ElusiveMind` organization, the bucket name must be: `Elusivemind-cmp_build`.
-
-## Next Step: [Reaper >>](/open-source/reaper/)

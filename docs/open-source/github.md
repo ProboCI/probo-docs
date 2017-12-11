@@ -51,5 +51,3 @@ Now add a webhook for your repository in GitHub to your server under Settings 
 
 Next, under "Which events would you like to trigger this webhook?", select "Let me select individual events", and select "Pull Request"
 If you see a green checkmark next to your new webhook, you're all set. GitHub can successfully send requests to your handler.
-
-## Next Step: [Bitbucket Handler >>](/open-source/bitbucket/)

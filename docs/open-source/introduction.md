@@ -36,5 +36,3 @@ To get started, use a base server installation of CentOS 7 with very little atta
 For those who wish to follow along in setting up your own Probo server using CentOS, be sure to create a user called 'probo' that had administrative privileges. This way you could use the sudo command with that user. This is a very important step for following along.
 
 Credit where credit is due - some of the steps and information here come directly from the Quickstart README documents for the various Probo projects. The attempt here is to put the puzzle together and provide a walk-through in the hope it may help others in need or who are looking to get started with their own instance of Probo.
-
-## Next Step: [Getting Started >>](/open-source/getting-started/)
