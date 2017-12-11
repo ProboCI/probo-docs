@@ -1,0 +1,13 @@
+.pager {
+  display: flex;
+  margin-top: $base-margin * 2;
+
+  &__previous,
+  &__next {
+    flex-basis: 100%;
+  }
+
+  &__next {
+    text-align: right;
+  }
+}
