@@ -21,6 +21,7 @@ We recently completed  [we have a more robust service for building and launching
 ## SSH Access to Your Build Environments
 **Github Issue:**  
 **Status:**  Near completion
+
 <em>Update: we have changed our thinking around this and have decided to provide a shell within the Probo app that can be used for debugging. This change will be released soon</em>
 
 Nothing is more frustrating than when a CI build on some remote service has failed without any helpful message in the logs and without any way to go and figure out what went wrong. Probo already has a leg up on many services because you can click around your website to see what caused the failed test, but that only works if your build was able to bootstrap the project. If you have a complex build setup getting your initial successful build run can sometimes be a little tricky. Currently we have a probo employee look at your build and answer your questions but we want to empower you so we have always planned to give you SSH access to your build environments. We have even written a simple proof of concept implementation that terminates your SSH connection, fires up your container, and pipes your SSH terminal session into a bash process inside the container. We plan to turn this into a fully supported and open sourced component that will allow you to SSH into any container to do some live exploration and debugging. This will support your proper OpenSSH client and we hope to follow on with a web console as well. It is worth noting that an alternative implementation is already available to enterprise customers.
@@ -108,8 +109,16 @@ Currently, if you want to integrate with Jira you have to do so via a [Probo Rec
 
 ## Displaying logs in the app.probo.ci interface
 **Github Issue:**  
-**Status:**  Not started
+**Status:**  In progress
 There isn't currently a way to see the logs that get created during the build process, and if an error occurs that stops the build process without an obvious error there isn't a great way for users to troubleshoot what happened. While we intend to give SSH access to the containers, we also want to show any errors that occur during the build process, as well as other logs that might be helpful for our end users.
+
+This is awaiting some UI and design work and should be deployed soon!
+
+## Rancher (& other container orchestration) support for the Open Source Software version of Probo
+**Github Issue:**  
+**Status:** Not started
+
+One of the Open Source users of Probo would like Probo to work alongside [Rancher, an Open Source Container Orchestration platform](http://rancher.com/), and presumably this could also be extended to other orchistration tools such as [Chef's Habitiat product](https://www.habitat.sh/). The Probo & Zivtech teams don't currently have the need to support Rancher for our clients, as almost all of them use hosting Platforms as a Service like Acquia, Pantheon, or Platform.sh. But we can see the need to provide the same level of testing and support for those who build and maintain their own server infrastructure and we are very interested in figuring out how to support testing in these complex environments. Please [get in touch](https://probo.ci/contact/) if this is a feature your organization would like to sponsor or support. 
 
 # Recently Completed Roadmap Items
 
