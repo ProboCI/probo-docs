@@ -5,7 +5,7 @@ class: documentation
 permalink: /app/projects/
 published: true
 ---
-A Probo Project is a repository or group of repositories inside of a Probo Organization. The Projects overview tab in a Probo Organization is where all Probo Projects for that organization are listed with information specific to that project's resources used and latest Probo Build. Probo Projects are the repositories that have been synced and enabled from GitHub and Bitbucket. The repositories are labeled GitHub with the Octocat logo and Bitbucket with the Bucket logo to easily distinguish between a GitHub or Bitbucket project repository.
+A Probo Project is an activated repository inside of a Probo Organization. The Projects overview tab in a Probo Organization is where all Probo Projects for that organization are listed with information specific to that project's resources used and latest Probo Build. Probo Projects are the repositories that have been synced and enabled from GitHub and Bitbucket. The repositories are labeled GitHub with the Octocat logo and Bitbucket with the Bucket logo to easily distinguish between a GitHub or Bitbucket project repository.
 
 Probo Admins can activate additional repositories for a project in a Probo Organization by navigating to the [Probo Dashboard](https://app.probo.ci/#/dashboard/projects) and clicking the green Activate Repos button at the top right of the page. Once activated, other Projects can be synced by other Probo Organization members to their account and they can start creating Pull Requests to kick off some Probo Builds.
 
