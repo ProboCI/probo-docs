@@ -24,6 +24,8 @@ The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration
 
 The Stable Probo Docker Images below have been built specifically for Probo Builds and are known good configurations that we do not change without advanced notice to ensure existing builds are not affected.
 
+#### Stable Ubuntu 14.04.5 Probo Images
+
 - `proboci/ubuntu-14.04-lamp` _(default)_
   - Ubuntu 14.04.5
   - Apache 2.4.7
@@ -49,17 +51,19 @@ The Stable Probo Docker Images below have been built specifically for Probo Buil
 
 The Nightly Probo Docker Images below are updated with the latest versions of the Installed Software and Tools listed below this section when the images are rebuilt. We plan to have these updating on a true nightly schedule in the near future, but for now they are being built manually and tested before pushing up to the docker hub and pulling down to the Production Probo server.
 
-- `proboci/ubuntu-14.04-lamp:php-5.6-nightly`
+#### Nightly Ubuntu 14.04.5 Probo Images
+
+- `proboci/ubuntu-14.04-lamp:php5.6-nightly`
   - Ubuntu 14.04.5 (latest)
   - Apache 2.4.7
   - MySQL 5.5.x (latest)
   - PHP 5.6.x (latest)
-- `proboci/ubuntu-14.04-lamp:php-7.0-nightly`
+- `proboci/ubuntu-14.04-lamp:php7.0-nightly`
   - Ubuntu 14.04.5 (latest)
   - Apache 2.4.7
   - MySQL 5.5.x (latest)
   - PHP 7.0.x (latest)
-- `proboci/ubuntu-14.04-lamp:php-7.1-nightly`
+- `proboci/ubuntu-14.04-lamp:php7.1-nightly`
   - Ubuntu 14.04.5 (latest)
   - Apache 2.4.7
   - MySQL 5.5.x (latest)
