@@ -81,30 +81,21 @@
         - title: The Dashboard
           url: /dashboard
           text: The Dashboard
+        - title: Organization Pages
+          url: /organizations
+          text: Organization Pages
         - title: Project Pages
           url: /projects
           text: Project Pages
         - title: Build Pages
           url: /builds
           text: Build Pages
-        - title: Organization Pages
-          url: /organizations
-          text: Organization Pages
         - title: Admins Page
           url: /admins
           text: Admins Page
         - title: Subscription Page
           url: /subscription
           text: Subscription Page
-        - title: Admins Page
-          url: /admins
-          text: Admins Page
-        - title: Payment Method Page
-          url: /payment-method
-          text: Payment Method Page
-        - title: Payment History Page
-          url: /payment-history
-          text: Payment History Page
 
     - title: Recipes
       url: /recipes
@@ -167,7 +158,7 @@
         - title: Wordpress GitHub QuickStart
           url: /wordpress-github-quickstart
           text: Wordpress GitHub QuickStart
-    
+
     - title: Open Source
       text: Open Source
       url: /open-source
