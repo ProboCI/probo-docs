@@ -14,7 +14,7 @@
     this.setup();
   }
 
-  function toggleItem($toggler, $parent, $icon) {
+  MobileMenu.prototype.toggleItem = function($toggler, $parent, $icon) {
     $parent.toggleClass('is-open');
     $parent.toggleClass('is-closed');
 
@@ -25,6 +25,8 @@
   }
 
   MobileMenu.prototype.setup = function() {
+    var self = this;
+
     this.children.each(function(i) {
       var $toggler = $('<span class="js-toggle-children accordion-nav__toggle-children"><i class="fa fa-angle-down" aria-hidden="true"></i></span>');
 
@@ -39,12 +41,12 @@
 
       $(this).on('click', function(e) {
         e.preventDefault();
-        toggleItem($thisToggler, $parentLi, $icon);
+        self.toggleItem($thisToggler, $parentLi, $icon);
       });
 
       var currentSection = window.location.pathname.split( '/' )[1];
       if ($parentLi.children('.accordion-nav__item-link').attr('href') === '/' + currentSection + '/') {
-        toggleItem($thisToggler, $parentLi, $icon);
+        self.toggleItem($thisToggler, $parentLi, $icon);
       }
     });
 
