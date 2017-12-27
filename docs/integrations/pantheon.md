@@ -2,7 +2,8 @@
 layout: "docs"
 title: Using Probo on Your Pantheon Site
 class: documentation
-permalink: /tutorials/pantheon/
+permalink: /integrations/pantheon/
+redirect_from: /tutorials/pantheon/
 published: true
 ---
 

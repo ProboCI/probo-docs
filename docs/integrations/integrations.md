@@ -1,8 +1,9 @@
 ---
 layout: 'docs-landing'
-title: Git Integrations
+title: Integrations
 class: documentation
-permalink: /git/
+permalink: /integrations/
+redirect_from: /git/
 published: true
 ---
 

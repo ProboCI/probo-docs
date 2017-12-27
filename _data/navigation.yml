@@ -84,9 +84,9 @@
       url: /reaper
       text: Reaper
 
-    - title: Git Integrations
-      text: Git Integrations
-      url: /git
+    - title: Integrations
+      text: Integrations
+      url: /integrations
       children:
         - title: GitHub Integration
           url: /github
@@ -97,6 +97,9 @@
         - title: Bitbucket Server Integration
           url: /bitbucket-server
           text: Bitbucket Server Integration
+        - title: Using Probo on Your Pantheon Site
+          url: /pantheon
+          text: Using Probo on Your Pantheon Site
 
     - title: Drupal
       text: Drupal
@@ -127,9 +130,6 @@
         - title: Drupal Install Profile QuickStart
           url: /drupal-install-profile-quickstart
           text: Drupal Install Profile QuickStart
-        - title: Using Probo on Your Pantheon Site
-          url: /pantheon
-          text: Using Probo on Your Pantheon Site
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
