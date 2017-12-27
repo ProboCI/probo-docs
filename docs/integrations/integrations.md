@@ -7,4 +7,4 @@ redirect_from: /git/
 published: true
 ---
 
-Probo currently works with the following git repository management systems:
+Probo currently integrates with the following systems:

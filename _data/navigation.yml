@@ -103,6 +103,9 @@
         - title: Using Probo on Your Pantheon Site
           url: /pantheon
           text: Using Probo on Your Pantheon Site
+        - title: Acquia BLT
+          url: /acquia-blt
+          text: Acquia BLT
 
     - title: Drupal
       text: Drupal
