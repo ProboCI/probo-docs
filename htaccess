@@ -1,5 +1,5 @@
 ---
-layout: none
+layout: null
 permalink: .htaccess
 ---
 # Protect files and directories from prying eyes.
