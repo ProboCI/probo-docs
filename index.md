@@ -13,7 +13,7 @@ Probo is both an SaaS app, available at [app.probo.ci](https://app.probo.ci), as
 ## Getting Started
 The first step to using Probo is logging in to the Probo App, where you can sync your repositories, view your builds and access build information like the console output.
 
-Go to the [Probo App](https://app.probo.ci/ "Probo App") and login with your **GitHub** or **Bitbucket** account. On the authorization page, grant Probo permission to access your repos. Back in the Probo App, enter your user information and click Submit.
+Go to the [Probo App](https://app.probo.ci/ "Probo App") and log in with your **GitHub** or **Bitbucket** account. On the authorization page, grant Probo permission to access your repos. Back in the Probo App, enter your user information and click Submit.
 
 Please see the docs for [setting up Bitbucket Server](/git/bitbucket-server/) if you are using Probo with **Bitbucket Server**.
 
