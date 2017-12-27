@@ -1,0 +1,44 @@
+{% for grandparent in site.data.navigation %}
+  {% if grandparent.title == 'Docs' %}
+    {% for parent in grandparent.children %}
+      {% assign counter = 0 %}
+
+      {% for child in parent.children %}
+
+        {% assign current_position = counter %}
+
+        {% if current_position != 0 %}
+          {% assign previous_position = counter | minus: 1 %}
+          {% assign previous_page = parent.children[previous_position] %}
+        {% endif%}
+
+        {% assign next_position = counter | plus: 1 %}
+        {% assign next_page = parent.children[next_position] %}
+
+        {% capture current_path %}
+          {{ parent.url }}{{ child.url }}/
+        {% endcapture %}
+
+        {% assign current_path = current_path | strip %}
+        {% assign page_path = page.url | strip %}
+
+        {% if current_path == page_path  %}
+          <section class="pager">
+          {% if previous_page %}
+            <a class="pager__previous h4" href="{{ parent.url }}{{ previous_page.url }}/"><< {{ previous_page.title }}</a>
+          {% endif %}
+          {% if next_page %}
+            <a class="pager__next h4" href="{{ parent.url }}{{ next_page.url }}/">{{ next_page.title }} >></a>
+          {% endif %}
+          </section>
+        {% endif %}
+
+        {% assign counter = counter | plus: 1 %}
+        {% assign previous_position = nil %}
+        {% assign previous_page = nil %}
+        {% assign next_position = nil %}
+        {% assign next_page = nil %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}

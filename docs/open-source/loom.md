@@ -15,7 +15,7 @@ cd probo-loom
 npm install
 ```
 
-Before starting this process, keep in mind that you will need to start the RethinkDB daemon before starting loom. This is an important step not only for the installation of Probo, but also for subsequent restarts. 
+Before starting this process, keep in mind that you will need to start the RethinkDB daemon before starting loom. This is an important step not only for the installation of Probo, but also for subsequent restarts.
 
 You will want to edit the `defaults.yaml` file to look as follows. Of particular note is to comment out the section on tokens. These are primarily for tailing streams which will be covered in the future.
 
@@ -62,5 +62,3 @@ Then you can start by using the following commands inside the `probo-loom` direc
 rethinkdb --daemon
 node ./bin/loom > /dev/null &
 ```
-
-## Next Step: [Asset Receiver >>](/open-source/asset-receiver/)

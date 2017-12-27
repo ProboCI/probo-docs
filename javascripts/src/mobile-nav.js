@@ -14,7 +14,19 @@
     this.setup();
   }
 
+  MobileMenu.prototype.toggleItem = function($toggler, $parent, $icon) {
+    $parent.toggleClass('is-open');
+    $parent.toggleClass('is-closed');
+
+    var hidden = ($toggler.siblings('ul').attr('aria-hidden') == 'true') ? 'false' : 'true';
+    $toggler.siblings('ul').attr('aria-hidden', hidden);
+
+    $icon.toggleClass('fa-angle-down fa-angle-up');
+  }
+
   MobileMenu.prototype.setup = function() {
+    var self = this;
+
     this.children.each(function(i) {
       var $toggler = $('<span class="js-toggle-children accordion-nav__toggle-children"><i class="fa fa-angle-down" aria-hidden="true"></i></span>');
 
@@ -24,20 +36,30 @@
     var $togglers = $('.js-toggle-children');
     $togglers.each(function(i) {
       var $thisToggler = $($togglers[i]);
+      var $parentLi = $thisToggler.parent('li');
       var $icon = $('i', $thisToggler);
+
       $(this).on('click', function(e) {
         e.preventDefault();
-
-        var hidden = ($thisToggler.siblings('ul').attr('aria-hidden') == 'true') ? 'false' : 'true';
-        var $parentLi = $thisToggler.parent('li');
-
-        $parentLi.toggleClass('is-open');
-        $parentLi.toggleClass('is-closed');
-        $thisToggler.siblings('ul').attr('aria-hidden', hidden);
-        $icon.toggleClass('fa-angle-down fa-angle-up');
+        self.toggleItem($thisToggler, $parentLi, $icon);
       });
+
+      var currentSection = window.location.pathname.split( '/' )[1];
+      if ($parentLi.children('.accordion-nav__item-link').attr('href') === '/' + currentSection + '/') {
+        self.toggleItem($thisToggler, $parentLi, $icon);
+      }
+    });
+
+    var $pageLinks = $('.accordion-nav__child-link', '#sidebar-first');
+    $pageLinks.each(function(i) {
+      $thisLink = $($pageLinks[i]);
+
+      if ($thisLink.attr('href') === window.location.pathname) {
+        $thisLink.addClass('active');
+      };
     });
   };
+
 
   MobileMenu.prototype.openMenu = function() {
     $('body').addClass('menu-is-open');

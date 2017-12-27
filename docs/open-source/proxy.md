@@ -49,5 +49,3 @@ Also if you are going to use port 80, you may need to run this process as the ro
 ```bash
 node ./index.js -c defaults.yaml > /dev/null &
 ```
-
-## Next Step: [Loom >>](/open-source/loom/)

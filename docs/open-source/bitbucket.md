@@ -7,7 +7,7 @@ published: true
 ---
 
 ## Bitbucket Handler 
-To integrate Bitbucket into open source Probo, there are some slight modifications to the instructions for the standard Probo server and GitHub. The most important of which is that currently you can't easily run the GitHub handler and the Bitbucket handler without doing some configuration steps out of the scope of these documents (and that I do not know how to do myself). For the sake of simplicity, we will assume you are going to be using one repository or the other and not both. 
+To integrate Bitbucket into open source Probo, there are some slight modifications to the instructions for the standard Probo server and GitHub. The most important of which is that currently you can't easily run the GitHub handler and the Bitbucket handler without doing some configuration steps out of the scope of these documents (and that I do not know how to do myself). For the sake of simplicity, we will assume you are going to be using one repository or the other and not both.
 
 The first step is to add the following rule to your firewall on your CentOS server if needed:
 
@@ -110,10 +110,8 @@ node ./bin/probo-bitbucket-handler -c defaults.yaml > ../logs/bitbucket.log &
 
 Now add a webhook for your repository in Bitbucket to your server under Settings -> Webhooks.
 
-URL: http://{YOUR-DOMAIN}:3012/bitbucket-webhook 
+URL: http://{YOUR-DOMAIN}:3012/bitbucket-webhook
 
 Next, under "Triggers", select "Choose from a full list of triggers", and select "Pull Request: Created" and "Pull Request: Updated".
 
 Click the save button and your webhook should be configured. You won't have a way of seeing this until you issue a pull request, so there is no way to immediately know if the hook is working. The best way to test is to check with a test repository and make sure everything is good to go and then begin configuring your development repositories.
-
-## Next Step: [Probo Proxy >>](/open-source/proxy/)
