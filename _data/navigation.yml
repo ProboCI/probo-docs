@@ -17,21 +17,24 @@
         - title: Configuration File
           url: /configuration
           text: Configuration File
-        - title: Docker Images
-          url: /images
-          text: Docker Images
         - title: Assets
           url: /assets
           text: Assets
         - title: Build Steps
           url: /steps
           text: Build Steps
-        - title: Environment Configuration
-          url: /environment-configuration
-          text: Environment Configuration
         - title: Environment Variables
           url: /environment-variables
           text: Environment Variables
+        - title: Docker Images
+          url: /images
+          text: Docker Images
+        - title: Environment Configuration
+          url: /environment-configuration
+          text: Environment Configuration
+        - title: Validating Your Configuration File
+          url: /validate
+          text: Validating Your Configuration File
 
     - title: Plugins
       text: Plugins
