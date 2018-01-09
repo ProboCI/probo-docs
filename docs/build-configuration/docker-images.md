@@ -24,24 +24,24 @@ The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration
 
 The Stable Probo Docker Images below have been built specifically for Probo Builds and are known good configurations that we do not change without advanced notice to ensure existing builds are not affected.
 
-{: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu-14.04-lamp (default)` | 14.04.5 | 2.4.7 |  5.5.47 | 5.5.9 |
-| `proboci/ubuntu-14.04-lamp:php5.6` | 14.04.5 | 2.4.7 | 5.5.54 | 5.6.30 |
-| `proboci/ubuntu-14.04-lamp:php7.0` | 14.04.5 | 2.4.7 | 5.5.54 | 7.0.16 |
-| `proboci/ubuntu-14.04-lamp:php7.1` | 14.04.5 | 2.4.7 | 5.5.54 | 7.1.2 |
+    {: .table .table-striped .table-bordered}
+    | Image | Ubuntu | Apache | MySQL | PHP |
+    |-------------------------|-------------|
+    | `proboci/ubuntu-14.04-lamp (default)` | 14.04.5 | 2.4.7 |  5.5.47 | 5.5.9 |
+    | `proboci/ubuntu-14.04-lamp:php-5.6` | 14.04.5 | 2.4.7 | 5.5.54 | 5.6.30 |
+    | `proboci/ubuntu-14.04-lamp:php-7.0` | 14.04.5 | 2.4.7 | 5.5.54 | 7.0.16 |
+    | `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 | 2.4.7 | 5.5.54 | 7.1.2 |
 
 ### Nightly Probo Images
 
 The Nightly Probo Docker Images below are updated with the latest versions of the Installed Software and Tools listed below this section when the images are rebuilt. We plan to have these updating on a true nightly schedule in the near future, but for now they are being built manually and tested before pushing up to the docker hub and pulling down to the Production Probo server.
 
-{: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu-14.04-lamp:php5.6-nightly` | 14.04.5 (latest) | 2.4.7 |  5.5.x (latest) | 5.6.x (latest) |
-| `proboci/ubuntu-14.04-lamp:php7.0-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 7.0.x (latest) |
-| `proboci/ubuntu-14.04-lamp:php7.1-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 7.1.x (latest) |
+    {: .table .table-striped .table-bordered}
+    | Image | Ubuntu | Apache | MySQL | PHP |
+    |-------------------------|-------------|
+    | `proboci/ubuntu-14.04-lamp:php5.6-nightly` | 14.04.5 (latest) | 2.4.7 |  5.5.x (latest) | 5.6.x (latest) |
+    | `proboci/ubuntu-14.04-lamp:php7.0-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 7.0.x (latest) |
+    | `proboci/ubuntu-14.04-lamp:php7.1-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 7.1.x (latest) |
 
 ### Installed Software and Tools
 
