@@ -22,7 +22,7 @@ The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration
 
 ### Stable Probo Images
 
-All of the Stable Probo Docker Images, which can be found on the Probo.CI Docker hubbelow have been built specifically for Probo Builds and are known good configurations that we do not change without advanced notice to ensure existing builds are not affected.
+All of the Stable Probo Docker Images, which can be found on the Probo.CI Docker hub below have been built specifically for Probo Builds and are known good configurations that we do not change without advanced notice to ensure existing builds are not affected.
 
 #### Ubuntu 14.04 LAMP
 
