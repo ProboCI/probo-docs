@@ -19,8 +19,9 @@ Currently Probo provides a LAMP environment as the basis for every build. Some i
 We recently completed  [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), you can find the images as we make them available on the [ProboCI Docker Hub](https://hub.docker.com/u/proboci/). Anything listed on dockerhub can now be used in the Probo app. Please see the [Probo Docs on Images](https://docs.probo.ci/build/images/) for more information on how to use these. 
 
 ## .net/MSSQL, Sitecore, Java, node.js plugins
-**Github Issue:**  
+**Github Issue:** In progress 
 **Status:** .net integration in proof-of-concept at the moment, others to follow
+
 Our highest priority is to support the wide variety of systems that software delivery organizations need in order to work with their diverse and demanding customers and stakeholders. In order to do that we not only have to support different stacks, we also need to build out plugins to make gettings setup with these systems relatively painless. Our first target for this project is .net, with the goal of supporting Sitecore and other MSSQL apps.  
 
 ## SSH Access to Your Build Environments
@@ -40,6 +41,7 @@ We plan to provide support for both the SaaS and the self-hosted versions of [Gi
 ## Run Probo on Probo / Open Source Probo in a Container
 **Github Link:** https://github.com/ElusiveMind/probo-docker 
 **Status:** Near completion.   
+
 [Michael Bagnall](https://github.com/elusivemind) has been working on building out a fully functional version of Open Source Probo, which uses a Drupal site and module to act as the interface. This should allow us to also use Probo while continuing to build Probo, another goal of ours. 
 
 ## Branch Builds and Status Badges
