@@ -19,7 +19,7 @@ Currently Probo provides a LAMP environment as the basis for every build. Some i
 We recently completed  [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), you can find the images as we make them available on the [ProboCI Docker Hub](https://hub.docker.com/u/proboci/). Anything listed on dockerhub can now be used in the Probo app. Please see the [Probo Docs on Images](https://docs.probo.ci/build/images/) for more information on how to use these. 
 
 ## .net/MSSQL, Sitecore, Java, node.js plugins
-**Github Issue:** In progress
+**Github Issue:** In progress . 
 **Status:**  .net integration in proof-of-concept at the moment, others to follow
 
 Our highest priority is to support the wide variety of systems that software delivery organizations need in order to work with their diverse and demanding customers and stakeholders. In order to do that we not only have to support different stacks, we also need to build out plugins to make gettings setup with these systems relatively painless. Our first target for this project is .net, with the goal of supporting Sitecore and other MSSQL apps.  
@@ -33,13 +33,13 @@ Our highest priority is to support the wide variety of systems that software del
 Nothing is more frustrating than when a CI build on some remote service has failed without any helpful message in the logs and without any way to go and figure out what went wrong. Probo already has a leg up on many services because you can click around your website to see what caused the failed test, but that only works if your build was able to bootstrap the project. If you have a complex build setup getting your initial successful build run can sometimes be a little tricky. Currently we have a probo employee look at your build and answer your questions but we want to empower you so we have always planned to give you SSH access to your build environments. We have even written a simple proof of concept implementation that terminates your SSH connection, fires up your container, and pipes your SSH terminal session into a bash process inside the container. We plan to turn this into a fully supported and open sourced component that will allow you to SSH into any container to do some live exploration and debugging. This will support your proper OpenSSH client and we hope to follow on with a web console as well. It is worth noting that an alternative implementation is already available to enterprise customers.
 
 ## Gitlab support
-**Github Link:** https://github.com/ProboCI/probo-gitlab
+**Github Link:** https://github.com/ProboCI/probo-gitlab . 
 **Status:**  Near completion
 
 We plan to provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This will be an open source component just like our other handlers. This is nearly complete and can be tested on the Open Source version. 
 
 ## Run Probo on Probo / Open Source Probo in a Container
-**Github Link:** https://github.com/ElusiveMind/probo-docker
+**Github Link:** https://github.com/ElusiveMind/probo-docker . 
 **Status:**  Near completion
 
 [Michael Bagnall](https://github.com/elusivemind) has been working on building out a fully functional version of Open Source Probo, which uses a Drupal site and module to act as the interface. This should allow us to also use Probo while continuing to build Probo, another goal of ours. 
