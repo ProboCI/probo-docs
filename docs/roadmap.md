@@ -7,20 +7,26 @@ published: true
 ---
 Below are items that the Probo CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo github repositories as they are created. 
 
-*Last updated December 11, 2017*
+*Last updated January 24, 2018*
 # Currently Active Roadmap Items
 
 ## First class support for non-LAMP Stacks
 **Github Issue:**  
-**Status:** Near completion 
+**Status:** Near completion  
 
 Currently Probo provides a LAMP environment as the basis for every build. Some industrious users have coerced Probo into supporting other stacks through means that are not for the faint of heart. It has always been our intention to support other languages and we abhor hacks and have always intended to provide both alternative language images that ship with other languages pre-installed (you can always install them yourself) and to make the services that we start on boot completely configurable.
 
 We recently completed  [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), you can find the images as we make them available on the [ProboCI Docker Hub](https://hub.docker.com/u/proboci/). Anything listed on dockerhub can now be used in the Probo app. Please see the [Probo Docs on Images](https://docs.probo.ci/build/images/) for more information on how to use these. 
 
+## .net/MSSQL, Sitecore, Java, node.js plugins
+**Github Issue:** In progress   
+**Status:**  .net integration in proof-of-concept at the moment, others to follow  
+
+Our highest priority is to support the wide variety of systems that software delivery organizations need in order to work with their diverse and demanding customers and stakeholders. In order to do that we not only have to support different stacks, we also need to build out plugins to make gettings setup with these systems relatively painless. Our first target for this project is .net, with the goal of supporting Sitecore and other MSSQL apps.  
+
 ## SSH Access to Your Build Environments
 **Github Issue:**  
-**Status:**  Near completion
+**Status:**  Near completion  
 
 <em>Update: we have changed our thinking around this and have decided to provide a shell within the Probo app that can be used for debugging. This change will be released soon</em>
 
@@ -28,9 +34,15 @@ Nothing is more frustrating than when a CI build on some remote service has fail
 
 ## Gitlab support
 **Github Link:** https://github.com/ProboCI/probo-gitlab  
-**Status:** Near completion.   
+**Status:**  Near completion  
 
 We plan to provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This will be an open source component just like our other handlers. This is nearly complete and can be tested on the Open Source version. 
+
+## Run Probo on Probo / Open Source Probo in a Container
+**Github Link:** https://github.com/ElusiveMind/probo-docker   
+**Status:**  Near completion  
+
+[Michael Bagnall](https://github.com/elusivemind) has been working on building out a fully functional version of Open Source Probo, which uses a Drupal site and module to act as the interface. This should allow us to also use Probo while continuing to build Probo, another goal of ours. 
 
 ## Branch Builds and Status Badges
 **Github Issue:** https://github.com/ProboCI/probo/issues/44   
