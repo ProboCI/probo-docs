@@ -7,7 +7,7 @@ published: true
 ---
 Below are items that the Probo CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo github repositories as they are created. 
 
-*Last updated January 24, 2018*
+*Last updated January 25, 2018*
 # Currently Active Roadmap Items
 
 ## First class support for non-LAMP Stacks
@@ -134,6 +134,11 @@ One of the Open Source users of Probo would like Probo to work alongside [Ranche
 
 # Recently Completed Roadmap Items
 
+## Run Probo on Probo / Open Source Probo in a Container
+**Github Link:** https://github.com/ElusiveMind/probo-docker   
+**Status:**  Now available  
+
+[Michael Bagnall](https://github.com/elusivemind) has been working on building out a fully functional version of Open Source Probo, which uses a Drupal site and module to act as the interface. This should allow us to also use Probo while continuing to build Probo, another goal of ours. 
 ## Open Source Stash/Bitbucket Server support
 **Github Issue**:   
 **Status:** Now available
