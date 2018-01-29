@@ -2,7 +2,8 @@
 layout: "docs"
 title: Bitbucket Integration
 class: documentation
-permalink: /git/bitbucket/
+permalink: /integrations/bitbucket/
+redirect_from: /git/bitbucket/
 published: true
 ---
 Probo integrates with [Bitbucket](https://bitbucket.org), a git repository management system created by Atlassian.

@@ -2,7 +2,8 @@
 layout: "docs"
 title: Bitbucket Server Integration
 class: documentation
-permalink: /git/bitbucket-server/
+permalink: /integrations/bitbucket-server/
+redirect_from: /git/bitbucket-server/
 published: true
 ---
 You can use Probo with your instance of [Bitbucket Server](https://bitbucket.org/product/server). Just like the [Bitbucket Integration](/git/bitbucket/ "Bitbucket Integration"), Probo uses the build status pop-up to display the list of build steps as defined in your `.probo.yaml` file and their statuses. The link can be found in the Overview section of the pull request details page.

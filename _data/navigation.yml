@@ -17,21 +17,24 @@
         - title: Configuration File
           url: /configuration
           text: Configuration File
-        - title: Docker Images
-          url: /images
-          text: Docker Images
         - title: Assets
           url: /assets
           text: Assets
         - title: Build Steps
           url: /steps
           text: Build Steps
-        - title: Environment Configuration
-          url: /environment-configuration
-          text: Environment Configuration
         - title: Environment Variables
           url: /environment-variables
           text: Environment Variables
+        - title: Docker Images
+          url: /images
+          text: Docker Images
+        - title: Environment Configuration
+          url: /environment-configuration
+          text: Environment Configuration
+        - title: Validating Your Configuration File
+          url: /validate
+          text: Validating Your Configuration File
 
     - title: Plugins
       text: Plugins
@@ -84,9 +87,9 @@
       url: /reaper
       text: Reaper
 
-    - title: Git Integrations
-      text: Git Integrations
-      url: /git
+    - title: Integrations
+      text: Integrations
+      url: /integrations
       children:
         - title: GitHub Integration
           url: /github
@@ -97,6 +100,12 @@
         - title: Bitbucket Server Integration
           url: /bitbucket-server
           text: Bitbucket Server Integration
+        - title: Using Probo on Your Pantheon Site
+          url: /pantheon
+          text: Using Probo on Your Pantheon Site
+        - title: Acquia BLT
+          url: /acquia-blt
+          text: Acquia BLT
 
     - title: Drupal
       text: Drupal
@@ -111,7 +120,9 @@
         - title: Install Profile
           url: /install-profile
           text: Install Profile
-
+        - title: Multisite
+          url: /multisite
+          text: Multisite
     - title: Tutorials
       text: Tutorials
       url: /tutorials
@@ -125,9 +136,6 @@
         - title: Drupal Install Profile QuickStart
           url: /drupal-install-profile-quickstart
           text: Drupal Install Profile QuickStart
-        - title: Using Probo on Your Pantheon Site
-          url: /pantheon
-          text: Using Probo on Your Pantheon Site
         - title: Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
@@ -169,11 +177,11 @@
         - title: Probo Reaper
           text: Probo Reaper
           url: /reaper
-    
+
     - title: Roadmap
       text: Roadmap
       url: /roadmap
-      
+
 - title: Contact
   url: http://probo.ci/contact
   text: Contact
