@@ -8,7 +8,7 @@ published: true
 ## Welcome to docs.probo.ci! 
 [Probo.CI](http://probo.ci) is a Continuous Integration and Collaboration tool that helps break down the barriers inherent in a software development project. Probo works with git on a per-pull-request basis to ensure that you never merge code into any branch before it has been tested and approved. 
 
-Probo is both a SaaS app, available at app.probo.ci, as well as an Open Source Software project, available at [https://github.com/ProboCI](https://github.com/ProboCI). The Probo docs site is hosted on Github at [https://github.com/ProboCI/probo-docs/](https://github.com/ProboCI/probo-docs/) and pull requests are welcome!
+[Probo.CI](http://probo.ci) is a Continuous Integration and Collaboration tool that helps break down the barriers inherent in a software development project. Probo works with git on a per-pull-request basis to ensure that you never merge code into any branch before it has been tested and approved.
 
 ## Getting Started
 The first step to using Probo is logging in to the Probo App, where you can sync your repositories, view your builds and access build information like the console output.
