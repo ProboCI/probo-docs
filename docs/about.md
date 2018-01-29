@@ -13,7 +13,7 @@ Probo.CI is an [open source](https://github.com/ProboCI/probo) Quality Assurance
 
 ## Why use Probo.CI?
 
-Typical web application projects have environments for live, staging, development, and local developer sites. When a developer completes a task, the work needs to be reviewed and tested in multiple ways (for example, automated testing, manual QA, UAT, and code review by a senior developer). Because each environment can only run code from one git branch at a time, in order to test  code it needs to be merged with other work. When you have to merge work in order to test it you run into some of the following  problems:
+Typical web application projects have environments for live, staging, development, and local developer sites. When a developer completes a task, the work needs to be reviewed and tested in multiple ways (for example, automated testing, manual QA, UAT, and code review by a senior developer). Because each environment can only run code from one git branch at a time, in order to test code it needs to be merged with other work. When you have to merge work in order to test it you run into some of the following problems:
 
  - Delays before testing occurs.
  - Bottlenecks at the code review step.
@@ -23,7 +23,7 @@ Typical web application projects have environments for live, staging, developmen
  - Difficulty deploying a subset of the work which was already merged.
  - The testing environment becomes 'junked up' from testing. You need to re-sync it from the production database but also don't want to lose the testing content you need for review.
 
-Probo spins up a new environment when you create a pull request - before you merge your code. This makes it easy to preview and test work. We've found this workflow to be a massive improvement for quality and efficiency
+Probo spins up a new environment when you create a pull request - before you merge your code. This makes it easy to preview and test work. We've found this workflow to be a massive improvement for quality and efficiency.
 
 ### Probo.CI for Automated QA
 
