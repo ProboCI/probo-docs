@@ -35,6 +35,9 @@
         - title: Validating Your Configuration File
           url: /validate
           text: Validating Your Configuration File
+        - title: Notifications
+          url: /notifications
+          text: Notifications
 
     - title: Plugins
       text: Plugins
