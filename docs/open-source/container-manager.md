@@ -16,6 +16,13 @@ To install the dependent packages, change directory into the `probo` directory a
 npm install
 ```
 
+Currently, the conmtainer manager requires a special patch not yet available on NPM. Without this patch to “probo_request_logger” the container manager will not be able to create builds. To get past this for now, change into the folder/directory where your main probo buidl is and issue the following pull from the git repository for probo_request_logger:
+
+```bash
+rm -rf node_moules/probo-request-logger
+git clone --depth=1 https://github.com/ProboCI/probo-request-logger.git node_modules/probo-request-logger 
+```
+
 If you have installed all of your prerequisites correctly, you will get a successful build and can move on to the next step. If you have issues here, please revisit the step on installing [prerequisites](/open-source/getting-started) and make sure that everything is done correctly. If all else fails, please contact Probo support.
 
 **Configure**  
