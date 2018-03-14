@@ -7,7 +7,7 @@ published: true
 ---
 Below are items that the Probo CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo github repositories as they are created. 
 
-*Last updated January 26, 2018*
+*Last updated March 14, 2018*
 # Currently Active Roadmap Items
 
 ## SSH Access to Your Build Environments
