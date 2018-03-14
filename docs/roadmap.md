@@ -71,12 +71,6 @@ Currently Probo runs each environment in a "fat container". What does that mean?
 
 A build matrix can mean different things in different contexts, but it generally describes a single trigger kicking off multiple steps that may execute in parallel and where the result of a "build" is an aggregate of these other steps. This may be used to run the same test suite on multiple versions of your language (say PHP 5 and 7), it may mean running different portions of your test suite in parallel, or it might mean both. We have Matrix Builds on our roadmap with the intention of supporting both use cases grouping and collecting output from a multi-dimensional set of inputs. This may combine with our cached build steps in interesting ways to build a common base environment and then to run portions of your test suites in parallel.
 
-## Cached Build Steps
-**Github Issue:**  
-**Status:**  Not started
-
-Some of projects have time consuming and computationally expensive steps necessary to bootstrap their environments. We know first hand how frustrating it can be to kick off a new build and have to wait for some package to install or some database to import before you can get to the new and different part of this particular build. We are planning an exciting feature that would allow you to mark build steps as cacheable and to specify a time-to-live for the cached artifact. That way we can capture that as a customized base image that we can start from for your future builds until you change the configuration for those steps, upload new assets that require a rebuild, or allow the cached artifact to time out.
-
 ## "Secrets" Service
 **Github Issue:**  
 **Status:**
@@ -135,6 +129,11 @@ One of the Open Source users of Probo would like Probo to work alongside [Ranche
 
 # Recently Completed Roadmap Items
 
+## Cached Build Steps
+**Github Issue:**  
+**Status:** Currently running in private beta. If you're a Probo Silver plan customer or higher and want to try it out, <a href="mailto:probo-support@probo.ci">send us an email.
+
+Some of projects have time consuming and computationally expensive steps necessary to bootstrap their environments. We know first hand how frustrating it can be to kick off a new build and have to wait for some package to install or some database to import before you can get to the new and different part of this particular build. We are planning an exciting feature that would allow you to mark build steps as cacheable and to specify a time-to-live for the cached artifact. That way we can capture that as a customized base image that we can start from for your future builds until you change the configuration for those steps, upload new assets that require a rebuild, or allow the cached artifact to time out.
 ## Run Probo on Probo / Open Source Probo in a Container
 **Github Link:** https://github.com/ElusiveMind/probo-docker   
 **Status:**  Now available  
