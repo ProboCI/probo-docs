@@ -75,7 +75,7 @@ steps:
 
 Probo Assets are not available directly through the Build URL, but a step can be added to the `.probo.yaml` file to copy a Probo Asset file to a location accessible through the Probo Build URL.
 
-Below is an example of a Probo Build step in the `.probo.yaml` file that copys the Probo Asset, `asset.txt`, to the docroot of the Build URL site. This will allow the `asset.txt` file to be viewed or downloaded when viewing the Probo Build URL with that file path.
+Below is an example of a Probo Build step in the `.probo.yaml` file that copies the Probo Asset, `asset.txt`, to the docroot of the Build URL site. This will allow the `asset.txt` file to be viewed or downloaded when viewing the Probo Build URL with that file path.
 
 {% highlight yaml%}
 assets:
