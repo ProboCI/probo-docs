@@ -28,20 +28,3 @@ basicAuth:
   username: foo
   password: bar
 {% endhighlight %}
-
-## Modify PHP Environment Options in a Build
-Probo builds have their own isolated `php.ini` files. Specific PHP options for your build can be modified using the `phpIniOptions` configuration option in  your `.probo.yaml` file. The `phpIniOptions` configuration option must be paired with a LAMPApp compatible [Probo Plugin](https://docs.probo.ci/plugins/) to set specific PHP settings within the plugin's steps. 
-
-See below for an example YAML config that sets custom `upload_max_filesize`, `post_max_size`, and `memory_limit` PHP settings values for a Probo Build using the [Probo LAMPApp plugin](/plugins/lamp-plugin/).
-
-{% highlight yaml %}
-steps:
-  - name: LAMPApp site configuration example.
-    plugin: LAMPApp
-    databaseName: example
-    databaseUser: example
-    phpIniOptions:
-      upload_max_filesize: 25M
-      post_max_size: 25M
-      memory_limit: 256M
-{% endhighlight %}
