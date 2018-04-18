@@ -5,8 +5,9 @@ class: documentation
 permalink: /plugins/drupal-plugin/
 published: true
 ---
-The Drupal plugin provides an easy way for you to configure your Drupal build and to save you some shell scripting. To use the Drupal plugin you must declare `plugin: Drupal` in your `.probo.yaml` file. The plugin's parameters can automate your Drupal build by reverting features, running database updates, clearing caches, or performing other build configuration steps.
+The Probo Drupal plugin provides an easy way to set Drupal site configuration options in a Probo Build to quickly integrate a Drupal website's repository. To use the Probo Drupal plugin you must declare `plugin: Drupal` in your `.probo.yaml` file. The Drupal plugin's parameters can automate some steps specific to Drupal such as reverting features, running database updates, clearing caches, or performing other build configuration steps. 
 
+The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) configuration options. This allows additional Probo Build steps in your `.probo.yaml` file to layer additional LAMP configuration options and commands on top of the Drupal site specific configuration.
 
 ## Directory Configuration
 
@@ -27,7 +28,7 @@ The Drupal plugin provides an easy way for you to configure your Drupal build an
 | `databaseGzipped`       |Whether the database was sent gzipped and whether it should therefore be gunzipped before                               importing. Accepts a **boolean** value.                                         |
 | `databaseBzipped`       |Whether the database was sent bzipped and whether it should therefore be bunzipped before                               importing. Accepts a **boolean** value.                                         |
 
-## Settings Options
+## Settings.php Options
 
 {: .table .table-striped .table-bordered}
 |-------------------------|-------------------------------------|
