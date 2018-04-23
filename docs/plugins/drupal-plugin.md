@@ -7,7 +7,7 @@ published: true
 ---
 The Probo Drupal plugin provides an easy way to set Drupal site configuration options in a Probo Build, and quickly integrate a Drupal website's repository. To use the Probo Drupal plugin you must declare `plugin: Drupal` in your `.probo.yaml` file. The Drupal plugin's parameters can automate some steps specific to Drupal such as reverting features, running database updates, clearing caches, or performing other build configuration steps. 
 
-The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) configuration options. This allows additional Probo Build steps in your `.probo.yaml` file to layer additional LAMP configuration options and commands on top of the Drupal site specific configuration.
+The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) configuration options. This allows additional Probo Build steps in your `.probo.yaml` file to layer LAMP configuration options and commands on top of the Drupal site specific configuration.
 
 ## Directory Configuration
 
