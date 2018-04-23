@@ -9,6 +9,8 @@ The Probo Drupal plugin provides an easy way to set Drupal site configuration op
 
 The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) configuration options. This allows additional Probo Build steps in your `.probo.yaml` file to layer LAMP configuration options and commands on top of the Drupal site specific configuration.
 
+See the <a href="#drupal-plugin-examples" title="Probo Drupal Plugin Examples">Probo Drupal Plugin Examples</a> section below for YAML config examples specific to Drupal.
+
 ## Directory Configuration
 
 {: .table .table-striped .table-bordered}
@@ -44,7 +46,7 @@ The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) 
 | `clearCaches`         |Whether to clear all caches using `drush cc all` after the build is finished. Your Drupal site must be version 7 or older to use this option. Defaults to                                           true. Accepts a **boolean** value.                                                 |
 | `revertFeatures`      |Whether to revert features using `drush fra` after the build is finished. To use this option, your site must have the [Features module](https://www.drupal.org/project/features) installed. Accepts a                             **boolean** value.                                                                        |
 
-## Examples
+<h2 id="drupal-plugin-examples">Probo Drupal Plugin Examples</h2>
 
 **Using the `Drupal` plugin**
 
@@ -58,6 +60,14 @@ The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) 
 
 {% for recipe in site.recipes %}
 {% if recipe.uid == 'drupal_settings_option' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
+
+**Setting `LAMPApp` PHP Configuration Options on a Drupal Installation**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_set_php_config_on_drupal' %}
   {{ recipe.content }}
 {% endif %}
 {% endfor %}
