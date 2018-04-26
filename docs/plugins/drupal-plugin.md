@@ -7,7 +7,6 @@ published: true
 ---
 The Drupal plugin provides an easy way for you to configure your Drupal build and to save you some shell scripting. To use the Drupal plugin you must declare `plugin: Drupal` in your `.probo.yaml` file. The plugin's parameters can automate your Drupal build by reverting features, running database updates, clearing caches, or performing other build configuration steps.
 
-
 ## Directory Configuration
 
 {: .table .table-striped .table-bordered}

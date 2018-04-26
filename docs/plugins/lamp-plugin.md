@@ -5,9 +5,9 @@ class: documentation
 permalink: /plugins/lamp-plugin/
 published: true
 ---
-Probo provides LAMP (Linux, Apache, MySQL, and PHP) stack configuration options to make it easier to set up your `.probo.yaml` file to mimic your production environment. To use the LAMP plugin you must declare `plugin: LAMPApp` in your `.probo.yaml` file, or add these options to one of the other available LAMP based Probo plugins.
+Probo provides LAMP (Linux, Apache, MySQL, and PHP) stack configuration options to make it easier to set up your `.probo.yaml` file to mimic your production environment. To use the Probo LAMP plugin you must declare `plugin: LAMPApp` in your `.probo.yaml` file, or add these options to one of the other available LAMP based Probo plugins.
 
-The Probo [Drupal plugin](/plugins/drupal-plugin/), [WordPress plugin](/plugins/wordpress-plugin/), and other LAMP based Probo plugins inherit these options. This allows for these configuration options to be easily used in conjunction with those plugins.
+The [Probo Drupal plugin](/plugins/drupal-plugin/), [Probo WordPress plugin](/plugins/wordpress-plugin/), and other LAMP based Probo plugins inherit these options. This allows for these configuration options to be easily used in conjunction with those plugins.
 
 ## Database Configuration
 
@@ -20,6 +20,10 @@ The Probo [Drupal plugin](/plugins/drupal-plugin/), [WordPress plugin](/plugins/
 | `databaseBzipped` | Whether the database was sent bzipped and whether it should therefore be bunzipped before importing. Accepts a **boolean** value. |
 
 ## PHP Configuration
+
+Probo builds have their own isolated `php.ini` files. Specific PHP options for your build can be modified using the `phpIniOptions` configuration option in  your `.probo.yaml` file. The `phpIniOptions` configuration option must be paired with a LAMPApp compatible [Probo Plugin](https://docs.probo.ci/plugins/) to set specific PHP settings within the plugin's steps.
+
+See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo LAMP Plugin Examples</a> section below for YAML config examples that set custom `upload_max_filesize`, `post_max_size`, and `memory_limit` PHP settings values for a Probo Build using the Probo LAMPApp plugin, and [Probo Drupal plugin](/plugins/drupal-plugin/).
 
 {: .table .table-striped .table-bordered}
 |---------|----------------------------|
@@ -42,7 +46,7 @@ The Probo [Drupal plugin](/plugins/drupal-plugin/), [WordPress plugin](/plugins/
 | `cliDefines` | A hash of defines, such as {define1: 'define1Value', define2: 'define2Value',}. Accepts a **hash** value. |
 | `installPackages` | An array of additional packages to install. Accepts an **array** value. |
 
-## Examples
+<h2 id="lamp-plugin-examples">Probo LAMP Plugin Examples</h2>
 
 **Note:** The `LAMPApp` plugin options are inherited by the Probo Drupal, Wordpress, and other Probo plugins.
 
@@ -50,6 +54,14 @@ The Probo [Drupal plugin](/plugins/drupal-plugin/), [WordPress plugin](/plugins/
 
 {% for recipe in site.recipes %}
 {% if recipe.uid == 'lamp_test_phpmysql_app' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
+
+**Setting `LAMPApp` PHP Configuration Options**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_set_php_config' %}
   {{ recipe.content }}
 {% endif %}
 {% endfor %}
