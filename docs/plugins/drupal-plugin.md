@@ -5,7 +5,11 @@ class: documentation
 permalink: /plugins/drupal-plugin/
 published: true
 ---
-The Drupal plugin provides an easy way for you to configure your Drupal build and to save you some shell scripting. To use the Drupal plugin you must declare `plugin: Drupal` in your `.probo.yaml` file. The plugin's parameters can automate your Drupal build by reverting features, running database updates, clearing caches, or performing other build configuration steps.
+The Probo Drupal plugin provides an easy way to set Drupal site configuration options in a Probo Build and quickly integrate a Drupal website's repository. To use the Probo Drupal plugin you must declare `plugin: Drupal` in your `.probo.yaml` file. The Drupal plugin's parameters can automate some steps specific to Drupal such as reverting features, running database updates, clearing caches, or performing other build configuration steps. 
+
+The Probo Drupal plugin inherits all [Probo LAMP plugin](/plugins/lamp-plugin/) configuration options. This allows additional Probo Build steps in your `.probo.yaml` file to layer LAMP configuration options and commands on top of the Drupal site specific configuration.
+
+See the <a href="#drupal-plugin-examples" title="Probo Drupal Plugin Examples">Probo Drupal Plugin Examples</a> section below for YAML config examples specific to Drupal.
 
 ## Directory Configuration
 
@@ -26,7 +30,7 @@ The Drupal plugin provides an easy way for you to configure your Drupal build an
 | `databaseGzipped`       |Whether the database was sent gzipped and whether it should therefore be gunzipped before                               importing. Accepts a **boolean** value.                                         |
 | `databaseBzipped`       |Whether the database was sent bzipped and whether it should therefore be bunzipped before                               importing. Accepts a **boolean** value.                                         |
 
-## Settings Options
+## Settings.php Options
 
 {: .table .table-striped .table-bordered}
 |-------------------------|-------------------------------------|
@@ -42,7 +46,7 @@ The Drupal plugin provides an easy way for you to configure your Drupal build an
 | `clearCaches`         |Whether to clear all caches using `drush cc all` after the build is finished. Your Drupal site must be version 7 or older to use this option. Defaults to                                           true. Accepts a **boolean** value.                                                 |
 | `revertFeatures`      |Whether to revert features using `drush fra` after the build is finished. To use this option, your site must have the [Features module](https://www.drupal.org/project/features) installed. Accepts a                             **boolean** value.                                                                        |
 
-## Examples
+<h2 id="drupal-plugin-examples">Probo Drupal Plugin Examples</h2>
 
 **Using the `Drupal` plugin**
 
@@ -56,6 +60,14 @@ The Drupal plugin provides an easy way for you to configure your Drupal build an
 
 {% for recipe in site.recipes %}
 {% if recipe.uid == 'drupal_settings_option' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
+
+**Setting `LAMPApp` PHP Configuration Options on a Drupal Installation**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_set_php_config_on_drupal' %}
   {{ recipe.content }}
 {% endif %}
 {% endfor %}
