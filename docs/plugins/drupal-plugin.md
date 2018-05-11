@@ -47,6 +47,7 @@ See the <a href="#drupal-plugin-examples" title="Probo Drupal Plugin Examples">P
 | `databaseUpdates`     |Determines whether to run `drush updb` after the build is finished. Accepts a                                  **boolean** value.                                                                         |
 | `clearCaches`         |Whether to clear all caches using `drush cc all` after the build is finished. Your Drupal site must be version 7 or older to use this option. Defaults to                                           true. Accepts a **boolean** value.                                                 |
 | `revertFeatures`      |Whether to revert features using `drush fra` after the build is finished. To use this option, your site must have the [Features module](https://www.drupal.org/project/features) installed. Accepts a                             **boolean** value.                                                                        |
+|  `fileProxy`          |Installs and enables the `stage_file_proxy` module to retrieve site files from another instance of the site such as production or development. Enter the protocol and fully qualified domain here, as in "https://example.com". Accepts a **string** value.                                      |
 
 <h2 id="drupal-plugin-examples">Probo Drupal Plugin Examples</h2>
 
