@@ -16,6 +16,8 @@ See the <a href="#drupal-plugin-examples" title="Probo Drupal Plugin Examples">P
 {: .table .table-striped .table-bordered}
 |-------------------------|-------------------------------------|
 |`makeFile`               | The name of the [Drush make file](http://www.drush.org/en/master/make/) to run to generate                             the install directory. Accepts a **string** value.                             |
+|`makeForceComplete`      | Whether to use the `--force-complete` option for drush `make`. Defaults to `true`. Accepts a **boolean** value. |
+|`makeArgs`               | A set of parameters to concatenate onto the drush `make` command. Accepts an **array** value. |
 |`profileName`            | The profile name used in creating a symlink to this directory if a Drush make file is                                  specified with the `makeFile` option and used to select the profile to install if the `runInstall`                             option is selected. Accepts a **string** value.                                |
 |`runInstall`             | If set, run `drush site-install` to perform a fresh install of the site using the                                      `profileName` as the install profile and allowing the `installArgs` option to configure the                                    install. Accepts a **boolean** value.                                            |
 |`installArgs`            | A set of parameters to concatenate onto the `drush site-install` command if the                                        `runInstall` option is set. Defaults to ''. Accepts a **string** value. |
