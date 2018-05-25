@@ -22,8 +22,3 @@ steps:
     script:
       - cd $SRC_DIR
       - bundle install --path vendor/bundle
-  - name: Build Jekyll site
-    plugin: Script
-    script:
-      - locale-gen en_US.UTF-8
-      - LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 bundle exec jekyll build --destination=/var/www/html
