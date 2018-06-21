@@ -16,51 +16,40 @@ We have pre-built several different flavors of Probo Docker images for you to ch
 
     image: proboci/ubuntu-14.04-lamp:php-7.1
 
-The example above would use Ubuntu 14.04 with LAMP and our PHP 7.1 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image.
+The example above would use the Docker image we have built on Ubuntu 14.04 LTS with LAMP and our PHP 7.1 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
 
-**Please note:** Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo build.
+**Please note:** Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo Build.
 
 ### Stable Probo Images
 
-All of the Stable Probo Docker Images, which can be found on the Probo.CI Docker hub below have been built specifically for Probo Builds and are known good configurations that we do not change without advanced notice to ensure existing builds are not affected.
+The following image tags are the currently approved Stable Probo Images. Make sure to choose one of the images below or your Probo Build will not start properly. The images below have been built specifically for use in Probo Builds and have known good configurations for installed packages and software. We will put out advanced notice if we are going to make changes to these images that may affect existing builds.
+
+**Note:** We plan to make quarterly updates to our Stable Probo Images based on our Beta Probo Images that are planned to be released monthly.
 
 #### Ubuntu 14.04 LAMP
 
 {: .table .table-striped .table-bordered}
 | Image | Ubuntu | Apache | MySQL | PHP |
 |-------------------------|-------------|
-| `proboci/ubuntu-14.04-lamp (default)` | 14.04.5 | 2.4.7 |  5.5.47 | 5.5.9 |
-| `proboci/ubuntu-14.04-lamp:php-5.6` | 14.04.5 | 2.4.7 | 5.5.54 | 5.6.30 |
-| `proboci/ubuntu-14.04-lamp:php-7.0` | 14.04.5 | 2.4.7 | 5.5.54 | 7.0.16 |
-| `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 | 2.4.7 | 5.5.54 | 7.1.2 |
-
-### Nightly Probo Images
-
-The Nightly Probo Docker Images below are updated with the latest versions of the Installed Software and Tools listed below this section when the images are rebuilt. We plan to have these updating on a true nightly schedule in the near future, but for now they are being built manually and tested before pushing up to the docker hub and pulling down to the Production Probo server.
-
-#### Ubuntu 14.04 LAMP
-
-{: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu-14.04-lamp:php5.6-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 5.6.x (latest) |
-| `proboci/ubuntu-14.04-lamp:php7.0-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 7.0.x (latest) |
-| `proboci/ubuntu-14.04-lamp:php7.1-nightly` | 14.04.5 (latest) | 2.4.7 | 5.5.x (latest) | 7.1.x (latest) |
+| `proboci/ubuntu-14.04-lamp:php-5.5` | 14.04.5 LTS | 2.4.7 |  5.5.47 | 5.5.9 |
+| `proboci/ubuntu-14.04-lamp:php-5.6 (default)` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 5.6.30 |
+| `proboci/ubuntu-14.04-lamp:php-7.0` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.0.16 |
+| `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.1.2 |
 
 #### Ubuntu 16.04 LAMP
 
 {: .table .table-striped .table-bordered}
 | Image | Ubuntu | Apache | MySQL | PHP |
 |-------------------------|-------------|
-| `proboci/ubuntu-16.04-lamp:php7.0-nightly` | 16.04.3 (latest) | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
-| `proboci/ubuntu-16.04-lamp:php7.1-nightly` | 16.04.3 (latest) | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
-| `proboci/ubuntu-16.04-lamp:php7.2-nightly` | 16.04.3 (latest) | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
+| `proboci/ubuntu-16.04-lamp:php-7.0` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
+| `proboci/ubuntu-16.04-lamp:php-7.1` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
+| `proboci/ubuntu-16.04-lamp:php-7.2` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
 
-### Installed Software and Tools
+#### Installed Software and Tools
 
-The Probo Docker Images have the following software packages and development tools installed. **Note:** Some packages are currently only available in our newer `-nightly` tagged images above. Those packages will be labeled with (Nightly) below.
+All Stable Probo Docker Images have the following software packages and development tools installed.
 
-- bower (Nightly)
+- bower
 - bundler
 - compass
 - composer
@@ -68,9 +57,10 @@ The Probo Docker Images have the following software packages and development too
 - drupal console
 - drush
 - git
-- google-chrome-stable (Nightly)
-- grunt-cli (Nightly)
-- gulp-cli (Nightly)
+- google-chrome-stable
+- grunt-cli
+- gulp-cli
+- lighthouse
 - memcached
 - nodejs
 - ntp
@@ -78,8 +68,9 @@ The Probo Docker Images have the following software packages and development too
 - redis-server
 - ruby
 - solr
+- varnish
 - wget
 - wp-cli
-- yarn (Nightly)
+- yarn
 
-Please [let us know](https://probo.ci/contact/) if you would like to see additional software packages or development tools that your team uses added to the Probo Docker images.
+You can install pretty much anything you need to during the Probo Build process, but we try to include as many helpful tools that make sense for most of our users. Please [let us know](https://probo.ci/contact/) if you would like to see additional software packages or development tools that your team uses often added to the Probo Docker images.
