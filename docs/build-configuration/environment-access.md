@@ -1,12 +1,13 @@
 ---
 layout: "docs"
-title: Environment Configuration
+title: Environment Access
 class: documentation
-permalink: /build/environment-configuration/
+permalink: /build/environment-access/
+redirect_from: /build/environment-configuration/
 published: true
 ---
 
-You have access to certain environment options while configuring your Probo builds. These options are set as top level keys, on the same level as `image:`, `assets:`, or `steps:` in your `probo.yaml` file.
+Certain environment options allow configuring access to your Probo builds. These options are set as top level keys, on the same level as `image:`, `assets:`, or `steps:` in your `probo.yaml` file.
 
 
 ## Allow Environment Access While Building
