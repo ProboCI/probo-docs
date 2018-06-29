@@ -63,32 +63,32 @@
       text: Using the Probo App
       url: /app
       children:
-        - title: The Probo Dashboard
+        - title: The Probo.CI Dashboard
           url: /dashboard
-          text: The Dashboard
-        - title: Probo Organization Pages
+          text: The Probo.CI Dashboard
+        - title: Probo.CI Organization Pages
           url: /organizations
-          text: Organization Pages
-        - title: Probo Project Pages
+          text: Probo.CI Organization Pages
+        - title: Probo.CI Project Pages
           url: /projects
-          text: Project Pages
-        - title: Probo Build Pages
+          text: Probo.CI Project Pages
+        - title: Probo.CI Build Pages
           url: /builds
-          text: Build Pages
-        - title: Probo Admins Page
+          text: Probo.CI Build Pages
+        - title: Probo.CI Admins Page
           url: /admins
-          text: Admins Page
-        - title: Probo Subscription Page
+          text: Probo.CI Admins Page
+        - title: Probo.CI Subscription Page
           url: /subscription
-          text: Subscription Page
+          text: Probo.CI Subscription Page
 
     - title: .probo.yaml Configuration Recipes
       url: /recipes
       text: Probo Recipes
 
-    - title: Probo Build Reaper
+    - title: Probo's Reaper
       url: /reaper
-      text: Probo Reaper
+      text: Probo's Reaper
 
     - title: Probo Build Integrations
       text: Probo Integrations
@@ -110,7 +110,7 @@
           url: /acquia-blt
           text: Acquia BLT
 
-    - title: Using Drupal with Probo.CI
+    - title: Using Drupal with Probo
       text: Using Drupal with Probo
       url: /drupal
       children:
@@ -185,7 +185,7 @@
       text: Probo Roadmap
       url: /roadmap
 
-- title: Contact Probo.CI
+- title: Contact Probo
   url: http://probo.ci/contact
   text: Contact
   secondary: contact
