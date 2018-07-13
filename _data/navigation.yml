@@ -14,143 +14,143 @@
       text: Build Configuration
       url: /build
       children:
-        - title: Configuration File
+        - title: Configure a .probo.yaml File
           url: /configuration
-          text: Configuration File
-        - title: Assets
+          text: Configuring .probo.yaml
+        - title: Probo Build Assets
           url: /assets
-          text: Assets
-        - title: Build Steps
+          text: Build Assets
+        - title: Probo Build Steps
           url: /steps
           text: Build Steps
-        - title: Environment Variables
+        - title: Probo Build Environment Variables
           url: /environment-variables
           text: Environment Variables
-        - title: Docker Images
+        - title: Docker Images Approved for Probo Builds
           url: /images
           text: Docker Images
-        - title: Environment Configuration
-          url: /environment-configuration
-          text: Environment Configuration
-        - title: Validating Your Configuration File
+        - title: Probo Build Environment Access
+          url: /environment-access
+          text: Environment Access
+        - title: Validate Your .probo.yaml Configuration File
           url: /validate
-          text: Validating Your Configuration File
-        - title: Notifications
+          text: Validating .probo.yaml
+        - title: Probo Build Notifications
           url: /notifications
-          text: Notifications
+          text: Build Notifications
 
-    - title: Plugins
-      text: Plugins
+    - title: Probo Plugins
+      text: Probo Plugins
       url: /plugins
       children:
-        - title: Shell Plugin
+        - title: Probo Shell Plugin
           url: /shell-plugin
           text: Shell Plugin
-        - title: Script Plugin
+        - title: Probo Script Plugin
           url: /script-plugin
           text: Script Plugin
-        - title: LAMP Plugin
+        - title: Probo LAMP Plugin
           url: /lamp-plugin
           text: LAMP Plugin
-        - title: Drupal Plugin
+        - title: Probo Drupal Plugin
           url: /drupal-plugin
           text: Drupal Plugin
-        - title: WordPress Plugin
+        - title: Probo WordPress Plugin
           url: /wordpress-plugin
           text: WordPress Plugin
 
-    - title: Using the Probo App
+    - title: Using the Probo.CI App
       text: Using the Probo App
       url: /app
       children:
-        - title: The Dashboard
+        - title: The Probo.CI Dashboard
           url: /dashboard
-          text: The Dashboard
-        - title: Organization Pages
+          text: The Probo.CI Dashboard
+        - title: Probo.CI Organization Pages
           url: /organizations
-          text: Organization Pages
-        - title: Project Pages
+          text: Probo.CI Organization Pages
+        - title: Probo.CI Project Pages
           url: /projects
-          text: Project Pages
-        - title: Build Pages
+          text: Probo.CI Project Pages
+        - title: Probo.CI Build Pages
           url: /builds
-          text: Build Pages
-        - title: Admins Page
+          text: Probo.CI Build Pages
+        - title: Probo.CI Admins Page
           url: /admins
-          text: Admins Page
-        - title: Subscription Page
+          text: Probo.CI Admins Page
+        - title: Probo.CI Subscription Page
           url: /subscription
-          text: Subscription Page
+          text: Probo.CI Subscription Page
 
-    - title: Recipes
+    - title: .probo.yaml Configuration Recipes
       url: /recipes
-      text: Recipes
+      text: Probo Recipes
 
-    - title: Reaper
+    - title: Probo's Reaper
       url: /reaper
-      text: Reaper
+      text: Probo's Reaper
 
-    - title: Integrations
-      text: Integrations
+    - title: Probo Build Integrations
+      text: Probo Integrations
       url: /integrations
       children:
-        - title: GitHub Integration
+        - title: Probo GitHub Integration
           url: /github
           text: GitHub Integration
-        - title: Bitbucket Integration
+        - title: Probo Bitbucket Integration
           url: /bitbucket
           text: Bitbucket Integration
-        - title: Bitbucket Server Integration
+        - title: Probo Bitbucket Server Integration
           url: /bitbucket-server
           text: Bitbucket Server Integration
         - title: Using Probo on Your Pantheon Site
           url: /pantheon
           text: Using Probo on Your Pantheon Site
-        - title: Acquia BLT
+        - title: Probo Acquia BLT Integration
           url: /acquia-blt
           text: Acquia BLT
 
-    - title: Drupal
-      text: Drupal
+    - title: Using Drupal with Probo
+      text: Using Drupal with Probo
       url: /drupal
       children:
-        - title: Stage File Proxy
+        - title: Configure Stage File Proxy in Probo Builds
           url: /stage-file-proxy
           text: Stage File Proxy
-        - title: Apache Solr
+        - title: Configure Apache Solr in Probo Builds
           url: /solr
           text: Apache Solr
-        - title: Install Profile
+        - title: Use an Install Profile in Probo Builds
           url: /install-profile
           text: Install Profile
-        - title: Multisite
+        - title: Configure Drupal Multisite in Probo Builds
           url: /multisite
           text: Multisite
-    - title: Tutorials
-      text: Tutorials
+    - title: Probo Tutorials
+      text: Probo Tutorials
       url: /tutorials
       children:
-        - title: Drupal GitHub QuickStart
+        - title: Probo Drupal GitHub QuickStart
           url: /drupal-github-quickstart
           text: Drupal GitHub QuickStart
-        - title: Drupal Bitbucket QuickStart
+        - title: Probo Drupal Bitbucket QuickStart
           url: /drupal-bitbucket-quickstart
           text: Drupal Bitbucket QuickStart
-        - title: Drupal Install Profile QuickStart
+        - title: Probo Drupal Install Profile QuickStart
           url: /drupal-install-profile-quickstart
           text: Drupal Install Profile QuickStart
-        - title: Feature Branch Workflow
+        - title: Probo Feature Branch Workflow
           url: /workflow
           text: Feature Branch Workflow
-        - title: Wordpress Bitbucket QuickStart
+        - title: Probo Wordpress Bitbucket QuickStart
           url: /wordpress-bitbucket-quickstart
           text: Wordpress Bitbucket QuickStart
-        - title: Wordpress GitHub QuickStart
+        - title: Probo Wordpress GitHub QuickStart
           url: /wordpress-github-quickstart
           text: Wordpress GitHub QuickStart
 
-    - title: Open Source
-      text: Open Source
+    - title: Probo Open Source
+      text: Probo Open Source
       url: /open-source
       children:
         - title: Introduction
@@ -181,11 +181,11 @@
           text: Probo Reaper
           url: /reaper
 
-    - title: Roadmap
-      text: Roadmap
+    - title: Probo Features Roadmap
+      text: Probo Roadmap
       url: /roadmap
 
-- title: Contact
+- title: Contact Probo
   url: http://probo.ci/contact
   text: Contact
   secondary: contact
