@@ -27,6 +27,15 @@ Probo builds have their own isolated `php.ini` files. Specific PHP options for y
 
 See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo LAMP Plugin Examples</a> section below for YAML config examples that set custom `upload_max_filesize`, `post_max_size`, and `memory_limit` PHP settings values for a Probo Build using the Probo LAMPApp plugin, and [Probo Drupal plugin](/plugins/drupal-plugin/).
 
+### `phpIniOptions` {hash}
+A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value.
+
+### `phpConstants` {hash}
+A hash of constants, such as {const1: 'const1Value', const2: 'const2Value',}. This will overwrite any other auto_prepend_file directives in your php.ini. Accepts a **hash** value.
+
+### `phpMods` {array}
+An array of php5 modules to enable (should be installed via the `installPackages` option if needed). Accepts an **array** value.
+
 {: .table .table-striped .table-bordered}
 |---------|----------------------------|
 | `phpIniOptions` | A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value. |
@@ -47,6 +56,7 @@ See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo
 | `subDirectory` | The directory of the actual web root (defaults to 'docroot'). Accepts a **string** value. |
 | `cliDefines` | A hash of defines, such as {define1: 'define1Value', define2: 'define2Value',}. Accepts a **hash** value. |
 | `installPackages` | An array of additional packages to install. Accepts an **array** value. |
+| `varnish` | A hash of options to configure the Varnish HTTP cache. The options are `enabled`, a boolean that defaults to false and indicates whether or not to enable Varnish, and `pathToVcl`, a string that indicates the path to your Varnish configuration file relative to the container root.
 
 <h2 id="lamp-plugin-examples">Probo LAMP Plugin Examples</h2>
 
