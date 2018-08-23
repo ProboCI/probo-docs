@@ -27,15 +27,6 @@ Probo builds have their own isolated `php.ini` files. Specific PHP options for y
 
 See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo LAMP Plugin Examples</a> section below for YAML config examples that set custom `upload_max_filesize`, `post_max_size`, and `memory_limit` PHP settings values for a Probo Build using the Probo LAMPApp plugin, and [Probo Drupal plugin](/plugins/drupal-plugin/).
 
-### `phpIniOptions` {hash}
-A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value.
-
-### `phpConstants` {hash}
-A hash of constants, such as {const1: 'const1Value', const2: 'const2Value',}. This will overwrite any other auto_prepend_file directives in your php.ini. Accepts a **hash** value.
-
-### `phpMods` {array}
-An array of php5 modules to enable (should be installed via the `installPackages` option if needed). Accepts an **array** value.
-
 {: .table .table-striped .table-bordered}
 |---------|----------------------------|
 | `phpIniOptions` | A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value. |
