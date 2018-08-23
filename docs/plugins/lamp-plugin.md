@@ -76,3 +76,11 @@ See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo
   {{ recipe.content }}
 {% endif %}
 {% endfor %}
+
+**Setting `LAMPApp` Varnish Configuration Options**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_set_varnish_config' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
