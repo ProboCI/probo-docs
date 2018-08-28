@@ -1,5 +1,5 @@
 ---
-title: Using the LAMPApp Plugin to Test a PHP/MySQL Based Application
+title: Using the LAMPApp Plugin for a PHP/MySQL Based Application
 uid: lamp_test_phpmysql_app
 ---
 
@@ -13,4 +13,7 @@ steps:
     databaseName: mydb
     databaseUser: mydbuser
     databaseGzipped: true
+    mysqlCnfOptions:
+      key_buffer_size: 16M
+      max_allowed_packet: 128M
 {% endhighlight %}

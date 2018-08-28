@@ -18,6 +18,8 @@ The [Probo Drupal plugin](/plugins/drupal-plugin/), [Probo WordPress plugin](/pl
 | `databaseUser` | The username of the database to use. Accepts a **string** value. |
 | `databaseGzipped` | Whether the database was sent gzipped and whether it should therefore be gunzipped before importing. Accepts a **boolean** value. |
 | `databaseBzipped` | Whether the database was sent bzipped and whether it should therefore be bunzipped before importing. Accepts a **boolean** value. |
+| `mysqlCnfOptions` | A hash of MySQL configuration options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value. |
+| `restartMysql` | Whether to restart MySQL. If `mysqlCnfOptions` is set, MySQL will be restarted automatically, so you probably won't need to use this. Accepts a **boolean** value. |
 
 ## PHP Configuration
 
@@ -29,7 +31,7 @@ See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo
 |---------|----------------------------|
 | `phpIniOptions` | A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value. |
 | `phpConstants` | A hash of constants, such as {const1: 'const1Value', const2: 'const2Value',}. This will overwrite any other auto_prepend_file directives in your php.ini. Accepts a **hash** value. |
-| `phpMods` | An array of php5 modules to enable (should be installed via installPackages if needed). Accepts an **array** value. |
+| `phpMods` | An array of php5 modules to enable (should be installed via the `installPackages` option if needed). Accepts an **array** value. |
 
 ## Apache Configuration
 
@@ -45,6 +47,7 @@ See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo
 | `subDirectory` | The directory of the actual web root (defaults to 'docroot'). Accepts a **string** value. |
 | `cliDefines` | A hash of defines, such as {define1: 'define1Value', define2: 'define2Value',}. Accepts a **hash** value. |
 | `installPackages` | An array of additional packages to install. Accepts an **array** value. |
+| `varnish` | A hash of options to configure the Varnish HTTP cache. The options are `enabled`, a boolean that defaults to false and indicates whether or not to enable Varnish, and `pathToVcl`, a string that indicates the path to your Varnish configuration file relative to the container root.
 
 <h2 id="lamp-plugin-examples">Probo LAMP Plugin Examples</h2>
 
@@ -70,6 +73,14 @@ See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo
 
 {% for recipe in site.recipes %}
 {% if recipe.uid == 'lamp_set_php_config_on_drupal' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
+
+**Setting `LAMPApp` Varnish Configuration Options**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'lamp_set_varnish_config' %}
   {{ recipe.content }}
 {% endif %}
 {% endfor %}
