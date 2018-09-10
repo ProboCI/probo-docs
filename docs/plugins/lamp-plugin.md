@@ -83,7 +83,7 @@ Whether the database was sent bzipped and whether it should therefore be bunzipp
 
 {% option %}
 ### `mysqlCnfOptions` {hash}
-A hash of MySQL configuration options, such as {option1: 'option1Value', option2: 'option2Value',}.
+A hash of MySQL configuration options.
 
 {% details Example %}
   {% highlight yaml%}
@@ -114,24 +114,31 @@ Whether to restart MySQL. If `mysqlCnfOptions` is set, MySQL will be restarted a
 
 ## PHP Configuration
 
-Probo builds have their own isolated `php.ini` files. Specific PHP options for your build can be modified using the `phpIniOptions` configuration option in  your `.probo.yaml` file. The `phpIniOptions` configuration option must be paired with a LAMPApp compatible [Probo Plugin](https://docs.probo.ci/plugins/) to set specific PHP settings within the plugin's steps.
-
-See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo LAMP Plugin Examples</a> section below for YAML config examples that set custom `upload_max_filesize`, `post_max_size`, and `memory_limit` PHP settings values for a Probo Build using the Probo LAMPApp plugin, and [Probo Drupal plugin](/plugins/drupal-plugin/).
-
 {% option_list %}
 {% option %}
 ### `phpIniOptions` {hash}
-A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}.
+Probo builds have their own isolated `php.ini` files. Specific PHP options for your build can be modified using the this configuration option.
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Configure PHP
+      plugin: LAMPApp
+      phpIniOptions:
+        upload_max_filesize: 25M
+        post_max_size: 25M
+        memory_limit: 256M
+  {% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
 ### `phpConstants` {hash}
-A hash of constants, such as {const1: 'const1Value', const2: 'const2Value',}. This will overwrite any other auto_prepend_file directives in your php.ini.
+A hash of PHP constants. This will overwrite any other `auto_prepend_file` directives in your php.ini.
 {% endoption %}
 
 {% option %}
 ### `phpMods` {array}
-An array of php5 modules to enable (should be installed via the `installPackages` option if needed).
+An array of PHP 5 modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
 {% endoption %}
 {% endoption_list %}
 
@@ -140,12 +147,20 @@ An array of php5 modules to enable (should be installed via the `installPackages
 {% option_list %}
 {% option %}
 ### `apacheMods` {array}
-An array of apache modules to enable (should be installed via installPackages if needed).
+An array of Apache modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
 {% endoption %}
 
 {% option %}
 ### `restartApache` {boolean}
-Whether to restart Apache. If phpIniOptions, phpConstants, phpMods, or apacheMods are set, Apache will be restarted automatically, so you probably won't need to use this.
+Whether to restart Apache. If `phpIniOptions`, `phpConstants`, `phpMods`, or `apacheMods` are set, Apache will be restarted automatically, so you probably won't need to use this.
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Restart Apache
+      plugin: LAMPApp
+      restartApache: true
+  {% endhighlight %}
+{% enddetails %}
 {% endoption %}
 {% endoption_list %}
 
@@ -155,27 +170,47 @@ Whether to restart Apache. If phpIniOptions, phpConstants, phpMods, or apacheMod
 {% option %}
 ### `subDirectory` {string}
 The directory of the actual web root (defaults to 'docroot').
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Configure web root
+      plugin: LAMPApp
+      subDirectory: $SRC_DIR/web
+  {% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
 ### `cliDefines` {hash}
-A hash of defines, such as {define1: 'define1Value', define2: 'define2Value',}.
+A hash of defines.
 {% endoption %}
 
 {% option %}
 ### `installPackages` {array}
-An array of additional packages to install.
+An array of packages to install in addition to those that come with the [Docker image](/build/images).
 {% endoption %}
 
 {% option %}
 ### `varnish` {hash}
-A hash of options to configure the Varnish HTTP cache. The options are `enabled`, a boolean that defaults to false and indicates whether or not to enable Varnish, and `pathToVcl`, a string that indicates the path to your Varnish configuration file relative to the container root.
+A hash of options to configure the Varnish HTTP cache.
+
+`enabled`: A boolean that indicates whether or not to enable Varnish. Defaults to false.
+
+`pathToVcl`: A string that indicates the path to your Varnish configuration file relative to the container root.
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Configure Varnish
+      plugin: LAMPApp
+      varnish:
+        enabled: true
+        pathToVcl: $SRC_DIR/config.vcl
+  {% endhighlight %}
+{% enddetails %}
 {% endoption %}
 {% endoption_list %}
 
 <h2 id="lamp-plugin-examples">Probo LAMP Plugin Examples</h2>
-
-**Note:** The `LAMPApp` plugin options are inherited by the Probo Drupal, Wordpress, and other Probo plugins.
 
 **Using the `LAMPApp` Plugin to Test a PHP/MySQL Based Application**
 
