@@ -7654,6 +7654,11 @@ figure {
           transform: rotate(-180deg);
 }
 
+.option-example .highlight {
+  margin-top: 1rem;
+  margin-bottom: -1.4rem;
+}
+
 /*!
 Chosen, a Select Box Enhancer for jQuery and Prototype
 by Patrick Filler for Harvest, http://getharvest.com
