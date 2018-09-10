@@ -3457,8 +3457,10 @@ body{
   -moz-osx-font-smoothing:grayscale; }
 
 .body-text{
-  font-family:"Martel", serif;
-  line-height:1.65; }
+  font-size:1.8rem;
+  font-family:"sofia-pro", sans-serif;
+  line-height:1.65;
+  font-weight:100; }
 
 a{
   color:#0055a4;
@@ -3698,34 +3700,34 @@ form textarea, .form__input--small{
   color:#7d7d7d;
   background-color:#f5f5f5;
   max-width:100%; }
-  .form__input:active, form input[type="text"]:active,
-  form input[type="email"]:active,
-  form input[type="date"]:active,
-  form input[type="datetime"]:active,
-  form input[type="datetime-local"]:active,
-  form input[type="month"]:active,
-  form input[type="number"]:active,
-  form input[type="range"]:active,
-  form input[type="search"]:active,
-  form input[type="tel"]:active,
-  form input[type="time"]:active,
-  form input[type="url"]:active,
-  form input[type="week"]:active,
-  form input[type="password"]:active,
-  form textarea:active, .form__input--small:active, .form__input:focus, form input[type="text"]:focus,
-  form input[type="email"]:focus,
-  form input[type="date"]:focus,
-  form input[type="datetime"]:focus,
-  form input[type="datetime-local"]:focus,
-  form input[type="month"]:focus,
-  form input[type="number"]:focus,
-  form input[type="range"]:focus,
-  form input[type="search"]:focus,
-  form input[type="tel"]:focus,
-  form input[type="time"]:focus,
-  form input[type="url"]:focus,
-  form input[type="week"]:focus,
-  form input[type="password"]:focus,
+  .form__input:active, form input:active[type="text"],
+  form input:active[type="email"],
+  form input:active[type="date"],
+  form input:active[type="datetime"],
+  form input:active[type="datetime-local"],
+  form input:active[type="month"],
+  form input:active[type="number"],
+  form input:active[type="range"],
+  form input:active[type="search"],
+  form input:active[type="tel"],
+  form input:active[type="time"],
+  form input:active[type="url"],
+  form input:active[type="week"],
+  form input:active[type="password"],
+  form textarea:active, .form__input--small:active, .form__input:focus, form input:focus[type="text"],
+  form input:focus[type="email"],
+  form input:focus[type="date"],
+  form input:focus[type="datetime"],
+  form input:focus[type="datetime-local"],
+  form input:focus[type="month"],
+  form input:focus[type="number"],
+  form input:focus[type="range"],
+  form input:focus[type="search"],
+  form input:focus[type="tel"],
+  form input:focus[type="time"],
+  form input:focus[type="url"],
+  form input:focus[type="week"],
+  form input:focus[type="password"],
   form textarea:focus, .form__input--small:focus{
     background-color:#f7f7f7;
     outline:none; }
@@ -4292,3 +4294,12 @@ select,
   font-family:sans-serif;
   color:#440027;
   padding:2px 0; }
+
+.striped-list{
+  padding-left:0;
+  list-style:none; }
+  .striped-list__item{
+    padding:3rem 1.5rem;
+    outline:1px solid #ebebeb; }
+    .striped-list__item:nth-of-type(even){
+      background-color:#f5f5f5; }

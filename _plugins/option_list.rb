@@ -6,7 +6,7 @@ module Jekyll
         site = context.registers[:site]
         converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
         content = converter.convert(super(context))
-        "<ul class=\"option-list\">#{content}</ul>"
+        "<ul class=\"striped-list\">#{content}</ul>"
       end
 
     end
