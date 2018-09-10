@@ -14,7 +14,7 @@ module Jekyll
         converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
         caption = converter.convert(@caption).gsub(/<\/?p[^>]*>/, '').chomp
         body = converter.convert(super(context))
-        "<details><summary class=\"button button--inverse button-sm\">#{caption}</summary>#{body}</details>"
+        "<details class=\"option-example\"><summary class=\"button button--inverse button-sm\">#{caption}<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i></summary>#{body}</details>"
       end
 
     end

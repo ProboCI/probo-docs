@@ -1,0 +1,19 @@
+.option-example {
+  > summary {
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  i {
+    margin-left: 1rem;
+  }
+
+  &[open] {
+    i {
+      transform: rotate(-180deg);
+    }
+  }
+}
