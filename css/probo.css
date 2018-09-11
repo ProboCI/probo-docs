@@ -3746,6 +3746,36 @@ form textarea, .form__input--small{
 .token-list__delete{
   color:#cf3e34; }
 
+.skip-link{
+  border:0;
+  clip:rect(0 0 0 0);
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+  width:1px;
+  font-size:2rem;
+  text-align:center;
+  display:block; }
+  .skip-link.focusable{
+    clip:auto;
+    height:auto;
+    margin:0;
+    overflow:visible;
+    position:static;
+    width:auto; }
+  .skip-link:focus{
+    clip:auto;
+    height:auto;
+    width:auto;
+    position:static;
+    overflow:auto;
+    position:absolute;
+    z-index:1;
+    background-color:#ffffff;
+    width:100%; }
+
 .progress-bar{
   height:21px; }
   .progress-bar__inner{
@@ -4112,21 +4142,7 @@ select,
 
 @media (min-width: 45.17647em){
   .main-menu{
-    border:0;
-    clip:rect(0 0 0 0);
-    height:1px;
-    margin:-1px;
-    overflow:hidden;
-    padding:0;
-    position:absolute;
-    width:1px; }
-    .main-menu.focusable{
-      clip:auto;
-      height:auto;
-      margin:0;
-      overflow:visible;
-      position:static;
-      width:auto; } }
+    display:none; } }
 
 .main-menu__body{
   position:fixed;
@@ -4177,23 +4193,6 @@ select,
   background-color:transparent;
   width:25px;
   height:20px; }
-  @media (min-width: 45.17647em){
-    .main-menu__toggle{
-      border:0;
-      clip:rect(0 0 0 0);
-      height:1px;
-      margin:-1px;
-      overflow:hidden;
-      padding:0;
-      position:absolute;
-      width:1px; }
-      .main-menu__toggle.focusable{
-        clip:auto;
-        height:auto;
-        margin:0;
-        overflow:visible;
-        position:static;
-        width:auto; } }
   .main-menu__toggle:focus, .main-menu__toggle:active, .main-menu__toggle:visited, .main-menu__toggle:hover{
     outline:none;
     background-image:none;
