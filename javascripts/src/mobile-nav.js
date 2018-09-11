@@ -28,7 +28,7 @@
     var self = this;
 
     this.children.each(function(i) {
-      var $toggler = $('<span class="js-toggle-children accordion-nav__toggle-children"><i class="fa fa-angle-down" aria-hidden="true"></i></span>');
+      var $toggler = $('<span class="js-toggle-children accordion-nav__toggle-children" tabindex=0><i class="fa fa-angle-down" aria-hidden="true"></i></span>');
 
       $(this).find('> a').after($toggler);
     });
@@ -42,6 +42,13 @@
       $(this).on('click', function(e) {
         e.preventDefault();
         self.toggleItem($thisToggler, $parentLi, $icon);
+      });
+
+      $(this).on('keydown', function(e) {
+        if (e.keyCode == 32 || e.keyCode == 13) {
+          e.preventDefault();
+          self.toggleItem($thisToggler, $parentLi, $icon);
+        }
       });
 
       var currentSection = window.location.pathname.split( '/' )[1];
