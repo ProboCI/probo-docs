@@ -22,3 +22,4 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('details', Jekyll::Tags::DetailsTag)
+ 
