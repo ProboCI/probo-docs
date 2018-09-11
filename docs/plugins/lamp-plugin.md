@@ -224,7 +224,7 @@ A hash of defines.
 
 {% option %}
 ### `installPackages` {array}
-An array of packages to install in addition to those that come with the [Docker image](/build/images).
+An array of packages to install in addition to those that come with the [Docker image](/build/images) in use.
 {% endoption %}
 
 {% option %}
@@ -247,7 +247,7 @@ A hash of options to configure the Varnish HTTP cache.
 {% endoption %}
 {% endoption_list %}
 
-<h2 id="lamp-plugin-examples">Probo LAMP Plugin Examples</h2>
+## Probo LAMP Plugin Example Recipes
 
 **Using the `LAMPApp` Plugin to Test a PHP/MySQL Based Application**
 
