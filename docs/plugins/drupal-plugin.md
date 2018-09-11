@@ -111,7 +111,53 @@ The path to your docroot if it is a subdirectory of your git repository.
   {% endhighlight %}
 {% enddetails %}
 {% endoption %}
+{% endoption_list %}
 
+## Database Configuration
+
+{% option_list %}
+{% option %}
+### `database` {string}
+The file name of the database to import if specified. Note that this database must be added to the assets array separately.
+{% details Example %}
+  {% highlight yaml%}
+  assets:
+    - mydb.sql.gz
+  steps:
+    - name: Import database
+      plugin: Drupal
+      database: mydb.sql.gz
+  {% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
+### `databaseGzipped` {boolean}
+Whether the database was sent gzipped and whether it should therefore be gunzipped before importing.
+
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Unzip database
+      plugin: Drupal
+      databaseGzipped: true
+  {% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
+### `databaseBzipped` {boolean}
+Whether the database was sent bzipped and whether it should therefore be bunzipped before importing.
+
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Unzip database
+      plugin: Drupal
+      databaseBzipped: true
+  {% endhighlight %}
+{% enddetails %}
+{% endoption %}
 {% endoption_list %}
 
 ## Settings.php Options
