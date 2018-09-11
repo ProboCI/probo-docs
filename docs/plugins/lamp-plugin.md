@@ -168,10 +168,6 @@ steps:
 {% enddetails %}
 {% endoption %}
 
-{% option %}
-### `phpMods` {array}
-An array of PHP 5 modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
-{% endoption %}
 {% endoption_list %}
 
 ## Apache Configuration
