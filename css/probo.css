@@ -3746,6 +3746,36 @@ form textarea, .form__input--small{
 .token-list__delete{
   color:#cf3e34; }
 
+.skip-link{
+  border:0;
+  clip:rect(0 0 0 0);
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+  width:1px;
+  font-size:2rem;
+  text-align:center;
+  display:block; }
+  .skip-link.focusable{
+    clip:auto;
+    height:auto;
+    margin:0;
+    overflow:visible;
+    position:static;
+    width:auto; }
+  .skip-link:focus{
+    clip:auto;
+    height:auto;
+    width:auto;
+    position:static;
+    overflow:auto;
+    position:absolute;
+    z-index:1;
+    background-color:#ffffff;
+    width:100%; }
+
 .progress-bar{
   height:21px; }
   .progress-bar__inner{
