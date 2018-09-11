@@ -7655,7 +7655,9 @@ figure {
 }
 
 .option-example .highlight {
-  margin-top: 1rem;
+  border: 1px solid #dedede;
+  box-shadow: inset 1px 1px 5px 0 #ebebeb;
+  margin-top: 1.4rem;
   margin-bottom: -1.4rem;
 }
 

@@ -18,9 +18,9 @@
   }
 
   .highlight {
-    // border: 1px dashed $probo-pale-darker;
-    // box-shadow: inset 1px 1px 5px 0 $probo-pale-dark;
-    margin-top: 1rem;
+    border: 1px solid darken($probo-pale-dark, 5%);
+    box-shadow: inset 1px 1px 5px 0 $probo-pale-dark;
+    margin-top: 1.4rem;
     margin-bottom: -1.4rem;
   }
 }
