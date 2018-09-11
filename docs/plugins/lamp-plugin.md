@@ -16,14 +16,14 @@ The [Probo Drupal plugin](/plugins/drupal-plugin/), [Probo WordPress plugin](/pl
 ### `database` {string}
 The file name of the database to import if specified. Note that this database must be added to the assets array separately.
 {% details Example %}
-  {% highlight yaml%}
-  assets:
-    - mydb.sql.gz
-  steps:
-    - name: Import database
-      plugin: LAMPApp
-      database: mydb.sql.gz
-  {% endhighlight %}
+{% highlight yaml%}
+assets:
+  - mydb.sql.gz
+steps:
+  - name: Import database
+    plugin: LAMPApp
+    database: mydb.sql.gz
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -31,12 +31,12 @@ The file name of the database to import if specified. Note that this database mu
 ### `databaseName` {string}
 The name of the database to use.
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Set database name
-      plugin: LAMPApp
-      databaseName: mydb
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Set database name
+    plugin: LAMPApp
+    databaseName: mydb
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -44,12 +44,12 @@ The name of the database to use.
 ### `databaseUser` {string}
 The username of the database to use.
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Set database user
-      plugin: LAMPApp
-      databaseUser: mydbuser
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Set database user
+    plugin: LAMPApp
+    databaseUser: mydbuser
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -58,12 +58,12 @@ The username of the database to use.
 Whether the database was sent gzipped and whether it should therefore be gunzipped before importing.
 
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Unzip database
-      plugin: LAMPApp
-      databaseGzipped: true
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Unzip database
+    plugin: LAMPApp
+    databaseGzipped: true
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -72,12 +72,12 @@ Whether the database was sent gzipped and whether it should therefore be gunzipp
 Whether the database was sent bzipped and whether it should therefore be bunzipped before importing.
 
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Unzip database
-      plugin: LAMPApp
-      databaseBzipped: true
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Unzip database
+    plugin: LAMPApp
+    databaseBzipped: true
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -86,14 +86,14 @@ Whether the database was sent bzipped and whether it should therefore be bunzipp
 A hash of MySQL configuration options.
 
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Set MySQL options
-      plugin: LAMPApp
-      mysqlCnfOptions:
-        key_buffer_size: 16M
-        max_allowed_packet: 128M
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Set MySQL options
+    plugin: LAMPApp
+    mysqlCnfOptions:
+      key_buffer_size: 16M
+      max_allowed_packet: 128M
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -102,12 +102,12 @@ A hash of MySQL configuration options.
 Whether to restart MySQL. If `mysqlCnfOptions` is set, MySQL will be restarted automatically, so you probably won't need to use this.
 
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Restart MySQL
-      plugin: LAMPApp
-      restartMysql: true
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Restart MySQL
+    plugin: LAMPApp
+    restartMysql: true
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 {% endoption_list %}
@@ -119,15 +119,15 @@ Whether to restart MySQL. If `mysqlCnfOptions` is set, MySQL will be restarted a
 ### `phpIniOptions` {hash}
 Probo builds have their own isolated `php.ini` files. Specific PHP options for your build can be modified using the this configuration option.
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Configure PHP
-      plugin: LAMPApp
-      phpIniOptions:
-        upload_max_filesize: 25M
-        post_max_size: 25M
-        memory_limit: 256M
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Configure PHP
+    plugin: LAMPApp
+    phpIniOptions:
+      upload_max_filesize: 25M
+      post_max_size: 25M
+      memory_limit: 256M
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -135,36 +135,36 @@ Probo builds have their own isolated `php.ini` files. Specific PHP options for y
 ### `phpConstants` {hash}
 Define a hash of PHP Constants and they will be available in any PHP script you run in your Probo Build. This setting will overwrite any other `auto_prepend_file` directives in your php.ini.
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Install Drupal 7
-      plugin: Drupal
-      runInstall: true
-      profileName: standard
-      clearCaches: false
-      subDirectory: docroot
-      phpConstants:
-        DEVUSER: Developer
-        EMAIL: dev@example.com
-        constant_1: example_1
-        CONSTANT_2: example_2
-        _constant_3: example_3
-        _CONSTANT_4: example_4
-    - name: Test defined constants.
-      plugin: Script
-      script: |
-        cat <<EOT >> /var/www/html/constants-example.php
-        <?php
-          echo DEVUSER;
-          echo EMAIL;
-          echo constant_1;
-          echo CONSTANT_2;
-          echo _constant_3;
-          echo _CONSTANT_4;
-        ?>
-        EOT
-        echo "View defined constants at $BUILD_DOMAIN/constants-example.php"
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Install Drupal 7
+    plugin: Drupal
+    runInstall: true
+    profileName: standard
+    clearCaches: false
+    subDirectory: docroot
+    phpConstants:
+      DEVUSER: Developer
+      EMAIL: dev@example.com
+      constant_1: example_1
+      CONSTANT_2: example_2
+      _constant_3: example_3
+      _CONSTANT_4: example_4
+  - name: Test defined constants.
+    plugin: Script
+    script: |
+      cat <<EOT >> /var/www/html/constants-example.php
+      <?php
+        echo DEVUSER;
+        echo EMAIL;
+        echo constant_1;
+        echo CONSTANT_2;
+        echo _constant_3;
+        echo _CONSTANT_4;
+      ?>
+      EOT
+      echo "View defined constants at $BUILD_DOMAIN/constants-example.php"
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -186,12 +186,12 @@ An array of Apache modules to enable (should be installed via [`installPackages`
 ### `restartApache` {boolean}
 Whether to restart Apache. If `phpIniOptions`, `phpConstants`, `phpMods`, or `apacheMods` are set, Apache will be restarted automatically, so you probably won't need to use this.
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Restart Apache
-      plugin: LAMPApp
-      restartApache: true
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Restart Apache
+    plugin: LAMPApp
+    restartApache: true
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 {% endoption_list %}
@@ -203,12 +203,12 @@ Whether to restart Apache. If `phpIniOptions`, `phpConstants`, `phpMods`, or `ap
 ### `subDirectory` {string}
 The directory of the actual web root (defaults to 'docroot').
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Configure web root
-      plugin: LAMPApp
-      subDirectory: $SRC_DIR/web
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Configure web root
+    plugin: LAMPApp
+    subDirectory: $SRC_DIR/web
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 
@@ -230,14 +230,14 @@ A hash of options to configure the Varnish HTTP cache.
 
 `pathToVcl`: A string that indicates the path to your Varnish configuration file relative to the container root.
 {% details Example %}
-  {% highlight yaml%}
-  steps:
-    - name: Configure Varnish
-      plugin: LAMPApp
-      varnish:
-        enabled: true
-        pathToVcl: $SRC_DIR/config.vcl
-  {% endhighlight %}
+{% highlight yaml%}
+steps:
+  - name: Configure Varnish
+    plugin: LAMPApp
+    varnish:
+      enabled: true
+      pathToVcl: $SRC_DIR/config.vcl
+{% endhighlight %}
 {% enddetails %}
 {% endoption %}
 {% endoption_list %}
