@@ -133,11 +133,6 @@ Probo builds have their own isolated `php.ini` files. Specific PHP options for y
 
 {% option %}
 ### `phpConstants` {hash}
-A hash of PHP constants. This will overwrite any other `auto_prepend_file` directives in your php.ini.
-{% endoption %}
-
-{% option %}
-### `phpConstants` {hash}
 Define a hash of PHP Constants and they will be available in any PHP script you run in your Probo Build. This setting will overwrite any other `auto_prepend_file` directives in your php.ini.
 {% details Example %}
   {% highlight yaml%}
