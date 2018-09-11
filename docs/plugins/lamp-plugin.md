@@ -137,6 +137,43 @@ A hash of PHP constants. This will overwrite any other `auto_prepend_file` direc
 {% endoption %}
 
 {% option %}
+### `phpConstants` {hash}
+Define a hash of PHP Constants and they will be available in any PHP script you run in your Probo Build. This setting will overwrite any other `auto_prepend_file` directives in your php.ini.
+{% details Example %}
+  {% highlight yaml%}
+  steps:
+    - name: Install Drupal 7
+      plugin: Drupal
+      runInstall: true
+      profileName: standard
+      clearCaches: false
+      subDirectory: docroot
+      phpConstants:
+        DEVUSER: Developer
+        EMAIL: dev@example.com
+        constant_1: example_1
+        CONSTANT_2: example_2
+        _constant_3: example_3
+        _CONSTANT_4: example_4
+    - name: Test defined constants.
+      plugin: Script
+      script: |
+        cat <<EOT >> /var/www/html/constants-example.php
+        <?php
+          echo DEVUSER;
+          echo EMAIL;
+          echo constant_1;
+          echo CONSTANT_2;
+          echo _constant_3;
+          echo _CONSTANT_4;
+        ?>
+        EOT
+        echo "View defined constants at $BUILD_DOMAIN/constants-example.php"
+  {% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
 ### `phpMods` {array}
 An array of PHP 5 modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
 {% endoption %}
