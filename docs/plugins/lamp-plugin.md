@@ -29,7 +29,7 @@ See the <a href="#lamp-plugin-examples" title="Probo LAMP Plugin Examples">Probo
 
 {: .table .table-striped .table-bordered}
 |---------|----------------------------|
-| `phpIniOptions` | A hash of options, such as {option1: 'option1Value', option2: 'option2Value',}. Accepts a **hash** value. |
+| `phpIniOptions` | A hash of options for all, apache2, and/or cli, such as {all: option1: 'option1Value', option2: 'option2Value'}. Accepts a **hash** value. |
 | `phpConstants` | A hash of constants, such as {const1: 'const1Value', const2: 'const2Value',}. This will overwrite any other auto_prepend_file directives in your php.ini. Accepts a **hash** value. |
 | `phpMods` | An array of php5 modules to enable (should be installed via the `installPackages` option if needed). Accepts an **array** value. |
 
