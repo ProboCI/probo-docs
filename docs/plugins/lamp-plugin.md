@@ -137,12 +137,8 @@ Define a hash of PHP Constants and they will be available in any PHP script you 
 {% details Example %}
 {% highlight yaml%}
 steps:
-  - name: Install Drupal 7
-    plugin: Drupal
-    runInstall: true
-    profileName: standard
-    clearCaches: false
-    subDirectory: docroot
+  - name: Setup phpConstants for LAMPApp.
+    plugin: LAMPApp
     phpConstants:
       DEVUSER: Developer
       EMAIL: dev@example.com
@@ -178,12 +174,8 @@ steps:
 An array of Apache modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
 {% details Example %}
 {% highlight yaml%}
-- name: Install Drupal 7 with LDAP Apache Module installed.
-    plugin: Drupal
-    runInstall: true
-    profileName: standard
-    clearCaches: false
-    subDirectory: docroot
+- name: Install ldap in apacheMods.
+    plugin: LAMPApp
     apacheMods:
       - ldap
 {% endhighlight %}
@@ -223,6 +215,15 @@ steps:
 {% option %}
 ### `cliDefines` {hash}
 A hash of defines.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Add Defines_1 CLI variable.
+    plugin: LAMPApp
+    cliDefines:
+      Defines_1: example1
+{% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
@@ -231,12 +232,8 @@ Install additional apt packages in your build on top of the apt packages that co
 {% details Example %}
 {% highlight yaml%}
 steps:
-  - name: Install Drupal 7 with optipng package.
-    plugin: Drupal
-    runInstall: true
-    profileName: standard
-    clearCaches: false
-    subDirectory: docroot
+  - name: Install optipng in LAMPApp.
+    plugin: LAMPApp
     installPackages:
       - optipng
   - name: Check if optipng package is installed.
