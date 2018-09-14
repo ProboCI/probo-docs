@@ -176,7 +176,6 @@ steps:
 {% option %}
 ### `apacheMods` {array}
 An array of Apache modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
-{% endoption %}
 {% details Example %}
 {% highlight yaml%}
 - name: Install Drupal 7 with LDAP Apache Module installed.
@@ -189,6 +188,7 @@ An array of Apache modules to enable (should be installed via [`installPackages`
       - ldap
 {% endhighlight %}
 {% enddetails %}
+{% endoption %}
 
 {% option %}
 ### `restartApache` {boolean}
