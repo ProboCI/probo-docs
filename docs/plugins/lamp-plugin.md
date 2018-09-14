@@ -137,12 +137,8 @@ Define a hash of PHP Constants and they will be available in any PHP script you 
 {% details Example %}
 {% highlight yaml%}
 steps:
-  - name: Install Drupal 7
-    plugin: Drupal
-    runInstall: true
-    profileName: standard
-    clearCaches: false
-    subDirectory: docroot
+  - name: Setup phpConstants for LAMPApp.
+    plugin: LAMPApp
     phpConstants:
       DEVUSER: Developer
       EMAIL: dev@example.com
@@ -176,6 +172,14 @@ steps:
 {% option %}
 ### `apacheMods` {array}
 An array of Apache modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
+{% details Example %}
+{% highlight yaml%}
+- name: Install ldap in apacheMods.
+    plugin: LAMPApp
+    apacheMods:
+      - ldap
+{% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
@@ -211,11 +215,33 @@ steps:
 {% option %}
 ### `cliDefines` {hash}
 A hash of defines.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Add Defines_1 CLI variable.
+    plugin: LAMPApp
+    cliDefines:
+      Defines_1: example1
+{% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
 ### `installPackages` {array}
-An array of packages to install in addition to those that come with the [Docker image](/build/images) in use.
+Install additional apt packages in your build on top of the apt packages that come installed on all [Probo Docker images](/build/images).
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Install optipng in LAMPApp.
+    plugin: LAMPApp
+    installPackages:
+      - optipng
+  - name: Check if optipng package is installed.
+    plugin: Script
+    script: |
+      dpkg -l optipng
+{% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
