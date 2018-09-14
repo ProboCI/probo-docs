@@ -203,7 +203,7 @@ The directory of the actual web root (defaults to 'docroot').
 steps:
   - name: Configure web root
     plugin: LAMPApp
-    subDirectory: $SRC_DIR/web
+    subDirectory: web
 {% endhighlight %}
 {% enddetails %}
 {% endoption %}
