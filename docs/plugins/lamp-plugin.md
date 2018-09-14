@@ -227,7 +227,24 @@ A hash of defines.
 
 {% option %}
 ### `installPackages` {array}
-An array of packages to install in addition to those that come with the [Docker image](/build/images) in use.
+Install additional apt packages in your build on top of the apt packages that come installed on all [Probo Docker images](/build/images).
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Install Drupal 7 with optipng package.
+    plugin: Drupal
+    runInstall: true
+    profileName: standard
+    clearCaches: false
+    subDirectory: docroot
+    installPackages:
+      - optipng
+  - name: Check if optipng package is installed.
+    plugin: Script
+    script: |
+      dpkg -l optipng
+{% endhighlight %}
+{% enddetails %}
 {% endoption %}
 
 {% option %}
