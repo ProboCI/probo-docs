@@ -1,0 +1,26 @@
+.option-example {
+  > summary {
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  i {
+    margin-left: 1rem;
+  }
+
+  &[open] {
+    i {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .highlight {
+    border: 1px solid darken($probo-pale-dark, 5%);
+    box-shadow: inset 1px 1px 5px 0 $probo-pale-dark;
+    margin-top: 1.4rem;
+    margin-bottom: -1.4rem;
+  }
+}

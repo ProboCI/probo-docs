@@ -24,3 +24,22 @@ p.subhead {
 code.highlighter-rouge {
   background: $probo-pale-medium;
 }
+
+.body-text {
+  h3 {
+    margin-top: 4rem;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 1.5rem 0;
+  }
+
+  pre {
+    margin-bottom: 0;
+  }
+
+  .striped-list {
+    margin: 0 -1.5rem;
+  }
+}

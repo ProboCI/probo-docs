@@ -7545,6 +7545,23 @@ code.highlighter-rouge {
   background: #f5f5f5;
 }
 
+.body-text h3 {
+  margin-top: 4rem;
+  margin-bottom: 0;
+}
+
+.body-text p {
+  margin: 1.5rem 0;
+}
+
+.body-text pre {
+  margin-bottom: 0;
+}
+
+.body-text .striped-list {
+  margin: 0 -1.5rem;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="date"],
@@ -7618,6 +7635,30 @@ textarea:focus {
 
 figure {
   margin: 0;
+}
+
+.option-example > summary {
+  list-style: none;
+}
+
+.option-example > summary::-webkit-details-marker {
+  display: none;
+}
+
+.option-example i {
+  margin-left: 1rem;
+}
+
+.option-example[open] i {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.option-example .highlight {
+  border: 1px solid #dedede;
+  box-shadow: inset 1px 1px 5px 0 #ebebeb;
+  margin-top: 1.4rem;
+  margin-bottom: -1.4rem;
 }
 
 /*!
