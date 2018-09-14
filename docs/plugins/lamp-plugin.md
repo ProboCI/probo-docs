@@ -177,6 +177,18 @@ steps:
 ### `apacheMods` {array}
 An array of Apache modules to enable (should be installed via [`installPackages`](#installpackages-array) if needed).
 {% endoption %}
+{% details Example %}
+{% highlight yaml%}
+- name: Install Drupal 7 with LDAP Apache Module installed.
+    plugin: Drupal
+    runInstall: true
+    profileName: standard
+    clearCaches: false
+    subDirectory: docroot
+    apacheMods:
+      - ldap
+{% endhighlight %}
+{% enddetails %}
 
 {% option %}
 ### `restartApache` {boolean}
