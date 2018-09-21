@@ -49,7 +49,7 @@ GEM
     ethon (0.11.0)
       ffi (>= 1.3.0)
     execjs (2.7.0)
-    ffi (1.9.18)
+    ffi (1.9.25)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
     forwardable-extended (2.6.0)
@@ -104,7 +104,7 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (3.0.1)
     rake (12.3.0)
-    rb-fsevent (0.10.2)
+    rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     respond-to (2.6)
@@ -133,7 +133,7 @@ DEPENDENCIES
   algoliasearch-jekyll (~> 0.8.0)
   autoprefixer-rails (= 6.5.0.2)
   breakpoint (= 2.7.0)
-  bundler (~> 1.15.1)
+  bundler (>= 1.15.1)
   compass (> 1.0)
   compass-normalize (= 1.5)
   font-awesome-sass (~> 4.6.0)
@@ -148,7 +148,7 @@ DEPENDENCIES
   uglifier (= 3.0.2)
 
 RUBY VERSION
-   ruby 2.2.9p480
+   ruby 2.2.10p489
 
 BUNDLED WITH
-   1.15.4
+   1.16.5

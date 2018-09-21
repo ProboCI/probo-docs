@@ -4,7 +4,7 @@ ruby "2.2.10"
 gem "jekyll", "3.3.0"
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
-   gem 'bundler', '~> 1.15.1'
+   gem 'bundler', '>= 1.15.1'
    gem 'kramdown', '1.12.0'
    gem 'sass', '>=3.4'
    gem 'uglifier', '3.0.2'
