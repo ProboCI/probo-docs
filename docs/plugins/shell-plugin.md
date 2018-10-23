@@ -27,3 +27,11 @@ You will need to include a `name` for each `command` since you can only declare 
   {{ recipe.content }}
 {% endif %}
 {% endfor %}
+
+**Colored output**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'shell_colored_output' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
