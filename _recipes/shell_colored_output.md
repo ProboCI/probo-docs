@@ -5,7 +5,7 @@ uid: shell_colored_output
 
 You can include ANSI escape code colors (foreground and background) in your log output.
 
-See color codes at [https://en.wikipedia.org/wiki/ANSI_escape_code#Colors]
+See color codes at [https://en.wikipedia.org/wiki/ANSI_escape_code#Colors](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors).
 
 {% highlight yaml %}
 steps:
