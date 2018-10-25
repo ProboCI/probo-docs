@@ -18,7 +18,9 @@ We have pre-built several different flavors of Probo Docker images for you to ch
 
 The example above would use the Docker image we have built on Ubuntu 14.04 LTS with LAMP and our PHP 7.1 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
 
+{% note %}
 **Please note:** Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo Build.
+{% endnote %}
 
 ### Stable Probo Images
 

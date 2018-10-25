@@ -7,7 +7,9 @@ redirect_to: /build/environment-configuration/
 ---
 Probo.CI LAMP containers come with PHP 5.5 by default. If you'd like to upgrade to 5.6 or 7.0, you need to add a script to your `.probo.yml` file.
 
-**Note: These scripts install packages required to run Drupal.**
+{% note %}
+**Note:** These scripts install packages required to run Drupal.
+{% endnote %}
 
 ## Setup Probo.CI with PHP 5.6
 

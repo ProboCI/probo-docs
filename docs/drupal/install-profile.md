@@ -29,7 +29,9 @@ steps:
 
 Use the Drupal plugin to make it easy to define and declare build steps. The `installArgs` parameter defines any necessary arguments relating to the build. The Drupal plugin uses the makeFile and the drush command `drush site-install`. Look at the [Drush documentation](http://drushcommands.com/drush-7x/core/site-install/) for more about the site-install command. For more parameter options read more in the [docs about different parameter options](/plugins/drupal-plugin/).
 
-**Note: `drush site-install` will drop and rebuild all the tables in the database.**
+{% note %}
+**Note:** `drush site-install` will drop and rebuild all the tables in the database.
+{% endnote %}
 
 {% highlight bash%}
 steps:

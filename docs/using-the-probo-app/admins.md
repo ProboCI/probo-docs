@@ -15,11 +15,13 @@ Probo Organizations are separate entities from DVCS providers' organizations. An
 
 This separation of concerns will eventually allow non-developers to sign up as Probo users so they can be made Organization Admins. This could be useful in the case of an employee from the billing department being able to login directly to handle subscriptions and payment methods, view payment history, etc., all without needing a user account in your DVCS organization.
 
+{% note %}
 **Note:** Admins are not automatically synchronized from DVCS organizations to your Probo organization. For example, admins in your GitHub organization are not automatically made Admins in your Probo Organization.
 
 In your Organization's Admin tab, use the autocomplete field to search for the Probo users you want to make Admins in your Probo Organization.
 
 ![Probo Add Admin User screenshot](/images/probo-add-admin.png){:class="full-width"}
+{% endnote %}
 
 ## Delete Probo Admins
 

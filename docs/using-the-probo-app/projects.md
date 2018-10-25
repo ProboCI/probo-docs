@@ -41,12 +41,16 @@ You have access to Projects for which you have one of these roles on the reposit
 - **collaborator:** Repositories that you have been added to as a collaborator.
 - **organization_member:** Repositories that you have access to through being a member of an [organization](https://help.github.com/articles/about-organizations/). This includes every repository on every team that you are on.
 
+{% note %}
 **Note:** Organizations must allow Probo access in the 'Third-party access' settings tab.
 
 - You can give specific permissions to the Probo app once you've already authorized Probo for your account. Follow the directions at [https://help.github.com/articles/requesting-organization-approval-for-oauth-apps/](https://help.github.com/articles/requesting-organization-approval-for-oauth-apps/).
 - This requirement can also be satisfied by having no third-party access restrictions.
+{% endnote %}
 
+{% note %}
 **Note:** You must have write access in order to receive notifications back from Probo.
+{% endnote %}
 
 #### Bitbucket
 
@@ -56,4 +60,6 @@ You have access to Projects for which you have one of these roles on the reposit
 - **contributor**
 - **member**
 
+{% note %}
 **Note:** At this time, you are not able to see forked Bitbucket repositories in Probo.
+{% endnote %}
