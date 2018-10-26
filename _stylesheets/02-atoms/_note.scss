@@ -1,9 +1,9 @@
 .note {
   padding: $base-spacing;
   background-color: $probo-soft-peach;
-  border: 2px solid $probo-soft-peach-dark;
   margin: 0 -1rem;
   color: $probo-black;
+  box-shadow: 3px 3px 6px $probo-pale-dark;
 
   p {
     margin: 0;

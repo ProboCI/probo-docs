@@ -7664,9 +7664,9 @@ figure {
 .note {
   padding: 10px;
   background-color: #efe6eb;
-  border: 2px solid #dbc7d2;
   margin: 0 -1rem;
   color: #000000;
+  box-shadow: 3px 3px 6px #ebebeb;
 }
 
 .note p {
