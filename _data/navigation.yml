@@ -72,6 +72,9 @@
         - title: Probo.CI Project Pages
           url: /projects
           text: Probo.CI Project Pages
+        - title: Probo.CI Project Access
+          url: /project-access
+          text: Probo.CI Project Access
         - title: Probo.CI Build Pages
           url: /builds
           text: Probo.CI Build Pages
