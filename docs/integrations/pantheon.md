@@ -9,7 +9,9 @@ published: true
 
 Probo can make your life easier if you're developing your site on Pantheon. There are two steps to follow to configure Probo properly.
 
-**Note: You must still have your code in a repository on either GitHub or Bitbucket. Probo will not download the code directly from Pantheon.**
+{% note %}
+**Note:** You must still have your code in a repository on either GitHub or Bitbucket. Probo will not download the code directly from Pantheon.
+{% endnote %}
 
 ## Step 1: Create a .sh File
 

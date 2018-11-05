@@ -10,7 +10,9 @@ published: true
 
 In order to do this, your system will require certain requirements for this quickstart guide. The guide will be expanded over time to include additional parameters, but for now this is the set of parameters that we have.
 
+{% note %}
 **Note:** This particular guide was contributed by a Probo user and is written for CentOS 7. Probo runs on Ubuntu 14.04 Server in production, so this guide should be able to be modified slightly to get up and running on Ubuntu Server. We will create a new Ubuntu guide in the near future that gives step by step instructions specific to the Ubuntu command line and apt repository.
+{% endnote %}
 
 **You will need:**  
 1. A CentOS 7 based Linux Server.

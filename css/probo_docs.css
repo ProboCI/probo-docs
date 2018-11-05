@@ -7661,6 +7661,26 @@ figure {
   margin-bottom: -1.4rem;
 }
 
+.note {
+  padding: 10px;
+  background-color: #efe6eb;
+  margin: 0 -1rem;
+  color: #000000;
+  box-shadow: 3px 3px 6px #ebebeb;
+}
+
+.note p {
+  margin: 0;
+}
+
+.note p + p {
+  margin-top: 12px;
+}
+
+.note + .note {
+  margin-top: 12px;
+}
+
 /*!
 Chosen, a Select Box Enhancer for jQuery and Prototype
 by Patrick Filler for Harvest, http://getharvest.com
