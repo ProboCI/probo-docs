@@ -20,10 +20,18 @@ You will need to include a `name` for each `command` since you can only declare 
 {% endfor %}
 
 
-**Developing on a site with a database tests**
+**Developing on a site with a database and tests**
 
 {% for recipe in site.recipes %}
 {% if recipe.uid == 'shell_develop_with_database_tests' %}
+  {{ recipe.content }}
+{% endif %}
+{% endfor %}
+
+**Colored output**
+
+{% for recipe in site.recipes %}
+{% if recipe.uid == 'shell_colored_output' %}
   {{ recipe.content }}
 {% endif %}
 {% endfor %}

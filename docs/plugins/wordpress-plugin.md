@@ -12,19 +12,78 @@ WordPress core and plugins generally prefer absolute URLs for links and images i
 
 ## Domain/URL Configuration
 
-{: .table .table-striped .table-bordered}
-|------------------------|-------|
-| wpUrl | The URL of the original site as stored in the database. This is replaced by the Probo URL in the database. Accepts a **string** value. |
-| wpHome | The homepage URL of the original site (including the domain). This is replaced by the Probo URL in the database. Accepts a **string** value. |
+{% option_list %}
+{% option %}
+### `wpUrl` {string}
+The URL of the original site as stored in the database. This is replaced by the Probo URL in the database.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Identify site URL
+    plugin: WordPressApp
+    wpUrl: http://www.example.com
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
 
+{% option %}
+### `wpHome` {string}
+The homepage URL of the original site (including the domain). This is replaced by the Probo URL in the database.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Identify homepage URL
+    plugin: WordPressApp
+    wpHome: http://www.example.com
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+{% endoption_list %}
 
 ## Database Configuration
 
-{: .table .table-striped .table-bordered}
-|------------------------|-------|
-| database | The filename of the database to import if specified. **Note that this database must be added to the Assets section separately.** Accepts a **string** value. |
-| databaseName   | The name of the database. Accepts a **string** value. Defaults to `wordpress`. |
-| databaseGzipped| Whether the database was sent gzipped and whether it should therefore be gunzipped before importing. Accepts a **boolean** value. |
+{% option_list %}
+{% option %}
+### `database` {string}
+The filename of the database to import if specified. **Note that this database must be added to the Assets section separately.**
+{% details Example %}
+{% highlight yaml%}
+assets:
+  - mydb.sql.gz
+steps:
+  - name: Import database
+    plugin: WordPressApp
+    database: mydb.sql.gz
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
+### `databaseName` {string}
+The name of the database. Defaults to `wordpress`.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Set database name
+    plugin: WordPressApp
+    databaseName: mydb
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
+### `databaseGzipped` {boolean}
+Whether the database was sent gzipped and whether it should therefore be gunzipped before importing.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Unzip database
+    plugin: WordPressApp
+    databaseGzipped: true
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+{% endoption_list %}
 
 ### Known Issues
 
@@ -32,9 +91,9 @@ WordPress core and plugins generally prefer absolute URLs for links and images i
 Currenty in Wordpress 4.8.x, the MySQL database collation can be in COLLATION format `utf8mb4_unicode_520_ci`. This format is unsupported by our current docker images depending on your site's MySQL Server version. If you exported your DB from MySQL 5.6 or higher, you might receive the following error:
 
     ERROR 1273 (HY000) at line 25: Unknown collation: 'utf8mb4_unicode_520_ci'
-    
+
 You will need to modify your exported `sitename.sql` file to allow your exported DB to import properly on Probo's current Docker images.
-    
+
 ##### Workaround:
 
 Find and replace `utf8mb4_unicode_520_ci` with `utf8mb4_unicode_ci` in your exported `sitename.sql` file. Then, upload this modified file as a Probo Asset, and set this DB as an asset in  your `.probo.yaml` file. This will no longer be neccessary once we create docker images that support the newer `utf8mb4_unicode_520_ci` format.
@@ -67,14 +126,48 @@ Update `wp-cli` in your `.probo.yaml` steps.
         flushCaches: true
     {% endhighlight %}
 
-
 ## Additional Options
 
-{: .table .table-striped .table-bordered}
-|--------------------|-------|
-| subDirectory | The directory of the actual web root. Accepts a **string** value. Defaults to `docroot`. |
-| flushCaches | Whether or not to flush the cache. Accepts a **boolean** value. Defaults to `true`. |
-| updatePlugins | Whether or not to attempt to update any WordPress plugins to their latest versions. Accepts a **boolean** value. Defaults to `false`. |
+{% option_list %}
+{% option %}
+### `subDirectory` {string}
+The directory of the actual web root. Defaults to `docroot`.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Configure web root
+    plugin: WordPressApp
+    subDirectory: $SRC_DIR/web
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
+### `flushCaches` {boolean}
+Whether or not to flush the cache. Defaults to `true`.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Flush caches
+    plugin: WordPressApp
+    flushCaches: true
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
+### `updatePlugins` {boolean}
+Whether or not to attempt to update any WordPress plugins to their latest versions. Defaults to `false`.
+{% details Example %}
+{% highlight yaml%}
+steps:
+  - name: Update plugins
+    plugin: WordPressApp
+    updatePlugins: true
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+{% endoption_list %}
 
 ## Example
 

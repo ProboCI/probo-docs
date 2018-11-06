@@ -22,7 +22,9 @@ You can tell [the Reaper](/reaper/) a build is important by pinning it.
 * A pinned build will not be deleted when its pull request is closed.
 * If possible, a pinned build will not be reaped if you exceed your allotted disk space.
 
+{% note %}
 **Note:** When the Reaper is dispatched, it will reap all non-pinned builds before considering a pinned build eligible for deletion. If after all non-pinned builds are reaped and your account still exceeds its disk space, pinned builds become eligible and will be deleted from oldest to newest until you are back under.
+{% endnote %}
 
 ### <i class="fa fa-trash"></i> Delete
 

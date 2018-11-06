@@ -7,7 +7,7 @@ published: true
 ---
 Below are items that the Probo CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo github repositories as they are created. 
 
-*Last updated January 26, 2018*
+*Last updated August 28th, 2018*
 # Currently Active Roadmap Items
 
 ## SSH Access to Your Build Environments
@@ -20,16 +20,10 @@ Nothing is more frustrating than when a CI build on some remote service has fail
 
 ## Displaying logs in the app.probo.ci interface
 **Github Issue:**  
-**Status:**  In progress
+**Status:**  Near completion
 There isn't currently a way to see the logs that get created during the build process, and if an error occurs that stops the build process without an obvious error there isn't a great way for users to troubleshoot what happened. While we intend to give SSH access to the containers, we also want to show any errors that occur during the build process, as well as other logs that might be helpful for our end users.
 
 This is awaiting some UI and design work and should be deployed soon!
-
-## Gitlab support
-**Github Link:** https://github.com/ProboCI/probo-gitlab  
-**Status:**  Near completion  
-
-We plan to provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This will be an open source component just like our other handlers. This is nearly complete and can be tested on the Open Source version. 
 
 ## First class support for non-LAMP Stacks
 **Github Issue:**  
@@ -70,12 +64,6 @@ Currently Probo runs each environment in a "fat container". What does that mean?
 **Status:**  Not started  
 
 A build matrix can mean different things in different contexts, but it generally describes a single trigger kicking off multiple steps that may execute in parallel and where the result of a "build" is an aggregate of these other steps. This may be used to run the same test suite on multiple versions of your language (say PHP 5 and 7), it may mean running different portions of your test suite in parallel, or it might mean both. We have Matrix Builds on our roadmap with the intention of supporting both use cases grouping and collecting output from a multi-dimensional set of inputs. This may combine with our cached build steps in interesting ways to build a common base environment and then to run portions of your test suites in parallel.
-
-## Cached Build Steps
-**Github Issue:**  
-**Status:**  Not started
-
-Some of projects have time consuming and computationally expensive steps necessary to bootstrap their environments. We know first hand how frustrating it can be to kick off a new build and have to wait for some package to install or some database to import before you can get to the new and different part of this particular build. We are planning an exciting feature that would allow you to mark build steps as cacheable and to specify a time-to-live for the cached artifact. That way we can capture that as a customized base image that we can start from for your future builds until you change the configuration for those steps, upload new assets that require a rebuild, or allow the cached artifact to time out.
 
 ## "Secrets" Service
 **Github Issue:**  
@@ -133,8 +121,19 @@ Currently, if you want to integrate with Jira you have to do so via a [Probo Rec
 
 One of the Open Source users of Probo would like Probo to work alongside [Rancher, an Open Source Container Orchestration platform](http://rancher.com/), and presumably this could also be extended to other orchistration tools such as [Chef's Habitiat product](https://www.habitat.sh/). The Probo & Zivtech teams don't currently have the need to support Rancher for our clients, as almost all of them use hosting Platforms as a Service like Acquia, Pantheon, or Platform.sh. But we can see the need to provide the same level of testing and support for those who build and maintain their own server infrastructure and we are very interested in figuring out how to support testing in these complex environments. Please [get in touch](https://probo.ci/contact/) if this is a feature your organization would like to sponsor or support. 
 
-# Recently Completed Roadmap Items
+# Completed Roadmap Items
 
+## Gitlab support
+**Github Link:** https://github.com/ProboCI/probo-gitlab  
+**Status:**  Near completion  
+
+We provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This is an open source component, just like our other handlers. 
+
+## Cached Build Steps
+**Github Issue:**  
+**Status:** Currently running in private beta. If you're a Probo Silver plan customer or higher and want to try it out, <a href="mailto:probo-support@probo.ci">send us an email.
+
+Some of projects have time consuming and computationally expensive steps necessary to bootstrap their environments. We know first hand how frustrating it can be to kick off a new build and have to wait for some package to install or some database to import before you can get to the new and different part of this particular build. We are planning an exciting feature that would allow you to mark build steps as cacheable and to specify a time-to-live for the cached artifact. That way we can capture that as a customized base image that we can start from for your future builds until you change the configuration for those steps, upload new assets that require a rebuild, or allow the cached artifact to time out.
 ## Run Probo on Probo / Open Source Probo in a Container
 **Github Link:** https://github.com/ElusiveMind/probo-docker   
 **Status:**  Now available  

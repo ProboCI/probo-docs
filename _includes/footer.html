@@ -13,7 +13,7 @@
 
     <div class="footer__lower">
         <div class="footer__lower-wrapper">
-            <div class="footer__copyright">&copy; 2017 Probo.CI</div>
+            <div class="footer__copyright">&copy; {{ "now"|date:"%Y") }} Probo.CI</div>
             <ul class="footer__navigation">
                 {% for link in site.data.navigation %}
                 <li class="footer__navigation-item" aria-role="presentation"><a href="{{ link.url }}" class="footer__navigation-link">{{ link.title }}</a></li>

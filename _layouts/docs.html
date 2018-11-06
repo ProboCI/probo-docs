@@ -4,6 +4,9 @@
   {% include head.html %}
 
   <body class="sidebar-page site">
+
+    {% include skip-to-main.html %}
+
     <div class="site-content">
       {% include header.html %}
 
@@ -18,7 +21,7 @@
           {% include sidebars/docs.html %}
         </div>
 
-        <div class="body-text">
+        <div id="main" class="body-text">
           {{ content }}
 
           {% include pager.html %}

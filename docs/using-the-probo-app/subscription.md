@@ -11,6 +11,8 @@ A Probo Subscription is required to create Builds. Probo Subscription tiers offe
 
 The Subscription tab in each Probo Organization is where the Organization's Admins can select a Subscription tier. We recommend starting out in the middle with a Silver Plan and upgrading or downgrading as necessary, which you can do at any time. All Probo Subscription tiers are prorated to ensure you are only charged for the services you use.
 
+{% note %}
 **Note:** If your 30-day trial Subscription expires and no payment method is assigned, eventually your Organization's Subscription will be disabled. You will need to contact Probo Support to re-enable the Subscription selection and Payment Method pages when this occurs. You should see a red notification at the top of the Probo App UI if your subscription has been disabled.
+{% endnote %}
 
 ![Probo Subscription Page screenshot](/images/probo-subscription-page.png){:class="full-width"}

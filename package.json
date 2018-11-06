@@ -36,7 +36,7 @@
     "gulp-util": "^3.0.7",
     "list.js": "^1.2.0",
     "postcss-responsive-type": "^0.5.1",
-    "probo-styleguide": "^4.0.1",
+    "probo-styleguide": "^4.3.8",
     "run-sequence": "^1.2.2",
     "yargs": "^6.0.0"
   }
