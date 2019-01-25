@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.10"
+ruby "2.3.0"
 gem "jekyll", "3.3.0"
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
@@ -17,5 +17,5 @@ group :jekyll_plugins do
    gem 'jekyll-sitemap', '~> 0.12.0'
    gem 'jekyll-redirect-from', '~> 0.11.0'
    gem 'html-proofer'
-   gem 'algoliasearch-jekyll', '~> 0.8.0'
+   gem 'jekyll-algolia', '~> 1.0'
 end

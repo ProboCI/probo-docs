@@ -238,7 +238,7 @@
       var searchResult = '<div class="search__result">' +
         '<h2 class="h3 search__result-title"><a href="' + hit.url + '">' + hit.title + '</a></h2>' +
         '<div class="search__result-link">'+ document.location.origin + hit.url + '</div>' +
-        '<div class="search__result-text">' + hit.text + '</div>' +
+        '<div class="search__result-text">' + hit.excerpt_text + '</div>' +
         '</div>';
       results.push(searchResult);
     }
