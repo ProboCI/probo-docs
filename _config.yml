@@ -54,6 +54,6 @@ defaults:
 algolia:
   application_id: 'SVDV4TVTRX'
   index_name:     'probo-docs'
-  record_css_selector: 'p,code,table'
-  excluded_files:
+  nodes_to_index: 'p,code,table'
+  files_to_exclude:
     - search/index.html
