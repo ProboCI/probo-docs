@@ -50,32 +50,6 @@ var processors = [
 //  should we build sourcemaps? "gulp build --sourcemaps"
 var buildSourceMaps = !!argv.sourcemaps;
 
-// Compile Sass
-gulp.task('sass', function () {
-  return gulp.src(paths.sass)
-    // .pipe(cssGlobbing())
-    .pipe(gulpif(buildSourceMaps, sourcemaps.init()))
-    .pipe(sass({
-      outputStyle: 'expanded'
-      // includePaths: [
-      //   'node_modules/probo-styleguide/scss'
-      // ]
-    }))
-    .on('error', handleError('Sass Compiling'))
-    .pipe(postcss(processors))
-    .on('error', handleError('Post CSS Processing'))
-    .pipe(gulpif(buildSourceMaps, sourcemaps.write()))
-    .pipe(gulp.dest(paths.css))
-    .pipe(gulp.dest('_site/css'))
-    .pipe(browserSync.reload({stream: true}));
-});
-
-// compile installed version of styleguide (update with npm)
-gulp.task('styleguide', function() {
-  return gulp.src(paths.styleguide)
-    .pipe(gulp.dest(paths.css))
-});
-
 // error notifications
 var handleError = function (task) {
   return function (err) {
@@ -94,6 +68,28 @@ var handleError = function (task) {
   };
 };
 
+// Compile Sass
+gulp.task('sass', function () {
+  return gulp.src(paths.sass)
+    .pipe(gulpif(buildSourceMaps, sourcemaps.init()))
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }))
+    .on('error', handleError('Sass Compiling'))
+    .pipe(postcss(processors))
+    .on('error', handleError('Post CSS Processing'))
+    .pipe(gulpif(buildSourceMaps, sourcemaps.write()))
+    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest('_site/css'))
+    .pipe(browserSync.reload({stream: true}));
+});
+
+// Compile installed version of styleguide (update with npm)
+gulp.task('styleguide', function() {
+  return gulp.src(paths.styleguide)
+    .pipe(gulp.dest(paths.css))
+});
+
 gulp.task('browserSync', function () {
   browserSync.init({
     open: true,
@@ -107,17 +103,13 @@ gulp.task('browserSync', function () {
   });
 });
 
-gulp.task('watch', ['build:dev'], function () {
-  gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.jekyll, ['jekyll'], browserSync.reload);
-  gulp.watch([paths.js.src, paths.js.vendor], ['js'], browserSync.reload);
+gulp.task('js:combine', function () {
+  return gulp.src(paths.js.vendor)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('javascripts/src/'));
 });
 
-gulp.task('jekyll', ['styleguide'], shell.task([
-  'jekyll build'
-]));
-
-gulp.task('js', ['js:combine'], function () {
+gulp.task('js', gulp.series('js:combine'), function () {
   return gulp.src(paths.js.src)
     .pipe(uglify({
       mangle: false,
@@ -131,14 +123,22 @@ gulp.task('js', ['js:combine'], function () {
     .pipe(gulp.dest(paths.js.build));
 });
 
-gulp.task('js:combine', function () {
-  return gulp.src(paths.js.vendor)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('javascripts/src/'));
+gulp.task('jekyll', shell.task([
+  'jekyll build'
+]));
+
+gulp.task('build', gulp.series(gulp.parallel('js', 'sass', 'styleguide'), 'jekyll'));
+
+gulp.task('build:dev', gulp.series('build', 'browserSync'));
+
+gulp.task('watch', gulp.series('build:dev'), function () {
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.jekyll, ['jekyll'], browserSync.reload);
+  gulp.watch([paths.js.src, paths.js.vendor], ['js'], browserSync.reload);
 });
 
 // Generate fav and app icons
-gulp.task('generate', function () {
+gulp.task('favicons:generate', function () {
   gutil.log('Generating favicons...');
   return gulp.src('images/probo-sphere.png').pipe(favicons({
       appName: 'ProboCI Docs',
@@ -161,7 +161,7 @@ gulp.task('generate', function () {
 });
 
 // Inject fav and app icons into head
-gulp.task('inject', function () {
+gulp.task('favicons:inject', function () {
   gutil.log('Injecting favicons into <head>...');
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {
@@ -172,20 +172,9 @@ gulp.task('inject', function () {
     .pipe(gulp.dest('./_includes/'));
 });
 
+gulp.task('favicons', gulp.series('favicons:generate', 'favicons:inject'));
+
 gulp.task('index', shell.task([
   'echo Updating Algolia search index...',
   'jekyll algolia push'
 ]));
-
-
-gulp.task('favicons', function () {
-  runSequence('generate', 'inject');
-})
-
-gulp.task('build', function(cb) {
-  runSequence('js', 'sass', 'styleguide', 'jekyll', cb);
-});
-
-gulp.task('build:dev', function(cb) {
-  runSequence('build', 'browserSync', cb);
-});
