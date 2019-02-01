@@ -10,3 +10,5 @@ Probo integrates with [GitLab](http://gitlab.com/), a popular git repository man
 <img src='/images/probo-gitlab-builds.png' alt="GitLab Status Screenshot">
 
 Mousing over any build step will show the log response for that step. Click any build step to be directed to that build step in the Probo App. Inside the Probo App you can find the console output for each step, a link to the sandbox site, and some additional advanced build controls such as an SSH terminal.
+
+<img src='/images/probo-gitlab-build-steps.png' alt="GitLab Status Mouseover Screenshot">
