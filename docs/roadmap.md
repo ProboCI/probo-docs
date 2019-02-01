@@ -96,10 +96,10 @@ Many sites, espescially those hosted on Acquia, use Drupal's multi-site function
 **Status:**  In progress  
 When we built Probo we decided to use RethinkDB to power most of our database needs, but over time we came to feel that rethink was not stable enough, and the company behind Rethink has since gone out of business. We have been removing Rethink piece by piece and will soon be totally onto the much more stable and highly adopted pgSQL. 
 
-## Slack & Hipchat/Stride integration
+## Slack Integration
 **Github Issue:**  
 **Status:**  In progress  
-Currently, if you want to integrate with HipChat or Jira you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Slack and Hipchat/Stride integration directly through the Probo app interface.
+Currently, if you want to integrate with Slack you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Slack integration directly through the Probo app interface to enable a true ChatOps experience for those working in that way.
 
 ## Jira integration
 **Github Issue:**  
