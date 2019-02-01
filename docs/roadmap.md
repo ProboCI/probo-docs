@@ -11,8 +11,10 @@ Below are items that the Probo CI team has identified as items we're committed t
 # Currently Active Roadmap Items
 
 ## A LAMP Image Based on 18.04
-**Github Issue:**  https://github.com/ProboCI/docker-ubuntu/issues/2
+**Github Issue:**  https://github.com/ProboCI/docker-ubuntu/issues/2  
 **Status:** In progress
+
+Ubuntu 18.04 LTS has been released. Probo developers are currently in the process of building and testing Ubuntu 18.04 LTS images on Probo. We are also working to simplify our image creation process by using a Dockerfile that builds on the Docker Hub instead of the current Probo Image Builder provisioning process. Probo Advisor, Mike Bagnall, has made some excellent progress on getting the Ubuntu 18.04 images ready. We have created an issue on GitHub to track the remaining tasks and progress related to getting the 18.04 LTS images into production. We are hoping to finish the 18.04 images up in time for the retirement of our 14.04 images in relation to the Ubuntu 14.04 LTS End of Life in April of 2019. When the Dockerfile image builder setup is complete we will be able to start releasing updates to our images on a monthly and quarterly basis as we mentioned after the Docker Image Restructure.
 
 ## First class support for non-LAMP Stacks
 **Github Issue:**  
