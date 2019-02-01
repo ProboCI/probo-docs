@@ -7,23 +7,14 @@ published: true
 ---
 Below are items that the Probo CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo github repositories as they are created. 
 
-*Last updated August 28th, 2018*
+*Last updated February 1st, 2019*
 # Currently Active Roadmap Items
 
-## SSH Access to Your Build Environments
-**Github Issue:**  
-**Status:**  Near completion  
+## A LAMP Image Based on 18.04
+**Github Issue:**  https://github.com/ProboCI/docker-ubuntu/issues/2  
+**Status:** In progress
 
-<em>Update: we have changed our thinking around this and have decided to provide a shell within the Probo app that can be used for debugging. This change will be released soon</em>
-
-Nothing is more frustrating than when a CI build on some remote service has failed without any helpful message in the logs and without any way to go and figure out what went wrong. Probo already has a leg up on many services because you can click around your website to see what caused the failed test, but that only works if your build was able to bootstrap the project. If you have a complex build setup getting your initial successful build run can sometimes be a little tricky. Currently we have a probo employee look at your build and answer your questions but we want to empower you so we have always planned to give you SSH access to your build environments. We have even written a simple proof of concept implementation that terminates your SSH connection, fires up your container, and pipes your SSH terminal session into a bash process inside the container. We plan to turn this into a fully supported and open sourced component that will allow you to SSH into any container to do some live exploration and debugging. This will support your proper OpenSSH client and we hope to follow on with a web console as well. It is worth noting that an alternative implementation is already available to enterprise customers.
-
-## Displaying logs in the app.probo.ci interface
-**Github Issue:**  
-**Status:**  Near completion
-There isn't currently a way to see the logs that get created during the build process, and if an error occurs that stops the build process without an obvious error there isn't a great way for users to troubleshoot what happened. While we intend to give SSH access to the containers, we also want to show any errors that occur during the build process, as well as other logs that might be helpful for our end users.
-
-This is awaiting some UI and design work and should be deployed soon!
+Ubuntu 18.04 LTS has been released. Probo developers are currently in the process of building and testing Ubuntu 18.04 LTS images on Probo. We are also working to simplify our image creation process by using a Dockerfile that builds on the Docker Hub instead of the current Probo Image Builder provisioning process. Probo Advisor, Mike Bagnall, has made some excellent progress on getting the Ubuntu 18.04 images ready. We have created an issue on GitHub to track the remaining tasks and progress related to getting the 18.04 LTS images into production. We are hoping to finish the 18.04 images up in time for the retirement of our 14.04 images in relation to the Ubuntu 14.04 LTS End of Life in April of 2019. When the Dockerfile image builder setup is complete we will be able to start releasing updates to our images on a monthly and quarterly basis as we mentioned after the Docker Image Restructure.
 
 ## First class support for non-LAMP Stacks
 **Github Issue:**  
@@ -34,8 +25,8 @@ Currently Probo provides a LAMP environment as the basis for every build. Some i
 We recently completed  [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), you can find the images as we make them available on the [ProboCI Docker Hub](https://hub.docker.com/u/proboci/). Anything listed on dockerhub can now be used in the Probo app. Please see the [Probo Docs on Images](https://docs.probo.ci/build/images/) for more information on how to use these. 
 
 ## .net/MSSQL, Sitecore, Java, node.js plugins
-**Github Issue:** In progress   
-**Status:**  .net integration in proof-of-concept at the moment, others to follow  
+**Github Issue:**  
+**Status:**  In progress (.net integration in proof-of-concept at the moment, others to follow)
 
 Our highest priority is to support the wide variety of systems that software delivery organizations need in order to work with their diverse and demanding customers and stakeholders. In order to do that we not only have to support different stacks, we also need to build out plugins to make gettings setup with these systems relatively painless. Our first target for this project is .net, with the goal of supporting Sitecore and other MSSQL apps.  
 
@@ -105,14 +96,14 @@ Many sites, espescially those hosted on Acquia, use Drupal's multi-site function
 **Status:**  In progress  
 When we built Probo we decided to use RethinkDB to power most of our database needs, but over time we came to feel that rethink was not stable enough, and the company behind Rethink has since gone out of business. We have been removing Rethink piece by piece and will soon be totally onto the much more stable and highly adopted pgSQL. 
 
-## Slack & Hipchat/Stride integration
+## Slack Integration
 **Github Issue:**  
-**Status:**  Not started  
-Currently, if you want to integrate with HipChat or Jira you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Slack and Hipchat/Stride integration directly through the Probo app interface.
+**Status:**  In progress  
+Currently, if you want to integrate with Slack you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Slack integration directly through the Probo app interface to enable a true ChatOps experience for those working in that way.
 
 ## Jira integration
 **Github Issue:**  
-**Status:**  Not started  
+**Status:**  In progress  
 Currently, if you want to integrate with Jira you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Jira integration directly through the Probo app interface. 
 
 ## Rancher (& other container orchestration) support for the Open Source Software version of Probo
@@ -122,12 +113,19 @@ Currently, if you want to integrate with Jira you have to do so via a [Probo Rec
 One of the Open Source users of Probo would like Probo to work alongside [Rancher, an Open Source Container Orchestration platform](http://rancher.com/), and presumably this could also be extended to other orchistration tools such as [Chef's Habitiat product](https://www.habitat.sh/). The Probo & Zivtech teams don't currently have the need to support Rancher for our clients, as almost all of them use hosting Platforms as a Service like Acquia, Pantheon, or Platform.sh. But we can see the need to provide the same level of testing and support for those who build and maintain their own server infrastructure and we are very interested in figuring out how to support testing in these complex environments. Please [get in touch](https://probo.ci/contact/) if this is a feature your organization would like to sponsor or support. 
 
 # Completed Roadmap Items
+## SSH Access to Your Build Environments
+**Github Issue:**  
+**Status:**  Now Available  
 
-## Gitlab support
+<em>Update: we have changed our thinking around this and have decided to provide a shell within the Probo app that can be used for debugging. This change will be released soon</em>
+
+Nothing is more frustrating than when a CI build on some remote service has failed without any helpful message in the logs and without any way to go and figure out what went wrong. Probo already has a leg up on many services because you can click around your website to see what caused the failed test, but that only works if your build was able to bootstrap the project. If you have a complex build setup getting your initial successful build run can sometimes be a little tricky. Currently we have a probo employee look at your build and answer your questions but we want to empower you so we have always planned to give you SSH access to your build environments. We have even written a simple proof of concept implementation that terminates your SSH connection, fires up your container, and pipes your SSH terminal session into a bash process inside the container. We plan to turn this into a fully supported and open sourced component that will allow you to SSH into any container to do some live exploration and debugging. This will support your proper OpenSSH client and we hope to follow on with a web console as well. It is worth noting that an alternative implementation is already available to enterprise customers.
+
+## GitLab support
 **Github Link:** https://github.com/ProboCI/probo-gitlab  
-**Status:**  Near completion  
+**Status:** Now Available  
 
-We provide support for both the SaaS and the self-hosted versions of [Gitlab](https://about.gitlab.com/). This is an open source component, just like our other handlers. 
+We provide support for both the SaaS and the self-hosted versions of [GitLab](https://about.gitlab.com/). This is an open source component, just like our other handlers. 
 
 ## Cached Build Steps
 **Github Issue:**  
