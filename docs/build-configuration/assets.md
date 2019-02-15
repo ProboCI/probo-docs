@@ -6,7 +6,7 @@ permalink: /build/assets/
 redirect_from: /assets/
 published: true
 ---
-Assets are any files you need in your build other than what is contained within your git repository. For example, you may need to upload a database dump for your project, or a .ENV file to hold some API credentials. You can find a list of your uploaded assets on your repository's Build Assets page in the web app. It's important to note that when you upload an asset with the same name as a previously uploaded asset, it replaces the existing asset.
+Assets are any files you need in your build other than what is contained within your git repository. For example, you may need to upload a database dump for your project or an environment variable file to hold some API credentials. You can find a list of your uploaded assets on your repository's Build Assets page in the web app. It's important to note that when you upload an asset with the same name as a previously uploaded asset, it replaces the existing asset.
 
 ## Upload Files as Probo Assets
 
