@@ -11,10 +11,10 @@ steps:
       - apt-get install -y software-properties-common imagemagick
       - apt-add-repository -y ppa:brightbox/ruby-ng
       - apt-get update
-  - name: Install Ruby 2.2
+  - name: Install Ruby 2.3
     plugin: Script
     script:
-      - apt-get install -y ruby2.2 ruby2.2-dev
+      - apt-get install -y ruby2.3 ruby2.3-dev
       - update-alternatives --config ruby
       - gem install bundler -v 1.7.9
   - name: Install Jekyll Dependencies

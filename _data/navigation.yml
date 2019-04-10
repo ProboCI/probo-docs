@@ -103,6 +103,9 @@
         - title: Probo Bitbucket Integration
           url: /bitbucket
           text: Bitbucket Integration
+        - title: Probo GitLab Integration
+          url: /gitlab
+          text: GitLab Integration
         - title: Probo Bitbucket Server Integration
           url: /bitbucket-server
           text: Bitbucket Server Integration
