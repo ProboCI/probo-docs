@@ -98,10 +98,7 @@ Due to limitations in the Bitbucket Server API, we cannot reliably create webhoo
   <img src="/images/bitbucket-server/bbserver-setup-12--enable-webhooks.png" alt="Arrow pointing to the Hooks menu item in the project settings and arrow pointing to the Enabled button for Post-Receive WebHooks." class="screenshot">
   </a>
 
-3. Enter `https://stash.probo.ci/stash-webhook` as the URL.
-  <a href="/images/bitbucket-server/bbserver-setup-13--enter-webhook-url.png" data-lightbox="bbserver-setup-13">
-  <img src="/images/bitbucket-server/bbserver-setup-13--enter-webhook-url.png" alt="URL field in Bitbucket Server that appears after enabling Post-Receive WebHooks." class="screenshot">
-  </a>
+3. Enter `https://app.probo.ci/stash-webhook` as the URL.
 
 ## Profit.
 
