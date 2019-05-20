@@ -32,9 +32,6 @@
         - title: Probo Build Environment Access
           url: /environment-access
           text: Environment Access
-        - title: Validate Your .probo.yaml Configuration File
-          url: /validate
-          text: Validating .probo.yaml
         - title: Probo Build Notifications
           url: /notifications
           text: Build Notifications
@@ -154,6 +151,17 @@
         - title: Probo Wordpress GitHub QuickStart
           url: /wordpress-github-quickstart
           text: Wordpress GitHub QuickStart
+
+    - title: Troubleshooting
+      text: Troubleshooting
+      url: /troubleshooting
+      children:
+        - title: Builds Don't Trigger
+          url: /builds-dont-trigger
+          text: Builds Don't Trigger
+        - title: SQL Timeouts
+          text: SQL Timeouts
+          url: /sql-timeouts
 
     - title: Probo Open Source
       text: Probo Open Source
