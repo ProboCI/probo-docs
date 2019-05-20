@@ -1,8 +1,8 @@
 ---
 layout: "docs"
-title: SQL Timeouts
+title: General SQL Error
 class: documentation
-permalink: /troubleshooting/sql-timeouts/
+permalink: /troubleshooting/general-sql-error/
 published: true
 ---
 

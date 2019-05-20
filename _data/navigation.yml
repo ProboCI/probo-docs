@@ -159,9 +159,9 @@
         - title: Builds Don't Trigger
           url: /builds-dont-trigger
           text: Builds Don't Trigger
-        - title: SQL Timeouts
-          text: SQL Timeouts
-          url: /sql-timeouts
+        - title: General SQL Error
+          text: General SQL Error
+          url: /general-sql-error
 
     - title: Probo Open Source
       text: Probo Open Source
