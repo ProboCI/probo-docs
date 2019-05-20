@@ -6,7 +6,6 @@ var gulp = require('gulp'),
   gutil = require('gulp-util'),
   notify = require('gulp-notify'),
   argv = require('yargs').argv,
-  gulpif = require('gulp-if'),
   browserSync = require('browser-sync').create(),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
@@ -20,8 +19,6 @@ var sass = require('gulp-sass'),
   postcss = require('gulp-postcss'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
-  sourcemaps = require('gulp-sourcemaps'),
-  runSequence = require('run-sequence'),
   responsiveType = require('postcss-responsive-type');
 
 // paths
@@ -51,7 +48,7 @@ var processors = [
 var buildSourceMaps = !!argv.sourcemaps;
 
 // error notifications
-var handleError = function (task) {
+var handleError = (task) => {
   return function (err) {
     gutil.beep();
 
@@ -69,28 +66,47 @@ var handleError = function (task) {
 };
 
 // Compile Sass
-gulp.task('sass', function () {
-  return gulp.src(paths.sass)
-    .pipe(gulpif(buildSourceMaps, sourcemaps.init()))
+gulp.task('sass', () => {
+  return gulp.src(paths.sass, { sourcemaps: buildSourceMaps })
     .pipe(sass({
       outputStyle: 'expanded'
     }))
     .on('error', handleError('Sass Compiling'))
     .pipe(postcss(processors))
     .on('error', handleError('Post CSS Processing'))
-    .pipe(gulpif(buildSourceMaps, sourcemaps.write()))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(paths.css, { sourcemaps: buildSourceMaps }))
     .pipe(gulp.dest('_site/css'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 // Compile installed version of styleguide (update with npm)
-gulp.task('styleguide', function() {
+gulp.task('styleguide', () => {
   return gulp.src(paths.styleguide)
     .pipe(gulp.dest(paths.css))
 });
 
-gulp.task('browserSync', function () {
+gulp.task('js:combine', () => {
+  return gulp.src(paths.js.vendor)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('javascripts/src/'));
+});
+
+gulp.task('js', gulp.series('js:combine'), () => {
+  return gulp.src(paths.js.src)
+    .pipe(uglify({
+      mangle: false,
+      preserveComments: false,
+    }))
+    .on('error', handleError('JS minifying'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .on('error', handleError('JS renaming'))
+    .pipe(gulp.dest(paths.js.build))
+    .pipe(browserSync({ stream: true }));
+});
+
+gulp.task('serve', () => {
   browserSync.init({
     open: true,
     injectChanges: true,
@@ -103,42 +119,28 @@ gulp.task('browserSync', function () {
   });
 });
 
-gulp.task('js:combine', function () {
-  return gulp.src(paths.js.vendor)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('javascripts/src/'));
-});
-
-gulp.task('js', gulp.series('js:combine'), function () {
-  return gulp.src(paths.js.src)
-    .pipe(uglify({
-      mangle: false,
-      preserveComments: false,
-    }))
-    .on('error', handleError('JS minifying'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .on('error', handleError('JS renaming'))
-    .pipe(gulp.dest(paths.js.build));
-});
-
 gulp.task('jekyll', shell.task([
   'jekyll build'
 ]));
 
 gulp.task('build', gulp.series(gulp.parallel('js', 'sass', 'styleguide'), 'jekyll'));
 
-gulp.task('build:dev', gulp.series('build', 'browserSync'));
-
-gulp.task('watch', gulp.series('build:dev'), function () {
-  gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.jekyll, ['jekyll'], browserSync.reload);
-  gulp.watch([paths.js.src, paths.js.vendor], ['js'], browserSync.reload);
+gulp.task('watch:jekyll', () => {
+  gulp.watch(paths.jekyll, gulp.series('jekyll'));
 });
 
+gulp.task('watch:sass', () => {
+  gulp.watch(paths.sass, gulp.series('sass'));
+});
+
+gulp.task('watch:js', () => {
+  gulp.watch([paths.js.src, paths.js.vendor], gulp.series('js'));
+});
+
+gulp.task('watch', gulp.series('build', gulp.parallel('serve', 'watch:sass', 'watch:js', 'watch:jekyll')));
+
 // Generate fav and app icons
-gulp.task('favicons:generate', function () {
+gulp.task('favicons:generate', () => {
   gutil.log('Generating favicons...');
   return gulp.src('images/probo-sphere.png').pipe(favicons({
       appName: 'ProboCI Docs',
@@ -161,7 +163,7 @@ gulp.task('favicons:generate', function () {
 });
 
 // Inject fav and app icons into head
-gulp.task('favicons:inject', function () {
+gulp.task('favicons:inject', () => {
   gutil.log('Injecting favicons into <head>...');
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {
