@@ -35,6 +35,9 @@
         - title: Probo Build Notifications
           url: /notifications
           text: Build Notifications
+        - title: Probo Configuration Examples
+          url: /examples
+          text: Configuration Examples
 
     - title: Probo Plugins
       text: Probo Plugins

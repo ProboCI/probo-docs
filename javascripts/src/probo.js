@@ -1,11 +1,11 @@
 (function (window, $, PROBO) {
 
-  // use List.js on recipes page
+  // use List.js on examples page
   if (List instanceof Function) {
     var options = {
-        valueNames: [ 'name', 'recipe', 'highlight', 's', 'no' ]
+        valueNames: [ 'name', 'example', 'highlight', 's', 'no' ]
     };
-    var recipes = new List('recipes', options);
+    var examples = new List('examples', options);
   }
 
   $(document).ready(function(e) {

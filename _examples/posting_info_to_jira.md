@@ -2,7 +2,7 @@
 title: Posting Probo links to Jira
 uid: posting_info_to_jira
 ---
-This recipe assumes you're using GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).
+This example assumes you're using GitHub, and that you're naming your branches the same as your Jira issue id (ex: PRO-123).
 
 _Please note that you should not add your passwords or API keys to a public repository! Probo will soon be releasing a safer process for posting build information into Jira._
 

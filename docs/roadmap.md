@@ -99,12 +99,12 @@ When we built Probo we decided to use RethinkDB to power most of our database ne
 ## Slack Integration
 **Github Issue:**  
 **Status:**  In progress  
-Currently, if you want to integrate with Slack you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Slack integration directly through the Probo app interface to enable a true ChatOps experience for those working in that way.
+Currently, if you want to integrate with Slack you have to do so via a [Probo example](https://docs.probo.ci/examples/). We intend to offer Slack integration directly through the Probo app interface to enable a true ChatOps experience for those working in that way.
 
 ## Jira integration
 **Github Issue:**  
 **Status:**  In progress  
-Currently, if you want to integrate with Jira you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Jira integration directly through the Probo app interface. 
+Currently, if you want to integrate with Jira you have to do so via a [Probo example](https://docs.probo.ci/examples/). We intend to offer Jira integration directly through the Probo app interface. 
 
 ## Rancher (& other container orchestration) support for the Open Source Software version of Probo
 **Github Issue:**  

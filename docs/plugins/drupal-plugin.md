@@ -275,24 +275,24 @@ steps:
 
 **Using the `Drupal` plugin**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'drupal_using_plugin' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'drupal_using_plugin' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 **Using the Settings Options**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'drupal_settings_option' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'drupal_settings_option' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 **Setting `LAMPApp` PHP Configuration Options on a Drupal Installation**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'lamp_set_php_config_on_drupal' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'lamp_set_php_config_on_drupal' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}

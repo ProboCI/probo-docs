@@ -39,17 +39,17 @@ exclude:
   - 'README.md'
 
 collections:
-  recipes:
+  examples:
     output: true
     permalink: /:collection/:path/
 
 defaults:
   - scope:
       path: ""
-      type: recipes
+      type: examples
     values:
-      layout: recipe
-      category: recipe
+      layout: example
+      category: example
 
 algolia:
   application_id: 'SVDV4TVTRX'

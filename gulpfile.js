@@ -32,7 +32,7 @@ var paths = {
   styleguide: './node_modules/probo-styleguide/styleguide/probo.css',
   css: 'css',
   images: 'images/**/*.{gif,jpg,png}',
-  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
+  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_examples/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
   favicons: ['images/favicons/icon.html']
 };
 
