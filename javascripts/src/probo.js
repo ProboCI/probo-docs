@@ -1,13 +1,5 @@
 (function (window, $, PROBO) {
 
-  // use List.js on examples page
-  if (List instanceof Function) {
-    var options = {
-        valueNames: [ 'name', 'example', 'highlight', 's', 'no' ]
-    };
-    var examples = new List('examples', options);
-  }
-
   $(document).ready(function(e) {
     // Mobile menu
     var $menuContainer = $('#mainMenuContainer');
