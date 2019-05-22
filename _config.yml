@@ -27,16 +27,16 @@ markdown: kramdown
 kramdown:
   input: GFM
 exclude:
-  - 'config.ru'
   - 'Gemfile'
   - 'Gemfile.lock'
   - 'vendor'
   - 'package.json'
+  - 'package-lock.json'
+  - 'gulpfile.js'
   - 'node_modules'
-  - 'autoprefixer.yml'
-  - 'Gruntfile.js'
   - 'javascripts/src'
   - 'README.md'
+  - 'deploy_rsa.enc'
 
 collections:
   examples:
