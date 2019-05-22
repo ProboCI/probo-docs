@@ -24,8 +24,8 @@ var sass = require('gulp-sass'),
 // paths
 var paths = {
   js: {
-    src: 'javascripts/src/*.js',
-    vendor: 'javascripts/src/vendor/*.js',
+    src: ['javascripts/src/*.js', '!javascripts/src/vendor/**/*.js'],
+    vendor: 'javascripts/src/vendor/**/*.js',
     build: 'javascripts/build/'
   },
   sass: ['_stylesheets/**/*.scss', '!_stylesheets/vendor/**/*.scss'],
@@ -85,13 +85,7 @@ gulp.task('styleguide', () => {
     .pipe(gulp.dest(paths.css))
 });
 
-gulp.task('js:combine', () => {
-  return gulp.src(paths.js.vendor)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('javascripts/src/'));
-});
-
-gulp.task('js', gulp.series('js:combine'), () => {
+gulp.task('js', () => {
   return gulp.src(paths.js.src)
     .pipe(uglify({
       mangle: false,
@@ -102,8 +96,22 @@ gulp.task('js', gulp.series('js:combine'), () => {
       suffix: '.min'
     }))
     .on('error', handleError('JS renaming'))
-    .pipe(gulp.dest(paths.js.build))
-    .pipe(browserSync({ stream: true }));
+    .pipe(gulp.dest(paths.js.build));
+});
+
+gulp.task('js:vendor', () => {
+  return gulp.src(paths.js.vendor)
+    .pipe(concat('vendor.js'))
+    .pipe(uglify({
+      mangle: false,
+      preserveComments: false,
+    }))
+    .on('error', handleError('JS vendor minifying'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .on('error', handleError('JS vendor renaming'))
+    .pipe(gulp.dest('javascripts/build/'));
 });
 
 gulp.task('serve', () => {
@@ -134,7 +142,7 @@ gulp.task('watch:sass', () => {
 });
 
 gulp.task('watch:js', () => {
-  gulp.watch([paths.js.src, paths.js.vendor], gulp.series('js'));
+  gulp.watch(paths.js.src, gulp.series('js', 'js:vendor'));
 });
 
 gulp.task('watch', gulp.series('build', gulp.parallel('serve', 'watch:sass', 'watch:js', 'watch:jekyll')));
