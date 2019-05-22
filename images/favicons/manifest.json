@@ -1,6 +1,6 @@
 {
-  "name": "ProboCI Docs",
-  "short_name": "ProboCI Docs",
+  "name": "Probo.CI Docs",
+  "short_name": "Probo.CI Docs",
   "description": "Probo.CI documentation.",
   "dir": "auto",
   "lang": "en-US",
@@ -8,6 +8,7 @@
   "orientation": "portrait",
   "start_url": "/?homescreen=1",
   "background_color": "#020307",
+  "theme_color": "#fff",
   "icons": [
     {
       "src": "/images/favicons/android-chrome-36x36.png",

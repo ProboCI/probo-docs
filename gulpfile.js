@@ -151,11 +151,11 @@ gulp.task('watch', gulp.series('build', gulp.parallel('serve', 'watch:sass', 'wa
 gulp.task('favicons:generate', () => {
   gutil.log('Generating favicons...');
   return gulp.src('images/probo-sphere.png').pipe(favicons({
-      appName: 'ProboCI Docs',
+      appName: 'Probo.CI Docs',
       appDescription: 'Probo.CI documentation.',
       background: '#020307',
       path: '/images/favicons/',
-      url: 'http://docs.probo.ci/',
+      url: 'https://docs.probo.ci/',
       display: 'standalone',
       orientation: 'portrait',
       start_url: '/?homescreen=1',
