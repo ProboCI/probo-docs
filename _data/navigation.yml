@@ -83,15 +83,10 @@
           text: Admins Page
         - title: Probo.CI Subscription Page
           url: /subscription
-          text: Probo.CI Subscription Page
-
-    - title: .probo.yaml Configuration Recipes
-      url: /recipes
-      text: Probo Recipes
-
-    - title: Probo's Reaper
-      url: /reaper
-      text: Probo's Reaper
+          text: Subscription Page
+        - title: Automatic Build Cleanup with the Probo Reaper
+          url: /reaper
+          text: Automatic Build Cleanup
 
     - title: Probo Build Integrations
       text: Integrations
