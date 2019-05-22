@@ -41,7 +41,7 @@ exclude:
 collections:
   examples:
     output: true
-    permalink: /:collection/:path/
+    permalink: /build/:collection/:path/
 
 defaults:
   - scope:
