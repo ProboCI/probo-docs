@@ -1,6 +1,6 @@
 ---
 layout: "docs"
-title: Bitbucket Server Integration
+title: Using Probo with Bitbucket Server
 class: documentation
 permalink: /integrations/bitbucket-server/
 redirect_from: /git/bitbucket-server/

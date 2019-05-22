@@ -10,7 +10,7 @@
       url: /
       text: Getting Started
 
-    - title: Build Configuration
+    - title: Probo Build Configuration
       text: Build Configuration
       url: /build
       children:
@@ -40,7 +40,7 @@
           text: Configuration Examples
 
     - title: Probo Plugins
-      text: Probo Plugins
+      text: Plugins
       url: /plugins
       children:
         - title: Probo Shell Plugin
@@ -65,22 +65,22 @@
       children:
         - title: The Probo.CI Dashboard
           url: /dashboard
-          text: The Probo.CI Dashboard
+          text: Dashboard
         - title: Probo.CI Organization Pages
           url: /organizations
-          text: Probo.CI Organization Pages
+          text: Organization Pages
         - title: Probo.CI Project Pages
           url: /projects
-          text: Probo.CI Project Pages
+          text: Project Pages
         - title: Probo.CI Project Access
           url: /project-access
-          text: Probo.CI Project Access
+          text: Project Access
         - title: Probo.CI Build Pages
           url: /builds
-          text: Probo.CI Build Pages
+          text: Build Pages
         - title: Probo.CI Admins Page
           url: /admins
-          text: Probo.CI Admins Page
+          text: Admins Page
         - title: Probo.CI Subscription Page
           url: /subscription
           text: Probo.CI Subscription Page
@@ -94,7 +94,7 @@
       text: Probo's Reaper
 
     - title: Probo Build Integrations
-      text: Probo Integrations
+      text: Integrations
       url: /integrations
       children:
         - title: Probo GitHub Integration
@@ -133,7 +133,7 @@
           url: /multisite
           text: Multisite
     - title: Probo Tutorials
-      text: Probo Tutorials
+      text: Tutorials
       url: /tutorials
       children:
         - title: Probo Drupal GitHub QuickStart
@@ -199,7 +199,7 @@
           url: /reaper
 
     - title: Probo Features Roadmap
-      text: Probo Roadmap
+      text: Features Roadmap
       url: /roadmap
 
 - title: Contact Probo

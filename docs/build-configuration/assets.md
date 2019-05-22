@@ -39,7 +39,7 @@ You can find your project's upload tokens when you view your project's Upload To
 
 ## Import Probo Assets to Your Probo Build
 
-You can indicate which assets to import into your builds in the `.probo.yaml` file. For example, if you need to use an asset you've uploaded with filename dev.sql.gz, start .probo.yaml file with:
+You can indicate which assets to import into your builds in the `.probo.yaml` file. For example, if you need to use an asset you've uploaded with filename dev.sql.gz, start `.probo.yaml` with:
 {% highlight yaml%}
 assets:
   - mydb.sql.gz
