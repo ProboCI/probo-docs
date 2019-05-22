@@ -13,25 +13,25 @@ You will need to include a `name` for each `command` since you can only declare 
 
 **Using the `Shell` plugin**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'shell_using_plugin' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'shell_using_plugin' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 
 **Developing on a site with a database and tests**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'shell_develop_with_database_tests' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'shell_develop_with_database_tests' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 **Colored output**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'shell_colored_output' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'shell_colored_output' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}

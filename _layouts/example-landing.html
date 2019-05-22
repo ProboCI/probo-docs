@@ -1,0 +1,17 @@
+---
+layout: docs
+---
+
+{{ content }}
+
+{% assign examples = site.examples | sort: "name" %}
+
+<div id="examples" class="examples f-sans-serif">
+  <ul class="list examples__list">
+    {% for example in site.examples %}
+    <li>
+      <a href="{{ example.url }}">{{ example.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

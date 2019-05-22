@@ -1,6 +1,6 @@
 ---
 layout: "docs"
-title: GitLab Integration
+title: Using Probo with GitLab
 class: documentation
 permalink: /integrations/gitlab/
 published: true

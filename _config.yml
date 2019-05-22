@@ -27,29 +27,29 @@ markdown: kramdown
 kramdown:
   input: GFM
 exclude:
-  - 'config.ru'
   - 'Gemfile'
   - 'Gemfile.lock'
   - 'vendor'
   - 'package.json'
+  - 'package-lock.json'
+  - 'gulpfile.js'
   - 'node_modules'
-  - 'autoprefixer.yml'
-  - 'Gruntfile.js'
   - 'javascripts/src'
   - 'README.md'
+  - 'deploy_rsa.enc'
 
 collections:
-  recipes:
+  examples:
     output: true
-    permalink: /:collection/:path/
+    permalink: /build/:collection/:path/
 
 defaults:
   - scope:
       path: ""
-      type: recipes
+      type: examples
     values:
-      layout: recipe
-      category: recipe
+      layout: example
+      category: example
 
 algolia:
   application_id: 'SVDV4TVTRX'

@@ -1,11 +1,11 @@
 ---
 layout: "docs"
-title: Probo CI Product Roadmap
+title: Probo.CI Product Roadmap
 class: documentation
 permalink: /roadmap/
 published: true
 ---
-Below are items that the Probo CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo github repositories as they are created. 
+Below are items that the Probo.CI team has identified as items we're committed to building in the near future. This list will be updated and Pull Requests are welcome, though you should chat with a member of the Probo team before putting in time into describing a new feature request for the roadmap. We will link to issues in the various Probo GitHub repositories as they are created.
 
 *Last updated February 1st, 2019*
 # Currently Active Roadmap Items
@@ -22,7 +22,7 @@ Ubuntu 18.04 LTS has been released. Probo developers are currently in the proces
 
 Currently Probo provides a LAMP environment as the basis for every build. Some industrious users have coerced Probo into supporting other stacks through means that are not for the faint of heart. It has always been our intention to support other languages and we abhor hacks and have always intended to provide both alternative language images that ship with other languages pre-installed (you can always install them yourself) and to make the services that we start on boot completely configurable.
 
-We recently completed  [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), you can find the images as we make them available on the [ProboCI Docker Hub](https://hub.docker.com/u/proboci/). Anything listed on dockerhub can now be used in the Probo app. Please see the [Probo Docs on Images](https://docs.probo.ci/build/images/) for more information on how to use these. 
+We recently completed  [we have a more robust service for building and launching images](https://github.com/ProboCI/probo-image-builder), you can find the images as we make them available on the [ProboCI Docker Hub](https://hub.docker.com/u/proboci/). Anything listed on dockerhub can now be used in the Probo app. Please see the [Probo Docs on Images](https://docs.probo.ci/build/images/) for more information on how to use these.
 
 ## .net/MSSQL, Sitecore, Java, node.js plugins
 **Github Issue:**  
@@ -62,17 +62,17 @@ A build matrix can mean different things in different contexts, but it generally
 
 One of the features that differentiates Probo from many other CI tools is our Asset service. You can upload a set of assets and we store them with a project-specific encryption key and make those files available to builds within that project. The fact that these assets are stored with AES encryption makes them a pretty good way to make secrets available to your build steps (we describe this technique in our [documentation on fetching databases from Pantheon](http://probo.ci/docs/tutorials/pantheon/)) but these tokens will not be automatically stripped from our logging service. We plan to create a secret service allowing you to store encrypted secrets either on our servers or as encrypted blobs in your `.probo.yaml` file. These secrets will also enable other forthcoming features.
 
-## Better integrations with hosting providers like WPEngine, Pantheon, Acquia, Azure, and others 
+## Better integrations with hosting providers like WPEngine, Pantheon, Acquia, Azure, and others
 **Github Issue:**  
 **Status:**  Not started
 
-In order to make life easier for Probo users, we want to have a first-class integration with the major hosting providers, which will include grabbing the latest database backups, integrating with their dev/stage/live capabiltiies, and possibly providing SSO authentication. Some of our early targets for these integrations include [WPEngine](https://blog.probo.ci/setting-up-a-wpengine-site-probo), [Pantheon](https://docs.probo.ci/tutorials/pantheon/), Acquia, Azure, and other hosts that support some level of automation. 
+In order to make life easier for Probo users, we want to have a first-class integration with the major hosting providers, which will include grabbing the latest database backups, integrating with their dev/stage/live capabiltiies, and possibly providing SSO authentication. Some of our early targets for these integrations include [WPEngine](https://blog.probo.ci/setting-up-a-wpengine-site-probo), [Pantheon](https://docs.probo.ci/tutorials/pantheon/), Acquia, Azure, and other hosts that support some level of automation.
 
-## More automated "one-click" setup 
+## More automated "one-click" setup
 **Github Issue:**  
 **Status:**  Not started
 
-While the Probo setup may be easy for some power users, many of our core personas--for example business/product owners, project managers, & manual testers--will find it challenging to get started. Our long-term goal is to automate as much of this process as possible. Some examples include, automatically creating a .probo.yaml and pushing it to Github and, for hosts that don't directly integrate with GitHub/Bitbcuket/Gitlab, even setting up a Github repository when it doesn't yet exist. 
+While the Probo setup may be easy for some power users, many of our core personas--for example business/product owners, project managers, & manual testers--will find it challenging to get started. Our long-term goal is to automate as much of this process as possible. Some examples include, automatically creating a .probo.yaml and pushing it to Github and, for hosts that don't directly integrate with GitHub/Bitbcuket/Gitlab, even setting up a Github repository when it doesn't yet exist.
 
 ## Public API
 **Github Issue:**  
@@ -88,29 +88,29 @@ In order to better integrate with Bitbucket Server (fka Stash) we really need to
 
 ## Drupal Multisite Support
 **Github Issue:** https://github.com/ProboCI/probo/issues/72  
-**Status:** In progress 
+**Status:** In progress
 Many sites, espescially those hosted on Acquia, use Drupal's multi-site functionality, where many sites share one code base, but have their own database or database tables.
 
 ## Replace RethinkDB with pgSQL
 **Github link:** https://github.com/ProboCI/probo-db  
 **Status:**  In progress  
-When we built Probo we decided to use RethinkDB to power most of our database needs, but over time we came to feel that rethink was not stable enough, and the company behind Rethink has since gone out of business. We have been removing Rethink piece by piece and will soon be totally onto the much more stable and highly adopted pgSQL. 
+When we built Probo we decided to use RethinkDB to power most of our database needs, but over time we came to feel that rethink was not stable enough, and the company behind Rethink has since gone out of business. We have been removing Rethink piece by piece and will soon be totally onto the much more stable and highly adopted pgSQL.
 
 ## Slack Integration
 **Github Issue:**  
 **Status:**  In progress  
-Currently, if you want to integrate with Slack you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Slack integration directly through the Probo app interface to enable a true ChatOps experience for those working in that way.
+Currently, if you want to integrate with Slack you have to do so via a [Probo example](https://docs.probo.ci/examples/). We intend to offer Slack integration directly through the Probo app interface to enable a true ChatOps experience for those working in that way.
 
 ## Jira integration
 **Github Issue:**  
 **Status:**  In progress  
-Currently, if you want to integrate with Jira you have to do so via a [Probo Recipe](https://docs.probo.ci/recipes/). We intend to offer Jira integration directly through the Probo app interface. 
+Currently, if you want to integrate with Jira you have to do so via a [Probo example](https://docs.probo.ci/examples/). We intend to offer Jira integration directly through the Probo app interface.
 
 ## Rancher (& other container orchestration) support for the Open Source Software version of Probo
 **Github Issue:**  
 **Status:** Not started
 
-One of the Open Source users of Probo would like Probo to work alongside [Rancher, an Open Source Container Orchestration platform](http://rancher.com/), and presumably this could also be extended to other orchistration tools such as [Chef's Habitiat product](https://www.habitat.sh/). The Probo & Zivtech teams don't currently have the need to support Rancher for our clients, as almost all of them use hosting Platforms as a Service like Acquia, Pantheon, or Platform.sh. But we can see the need to provide the same level of testing and support for those who build and maintain their own server infrastructure and we are very interested in figuring out how to support testing in these complex environments. Please [get in touch](https://probo.ci/contact/) if this is a feature your organization would like to sponsor or support. 
+One of the Open Source users of Probo would like Probo to work alongside [Rancher, an Open Source Container Orchestration platform](http://rancher.com/), and presumably this could also be extended to other orchistration tools such as [Chef's Habitiat product](https://www.habitat.sh/). The Probo & Zivtech teams don't currently have the need to support Rancher for our clients, as almost all of them use hosting Platforms as a Service like Acquia, Pantheon, or Platform.sh. But we can see the need to provide the same level of testing and support for those who build and maintain their own server infrastructure and we are very interested in figuring out how to support testing in these complex environments. Please [get in touch](https://probo.ci/contact/) if this is a feature your organization would like to sponsor or support.
 
 # Completed Roadmap Items
 ## SSH Access to Your Build Environments
@@ -125,7 +125,7 @@ Nothing is more frustrating than when a CI build on some remote service has fail
 **Github Link:** https://github.com/ProboCI/probo-gitlab  
 **Status:** Now Available  
 
-We provide support for both the SaaS and the self-hosted versions of [GitLab](https://about.gitlab.com/). This is an open source component, just like our other handlers. 
+We provide support for both the SaaS and the self-hosted versions of [GitLab](https://about.gitlab.com/). This is an open source component, just like our other handlers.
 
 ## Cached Build Steps
 **Github Issue:**  
@@ -136,7 +136,7 @@ Some of projects have time consuming and computationally expensive steps necessa
 **Github Link:** https://github.com/ElusiveMind/probo-docker   
 **Status:**  Now available  
 
-[Michael Bagnall](https://github.com/elusivemind) has been working on building out a fully functional version of Open Source Probo, which uses a Drupal site and module to act as the interface. This should allow us to also use Probo while continuing to build Probo, another goal of ours. 
+[Michael Bagnall](https://github.com/elusivemind) has been working on building out a fully functional version of Open Source Probo, which uses a Drupal site and module to act as the interface. This should allow us to also use Probo while continuing to build Probo, another goal of ours.
 
 ## Open Source Stash/Bitbucket Server support
 **Github Issue**:   
