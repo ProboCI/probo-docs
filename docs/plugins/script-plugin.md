@@ -13,9 +13,9 @@ Instead of `command`, the Probo Script plugin requires a parameter for `script`.
 
 ### Using the Probo Script plugin
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'script_using_plugin' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'script_using_plugin' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
@@ -23,8 +23,8 @@ Currently a [Probo Build Step](/build/steps/) will pass or fail based on the exi
 
 ### Developing on a site with a database:
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'script_site_with_database' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'script_site_with_database' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}

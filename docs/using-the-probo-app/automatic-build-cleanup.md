@@ -1,8 +1,9 @@
 ---
 layout: "docs"
-title: The Reaper
+title: Automatic Build Cleanup (the Reaper)
 class: documentation
-permalink: /reaper/
+permalink: /app/reaper/
+redirect_from: /reaper/
 published: true
 ---
 

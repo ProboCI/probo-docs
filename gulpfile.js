@@ -6,7 +6,6 @@ var gulp = require('gulp'),
   gutil = require('gulp-util'),
   notify = require('gulp-notify'),
   argv = require('yargs').argv,
-  gulpif = require('gulp-if'),
   browserSync = require('browser-sync').create(),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
@@ -20,22 +19,20 @@ var sass = require('gulp-sass'),
   postcss = require('gulp-postcss'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
-  sourcemaps = require('gulp-sourcemaps'),
-  runSequence = require('run-sequence'),
   responsiveType = require('postcss-responsive-type');
 
 // paths
 var paths = {
   js: {
-    src: 'javascripts/src/*.js',
-    vendor: 'javascripts/src/vendor/*.js',
+    src: ['javascripts/src/*.js', '!javascripts/src/vendor/**/*.js'],
+    vendor: 'javascripts/src/vendor/**/*.js',
     build: 'javascripts/build/'
   },
   sass: ['_stylesheets/**/*.scss', '!_stylesheets/vendor/**/*.scss'],
   styleguide: './node_modules/probo-styleguide/styleguide/probo.css',
   css: 'css',
   images: 'images/**/*.{gif,jpg,png}',
-  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
+  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_examples/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
   favicons: ['images/favicons/icon.html']
 };
 
@@ -51,7 +48,7 @@ var processors = [
 var buildSourceMaps = !!argv.sourcemaps;
 
 // error notifications
-var handleError = function (task) {
+var handleError = (task) => {
   return function (err) {
     gutil.beep();
 
@@ -69,47 +66,26 @@ var handleError = function (task) {
 };
 
 // Compile Sass
-gulp.task('sass', function () {
-  return gulp.src(paths.sass)
-    .pipe(gulpif(buildSourceMaps, sourcemaps.init()))
+gulp.task('sass', () => {
+  return gulp.src(paths.sass, { sourcemaps: buildSourceMaps })
     .pipe(sass({
       outputStyle: 'expanded'
     }))
     .on('error', handleError('Sass Compiling'))
     .pipe(postcss(processors))
     .on('error', handleError('Post CSS Processing'))
-    .pipe(gulpif(buildSourceMaps, sourcemaps.write()))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(paths.css, { sourcemaps: buildSourceMaps }))
     .pipe(gulp.dest('_site/css'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 // Compile installed version of styleguide (update with npm)
-gulp.task('styleguide', function() {
+gulp.task('styleguide', () => {
   return gulp.src(paths.styleguide)
     .pipe(gulp.dest(paths.css))
 });
 
-gulp.task('browserSync', function () {
-  browserSync.init({
-    open: true,
-    injectChanges: true,
-    notify: true,
-    online: false,
-    browser: ['google chrome'],
-    server: {
-      baseDir: '_site'
-    }
-  });
-});
-
-gulp.task('js:combine', function () {
-  return gulp.src(paths.js.vendor)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('javascripts/src/'));
-});
-
-gulp.task('js', gulp.series('js:combine'), function () {
+gulp.task('js', () => {
   return gulp.src(paths.js.src)
     .pipe(uglify({
       mangle: false,
@@ -123,29 +99,63 @@ gulp.task('js', gulp.series('js:combine'), function () {
     .pipe(gulp.dest(paths.js.build));
 });
 
+gulp.task('js:vendor', () => {
+  return gulp.src(paths.js.vendor)
+    .pipe(concat('vendor.js'))
+    .pipe(uglify({
+      mangle: false,
+      preserveComments: false,
+    }))
+    .on('error', handleError('JS vendor minifying'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .on('error', handleError('JS vendor renaming'))
+    .pipe(gulp.dest('javascripts/build/'));
+});
+
+gulp.task('serve', () => {
+  browserSync.init({
+    open: true,
+    injectChanges: true,
+    notify: true,
+    online: false,
+    browser: ['google chrome'],
+    server: {
+      baseDir: '_site'
+    }
+  });
+});
+
 gulp.task('jekyll', shell.task([
   'jekyll build'
 ]));
 
 gulp.task('build', gulp.series(gulp.parallel('js', 'sass', 'styleguide'), 'jekyll'));
 
-gulp.task('build:dev', gulp.series('build', 'browserSync'));
-
-gulp.task('watch', gulp.series('build:dev'), function () {
-  gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.jekyll, ['jekyll'], browserSync.reload);
-  gulp.watch([paths.js.src, paths.js.vendor], ['js'], browserSync.reload);
+gulp.task('watch:jekyll', () => {
+  gulp.watch(paths.jekyll, gulp.series('jekyll'));
 });
 
+gulp.task('watch:sass', () => {
+  gulp.watch(paths.sass, gulp.series('sass'));
+});
+
+gulp.task('watch:js', () => {
+  gulp.watch(paths.js.src, gulp.series('js', 'js:vendor'));
+});
+
+gulp.task('watch', gulp.series('build', gulp.parallel('serve', 'watch:sass', 'watch:js', 'watch:jekyll')));
+
 // Generate fav and app icons
-gulp.task('favicons:generate', function () {
+gulp.task('favicons:generate', () => {
   gutil.log('Generating favicons...');
   return gulp.src('images/probo-sphere.png').pipe(favicons({
-      appName: 'ProboCI Docs',
+      appName: 'Probo.CI Docs',
       appDescription: 'Probo.CI documentation.',
       background: '#020307',
       path: '/images/favicons/',
-      url: 'http://docs.probo.ci/',
+      url: 'https://docs.probo.ci/',
       display: 'standalone',
       orientation: 'portrait',
       start_url: '/?homescreen=1',
@@ -161,7 +171,7 @@ gulp.task('favicons:generate', function () {
 });
 
 // Inject fav and app icons into head
-gulp.task('favicons:inject', function () {
+gulp.task('favicons:inject', () => {
   gutil.log('Injecting favicons into <head>...');
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {

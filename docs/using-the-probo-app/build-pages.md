@@ -31,3 +31,7 @@ You can tell [the Reaper](/reaper/) a build is important by pinning it.
 You can manually delete unwanted builds to free up disk space for your account. Deleting a build completely removes its container from disk. You will be unable to rebuild the environment, but a change to the same Pull Request will build a new environment.
 
 Deleting a build does not delete the build's logs. Logs are still available on the build page, which can be found by showing all builds on the project page.
+
+## Advanced Functions
+
+Following any of the advanced function links will open a terminal session in the build's container. The SSH Terminal option will bring you to the root directory, while other options act as shortcuts to commonly accessed logs.

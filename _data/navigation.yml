@@ -10,7 +10,7 @@
       url: /
       text: Getting Started
 
-    - title: Build Configuration
+    - title: Probo Build Configuration
       text: Build Configuration
       url: /build
       children:
@@ -32,15 +32,15 @@
         - title: Probo Build Environment Access
           url: /environment-access
           text: Environment Access
-        - title: Validate Your .probo.yaml Configuration File
-          url: /validate
-          text: Validating .probo.yaml
         - title: Probo Build Notifications
           url: /notifications
           text: Build Notifications
+        - title: Probo Configuration Examples
+          url: /examples
+          text: Configuration Examples
 
     - title: Probo Plugins
-      text: Probo Plugins
+      text: Plugins
       url: /plugins
       children:
         - title: Probo Shell Plugin
@@ -65,36 +65,31 @@
       children:
         - title: The Probo.CI Dashboard
           url: /dashboard
-          text: The Probo.CI Dashboard
+          text: Dashboard
         - title: Probo.CI Organization Pages
           url: /organizations
-          text: Probo.CI Organization Pages
+          text: Organization Pages
         - title: Probo.CI Project Pages
           url: /projects
-          text: Probo.CI Project Pages
+          text: Project Pages
         - title: Probo.CI Project Access
           url: /project-access
-          text: Probo.CI Project Access
+          text: Project Access
         - title: Probo.CI Build Pages
           url: /builds
-          text: Probo.CI Build Pages
+          text: Build Pages
         - title: Probo.CI Admins Page
           url: /admins
-          text: Probo.CI Admins Page
+          text: Admins Page
         - title: Probo.CI Subscription Page
           url: /subscription
-          text: Probo.CI Subscription Page
-
-    - title: .probo.yaml Configuration Recipes
-      url: /recipes
-      text: Probo Recipes
-
-    - title: Probo's Reaper
-      url: /reaper
-      text: Probo's Reaper
+          text: Subscription Page
+        - title: Automatic Build Cleanup with the Probo Reaper
+          url: /reaper
+          text: Automatic Build Cleanup
 
     - title: Probo Build Integrations
-      text: Probo Integrations
+      text: Integrations
       url: /integrations
       children:
         - title: Probo GitHub Integration
@@ -133,7 +128,7 @@
           url: /multisite
           text: Multisite
     - title: Probo Tutorials
-      text: Probo Tutorials
+      text: Tutorials
       url: /tutorials
       children:
         - title: Probo Drupal GitHub QuickStart
@@ -154,6 +149,17 @@
         - title: Probo Wordpress GitHub QuickStart
           url: /wordpress-github-quickstart
           text: Wordpress GitHub QuickStart
+
+    - title: Troubleshooting
+      text: Troubleshooting
+      url: /troubleshooting
+      children:
+        - title: Builds Don't Trigger
+          url: /builds-dont-trigger
+          text: Builds Don't Trigger
+        - title: General SQL Error
+          text: General SQL Error
+          url: /general-sql-error
 
     - title: Probo Open Source
       text: Probo Open Source
@@ -188,7 +194,7 @@
           url: /reaper
 
     - title: Probo Features Roadmap
-      text: Probo Roadmap
+      text: Features Roadmap
       url: /roadmap
 
 - title: Contact Probo

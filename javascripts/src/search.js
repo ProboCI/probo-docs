@@ -173,7 +173,7 @@
    * Converts a filter object into an array.
    * @param {Object} filters - A filters object returned from a getFilters function.
    * @return {Array} An array of strings, formatted as 'key:value', where the key
-   * is the filter ID and the value is the filter value, e.g. 'category:recipe'.
+   * is the filter ID and the value is the filter value, e.g. 'category:example'.
    */
   ProboSearch.prototype.filtersToArray = function (filters) {
     var filterArray = [];
