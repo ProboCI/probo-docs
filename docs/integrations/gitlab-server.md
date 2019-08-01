@@ -11,8 +11,8 @@ You can use Probo.CI with your instance of [GitLab Server](https://bitbucket.org
 Follow these steps to get started using Probo with your instance of GitLab Server:
 
 1. <a href="#create-an-oauth-application-on-your-gitlab-server">Create an OAuth application on your GitLab Server.</a>
-2. <a href="#register-your-gitlab-server-with-probo.ci">Register your GitLab Server with Probo.CI.</a>
-3. <a href="#authenticate-your-gitlab-server-with-probo.ci">Authenticate your GitLab Server with Probo.CI.</a>
+2. <a href="#register-your-gitlab-server-with-proboci">Register your GitLab Server with Probo.CI.</a>
+3. <a href="#authenticate-your-gitlab-server-with-proboci">Authenticate your GitLab Server with Probo.CI.</a>
 4. <a href="#activate-a-probo-organization">Activate a Probo Organization.</a>>
 5. <a href="#activating-repositories">Activate repositories.</a>>
 
