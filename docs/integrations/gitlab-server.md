@@ -22,7 +22,7 @@ Follow these steps to get started using Probo with your instance of GitLab Serve
 2. Create an OAuth application with the following required settings.  
    **Name:** Enter a name for your OAuth application.  
    **Redirect URI:** Enter `https://app.probo.ci/auth/gitlab/callback` in this field.  
-   **Scopes:** API (Check the API checkbox.)
+   **Scopes:** API _(Check the API checkbox.)_
 3. Submit your changes to save the new OAuth application.
 
 Next you need to register your GitLab Server’s OAuth application with Probo.CI.
@@ -60,11 +60,12 @@ Once authenticated you need to activate your Probo Organization by choosing a su
 1. Click the Activate repos button or the Enable some now! link to start the activation process.
 2. Next click the Activate this organization button on the organization that has repos you want to enable.
 3. Choose a plan to start on for your 2 month trial.  
+4. Next verify your subscription plan and enter your email address. 
+5. Click the start subscription to complete activating your organization.
+
 {% note %}
 **Note:** Your plan can be changed at any time during your trial period to see what fits best for your organization.
 {% endnote %}
-4. Next verify your subscription plan and enter your email address. 
-5. Click the start subscription to complete activating your organization.
 
 That's it! Now you can start activating repositories within your Probo Organization.
 
