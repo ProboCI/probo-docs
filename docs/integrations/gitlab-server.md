@@ -6,7 +6,7 @@ permalink: /integrations/gitlab-server/
 redirect_from: /git/gitlab-server/
 published: true
 ---
-You can use Probo.CI with your instance of [GitLab Server](https://bitbucket.org/product/server). Just like the [GitLab Integration](/git/gitlab/ "GitLab Integration"), Probo uses the build status pop-up to display the list of build steps as defined in your `.probo.yaml` file and their statuses. The link can be found in the Overview section of the Merge Request details page.
+You can use Probo.CI with your instance of [GitLab Server](https://about.gitlab.com/install/). Just like the [GitLab Integration](/git/gitlab/ "GitLab Integration"), Probo uses the build status pop-up to display the list of build steps as defined in your `.probo.yaml` file and their statuses. The link can be found in the Overview section of the Merge Request details page.
 
 Follow these steps to get started using Probo with your instance of GitLab Server:
 
@@ -78,7 +78,7 @@ That's it! Now you can start activating repositories within your Probo Organizat
    <a href="/images/gitlab-server/activate-repos.png" data-lightbox="gitlabserver-setup-8-9-10">
    <img src="/images/gitlab-server/activate-repos.png" alt="Arrow pointing to the Activate Repositories button in the Probo web app." class="screenshot">
    </a>
-   * Press **Sync repos** and wait for Probo to pull in your Bitbucket Server repositories.
+   * Press **Sync repos** and wait for Probo to pull in your GitLab Server repositories.
    <a href="/images/gitlab-server/sync-repos.png" data-lightbox="gitlabserver-setup-8-9-10">
    <img src="/images/gitlab-server/sync-repos.png" alt="Arrow pointing to the Sync Repositories button in the Probo web app." class="screenshot">
    </a>
