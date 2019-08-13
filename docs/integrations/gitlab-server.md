@@ -6,15 +6,15 @@ permalink: /integrations/gitlab-server/
 redirect_from: /git/gitlab-server/
 published: true
 ---
-You can use Probo.CI with your instance of [GitLab Server](https://about.gitlab.com/install/). Just like the [GitLab Integration](/git/gitlab/ "GitLab Integration"), Probo uses the build status pop-up to display the list of build steps as defined in your `.probo.yaml` file and their statuses. The link can be found in the Overview section of the Merge Request details page.
+You can use Probo.CI with your instance of [GitLab Server](https://about.gitlab.com/install/). Just like the [GitLab Integration](/git/gitlab/), Probo uses the build status pop-up to display the list of build steps as defined in your `.probo.yaml` file and their statuses. The link can be found in the Overview section of the Merge Request details page.
 
 Follow these steps to get started using Probo with your instance of GitLab Server:
 
-1. <a href="#create-an-oauth-application-on-your-gitlab-server">Create an OAuth application on your GitLab Server.</a>
-2. <a href="#register-your-gitlab-server-with-proboci">Register your GitLab Server with Probo.CI.</a>
-3. <a href="#authenticate-your-gitlab-server-with-proboci">Authenticate your GitLab Server with Probo.CI.</a>
-4. <a href="#activate-a-probo-organization">Activate a Probo Organization.</a>
-5. <a href="#activating-repositories">Activate repositories.</a>
+1. [Create an OAuth application on your GitLab Server](#create-an-oauth-application-on-your-gitlab-server).
+2. [Register your GitLab Server with Probo.CI](#register-your-gitlab-server-with-proboci).
+3. [Authenticate your GitLab Server with Probo.CI](#authenticate-your-gitlab-server-with-proboci).
+4. [Activate a Probo Organization](#activate-a-probo-organization).
+5. [Activate repositories](#activating-repositories).
 
 ## Create an OAuth application on your GitLab Server.
 
