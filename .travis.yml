@@ -12,8 +12,6 @@ env:
 notifications:
   slack:
     secure: K+0vcWOuC/Eb45vhyAaEUp799R8zdZDsCH9K7tr3q77MjzzKyPN4ZxUkH8QUXUtOyplKWeu3UCUhw4zCsfhYtY9QQI+hX4Iw/DaD0d+rIDdBFwucXUpSRNQ5I/xMt0UQXX/1BcNGTIFkT6zvrpyRt322ZWnZ90e5o+S1Z+SH0VKnJBVO3h6BiolMIKIxGCPg31pjb+CXIE5l6QbXv+nIIU3PtKG/1rFgGVfiW2H8UVoIS1TgvvqqZQJwDk7SUldJWkQ2zhQv2rsOOCoausHr3eQ0yH0RCKgIwqh9LT6bIrj7SXrMPIT0O9Lf+4mxk/otDjZEXZr2jmJ/woIoS3RwTdVqnbpRIqgEr7OKq1+4gBFUUYrr2K7+1CXF5Tc1jR+9S27cKRowsZqSKbZUthXzSPh8t4LTArSkKxBoF8gRKh8f+NO+WISDMGYbxA/BTXIVLw6nJhQt0uKr+/17vj/SOo9eX6YOkSbYD5yZbzWRRfK2C5b0SwfPdWl6Cbi7dJdgCcgmk067njSsJCVp9zA7thE7uiCt36Se6yq03gpqMfd4W7QoLurQ5KOTUXusJ9kzsb87Su2dBIIUe+ze+AJD2KqNzbl6+tgMMoiPjKu7/wPft3t+aBiQQTTMDmz+zf1RqJ6wk0ehJUnIvx8qGamEK2ueIc9cZ6iaNgmXdn5VgTk=
-before_install:
-  - gem install bundler
 after_success:
 - openssl aes-256-cbc -K $encrypted_f10450ccb48f_key -iv $encrypted_f10450ccb48f_iv
   -in deploy_rsa.enc -out /tmp/deploy_rsa -d
