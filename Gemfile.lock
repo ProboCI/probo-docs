@@ -139,7 +139,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails (= 6.5.0.2)
   breakpoint (= 2.7.0)
-  bundler (>= 1.15.1)
+  bundler (>= 2.0.0)
   compass (> 1.0)
   compass-normalize (= 1.5)
   font-awesome-sass (~> 4.6.0)
@@ -155,7 +155,7 @@ DEPENDENCIES
   uglifier (= 3.0.2)
 
 RUBY VERSION
-   ruby 2.3.8p459
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
