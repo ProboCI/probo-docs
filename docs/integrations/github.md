@@ -1,6 +1,6 @@
 ---
 layout: "docs"
-title: GitHub Integration
+title: Using Probo with GitHub
 class: documentation
 permalink: /integrations/github/
 redirect_from: /git/github/

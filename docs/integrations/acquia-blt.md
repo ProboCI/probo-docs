@@ -1,6 +1,6 @@
 ---
 layout: "docs"
-title: Acquia BLT
+title: Using Probo with Acquia BLT
 class: documentation
 permalink: /integrations/acquia-blt/
 published: true

@@ -46,11 +46,11 @@ Need a markdown primer? Check out Adam Pritchard's [Markdown Cheatsheet](https:/
  {% endhighlight %}
  ```
 
-### Contribute your .probo.yaml recipe
+### Contribute your .probo.yaml configuration
 
-You can share your super slick `.probo.yaml` in just a few steps:
+You can share your `.probo.yaml` in just a few steps:
 
-1. Create a markdown file in the `_recipes` directory and paste in the following template.
+1. Create a markdown file in the `_examples` directory and paste in the following template.
  ```
  ---
  title:
@@ -64,7 +64,7 @@ You can share your super slick `.probo.yaml` in just a few steps:
 
  {% endhighlight %}
  ```
-2. Enter a title for your recipe. You can optionally add you or your organization's name as you would like it displayed and your GitHub username so we can link to your profile.
+2. Enter a title for your example. You can optionally add you or your organization's name as you would like it displayed and your GitHub username so we can link to your profile.
 3. Paste the contents of your `.probo.yaml` file between the `highlight yaml` tags.
 4. Submit a pull request and add the **needs review** label.
 

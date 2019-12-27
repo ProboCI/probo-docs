@@ -173,8 +173,8 @@ steps:
 
 **Using the Wordpress plugin**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'wordpress_using_plugin' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'wordpress_using_plugin' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}

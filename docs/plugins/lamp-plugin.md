@@ -248,7 +248,7 @@ steps:
 ### `varnish` {hash}
 A hash of options to configure the Varnish HTTP cache.
 
-`enabled`: A boolean that indicates whether or not to enable Varnish. Defaults to false.
+`enable`: A boolean that indicates whether or not to enable Varnish. Defaults to false.
 
 `pathToVcl`: A string that indicates the path to your Varnish configuration file relative to the container root.
 {% details Example %}
@@ -257,43 +257,43 @@ steps:
   - name: Configure Varnish
     plugin: LAMPApp
     varnish:
-      enabled: true
+      enable: true
       pathToVcl: $SRC_DIR/config.vcl
 {% endhighlight %}
 {% enddetails %}
 {% endoption %}
 {% endoption_list %}
 
-## Probo LAMP Plugin Example Recipes
+## Probo LAMP Plugin Example examples
 
 **Using the `LAMPApp` Plugin to Test a PHP/MySQL Based Application**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'lamp_test_phpmysql_app' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'lamp_test_phpmysql_app' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 **Setting `LAMPApp` PHP Configuration Options**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'lamp_set_php_config' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'lamp_set_php_config' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 **Setting `LAMPApp` PHP Configuration Options on a Drupal Installation**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'lamp_set_php_config_on_drupal' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'lamp_set_php_config_on_drupal' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}
 
 **Setting `LAMPApp` Varnish Configuration Options**
 
-{% for recipe in site.recipes %}
-{% if recipe.uid == 'lamp_set_varnish_config' %}
-  {{ recipe.content }}
+{% for example in site.examples %}
+{% if example.uid == 'lamp_set_varnish_config' %}
+  {{ example.content }}
 {% endif %}
 {% endfor %}

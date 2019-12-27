@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-ruby "2.3.8"
-gem "jekyll", "~>3.6.3"
+ruby "2.4.1"
+gem "jekyll", "~>3.8.5"
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
-   gem 'bundler', '>= 1.15.1'
+   gem 'bundler', '>= 2.0.0'
    gem 'kramdown', '~>1.14.0'
    gem 'sass', '>=3.4'
    gem 'uglifier', '3.0.2'

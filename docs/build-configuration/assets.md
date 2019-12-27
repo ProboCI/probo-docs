@@ -6,14 +6,14 @@ permalink: /build/assets/
 redirect_from: /assets/
 published: true
 ---
-Assets are any files you need other than what is within your git repository. For example, you may need to upload a database dump for your project. You can find a list of your uploaded assets on your repository's Build Assets page in the web app. It's important to note that when you upload an asset with the same name as a previously uploaded asset, it replaces the existing asset.
+Assets are any files you need in your build other than what is contained within your git repository. For example, you may need to upload a database dump for your project or an environment variable file to hold some API credentials. You can find a list of your uploaded assets on your repository's Build Assets page in the web app. It's important to note that when you upload an asset with the same name as a previously uploaded asset, it replaces the existing asset.
 
 ## Upload Files as Probo Assets
 
 There are two ways to upload files as Probo assets:
 
-1. Upload through [the Probo app](https://app.probo.ci/).
-2. Use the [Probo Uploader](https://github.com/ProboCI/probo-uploader) CLI tool.
+1. Upload files up to 1GB in size through [the Probo app](https://app.probo.ci/).
+2. Upload files up to 4GB in size through the [Probo Uploader](https://github.com/ProboCI/probo-uploader) CLI tool.
 
 ### Upload Probo Assets Using the Web App
 
@@ -39,7 +39,7 @@ You can find your project's upload tokens when you view your project's Upload To
 
 ## Import Probo Assets to Your Probo Build
 
-You can indicate which assets to import into your builds in the `.probo.yaml` file. For example, if you need to use an asset you've uploaded with filename dev.sql.gz, start .probo.yaml file with:
+You can indicate which assets to import into your builds in the `.probo.yaml` file. For example, if you need to use an asset you've uploaded with filename dev.sql.gz, start `.probo.yaml` with:
 {% highlight yaml%}
 assets:
   - mydb.sql.gz
