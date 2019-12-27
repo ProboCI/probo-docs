@@ -1,13 +1,5 @@
 (function (window, $, PROBO) {
 
-  // use List.js on recipes page
-  if (List instanceof Function) {
-    var options = {
-        valueNames: [ 'name', 'recipe', 'highlight', 's', 'no' ]
-    };
-    var recipes = new List('recipes', options);
-  }
-
   $(document).ready(function(e) {
     // Mobile menu
     var $menuContainer = $('#mainMenuContainer');
