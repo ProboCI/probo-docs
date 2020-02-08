@@ -248,7 +248,7 @@ steps:
 ### `varnish` {hash}
 A hash of options to configure the Varnish HTTP cache.
 
-`enabled`: A boolean that indicates whether or not to enable Varnish. Defaults to false.
+`enable`: A boolean that indicates whether or not to enable Varnish. Defaults to false.
 
 `pathToVcl`: A string that indicates the path to your Varnish configuration file relative to the container root.
 {% details Example %}
@@ -257,7 +257,7 @@ steps:
   - name: Configure Varnish
     plugin: LAMPApp
     varnish:
-      enabled: true
+      enable: true
       pathToVcl: $SRC_DIR/config.vcl
 {% endhighlight %}
 {% enddetails %}

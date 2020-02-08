@@ -88,15 +88,13 @@ steps:
 ### Known Issues
 
 #### Database Collation Errors on Builds
-Currenty in Wordpress 4.8.x, the MySQL database collation can be in COLLATION format `utf8mb4_unicode_520_ci`. This format is unsupported by our current docker images depending on your site's MySQL Server version. If you exported your DB from MySQL 5.6 or higher, you might receive the following error:
+Currenty in Wordpress 4.8.x+, the MySQL database collation can be in COLLATION format `utf8mb4_unicode_520_ci`. This format is unsupported by our older Docker images depending on your site's MySQL Server version. If you exported your database from MySQL 5.6 or higher, you might receive the following error when importing the DB to Probo:
 
     ERROR 1273 (HY000) at line 25: Unknown collation: 'utf8mb4_unicode_520_ci'
 
-You will need to modify your exported `sitename.sql` file to allow your exported DB to import properly on Probo's current Docker images.
-
 ##### Workaround:
 
-Find and replace `utf8mb4_unicode_520_ci` with `utf8mb4_unicode_ci` in your exported `sitename.sql` file. Then, upload this modified file as a Probo Asset, and set this DB as an asset in  your `.probo.yaml` file. This will no longer be neccessary once we create docker images that support the newer `utf8mb4_unicode_520_ci` format.
+Use one of our Ubuntu 16.04 or Ubuntu 18.04 [Probo Docker images](https://docs.probo.ci/build/images/) instead to resolve this issue as they have a newer version of MySQL installed supports `utf8mb4_unicode_520_ci`.
 
 #### WP-CLI Version Errors
 In some cases we have seen the [wp-cli](http://wp-cli.org/) tool error out during a build using the `utf8mb4_unicode_ci` DB collation. Updating the `wp-cli` tool in the `.probo.yaml` file resolves this issue. You will need to update your `wp-cli` version if you receive the following error in your Probo build logs for the "Site setup" step:
@@ -105,7 +103,7 @@ In some cases we have seen the [wp-cli](http://wp-cli.org/) tool error out durin
 
 ##### Workaround:
 
-Update `wp-cli` in your `.probo.yaml` steps.
+Update `wp-cli` in your `.probo.yaml` steps, or use one of our Ubuntu 16.04 or Ubuntu 18.04 images to resolve this issue.
 
     {% highlight yaml%}
     assets:
