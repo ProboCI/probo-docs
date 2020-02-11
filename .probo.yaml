@@ -1,4 +1,4 @@
-image: proboci/ubuntu-14.04-lamp:php-5.6 
+image: proboci/ubuntu-14.04-lamp:php-5.6
 steps:
   - name: Update system
     plugin: Script
@@ -11,10 +11,10 @@ steps:
       - apt-get install -y software-properties-common imagemagick
       - apt-add-repository -y ppa:brightbox/ruby-ng
       - apt-get update
-  - name: Install Ruby 2.3
+  - name: Install Ruby 2.4.1
     plugin: Script
     script:
-      - apt-get install -y ruby2.3 ruby2.3-dev
+      - apt-get install -y ruby2.4.1 ruby2.4.1-dev
       - update-alternatives --config ruby
       - gem install bundler -v 1.7.9
   - name: Install Jekyll Dependencies
