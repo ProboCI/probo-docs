@@ -1,6 +1,6 @@
 {
   "name": "probo-docs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -18,7 +18,7 @@
   "devDependencies": {
     "algoliasearch": "^3.23.0",
     "autoprefixer": "^6.5.0",
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "css-mqpacker": "^5.0.1",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.0",
@@ -28,13 +28,11 @@
     "gulp-postcss": "^6.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
-    "gulp-sass-globbing": "0.0.2",
-    "gulp-shell": "^0.5.2",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
-    "list.js": "^1.2.0",
     "postcss-responsive-type": "^0.5.1",
     "probo-styleguide": "^4.3.8",
     "yargs": "^6.0.0"
-  }
+  },
+  "dependencies": {}
 }
