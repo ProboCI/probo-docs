@@ -16,7 +16,7 @@ See the <a href="#drupal-plugin-examples" title="Probo Drupal Plugin Examples">P
 {% option_list %}
 {% option %}
 ### `configSyncDirectory` {string}
-Specify a the location of the configuration synchronization directory for Drupal 8 sites. Defaults to `sites/default/files/config_UNIQUE_ID/sync`.
+Specify the location of the Drupal 8 configuration synchronization directory relative to a Drupal 8 site's root directory. Defaults to `sites/default/files/config_HASH/sync`, where `HASH` is a random string generated and used for the `$settings['hash_salt']` value in the settings.php file.
 {% details Example %}
 {% highlight yaml%}
 # Set a custom directory for config sync.
