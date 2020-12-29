@@ -16,23 +16,25 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "algoliasearch": "^3.23.0",
-    "autoprefixer": "^6.5.0",
-    "browser-sync": "^2.26.7",
+    "algoliasearch": "^4.8.3",
+    "autoprefixer": "^10.1.0",
+    "browser-sync": "^2.26.13",
     "css-mqpacker": "^5.0.1",
-    "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-favicons": "^2.3.0",
-    "gulp-inject": "^4.1.0",
+    "favicons": "^6.2.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-inject": "^5.0.5",
     "gulp-notify": "^3.2.0",
-    "gulp-postcss": "^6.4.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
-    "postcss-responsive-type": "^0.5.1",
-    "probo-styleguide": "^4.3.8",
-    "yargs": "^6.0.0"
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.2.1",
+    "postcss-responsive-type": "^1.0.0",
+    "probo-styleguide": "^4.3.8"
   },
-  "dependencies": {}
+  "browserslist": [
+    "last 2 version",
+    "> 5%"
+  ]
 }
