@@ -2,15 +2,12 @@
 
 // core utilities
 var gulp = require('gulp'),
-  gutil = require('gulp-util'),
   notify = require('gulp-notify'),
-  argv = require('yargs').argv,
-  gulpif = require('gulp-if'),
   browserSync = require('browser-sync').create(),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
   concat = require('gulp-concat'),
-  favicons = require('gulp-favicons'),
+  favicons = require('favicons').stream,
   inject = require('gulp-inject'),
   child = require('child_process');
 
@@ -21,7 +18,7 @@ var sass = require('gulp-sass'),
   mqpacker = require('css-mqpacker'),
   responsiveType = require('postcss-responsive-type');
 
-// paths
+// Path globs dictionary
 var paths = {
   js: {
     src: 'javascripts/src/*.js',
@@ -34,35 +31,6 @@ var paths = {
   images: 'images/**/*.{gif,jpg,png}',
   jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
   favicons: ['images/favicons/icon.html']
-};
-
-
-// post CSS processors
-var processors = [
-  autoprefixer({browsers: ['last 2 version', '> 5%']}), // specify browser compatibility with https://github.com/ai/browserslist
-  mqpacker({sort: true}), // this will reorganize css into media query groups, better for performance
-  responsiveType() // this makes the font size *~*~ automagically ~*~* responsive
-];
-
-//  should we build sourcemaps? "gulp build --sourcemaps"
-var buildSourceMaps = !!argv.sourcemaps;
-
-// error notifications
-var handleError = function (task) {
-  return function (err) {
-    gutil.beep();
-
-    notify.onError({
-      title: task,
-      message: err.message,
-      sound: false,
-      icon: false
-    })(err);
-
-    gutil.log(gutil.colors.bgRed(task + ' error:'), gutil.colors.red(err));
-
-    this.emit('end');
-  };
 };
 
 let tasks = {};
@@ -85,18 +53,16 @@ exports['initBrowserSync'] = initBrowserSync;
 
 // Compile Sass
 function sassBuild() {
-  return gulp.src(paths.sass, {
-      sourcemaps: buildSourceMaps
-    })
+  return gulp.src(paths.sass)
     .pipe(sass({
       outputStyle: 'expanded'
     }))
-    .on('error', handleError('Sass Compiling'))
-    .pipe(postcss(processors))
-    .on('error', handleError('Post CSS Processing'))
-    .pipe(gulp.dest(paths.css, {
-      sourcemaps: buildSourceMaps ? '.' : false
-    }))
+    .pipe(postcss([
+      autoprefixer(),
+      mqpacker({sort: true}),
+      responsiveType()
+    ]))
+    .pipe(gulp.dest(paths.css))
     .pipe(gulp.dest('_site/css'))
     .pipe(browserSync.reload({stream: true}));
 }
@@ -122,14 +88,11 @@ exports['js:combine'] = jsCombine;
 function jsBuild() {
   return gulp.src(paths.js.src)
     .pipe(uglify({
-      mangle: false,
-      preserveComments: false,
+      mangle: false
     }))
-    .on('error', handleError('JS minifying'))
     .pipe(rename({
       suffix: '.min'
     }))
-    .on('error', handleError('JS renaming'))
     .pipe(gulp.dest(paths.js.build))
     .pipe(gulp.dest('_site/javascripts/build'))
     .pipe(browserSync.reload({stream: true}));
@@ -146,10 +109,7 @@ exports['jekyll'] = jekyll;
 // Build Tasks
 exports['build'] = gulp.series(
   gulp.parallel(
-    gulp.series(
-      jsCombine,
-      jsBuild,
-    ),
+    exports['js'],
     sassBuild,
     styleguide
   ),
@@ -157,15 +117,7 @@ exports['build'] = gulp.series(
 );
 
 exports['build:dev'] = gulp.series(
-  gulp.parallel(
-    gulp.series(
-      jsCombine,
-      jsBuild,
-    ),
-    sassBuild,
-    styleguide
-  ),
-  jekyll,
+  exports['build'],
   initBrowserSync
 );
 
@@ -176,7 +128,7 @@ function watchSass() {
 exports['watch:sass'] = watchSass;
 
 function watchJs() {
-  gulp.watch([paths.js.src, '!javascripts/src/vendor.js'], gulp.series(jsCombine, jsBuild));
+  gulp.watch([paths.js.src, '!javascripts/src/vendor.js'], exports['js']);
 }
 exports['watch:js'] = watchJs;
 
@@ -189,13 +141,13 @@ exports['watch'] = gulp.series(initBrowserSync, gulp.parallel(watchSass, watchJe
 
 // Generate fav and app icons
 function faviconsGenerate() {
-  gutil.log('Generating favicons...');
-  return gulp.src('images/probo-sphere.png').pipe(favicons({
+  return gulp.src('images/probo-sphere.png')
+    .pipe(favicons({
       appName: 'Probo.CI Docs',
       appDescription: 'Probo.CI documentation.',
       background: '#020307',
       path: '/images/favicons/',
-      url: 'http://docs.probo.ci/',
+      url: 'https://docs.probo.ci/',
       display: 'standalone',
       orientation: 'portrait',
       start_url: '/?homescreen=1',
@@ -206,14 +158,12 @@ function faviconsGenerate() {
       pipeHTML: true,
       replace: true
     }))
-    .on('error', gutil.log)
     .pipe(gulp.dest('images/favicons/'));
 }
 exports['favicons:generate'] = faviconsGenerate;
 
 // Inject fav and app icons into head
 function faviconsInject() {
-  gutil.log('Injecting favicons into <head>...');
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {
       transform: function (filePath, file) {
