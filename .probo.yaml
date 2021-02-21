@@ -3,6 +3,7 @@ steps:
   - name: Update system
     plugin: Script
     script:
+      - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
       - gem uninstall bundler
       - apt-get update
   - name: Install Imagemagick
