@@ -15,6 +15,21 @@ See the <a href="#drupal-plugin-examples" title="Probo Drupal Plugin Examples">P
 
 {% option_list %}
 {% option %}
+### `configSyncDirectory` {string}
+Specify the location of the Drupal 8 configuration synchronization directory relative to a Drupal 8 site's root directory. Defaults to `sites/default/files/config_HASH/sync`, where `HASH` is a random string generated and used for the `$settings['hash_salt']` value in the settings.php file.
+{% details Example %}
+{% highlight yaml%}
+# Set a custom directory for config sync.
+steps:
+  - name: Set custom config sync directory.
+    plugin: Drupal
+    drupalVersion: 8
+    configSyncDirectory: config/sync
+{% endhighlight %}
+{% enddetails %}
+{% endoption %}
+
+{% option %}
 ### `makeFile` {string}
 The name of the [Drush make file](http://docs.drush.org/en/7.x/make/) to run to generate the install directory.
 {% details Example %}

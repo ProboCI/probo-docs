@@ -59,6 +59,14 @@ The following image tags are the currently approved Stable Probo Images. Make su
 | `proboci/ubuntu-18.04-lamp:php-7.3` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
 | `proboci/ubuntu-18.04-lamp:php-8.0` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 8.0.x (latest) |
 
+#### Ubuntu 18.04 LAMP
+
+{: .table .table-striped .table-bordered}
+| Image | Ubuntu | Apache | MySQL | PHP |
+|-------------------------|-------------|
+| `proboci/ubuntu:18.04-php7.3` | 18.04.3 LTS | 2.4.29 | 5.7.x (latest) | 7.3.x (latest) |
+| `proboci/ubuntu:18.04-php7.4` | 18.04.3 LTS | 2.4.29 | 5.7.x (latest) | 7.4.x (latest) |
+
 #### Installed Software and Tools
 
 All Stable Probo Docker Images have the following software packages and development tools installed.
