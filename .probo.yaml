@@ -14,7 +14,7 @@ steps:
   - name: Install Ruby 2.3
     plugin: Script
     script:
-      - apt-get install -y ruby2.3 ruby2.3-dev
+      - apt-get install -y ruby2.7 ruby2.7-dev
       - update-alternatives --config ruby
       - gem install bundler -v 1.7.9
   - name: Install Jekyll Dependencies
