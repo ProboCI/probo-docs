@@ -207,13 +207,13 @@ steps:
 
 {% option %}
 ### `drupalVersion` {integer}
-Specifies which version of Drupal you are using so that the appropriate commands can be run. For example, if you specify "8" the [`clearCaches`](#clearcaches-boolean) option will run `drush cache-rebuild`. Defaults to 7. Accepts the integer values 6, 7, or 8.
+Specifies which version of Drupal you are using so that the appropriate commands can be run. For example, if you specify "7" the [`clearCaches`](#clearcaches-boolean) option will run `drush cc all`. Drupal 8 and higher will run `drush cr`. Defaults to 8. Accepts the integer values 6 - 9.
 {% details Example %}
 {% highlight yaml%}
 steps:
   - name: Set Drupal version
     plugin: Drupal
-    drupalVersion: 8
+    drupalVersion: 9
 {% endhighlight %}
 {% enddetails %}
 {% endoption %}
@@ -246,7 +246,7 @@ steps:
 
 {% option %}
 ### `revertFeatures` {boolean}
-Whether to revert features using `drush fra` after the build is finished. To use this option, your site must have the [Features module](https://www.drupal.org/project/features) installed.
+Whether to revert features using `drush fra` after the build is finished. To use this option, your site must have the [Features module](https://www.drupal.org/project/features) installed. This is ignored on Drupal 8 installs and higher.
 {% details Example %}
 {% highlight yaml%}
 steps:

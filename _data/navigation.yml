@@ -6,6 +6,10 @@
   text: Docs
   secondary: docs
   children:
+    - title: Release ChangeLog
+      url: /changelog
+      text: Release ChangeLog
+
     - title: Getting Started
       url: /
       text: Getting Started
@@ -164,37 +168,37 @@
           text: General SQL Error
           url: /general-sql-error
 
-    - title: Probo Open Source
-      text: Probo Open Source
-      url: /open-source
-      children:
-        - title: Introduction
-          text: Introduction
-          url: /introduction
-        - title: Getting Started
-          text: Getting Started
-          url: /getting-started
-        - title: Container Manager
-          text: Container Manager
-          url: /container-manager
-        - title: GitHub Handler
-          text: GitHub Handler
-          url: /github
-        - title: Bitbucket Handler
-          text: Bitbucket Handler
-          url: /bitbucket
-        - title: Probo Proxy
-          text: Probo Proxy
-          url: /proxy
-        - title: Loom
-          text: Loom
-          url: /loom
-        - title: Asset Receiver
-          text: Asset Receiver
-          url: /asset-receiver
-        - title: Probo Reaper
-          text: Probo Reaper
-          url: /reaper
+    # - title: Probo Open Source
+    #   text: Probo Open Source
+    #   url: /open-source
+    #   children:
+    #     - title: Introduction
+    #       text: Introduction
+    #       url: /introduction
+    #     - title: Getting Started
+    #       text: Getting Started
+    #       url: /getting-started
+    #     - title: Container Manager
+    #       text: Container Manager
+    #       url: /container-manager
+    #     - title: GitHub Handler
+    #       text: GitHub Handler
+    #       url: /github
+    #     - title: Bitbucket Handler
+    #       text: Bitbucket Handler
+    #       url: /bitbucket
+    #     - title: Probo Proxy
+    #       text: Probo Proxy
+    #       url: /proxy
+    #     - title: Loom
+    #       text: Loom
+    #       url: /loom
+    #     - title: Asset Receiver
+    #       text: Asset Receiver
+    #       url: /asset-receiver
+    #     - title: Probo Reaper
+    #       text: Probo Reaper
+    #       url: /reaper
 
     - title: Probo Features Roadmap
       text: Features Roadmap
