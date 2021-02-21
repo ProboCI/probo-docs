@@ -2,155 +2,147 @@
 
 // core utilities
 var gulp = require('gulp'),
-  shell = require('gulp-shell'),
-  gutil = require('gulp-util'),
   notify = require('gulp-notify'),
-  argv = require('yargs').argv,
   browserSync = require('browser-sync').create(),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
   concat = require('gulp-concat'),
-  favicons = require('gulp-favicons'),
-  inject = require('gulp-inject');
+  favicons = require('favicons').stream,
+  inject = require('gulp-inject'),
+  child = require('child_process');
 
 // css utilities
 var sass = require('gulp-sass'),
-  cssGlobbing = require('gulp-sass-globbing'),
   postcss = require('gulp-postcss'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
   responsiveType = require('postcss-responsive-type');
 
-// paths
+// Path globs dictionary
 var paths = {
   js: {
-    src: ['javascripts/src/*.js', '!javascripts/src/vendor/**/*.js'],
-    vendor: 'javascripts/src/vendor/**/*.js',
+    src: 'javascripts/src/*.js',
+    vendor: 'javascripts/src/vendor/*.js',
     build: 'javascripts/build/'
   },
   sass: ['_stylesheets/**/*.scss', '!_stylesheets/vendor/**/*.scss'],
   styleguide: './node_modules/probo-styleguide/styleguide/probo.css',
   css: 'css',
   images: 'images/**/*.{gif,jpg,png}',
-  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_examples/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
+  jekyll: ['_includes/**', '_layouts/**', '_plugins/**', '_recipes/**', 'css/**', 'docs/**', 'index.md', 'javascripts/build/*.min.js', '_data/**'],
   favicons: ['images/favicons/icon.html']
 };
 
+let tasks = {};
 
-// post CSS processors
-var processors = [
-  autoprefixer({browsers: ['last 2 version', '> 5%']}), // specify browser compatibility with https://github.com/ai/browserslist
-  mqpacker({sort: true}), // this will reorganize css into media query groups, better for performance
-  responsiveType() // this makes the font size *~*~ automagically ~*~* responsive
-];
-
-//  should we build sourcemaps? "gulp build --sourcemaps"
-var buildSourceMaps = !!argv.sourcemaps;
-
-// error notifications
-var handleError = (task) => {
-  return function (err) {
-    gutil.beep();
-
-    notify.onError({
-      title: task,
-      message: err.message,
-      sound: false,
-      icon: false
-    })(err);
-
-    gutil.log(gutil.colors.bgRed(task + ' error:'), gutil.colors.red(err));
-
-    this.emit('end');
-  };
-};
+// Initiate browsersync server
+function initBrowserSync() {
+  return new Promise(function(resolve, reject) {
+    browserSync.init({
+      open: true,
+      online: false,
+      browser: ['google chrome'],
+      server: {
+        baseDir: '_site'
+      }
+    });
+    resolve();
+  });
+}
+exports['initBrowserSync'] = initBrowserSync;
 
 // Compile Sass
-gulp.task('sass', () => {
-  return gulp.src(paths.sass, { sourcemaps: buildSourceMaps })
+function sassBuild() {
+  return gulp.src(paths.sass)
     .pipe(sass({
       outputStyle: 'expanded'
     }))
-    .on('error', handleError('Sass Compiling'))
-    .pipe(postcss(processors))
-    .on('error', handleError('Post CSS Processing'))
-    .pipe(gulp.dest(paths.css, { sourcemaps: buildSourceMaps }))
+    .pipe(postcss([
+      autoprefixer(),
+      mqpacker({sort: true}),
+      responsiveType()
+    ]))
+    .pipe(gulp.dest(paths.css))
     .pipe(gulp.dest('_site/css'))
     .pipe(browserSync.reload({stream: true}));
-});
+}
+exports['sass:build'] = sassBuild;
+exports['sass'] = sassBuild;
 
 // Compile installed version of styleguide (update with npm)
-gulp.task('styleguide', () => {
+function styleguide() {
   return gulp.src(paths.styleguide)
     .pipe(gulp.dest(paths.css))
-});
+}
+exports['styleguide'] = styleguide;
 
-gulp.task('js', () => {
-  return gulp.src(paths.js.src)
-    .pipe(uglify({
-      mangle: false,
-      preserveComments: false,
-    }))
-    .on('error', handleError('JS minifying'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .on('error', handleError('JS renaming'))
-    .pipe(gulp.dest(paths.js.build));
-});
-
-gulp.task('js:vendor', () => {
+// Combine third-party js files into one.
+function jsCombine() {
   return gulp.src(paths.js.vendor)
     .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('javascripts/src/'));
+}
+exports['js:combine'] = jsCombine;
+
+// Minify and move js files.
+function jsBuild() {
+  return gulp.src(paths.js.src)
     .pipe(uglify({
-      mangle: false,
-      preserveComments: false,
+      mangle: false
     }))
-    .on('error', handleError('JS vendor minifying'))
     .pipe(rename({
       suffix: '.min'
     }))
-    .on('error', handleError('JS vendor renaming'))
-    .pipe(gulp.dest('javascripts/build/'));
-});
+    .pipe(gulp.dest(paths.js.build))
+    .pipe(gulp.dest('_site/javascripts/build'))
+    .pipe(browserSync.reload({stream: true}));
+}
+exports['js:build'] = jsBuild;
 
-gulp.task('serve', () => {
-  browserSync.init({
-    open: true,
-    injectChanges: true,
-    notify: true,
-    online: false,
-    browser: ['google chrome'],
-    server: {
-      baseDir: '_site'
-    }
-  });
-});
+exports['js'] = gulp.series(jsCombine, jsBuild);
 
-gulp.task('jekyll', shell.task([
-  'jekyll build'
-]));
+function jekyll() {
+  return child.exec('jekyll build');
+}
+exports['jekyll'] = jekyll;
 
-gulp.task('build', gulp.series(gulp.parallel('js', 'sass', 'styleguide'), 'jekyll'));
+// Build Tasks
+exports['build'] = gulp.series(
+  gulp.parallel(
+    exports['js'],
+    sassBuild,
+    styleguide
+  ),
+  jekyll
+);
 
-gulp.task('watch:jekyll', () => {
-  gulp.watch(paths.jekyll, gulp.series('jekyll'));
-});
+exports['build:dev'] = gulp.series(
+  exports['build'],
+  initBrowserSync
+);
 
-gulp.task('watch:sass', () => {
-  gulp.watch(paths.sass, gulp.series('sass'));
-});
+// Watcher Tasks
+function watchSass() {
+  gulp.watch(paths.sass, gulp.parallel(sassBuild));
+}
+exports['watch:sass'] = watchSass;
 
-gulp.task('watch:js', () => {
-  gulp.watch(paths.js.src, gulp.series('js', 'js:vendor'));
-});
+function watchJs() {
+  gulp.watch([paths.js.src, '!javascripts/src/vendor.js'], exports['js']);
+}
+exports['watch:js'] = watchJs;
 
-gulp.task('watch', gulp.series('build', gulp.parallel('serve', 'watch:sass', 'watch:js', 'watch:jekyll')));
+function watchJekyll() {
+  gulp.watch(paths.jekyll, gulp.parallel(jekyll));
+}
+exports['watch:jekyll'] = watchJekyll;
+
+exports['watch'] = gulp.series(initBrowserSync, gulp.parallel(watchSass, watchJekyll, watchJs));
 
 // Generate fav and app icons
-gulp.task('favicons:generate', () => {
-  gutil.log('Generating favicons...');
-  return gulp.src('images/probo-sphere.png').pipe(favicons({
+function faviconsGenerate() {
+  return gulp.src('images/probo-sphere.png')
+    .pipe(favicons({
       appName: 'Probo.CI Docs',
       appDescription: 'Probo.CI documentation.',
       background: '#020307',
@@ -166,13 +158,12 @@ gulp.task('favicons:generate', () => {
       pipeHTML: true,
       replace: true
     }))
-    .on('error', gutil.log)
     .pipe(gulp.dest('images/favicons/'));
-});
+}
+exports['favicons:generate'] = faviconsGenerate;
 
 // Inject fav and app icons into head
-gulp.task('favicons:inject', () => {
-  gutil.log('Injecting favicons into <head>...');
+function faviconsInject() {
   return gulp.src('./_includes/head.html')
     .pipe(inject(gulp.src(paths.favicons), {
       transform: function (filePath, file) {
@@ -180,11 +171,14 @@ gulp.task('favicons:inject', () => {
       }
     }))
     .pipe(gulp.dest('./_includes/'));
-});
+}
+exports['favicons:inject'] = faviconsInject;
 
-gulp.task('favicons', gulp.series('favicons:generate', 'favicons:inject'));
+exports['favicons'] = gulp.series(faviconsGenerate, faviconsInject);
 
-gulp.task('index', shell.task([
-  'echo Updating Algolia search index...',
-  'jekyll algolia push'
-]));
+function index() {
+  return child.exec(
+    'echo Updating Algolia search index... && jekyll algolia push'
+  );
+}
+exports['index'] = index;
