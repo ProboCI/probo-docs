@@ -123,7 +123,7 @@ DEPENDENCIES
   kramdown (~> 1.14.0)
 
 RUBY VERSION
-   ruby 2.3.8p459
+   ruby 2.7.0p0
 
 BUNDLED WITH
-   2.2.3
+   2.1.4

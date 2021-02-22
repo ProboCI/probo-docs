@@ -14,9 +14,9 @@ Probo uses [Docker](https://www.docker.com/){:target="\_blank"} to isolate every
 
 We have pre-built several different flavors of Probo Docker images for you to choose from to build the testing environment closest to your production server. Add one of the available images with the following syntax:
 
-    image: proboci/ubuntu-14.04-lamp:php-7.1
+    image: proboci/ubuntu-18.04-lamp:php8.0
 
-The example above would use the Docker image we have built on Ubuntu 14.04 LTS with LAMP and our PHP 7.1 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
+The example above would use the Docker image we have built on Ubuntu 18.06 LTS with LAMP and our PHP 8.0 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
 
 {% note %}
 **Please note:** Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo Build.
@@ -26,26 +26,38 @@ The example above would use the Docker image we have built on Ubuntu 14.04 LTS w
 
 The following image tags are the currently approved Stable Probo Images. Make sure to choose one of the images below or your Probo Build will not start properly. The images below have been built specifically for use in Probo Builds and have known good configurations for installed packages and software. We will put out advanced notice if we are going to make changes to these images that may affect existing builds.
 
-**Note:** We plan to make quarterly updates to our Stable Probo Images based on our Beta Probo Images that are planned to be released monthly.
+**Note:** Please check this section regularly as we update our images. 
 
-#### Ubuntu 14.04 LAMP
+#### Ubuntu 14.04 LAMP **(DEPRECATED)**
 
 {: .table .table-striped .table-bordered}
 | Image | Ubuntu | Apache | MySQL | PHP |
 |-------------------------|-------------|
-| `proboci/ubuntu-14.04-lamp:php-5.6 (default)` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 5.6.30 |
 | `proboci/ubuntu-14.04-lamp:php-5.5` | 14.04.5 LTS | 2.4.7 |  5.5.47 | 5.5.9 |
-| `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.1.2 |
+| `proboci/ubuntu-14.04-lamp:php-5.6 (default)` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 5.6.30 |
 | `proboci/ubuntu-14.04-lamp:php-7.0` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.0.16 |
+| `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.1.2 |
 
-#### Ubuntu 16.04 LAMP
+#### Ubuntu 16.04 LAMP **(DEPRECATED)**
 
 {: .table .table-striped .table-bordered}
 | Image | Ubuntu | Apache | MySQL | PHP |
 |-------------------------|-------------|
-| `proboci/ubuntu-16.04-lamp:php-7.2` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
-| `proboci/ubuntu-16.04-lamp:php-7.1` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
 | `proboci/ubuntu-16.04-lamp:php-7.0` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
+| `proboci/ubuntu-16.04-lamp:php-7.1` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
+| `proboci/ubuntu-16.04-lamp:php-7.2` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
+
+#### Ubuntu 18.04 LAMP (Coming March 6, 2021)
+
+{: .table .table-striped .table-bordered}
+| Image | Ubuntu | Apache | MySQL | PHP |
+|-------------------------|-------------|
+| `proboci/ubuntu-18.04-lamp:php-5.6` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
+| `proboci/ubuntu-18.04-lamp:php-7.0` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
+| `proboci/ubuntu-18.04-lamp:php-7.1` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
+| `proboci/ubuntu-18.04-lamp:php-7.2` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
+| `proboci/ubuntu-18.04-lamp:php-7.3` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
+| `proboci/ubuntu-18.04-lamp:php-8.0` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 8.0.x (latest) |
 
 #### Ubuntu 18.04 LAMP
 
