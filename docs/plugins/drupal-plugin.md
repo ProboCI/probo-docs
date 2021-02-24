@@ -271,19 +271,6 @@ steps:
 {% endhighlight %}
 {% enddetails %}
 {% endoption %}
-
-{% option %}
-### `fileProxy` {string}
-Installs and enables the [Stage File Proxy module](https://www.drupal.org/project/stage_file_proxy) to retrieve public and/or private files from another instance of the site such as production or development. Enter the protocol and fully qualified domain here.
-{% details Example %}
-{% highlight yaml%}
-steps:
-  - name: Proxy site files
-    plugin: Drupal
-    fileProxy: https://example.com
-{% endhighlight %}
-{% enddetails %}
-{% endoption %}
 {% endoption_list %}
 
 <h2 id="drupal-plugin-examples">Probo Drupal Plugin Examples</h2>
