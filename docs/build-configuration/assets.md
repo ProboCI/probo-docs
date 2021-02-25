@@ -21,6 +21,7 @@ Navigate to your repository's project page in the web app. Click the Build Asset
 
 <img src="/images/db-asset-example.png" class="screenshot" alt="A database asset uploaded using the web app.">
 
+<a name="probo-uploader"></a>
 ### Upload Probo Assets Using the Probo Uploader
 
 Install the [Probo Uploader](https://github.com/ProboCI/probo-uploader) on your machine with `npm`.
