@@ -28,7 +28,22 @@ The following image tags are the currently approved Stable Probo Images. Make su
 
 **Note:** Please check this section regularly as we update our images. 
 
+#### Ubuntu 18.04 LAMP (Current Versions)
+
+{: .table .table-striped .table-bordered}
+| Image | Apache | MySQL | PHP |
+|------------------------------|
+| `proboci/ubuntu:18.04-php5.6` | 2.4.29 | 5.7.33 | 5.6.40-47 |
+| `proboci/ubuntu:18.04-php7.0` | 2.4.29 | 5.7.33 | 7.0.33-47 |
+| `proboci/ubuntu:18.04-php7.1` | 2.4.29 | 5.7.33 | 7.1.33-34 |
+| `proboci/ubuntu:18.04-php7.2` | 2.4.29 | 5.7.33 | 7.2.34-18 |
+| `proboci/ubuntu:18.04-php7.3` | 2.4.29 | 5.7.33 | 7.3.27-7 |
+| `proboci/ubuntu:18.04-php7.4` | 2.4.29 | 5.7.33 | 7.4.15 |
+| `proboci/ubuntu:18.04-php8.0` | 2.4.29 | 5.7.33 | 8.0.2 |
+
+
 #### Ubuntu 14.04 LAMP **(DEPRECATED)**
+_Scheduled for removal September 5, 2021_  
 
 {: .table .table-striped .table-bordered}
 | Image | Ubuntu | Apache | MySQL | PHP |
@@ -39,6 +54,7 @@ The following image tags are the currently approved Stable Probo Images. Make su
 | `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.1.2 |
 
 #### Ubuntu 16.04 LAMP **(DEPRECATED)**
+_Scheduled for removal September 5, 2021_  
 
 {: .table .table-striped .table-bordered}
 | Image | Ubuntu | Apache | MySQL | PHP |
@@ -47,25 +63,20 @@ The following image tags are the currently approved Stable Probo Images. Make su
 | `proboci/ubuntu-16.04-lamp:php-7.1` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
 | `proboci/ubuntu-16.04-lamp:php-7.2` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
 
-#### Ubuntu 18.04 LAMP (Coming March 6, 2021)
+<!--
+#### Ubuntu 20.04 LAMP
 
 {: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu-18.04-lamp:php-5.6` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
-| `proboci/ubuntu-18.04-lamp:php-7.0` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
-| `proboci/ubuntu-18.04-lamp:php-7.1` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
-| `proboci/ubuntu-18.04-lamp:php-7.2` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
-| `proboci/ubuntu-18.04-lamp:php-7.3` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
-| `proboci/ubuntu-18.04-lamp:php-8.0` | 18.04.5 LTS | 2.4.18 | 5.7.x (latest) | 8.0.x (latest) |
-
-#### Ubuntu 18.04 LAMP
-
-{: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu:18.04-php7.3` | 18.04.3 LTS | 2.4.29 | 5.7.x (latest) | 7.3.x (latest) |
-| `proboci/ubuntu:18.04-php7.4` | 18.04.3 LTS | 2.4.29 | 5.7.x (latest) | 7.4.x (latest) |
+| PHP Version | Apache | MySQL 5.7 | MySQL 8.0 | PostgreSQL | PHP |
+| --- | --- | --- | --- | --- | --- |
+| php5.6 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 5.6.40-47 |
+| php7.0 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.0.33-47 |
+| php7.1 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.1.33-34 |
+| php7.2 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.2.34-18 |
+| php7.3 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.3.27-9 |
+| php7.4 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.4.15 |
+| php8.0 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 8.0.2 |
+-->
 
 #### Installed Software and Tools
 
@@ -79,7 +90,7 @@ All Stable Probo Docker Images have the following software packages and developm
 - drupal console
 - drush
 - git
-- google-chrome-stable
+- google-chrome-stable - 88.0.4324.182
 - grunt-cli
 - gulp-cli
 - lighthouse
