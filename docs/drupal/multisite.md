@@ -11,7 +11,7 @@ You can add `--site-[anything]` to the end of any build's URL – where `[anythi
 With this in mind, you can add the necessary site entries in your `sites.php` file to route the appropriate Probo URLs to your site folders. For example, you might want to route `$BUILD_ID--site-de.probo.build` to your `de` site folder. In `sites.php` this would look like:
 
 ```
-$sites['$BUILD_ID--site-de.probo.build'] => 'de';
+$sites['$BUILD_ID--site-de.probo.build'] = 'de';
 ```
 
 You can define these entries in your `.probo.yaml` file:
@@ -22,7 +22,7 @@ steps:
     plugin: Script
     script: |
        cd $SRC_DIR/webroot/sites
-       echo "\$sites['$BUILD_ID--site-de.probo.build'] => 'de';" >> sites.php
+       echo "\$sites['$BUILD_ID--site-de.probo.build'] = 'de';" >> sites.php
 {% endhighlight %}
 
 You also need to [generate your own settings.php files](https://www.drupal.org/documentation/install/settings-file) for each site.
