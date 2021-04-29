@@ -1,4 +1,4 @@
-image: proboci/ubuntu-16.04-lamp:php-7.1
+image: proboci/ubuntu:18.04-php7.1
 steps:
   - name: Update system
     plugin: Script
