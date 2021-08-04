@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
 ruby "2.7.0"
-gem "jekyll", "~>3.8.5"
+gem "jekyll", "~>3.9.1"
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
    gem 'bundler', '>= 2.0.0'
-   gem 'kramdown', '~>1.14.0'
+   gem 'kramdown', '~>1.17.0'
    gem 'breakpoint', '2.7.0'
    gem 'jekyll-sitemap', '~> 0.12.0'
    gem 'jekyll-redirect-from', '~> 0.11.0'
