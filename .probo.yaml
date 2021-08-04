@@ -1,4 +1,4 @@
-image: proboci/ubuntu:18.04-php7.1
+image: proboci/ubuntu:18.04-php7.4
 steps:
   - name: Update system
     plugin: Script
@@ -9,22 +9,26 @@ steps:
   - name: Install Imagemagick
     plugin: Script
     script:
-      - apt-get install -y software-properties-common imagemagick
-      - apt-add-repository -y ppa:brightbox/ruby-ng
+      - apt-get install -y software-properties-common imagemagick ruby-full
       - apt-get -y update
+  
   - name: Install Ruby 2.7.1
     plugin: Script
     script:
-      - apt-get install -y ruby2.7 ruby2.7-dev
-      - update-alternatives --config ruby
+  #    - apt-get install -y ruby2.7 ruby2.7-dev
+  #    - update-alternatives --config ruby
       - gem install bundler -v 2.1.4
+
   - name: Install Jekyll Dependencies
     plugin: Script
     script:
       - cd $SRC_DIR
-      - bundle install --path vendor/bundle
+      - bundle config set --local path 'vendor/bundle'
+      - bundle install
+      - bundle update jekyll
+
   - name: Build Jekyll site
     plugin: Script
     script:
       - locale-gen en_US.UTF-8
-      - LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 bundle exec jekyll build --destination=/var/www/html
+      - LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 bundle exec jekyll build --destination=/var/www/html
