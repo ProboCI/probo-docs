@@ -14,83 +14,73 @@ Probo uses [Docker](https://www.docker.com/){:target="\_blank"} to isolate every
 
 We have pre-built several different flavors of Probo Docker images for you to choose from to build the testing environment closest to your production server. Add one of the available images with the following syntax:
 
-    image: proboci/ubuntu-18.04-lamp:php8.0
+    image: proboci/ubuntu:18.04-php7.4
 
-The example above would use the Docker image we have built on Ubuntu 18.06 LTS with LAMP and our PHP 8.0 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
+The example above would use the Docker image we have built on Ubuntu 18.04 LTS with LAMP and our PHP 7.4 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
 
 {% note %}
-**Please note:** Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo Build.
+Image are updated monthly unless security updates are issued which require an out of cycle update. Please see the section below titled [Getting the Current Versions](#versions) for more information on how you can get the version of all software running in your build.
+{% endnote %}
+
+{% note %}
+Not all of the image tags listed on the [Probo.CI Docker Hub](https://hub.docker.com/u/proboci/){:target="\_blank"} are available in your `.probo.yaml` configuration. Only the available images listed below have been approved to run in a Probo Build.
 {% endnote %}
 
 ### Stable Probo Images
 
 The following image tags are the currently approved Stable Probo Images. Make sure to choose one of the images below or your Probo Build will not start properly. The images below have been built specifically for use in Probo Builds and have known good configurations for installed packages and software. We will put out advanced notice if we are going to make changes to these images that may affect existing builds.
 
-**Note:** Please check this section regularly as we update our images. 
+#### Getting The Current Versions
 
-#### Ubuntu 18.04 LAMP (Current Versions)
+You can get the current versions of all major components by using the SSH feature for the build in question and typing `versionizer` on the command line. This will give you the current, applicable versions for all major software pieces. Here is a sample from the PHP 7.4 Image running under Ubuntu 20:  
+
+```
+Probo.CI - Software Versions Report:
+------------------------------------
+PHP 7.4.22 (cli) (built: Jul 30 2021 13:08:17) ( NTS )
+Web Server version: Apache/2.4.41 (Ubuntu)
+Google Chrome 92.0.4515.131 
+ChromeDriver 92.0.4515.43
+Kernel: 5.4.0-65-generic
+Ubuntu 20.04.2 LTS
+Composer version 2.1.5 2021-07-23 10:35:47
+Drush Commandline Tool 9.7.3
+Node: v12.22.4
+WordPress CLI: WP-CLI 2.5.0
+Pantheon Terminus 2.6.1
+```
+
+#### Current ProboCI Images That Can Be Used
 
 {: .table .table-striped .table-bordered}
-| Image | Apache | MySQL | PHP |
+| Image | Information |
 |------------------------------|
-| `proboci/ubuntu:18.04-php5.6` | 2.4.29 | 5.7.33 | 5.6.40-47 |
-| `proboci/ubuntu:18.04-php7.0` | 2.4.29 | 5.7.33 | 7.0.33-47 |
-| `proboci/ubuntu:18.04-php7.1` | 2.4.29 | 5.7.33 | 7.1.33-34 |
-| `proboci/ubuntu:18.04-php7.2` | 2.4.29 | 5.7.33 | 7.2.34-18 |
-| `proboci/ubuntu:18.04-php7.3` | 2.4.29 | 5.7.33 | 7.3.27-7 |
-| `proboci/ubuntu:18.04-php7.4` | 2.4.29 | 5.7.33 | 7.4.15 |
-| `proboci/ubuntu:18.04-php8.0` | 2.4.29 | 5.7.33 | 8.0.2 |
-
-
-#### Ubuntu 14.04 LAMP **(DEPRECATED)**
-_Scheduled for removal September 5, 2021_  
-
-{: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu-14.04-lamp:php-5.5` | 14.04.5 LTS | 2.4.7 |  5.5.47 | 5.5.9 |
-| `proboci/ubuntu-14.04-lamp:php-5.6 (default)` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 5.6.30 |
-| `proboci/ubuntu-14.04-lamp:php-7.0` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.0.16 |
-| `proboci/ubuntu-14.04-lamp:php-7.1` | 14.04.5 LTS | 2.4.7 | 5.5.54 | 7.1.2 |
-
-#### Ubuntu 16.04 LAMP **(DEPRECATED)**
-_Scheduled for removal September 5, 2021_  
-
-{: .table .table-striped .table-bordered}
-| Image | Ubuntu | Apache | MySQL | PHP |
-|-------------------------|-------------|
-| `proboci/ubuntu-16.04-lamp:php-7.0` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.0.x (latest) |
-| `proboci/ubuntu-16.04-lamp:php-7.1` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.1.x (latest) |
-| `proboci/ubuntu-16.04-lamp:php-7.2` | 16.04.3 LTS | 2.4.18 | 5.7.x (latest) | 7.2.x (latest) |
-
-<!--
-#### Ubuntu 20.04 LAMP
-
-{: .table .table-striped .table-bordered}
-| PHP Version | Apache | MySQL 5.7 | MySQL 8.0 | PostgreSQL | PHP |
-| --- | --- | --- | --- | --- | --- |
-| php5.6 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 5.6.40-47 |
-| php7.0 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.0.33-47 |
-| php7.1 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.1.33-34 |
-| php7.2 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.2.34-18 |
-| php7.3 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.3.27-9 |
-| php7.4 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 7.4.15 |
-| php8.0 | 2.4.41 | 5.7.32 | 8.0.23 | 12.6 | 8.0.2 |
--->
+| `proboci/ubuntu:18.04-php5.6` | For legacy sites - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.0` | For legacy sites - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.1` | For legacy sites - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.2` | For legacy sites - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.3` | Default Image |
+| `proboci/ubuntu:18.04-php7.4` | Supported PHP |
+| `proboci/ubuntu:18.04-php8.0` | Supported PHP |
+| `proboci/ubuntu:20.04-php7.4-mysql5.7` | Supported PHP & MySQL 5.7 |
+| `proboci/ubuntu:20.04-php7.4-mysql8.0` | Supported PHP & MySQL 8.0 |
+| `proboci/ubuntu:20.04-php8.0-mysql5.7` | Supported PHP & MySQL 5.7 |
+| `proboci/ubuntu:20.04-php8.0-mysql8.0` | Supported PHP & MySQL 8.0 |
 
 #### Installed Software and Tools
 
-All Stable Probo Docker Images have the following software packages and development tools installed.
+All Stable Probo Docker Images have the following software packages and development tools installed. Note that many of the versions are available using the `versionizer` command structure listed above.
 
 - bower
 - bundler
 - compass
 - composer
+- chromedriver
 - curl
 - drupal console
 - drush
 - git
-- google-chrome-stable - 88.0.4324.182
+- google-chrome-stable
 - grunt-cli
 - gulp-cli
 - lighthouse
@@ -101,6 +91,7 @@ All Stable Probo Docker Images have the following software packages and developm
 - redis-server
 - ruby
 - solr
+- terminus
 - varnish
 - wget
 - wp-cli
