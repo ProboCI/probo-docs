@@ -1,27 +1,30 @@
-image: proboci/ubuntu:20.04-php7.4-mysql5.7
+image: proboci/ubuntu:18.04-php7.4
 steps:
-
-  - name: Install Imagemagick and Ruby
+  - name: Update system
     plugin: Script
     script:
-      - apt-get update
-      - apt-get install -y software-properties-common imagemagick ruby-full
-
-  - name: Install Bundler
+      - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+      - gem uninstall bundler
+      - apt-get -y update
+  - name: Install Imagemagick
     plugin: Script
     script:
+      - apt-get install -y software-properties-common imagemagick
+      - apt-add-repository -y ppa:brightbox/ruby-ng
+      - apt-get -y update
+  - name: Install Ruby 2.7.1
+    plugin: Script
+    script:
+      - apt-get install -y ruby2.7 ruby2.7-dev
+      - update-alternatives --config ruby
       - gem install bundler -v 2.1.4
-
   - name: Install Jekyll Dependencies
     plugin: Script
     script:
       - cd $SRC_DIR
-      - bundle config set --local path 'vendor/bundle'
-      - bundle install
-      - bundle update jekyll
-
+      - bundle install --path vendor/bundle
   - name: Build Jekyll site
     plugin: Script
     script:
       - locale-gen en_US.UTF-8
-      - LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 bundle exec jekyll build --destination=/var/www/html
+      - LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 bundle exec jekyll build --destination=/var/www/html
