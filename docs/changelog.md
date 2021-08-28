@@ -11,8 +11,8 @@ published: true
 - Drush no longer requires -y flag or -r path in .probo.yaml files.
 - Add [versionizer](/build/images/)  command to display versions of software in container.
 - Remove old Drush oriented configuration files that are no longer supported.
-- Update Chrome Driver to 92.0.4515.159.
-- Updated Google Chrome to 92.0.4515.107.
+- Update Chrome Driver to 92.0.4515.107.
+- Updated Google Chrome to 92.0.4515.159.
 - Added Cypress package for scripted testing.
 - Update Search API Solr core for v4.2.1
 
