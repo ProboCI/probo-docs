@@ -6,15 +6,15 @@ permalink: /changelog/
 published: true
 ---
 
-## Update: September 4, 2021
+## Update: August 28, 2021
 - Docker images only update. No code changes.
-- Notice on SSH entry to docker images about updates.
 - Drush no longer requires -y flag or -r path in .probo.yaml files.
 - Add [versionizer](/build/images/)  command to display versions of software in container.
-- Run [versionizer](/build/images/)  command at initial login to container via SSH.
 - Remove old Drush oriented configuration files that are no longer supported.
-- Update Chrome Driver to 92.0.4515.107.
-- Updated Google Chrome to 92.0.4515.43.
+- Update Chrome Driver to 92.0.4515.159.
+- Updated Google Chrome to 92.0.4515.107.
+- Added Cypress package for scripted testing.
+- Update Search API Solr core for v4.2.1
 
 ## Update: March 6, 2021  
 - Project page now sorts by most recently active by default.
