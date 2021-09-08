@@ -6,6 +6,11 @@ permalink: /changelog/
 published: true
 ---
 
+## Update: August 31, 2021
+- Docker images update only. No code changes.
+- Update Chrome Driver to 93.0.4577.15.
+- Updated Google Chrome to 93.0.4577.63.
+
 ## Update: August 28, 2021
 - Docker images only update. No code changes.
 - Drush no longer requires -y flag or -r path in .probo.yaml files.
