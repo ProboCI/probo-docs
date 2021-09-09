@@ -168,13 +168,13 @@
           text: General SQL Error
           url: /general-sql-error
 
-    # - title: Probo Open Source
-    #   text: Probo Open Source
-    #   url: /open-source
-    #   children:
-    #     - title: Introduction
-    #       text: Introduction
-    #       url: /introduction
+    - title: Probo Open Source
+      text: Probo Open Source
+      url: /open-source
+      children:
+        - title: Nginx Proxy Configuration
+          text: Nginx Proxy Configuration
+          url: /nginx
     #     - title: Getting Started
     #       text: Getting Started
     #       url: /getting-started
@@ -201,9 +201,13 @@
     #       url: /reaper
 
     - title: Probo Features Roadmap
-      text: Features Roadmap
+      text: Probo Features Roadmap
       url: /roadmap
-
+      children:
+        - title: Roadmap Details
+          text: Roadmap Details
+          url: /details
+  
 - title: Contact Probo
   url: https://probo.ci/contact
   text: Contact

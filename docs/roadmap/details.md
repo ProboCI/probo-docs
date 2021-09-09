@@ -1,12 +1,13 @@
+---
+layout: "docs"
+title: Probo.CI Product Roadmap Details
+class: documentation
+permalink: /roadmap/details/
+published: true
+---
 
-*Last updated February 20st, 2021*
+*Last updated September 8, 2021*
 # Currently Active Roadmap Items
-
-## A LAMP Image Based on 18.04
-**Github Issue:**  https://github.com/ProboCI/docker-ubuntu/issues/2  
-**Status:** Completed
-
-Ubuntu 18.04 LTS has been released. We have simplified our image creation process by using a Dockerfile that builds images as opposed to the previous Probo Image Builder provisioning process. These images are not available and ready for use. Please see the [Probo Build Images](https://docs.probo.ci/build/images/) for more information on these and the other supported Ubuntu, PHP and MySQL versions. With the release of these images, the 14.04 and 16.04 containers are officially deprecated and are due to be decomissioned with our monthly release in April 2021. The 18.04 images support PHP versions 5.6 to 8.0. Note that versions prior to version 7 of PHP will also be decomissioned with the April release. 
 
 ## First class support for non-LAMP Stacks
 **Github Issue:**  
