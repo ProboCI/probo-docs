@@ -9,8 +9,9 @@ Below are items that the Probo.CI team has identified as items we're committed t
 
 | Roadmap Feature                    | Status     | Details   |
 |:-----------------------------------|:----------:|:---------:|
-| Support for MySQL 8.0|Testing|[Details](/roadmap/details)
-| Backend Support: Containerized Services|Completed|[Details](/roadmap/details)
+| Support for MySQL 8.0|Completed|[Details](https://blog.probo.ci/proboci-mysql8)
+| Backend Support: Containerized Services|Completed|[Details](https://blog.probo.ci/probo-updates)
+| Support for PHP 8.0 & PHP 8.1|Completed|[Details](https://blog.probo.ci/php81)
 | Branch & Hash Based Builds | Development |[Details](/roadmap/details)
 | Secrets Service | Planning |[Details](/roadmap/details)
 | Enhanced Third Party Hosting integration | Planning |[Details](/roadmap/details)

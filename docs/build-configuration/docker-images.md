@@ -55,17 +55,16 @@ Pantheon Terminus 2.6.1
 {: .table .table-striped .table-bordered}
 | Image | Information |
 |------------------------------|
-| `proboci/ubuntu:18.04-php5.6` | For legacy sites - Unsupported PHP |
-| `proboci/ubuntu:18.04-php7.0` | For legacy sites - Unsupported PHP |
-| `proboci/ubuntu:18.04-php7.1` | For legacy sites - Unsupported PHP |
-| `proboci/ubuntu:18.04-php7.2` | For legacy sites - Unsupported PHP |
-| `proboci/ubuntu:18.04-php7.3` | Default Image |
-| `proboci/ubuntu:18.04-php7.4` | Supported PHP |
+| `proboci/ubuntu:18.04-php5.6` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.0` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.1` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.2` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.3` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:18.04-php7.4` | Default Image |
 | `proboci/ubuntu:18.04-php8.0` | Supported PHP |
-| `proboci/ubuntu:20.04-php7.4-mysql5.7` | Supported PHP & MySQL 5.7 |
-| `proboci/ubuntu:20.04-php7.4-mysql8.0` | Supported PHP & MySQL 8.0 |
-| `proboci/ubuntu:20.04-php8.0-mysql5.7` | Supported PHP & MySQL 5.7 |
-| `proboci/ubuntu:20.04-php8.0-mysql8.0` | Supported PHP & MySQL 8.0 |
+| `proboci/ubuntu:20.04-php7.4` | Supported PHP & MySQL 8.0 |
+| `proboci/ubuntu:20.04-php8.0` | Supported PHP & MySQL 8.0 |
+| `proboci/ubuntu:20.04-php8.1` | Supported PHP & MySQL 8.0 |
 
 #### Installed Software and Tools
 
