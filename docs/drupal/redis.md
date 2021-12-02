@@ -7,7 +7,7 @@ published: true
 ---
 [Redis](https://redis.io){:target="\_blank"} is a memory-based data structure that can supplement or replace native caching system that Drupal does in the RDBMS. It's primary focus is on performance by keeping cached data in memory as opposed to being written to a persistent database.  
 
-Your Probo.CI Drupal build can leverage Redis by ensuring the (Redis)[https://www.drupal.org/project/redis]{:target="\_blank"} contributed module is part of your Drupal site and enabled. After this is done, you can add the following to your Drupal plugin configuation
+Your Probo.CI Drupal build can leverage Redis by ensuring the [Redis](https://www.drupal.org/project/redis){:target="\_blank"} contributed module is part of your Drupal site and enabled. After this is done, you can add the following to your Drupal plugin configuation
 
 {% highlight yaml%}
     settingsAppend: |
