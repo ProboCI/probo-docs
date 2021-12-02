@@ -48,5 +48,5 @@ published: true
 - Corrected an issue where GitLab users were only getting the first 20 repositories found by Probo.
 
 {% note %}
-**Please note:** The next update is scheduled for April 4, 2021. Please monitor this page and our [ProboCI Systems Status Page](http://status.probo.ci/) for more information and get on our news and information mailing list to be kept informed of the new and improved ProboCI.
+**Please note:** The next update is scheduled for January 2, 2022. Please monitor this page and our [ProboCI Systems Status Page](http://status.probo.ci/) for more information and get on our news and information mailing list to be kept informed of the new and improved ProboCI.
 {% endnote %}
