@@ -125,6 +125,9 @@
         - title: Configure Stage File Proxy in Probo Builds
           url: /stage-file-proxy
           text: Stage File Proxy
+        - title: Configure Redis in Probo Builds
+          url: /redis
+          text: Redis
         - title: Configure Apache Solr in Probo Builds
           url: /solr
           text: Apache Solr

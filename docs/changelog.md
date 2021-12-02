@@ -6,6 +6,15 @@ permalink: /changelog/
 published: true
 ---
 
+## Update: December 1, 2021
+- Docker image updates.
+- Added PHP 8.1 images to list of available images.
+- Remove sendmail and replaced with nullmail.
+- Updated Chrome and Chrome Driver to 96.0.4664.45
+- Updated Pantheon Terminus to 3.0.0 for use on PHP 8.0 & 8.1
+- Added Acquia CLI
+- Updated Search API SOLR core for v4.2.2
+
 ## Update: August 31, 2021
 - Docker images update only. No code changes.
 - Update Chrome Driver to 93.0.4577.15.
