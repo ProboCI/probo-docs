@@ -10,7 +10,7 @@ We run Apache Solr on `localhost:8983` with a default Drupal schema that is work
 Probo has two cores installed. One for Drupal 7, and one for Drupal 8 & 9. The cores are intuitively named `drupal7` and `drupal8`. Note that there is no third core for Drupal 9 as it can use the same as Drupal 8. Below are the current schema versions installed for each version: 
 
 Drupal 7: 7.x-1.15  
-Drupal 8/9: 4.2.1  
+Drupal 8/9: 4.2.3  
 
 We will periodically update these and communicate these changes as new versions of these modules are released. Build images are typically updated the first weekend of every month. Please follow the [Changelog](/changelog) for information on specific updates. You can also get the current versions of things in the image by referencing the [Docker Images Page](/build/images/) in the section on `versionizer`.  
 
@@ -26,8 +26,16 @@ steps:
     clearCaches: true
     drupalVersion: 8
     settingsAppend: |
+      $config['search_api.server.solr']['backend_config']['connector'] = 'standard';
+      $config['search_api.server.solr']['backend_config']['connector_config']['scheme'] = 'http';
       $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'localhost';
       $config['search_api.server.solr']['backend_config']['connector_config']['core'] = 'drupal8';
+      $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/';
+      $config['search_api.server.solr']['backend_config']['connector_config']['timeout'] = '5';
+      $config['search_api.server.solr']['backend_config']['connector_config']['index_timeout'] = '5';
+      $config['search_api.server.solr']['backend_config']['connector_config']['optimize_timeout'] = '10';
+      $config['search_api.server.solr']['backend_config']['connector_config']['finalize_timeout'] = '30';
+      $config['search_api.server.solr']['backend_config']['connector_config']['commit_within'] = '1000';
 ```
 
 If you choose not to use the settingsAppend solution, your SOLR settings inside your Probo build need to look as follows:  
