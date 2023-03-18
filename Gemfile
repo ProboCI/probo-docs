@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.7.1"
+ruby "2.7.5"
 gem "jekyll", "~>3.9.1"
 group :jekyll_plugins do
    gem 'jekyll-feed', '~> 0.6'
