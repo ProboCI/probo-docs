@@ -14,7 +14,7 @@ Probo uses [Docker](https://www.docker.com/){:target="\_blank"} to isolate every
 
 We have pre-built several different flavors of Probo Docker images for you to choose from to build the testing environment closest to your production server. Add one of the available images with the following syntax:
 
-    image: proboci/ubuntu:18.04-php7.4
+    image: proboci/ubuntu:22.04-php8.3
 
 The example above would use the Docker image we have built on Ubuntu 18.04 LTS with LAMP and our PHP 7.4 configuration. See below in the Available Images section for specific Apache, MySQL, and PHP versions, as well as additional software and development tools installed on each available image. Feel free to test out our images outside the Probo system by downloading the image from the Docker Hub.
 
@@ -60,11 +60,21 @@ Pantheon Terminus 2.6.1
 | `proboci/ubuntu:18.04-php7.1` | Legacy - Unsupported PHP |
 | `proboci/ubuntu:18.04-php7.2` | Legacy - Unsupported PHP |
 | `proboci/ubuntu:18.04-php7.3` | Legacy - Unsupported PHP |
-| `proboci/ubuntu:18.04-php7.4` | Default Image |
-| `proboci/ubuntu:18.04-php8.0` | Supported PHP |
-| `proboci/ubuntu:20.04-php7.4` | Supported PHP & MySQL 8.0 |
-| `proboci/ubuntu:20.04-php8.0` | Supported PHP & MySQL 8.0 |
-| `proboci/ubuntu:20.04-php8.1` | Supported PHP & MySQL 8.0 |
+| `proboci/ubuntu:18.04-php7.4` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:18.04-php8.0` | Legacy - Unsupported PHP |
+| `proboci/ubuntu:20.04-php7.4` | Legacy - Unsupported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:20.04-php8.0` | Legacy - Unsupported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:20.04-php8.1` | Supported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:20.04-php8.2` | Supported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:22.04-php7.4` | Supported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:22.04-php8.0` | Supported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:22.04-php8.1` | Supported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:22.04-php8.2` | Supported PHP & MariaDB 10.6 |
+| `proboci/ubuntu:22.04-php8.3` | Supported PHP & MariaDB 10.6 |
+| `proboci/alpine:php8.0` | Legacy - Unsupported PHP & MariaDB 10.6 |
+| `proboci/alpine:php8.1` | Supported PHP & MariaDB 10.6 |
+| `proboci/alpine:php8.2` | Supported PHP & MariaDB 10.6 |
+| `proboci/alpine:php8.3` | Supported PHP & MariaDB 10.6 |
 
 #### Installed Software and Tools
 
@@ -76,8 +86,6 @@ All Stable Probo Docker Images have the following software packages and developm
 - composer
 - chromedriver
 - curl
-- drupal console
-- drush
 - git
 - google-chrome-stable
 - grunt-cli
