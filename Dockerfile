@@ -6,9 +6,9 @@ LABEL author="Michael R. Bagnall <michael@bagnall.io>"
 
 WORKDIR /root
 
-ENV TERM xterm
+ENV TERM=xterm
 
-ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share
 RUN apt-get update && apt-get -y upgrade
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install curl dirmngr apt-transport-https lsb-release ca-certificates sudo apt-utils wget rubygems build-essential autoconf libtool pkg-config python-opengl python-pil python-pyrex python-pyside.qtopengl idle-python2.7 qt4-dev-tools qt4-designer libqtgui4 libqtcore4 libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus python-qt4 python-qt4-gl libgle3 python-dev
